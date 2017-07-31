@@ -1,6 +1,8 @@
 # SVD to D
 
-This repository is a command-line utility for generating memory-mapped-IO code from SVD files for ARM Cortex-M microcontrollers.
+This repository is a command-line utility for generating memory-mapped-IO code from SVD files for ARM Cortex-M microcontrollers.  
+
+SVD files are XML files that describe, in great detail, the memory layout and characteristics of registers on an ARM Cortex-M microcontroller.  From that information, code for accessing those registers can be automatically generated, and this software program does exactly that.
 
 The generated code will depend on [this memory-mapped-io library](https://github.com/JinShil/memory_mapped_io).
 
