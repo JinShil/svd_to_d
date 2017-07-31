@@ -81,12 +81,19 @@ int main(string[] args)
         return 1;
     }
 
+    // if the output directory exits...
     if (std.file.exists(outputFolder))
     {
+        // make sure it's a directory
         if (!isDir(outputFolder))
         {
             stderr.writefln("'%s' is not a directory.", outputFolder);
         }
+    }
+    // create the output directory if it doesn't exist
+    else
+    {
+        mkdirRecurse(outputFolder);
     }
 
     // TODO: handle file read errors
@@ -269,6 +276,8 @@ int main(string[] args)
     {
         auto code = appender!string;
         auto registers = p.registers;
+        code.put("module " ~ baseName(outputFolder) ~ "." ~ toLower(p.name) ~ ";\n");
+        code.put("\n");
         code.put("/*****************************************************************************\n");
         code.put(" " ~ p.description ~ "\n");
         code.put("*/\n");
