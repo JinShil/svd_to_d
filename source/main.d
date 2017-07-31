@@ -276,8 +276,15 @@ int main(string[] args)
     {
         auto code = appender!string;
         auto registers = p.registers;
+
+        // module declaration
         code.put("module " ~ baseName(outputFolder) ~ "." ~ toLower(p.name) ~ ";\n");
         code.put("\n");
+
+        // imports
+        code.put("import " ~ baseName(outputFolder) ~ ".mmio;\n");
+        code.put("\n");
+
         code.put("/*****************************************************************************\n");
         code.put(" " ~ p.description ~ "\n");
         code.put("*/\n");
