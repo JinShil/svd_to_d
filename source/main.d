@@ -64,7 +64,7 @@ int main(string[] args)
     
     if (result.helpWanted || args.length < 2 || outputFolder.length < 1)
     {
-        writefln("USAGE: %s [options] svd_file", args[0]);
+        writefln("USAGE: %s [options] svd_file -o=output_folder", args[0]);
         writeln();
         write("options:");
         defaultGetoptPrinter("", result.options);
