@@ -23,4 +23,4 @@ Some examples of the generated D code can be found in the [examples folder](http
   * [Curated list of SVD files](https://github.com/posborne/cmsis-svd/tree/master/data)
 
 ## License
-  * See COPYING.
+  * See LICENSE.
