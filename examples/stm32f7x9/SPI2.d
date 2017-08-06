@@ -10,7 +10,7 @@ final abstract class SPI2 : Peripheral!(0x40003800)
     /*************************************************************************
      control register 1
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Bidirectional data mode
@@ -210,7 +210,7 @@ final abstract class SPI2 : Peripheral!(0x40003800)
     /*************************************************************************
      data register
     */
-    final abstract class DR : Register!(0xC)
+    final abstract class DR : Register!(0xc)
     {
         /*********************************************************************
          Data register
@@ -254,7 +254,7 @@ final abstract class SPI2 : Peripheral!(0x40003800)
     /*************************************************************************
      I2S configuration register
     */
-    final abstract class I2SCFGR : Register!(0x1C)
+    final abstract class I2SCFGR : Register!(0x1c)
     {
         /*********************************************************************
          I2S mode selection

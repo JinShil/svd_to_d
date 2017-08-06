@@ -25,7 +25,7 @@ final abstract class NVIC : Peripheral!(0xE000E000)
      Software Triggered Interrupt
           Register
     */
-    final abstract class STIR : Register!(0xF00)
+    final abstract class STIR : Register!(0xf00)
     {
         /*********************************************************************
          interrupt to be triggered
@@ -285,7 +285,7 @@ final abstract class NVIC : Peripheral!(0xE000E000)
     /*************************************************************************
      Interrupt Priority Register
     */
-    final abstract class IPR3 : Register!(0x40C)
+    final abstract class IPR3 : Register!(0x40c)
     {
         /*********************************************************************
          IPR_N0
@@ -389,7 +389,7 @@ final abstract class NVIC : Peripheral!(0xE000E000)
     /*************************************************************************
      Interrupt Priority Register
     */
-    final abstract class IPR7 : Register!(0x41C)
+    final abstract class IPR7 : Register!(0x41c)
     {
         /*********************************************************************
          IPR_N0
@@ -493,7 +493,7 @@ final abstract class NVIC : Peripheral!(0xE000E000)
     /*************************************************************************
      Interrupt Priority Register
     */
-    final abstract class IPR11 : Register!(0x42C)
+    final abstract class IPR11 : Register!(0x42c)
     {
         /*********************************************************************
          IPR_N0
@@ -597,7 +597,7 @@ final abstract class NVIC : Peripheral!(0xE000E000)
     /*************************************************************************
      Interrupt Priority Register
     */
-    final abstract class IPR15 : Register!(0x43C)
+    final abstract class IPR15 : Register!(0x43c)
     {
         /*********************************************************************
          IPR_N0
@@ -701,7 +701,7 @@ final abstract class NVIC : Peripheral!(0xE000E000)
     /*************************************************************************
      Interrupt Priority Register
     */
-    final abstract class IPR19 : Register!(0x44C)
+    final abstract class IPR19 : Register!(0x44c)
     {
         /*********************************************************************
          IPR_N0

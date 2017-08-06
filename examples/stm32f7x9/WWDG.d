@@ -10,7 +10,7 @@ final abstract class WWDG : Peripheral!(0x40002C00)
     /*************************************************************************
      Control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          Activation bit

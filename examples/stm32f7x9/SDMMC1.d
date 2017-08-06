@@ -11,7 +11,7 @@ final abstract class SDMMC1 : Peripheral!(0x40012C00)
     /*************************************************************************
      power control register
     */
-    final abstract class POWER : Register!(0x0)
+    final abstract class POWER : Register!(00)
     {
         /*********************************************************************
          PWRCTRL
@@ -77,7 +77,7 @@ final abstract class SDMMC1 : Peripheral!(0x40012C00)
     /*************************************************************************
      command register
     */
-    final abstract class CMD : Register!(0xC)
+    final abstract class CMD : Register!(0xc)
     {
         /*********************************************************************
          CE-ATA command
@@ -164,7 +164,7 @@ final abstract class SDMMC1 : Peripheral!(0x40012C00)
     /*************************************************************************
      response 1..4 register
     */
-    final abstract class RESP3 : Register!(0x1C)
+    final abstract class RESP3 : Register!(0x1c)
     {
         /*********************************************************************
          see Table 132
@@ -208,7 +208,7 @@ final abstract class SDMMC1 : Peripheral!(0x40012C00)
     /*************************************************************************
      data control register
     */
-    final abstract class DCTRL : Register!(0x2C)
+    final abstract class DCTRL : Register!(0x2c)
     {
         /*********************************************************************
          SD I/O enable functions
@@ -484,7 +484,7 @@ final abstract class SDMMC1 : Peripheral!(0x40012C00)
     /*************************************************************************
      mask register
     */
-    final abstract class MASK : Register!(0x3C)
+    final abstract class MASK : Register!(0x3c)
     {
         /*********************************************************************
          CE-ATA command completion signal

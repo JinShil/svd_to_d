@@ -11,7 +11,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host configuration register
           (OTG_FS_HCFG)
     */
-    final abstract class OTG_FS_HCFG : Register!(0x0)
+    final abstract class OTG_FS_HCFG : Register!(00)
     {
         /*********************************************************************
          FS/LS PHY clock select
@@ -463,7 +463,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-5 characteristics
           register (OTG_FS_HCCHAR5)
     */
-    final abstract class OTG_FS_HCCHAR5 : Register!(0x1A0)
+    final abstract class OTG_FS_HCCHAR5 : Register!(0x1a0)
     {
         /*********************************************************************
          Maximum packet size
@@ -520,7 +520,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-6 characteristics
           register (OTG_FS_HCCHAR6)
     */
-    final abstract class OTG_FS_HCCHAR6 : Register!(0x1C0)
+    final abstract class OTG_FS_HCCHAR6 : Register!(0x1c0)
     {
         /*********************************************************************
          Maximum packet size
@@ -577,7 +577,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-7 characteristics
           register (OTG_FS_HCCHAR7)
     */
-    final abstract class OTG_FS_HCCHAR7 : Register!(0x1E0)
+    final abstract class OTG_FS_HCCHAR7 : Register!(0x1e0)
     {
         /*********************************************************************
          Maximum packet size
@@ -909,7 +909,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-5 interrupt register
           (OTG_FS_HCINT5)
     */
-    final abstract class OTG_FS_HCINT5 : Register!(0x1A8)
+    final abstract class OTG_FS_HCINT5 : Register!(0x1a8)
     {
         /*********************************************************************
          Transfer completed
@@ -964,7 +964,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-6 interrupt register
           (OTG_FS_HCINT6)
     */
-    final abstract class OTG_FS_HCINT6 : Register!(0x1C8)
+    final abstract class OTG_FS_HCINT6 : Register!(0x1c8)
     {
         /*********************************************************************
          Transfer completed
@@ -1019,7 +1019,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-7 interrupt register
           (OTG_FS_HCINT7)
     */
-    final abstract class OTG_FS_HCINT7 : Register!(0x1E8)
+    final abstract class OTG_FS_HCINT7 : Register!(0x1e8)
     {
         /*********************************************************************
          Transfer completed
@@ -1074,7 +1074,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-0 mask register
           (OTG_FS_HCINTMSK0)
     */
-    final abstract class OTG_FS_HCINTMSK0 : Register!(0x10C)
+    final abstract class OTG_FS_HCINTMSK0 : Register!(0x10c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -1135,7 +1135,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-1 mask register
           (OTG_FS_HCINTMSK1)
     */
-    final abstract class OTG_FS_HCINTMSK1 : Register!(0x12C)
+    final abstract class OTG_FS_HCINTMSK1 : Register!(0x12c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -1196,7 +1196,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-2 mask register
           (OTG_FS_HCINTMSK2)
     */
-    final abstract class OTG_FS_HCINTMSK2 : Register!(0x14C)
+    final abstract class OTG_FS_HCINTMSK2 : Register!(0x14c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -1257,7 +1257,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-3 mask register
           (OTG_FS_HCINTMSK3)
     */
-    final abstract class OTG_FS_HCINTMSK3 : Register!(0x16C)
+    final abstract class OTG_FS_HCINTMSK3 : Register!(0x16c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -1318,7 +1318,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-4 mask register
           (OTG_FS_HCINTMSK4)
     */
-    final abstract class OTG_FS_HCINTMSK4 : Register!(0x18C)
+    final abstract class OTG_FS_HCINTMSK4 : Register!(0x18c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -1379,7 +1379,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-5 mask register
           (OTG_FS_HCINTMSK5)
     */
-    final abstract class OTG_FS_HCINTMSK5 : Register!(0x1AC)
+    final abstract class OTG_FS_HCINTMSK5 : Register!(0x1ac)
     {
         /*********************************************************************
          Transfer completed mask
@@ -1440,7 +1440,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-6 mask register
           (OTG_FS_HCINTMSK6)
     */
-    final abstract class OTG_FS_HCINTMSK6 : Register!(0x1CC)
+    final abstract class OTG_FS_HCINTMSK6 : Register!(0x1cc)
     {
         /*********************************************************************
          Transfer completed mask
@@ -1501,7 +1501,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-7 mask register
           (OTG_FS_HCINTMSK7)
     */
-    final abstract class OTG_FS_HCINTMSK7 : Register!(0x1EC)
+    final abstract class OTG_FS_HCINTMSK7 : Register!(0x1ec)
     {
         /*********************************************************************
          Transfer completed mask
@@ -1672,7 +1672,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-5 transfer size
           register
     */
-    final abstract class OTG_FS_HCTSIZ5 : Register!(0x1B0)
+    final abstract class OTG_FS_HCTSIZ5 : Register!(0x1b0)
     {
         /*********************************************************************
          Transfer size
@@ -1694,7 +1694,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-6 transfer size
           register
     */
-    final abstract class OTG_FS_HCTSIZ6 : Register!(0x1D0)
+    final abstract class OTG_FS_HCTSIZ6 : Register!(0x1d0)
     {
         /*********************************************************************
          Transfer size
@@ -1716,7 +1716,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-7 transfer size
           register
     */
-    final abstract class OTG_FS_HCTSIZ7 : Register!(0x1F0)
+    final abstract class OTG_FS_HCTSIZ7 : Register!(0x1f0)
     {
         /*********************************************************************
          Transfer size
@@ -1738,7 +1738,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-8 characteristics
           register
     */
-    final abstract class OTG_FS_HCCHAR8 : Register!(0x1F4)
+    final abstract class OTG_FS_HCCHAR8 : Register!(0x1f4)
     {
         /*********************************************************************
          Maximum packet size
@@ -1795,7 +1795,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-8 interrupt
           register
     */
-    final abstract class OTG_FS_HCINT8 : Register!(0x1F8)
+    final abstract class OTG_FS_HCINT8 : Register!(0x1f8)
     {
         /*********************************************************************
          Transfer completed
@@ -1850,7 +1850,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-8 mask
           register
     */
-    final abstract class OTG_FS_HCINTMSK8 : Register!(0x1FC)
+    final abstract class OTG_FS_HCINTMSK8 : Register!(0x1fc)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2045,7 +2045,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-9 mask
           register
     */
-    final abstract class OTG_FS_HCINTMSK9 : Register!(0x20C)
+    final abstract class OTG_FS_HCINTMSK9 : Register!(0x20c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2240,7 +2240,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-10 mask
           register
     */
-    final abstract class OTG_FS_HCINTMSK10 : Register!(0x21C)
+    final abstract class OTG_FS_HCINTMSK10 : Register!(0x21c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2435,7 +2435,7 @@ final abstract class OTG_FS_HOST : Peripheral!(0x50000400)
      OTG_FS host channel-11 mask
           register
     */
-    final abstract class OTG_FS_HCINTMSK11 : Register!(0x22C)
+    final abstract class OTG_FS_HCINTMSK11 : Register!(0x22c)
     {
         /*********************************************************************
          Transfer completed mask

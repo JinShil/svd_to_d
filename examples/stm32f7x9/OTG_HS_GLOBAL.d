@@ -11,7 +11,7 @@ final abstract class OTG_HS_GLOBAL : Peripheral!(0x40040000)
      OTG_HS control and status
           register
     */
-    final abstract class OTG_HS_GOTGCTL : Register!(0x0)
+    final abstract class OTG_HS_GOTGCTL : Register!(00)
     {
         /*********************************************************************
          Session request success
@@ -149,7 +149,7 @@ final abstract class OTG_HS_GLOBAL : Peripheral!(0x40040000)
      OTG_HS USB configuration
           register
     */
-    final abstract class OTG_HS_GUSBCFG : Register!(0xC)
+    final abstract class OTG_HS_GUSBCFG : Register!(0xc)
     {
         /*********************************************************************
          FS timeout calibration
@@ -593,7 +593,7 @@ final abstract class OTG_HS_GLOBAL : Peripheral!(0x40040000)
      OTG_HS Receive status debug read register
           (host mode)
     */
-    final abstract class OTG_HS_GRXSTSR_Host : Register!(0x1C)
+    final abstract class OTG_HS_GRXSTSR_Host : Register!(0x1c)
     {
         /*********************************************************************
          Channel number
@@ -695,7 +695,7 @@ final abstract class OTG_HS_GLOBAL : Peripheral!(0x40040000)
      OTG_HS nonperiodic transmit FIFO/queue
           status register
     */
-    final abstract class OTG_HS_GNPTXSTS : Register!(0x2C)
+    final abstract class OTG_HS_GNPTXSTS : Register!(0x2c)
     {
         /*********************************************************************
          Nonperiodic TxFIFO space
@@ -784,7 +784,7 @@ final abstract class OTG_HS_GLOBAL : Peripheral!(0x40040000)
     /*************************************************************************
      OTG_HS core ID register
     */
-    final abstract class OTG_HS_CID : Register!(0x3C)
+    final abstract class OTG_HS_CID : Register!(0x3c)
     {
         /*********************************************************************
          Product ID field
@@ -850,7 +850,7 @@ final abstract class OTG_HS_GLOBAL : Peripheral!(0x40040000)
      OTG_HS device IN endpoint transmit FIFO size
           register
     */
-    final abstract class OTG_HS_DIEPTXF3 : Register!(0x11C)
+    final abstract class OTG_HS_DIEPTXF3 : Register!(0x11c)
     {
         /*********************************************************************
          IN endpoint FIFOx transmit RAM start
@@ -922,7 +922,7 @@ final abstract class OTG_HS_GLOBAL : Peripheral!(0x40040000)
      OTG_HS device IN endpoint transmit FIFO size
           register
     */
-    final abstract class OTG_HS_DIEPTXF7 : Register!(0x12C)
+    final abstract class OTG_HS_DIEPTXF7 : Register!(0x12c)
     {
         /*********************************************************************
          IN endpoint FIFOx transmit RAM start
@@ -940,7 +940,7 @@ final abstract class OTG_HS_GLOBAL : Peripheral!(0x40040000)
      OTG_HS Receive status debug read register
           (peripheral mode mode)
     */
-    final abstract class OTG_HS_GRXSTSR_Device : Register!(0x1C)
+    final abstract class OTG_HS_GRXSTSR_Device : Register!(0x1c)
     {
         /*********************************************************************
          Endpoint number

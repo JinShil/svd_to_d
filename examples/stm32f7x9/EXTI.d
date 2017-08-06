@@ -12,7 +12,7 @@ final abstract class EXTI : Peripheral!(0x40013C00)
      Interrupt mask register
           (EXTI_IMR)
     */
-    final abstract class IMR : Register!(0x0)
+    final abstract class IMR : Register!(00)
     {
         /*********************************************************************
          Interrupt Mask on line 0
@@ -400,7 +400,7 @@ final abstract class EXTI : Peripheral!(0x40013C00)
      Falling Trigger selection register
           (EXTI_FTSR)
     */
-    final abstract class FTSR : Register!(0xC)
+    final abstract class FTSR : Register!(0xc)
     {
         /*********************************************************************
          Falling trigger event configuration of

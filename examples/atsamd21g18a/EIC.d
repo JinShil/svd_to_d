@@ -10,7 +10,396 @@ final abstract class EIC : Peripheral!(0x40001800)
     /*************************************************************************
      Configuration n
     */
-    final abstract class CONFIG%s : Register!(0x18)
+    final abstract class CONFIG1 : Register!(0x18)
+    {
+        /*********************************************************************
+         Input Sense n Configuration
+        */
+        final abstract class SENSE0
+        {
+            /*****************************************************************
+             SENSE0's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No detection
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Rising-edge detection
+                */
+                RISE = 0x1,
+
+                /*************************************************************
+                 Falling-edge detection
+                */
+                FALL = 0x2,
+
+                /*************************************************************
+                 Both-edges detection
+                */
+                BOTH = 0x3,
+
+                /*************************************************************
+                 High-level detection
+                */
+                HIGH = 0x4,
+
+                /*************************************************************
+                 Low-level detection
+                */
+                LOW = 0x5,
+            }
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Filter n Enable
+        */
+        alias FILTEN0 = Bit!(3, Mutability.rw);
+
+        /*********************************************************************
+         Input Sense 1 Configuration
+        */
+        final abstract class SENSE1
+        {
+            /*****************************************************************
+             SENSE1's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No detection
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Rising edge detection
+                */
+                RISE = 0x1,
+
+                /*************************************************************
+                 Falling edge detection
+                */
+                FALL = 0x2,
+
+                /*************************************************************
+                 Both edges detection
+                */
+                BOTH = 0x3,
+
+                /*************************************************************
+                 High level detection
+                */
+                HIGH = 0x4,
+
+                /*************************************************************
+                 Low level detection
+                */
+                LOW = 0x5,
+            }
+            mixin BitFieldImplementation!(6, 4, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Filter 1 Enable
+        */
+        alias FILTEN1 = Bit!(7, Mutability.rw);
+
+        /*********************************************************************
+         Input Sense 2 Configuration
+        */
+        final abstract class SENSE2
+        {
+            /*****************************************************************
+             SENSE2's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No detection
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Rising edge detection
+                */
+                RISE = 0x1,
+
+                /*************************************************************
+                 Falling edge detection
+                */
+                FALL = 0x2,
+
+                /*************************************************************
+                 Both edges detection
+                */
+                BOTH = 0x3,
+
+                /*************************************************************
+                 High level detection
+                */
+                HIGH = 0x4,
+
+                /*************************************************************
+                 Low level detection
+                */
+                LOW = 0x5,
+            }
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Filter 2 Enable
+        */
+        alias FILTEN2 = Bit!(11, Mutability.rw);
+
+        /*********************************************************************
+         Input Sense 3 Configuration
+        */
+        final abstract class SENSE3
+        {
+            /*****************************************************************
+             SENSE3's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No detection
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Rising edge detection
+                */
+                RISE = 0x1,
+
+                /*************************************************************
+                 Falling edge detection
+                */
+                FALL = 0x2,
+
+                /*************************************************************
+                 Both edges detection
+                */
+                BOTH = 0x3,
+
+                /*************************************************************
+                 High level detection
+                */
+                HIGH = 0x4,
+
+                /*************************************************************
+                 Low level detection
+                */
+                LOW = 0x5,
+            }
+            mixin BitFieldImplementation!(14, 12, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Filter 3 Enable
+        */
+        alias FILTEN3 = Bit!(15, Mutability.rw);
+
+        /*********************************************************************
+         Input Sense 4 Configuration
+        */
+        final abstract class SENSE4
+        {
+            /*****************************************************************
+             SENSE4's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No detection
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Rising edge detection
+                */
+                RISE = 0x1,
+
+                /*************************************************************
+                 Falling edge detection
+                */
+                FALL = 0x2,
+
+                /*************************************************************
+                 Both edges detection
+                */
+                BOTH = 0x3,
+
+                /*************************************************************
+                 High level detection
+                */
+                HIGH = 0x4,
+
+                /*************************************************************
+                 Low level detection
+                */
+                LOW = 0x5,
+            }
+            mixin BitFieldImplementation!(18, 16, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Filter 4 Enable
+        */
+        alias FILTEN4 = Bit!(19, Mutability.rw);
+
+        /*********************************************************************
+         Input Sense 5 Configuration
+        */
+        final abstract class SENSE5
+        {
+            /*****************************************************************
+             SENSE5's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No detection
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Rising edge detection
+                */
+                RISE = 0x1,
+
+                /*************************************************************
+                 Falling edge detection
+                */
+                FALL = 0x2,
+
+                /*************************************************************
+                 Both edges detection
+                */
+                BOTH = 0x3,
+
+                /*************************************************************
+                 High level detection
+                */
+                HIGH = 0x4,
+
+                /*************************************************************
+                 Low level detection
+                */
+                LOW = 0x5,
+            }
+            mixin BitFieldImplementation!(22, 20, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Filter 5 Enable
+        */
+        alias FILTEN5 = Bit!(23, Mutability.rw);
+
+        /*********************************************************************
+         Input Sense 6 Configuration
+        */
+        final abstract class SENSE6
+        {
+            /*****************************************************************
+             SENSE6's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No detection
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Rising edge detection
+                */
+                RISE = 0x1,
+
+                /*************************************************************
+                 Falling edge detection
+                */
+                FALL = 0x2,
+
+                /*************************************************************
+                 Both edges detection
+                */
+                BOTH = 0x3,
+
+                /*************************************************************
+                 High level detection
+                */
+                HIGH = 0x4,
+
+                /*************************************************************
+                 Low level detection
+                */
+                LOW = 0x5,
+            }
+            mixin BitFieldImplementation!(26, 24, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Filter 6 Enable
+        */
+        alias FILTEN6 = Bit!(27, Mutability.rw);
+
+        /*********************************************************************
+         Input Sense 7 Configuration
+        */
+        final abstract class SENSE7
+        {
+            /*****************************************************************
+             SENSE7's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No detection
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Rising edge detection
+                */
+                RISE = 0x1,
+
+                /*************************************************************
+                 Falling edge detection
+                */
+                FALL = 0x2,
+
+                /*************************************************************
+                 Both edges detection
+                */
+                BOTH = 0x3,
+
+                /*************************************************************
+                 High level detection
+                */
+                HIGH = 0x4,
+
+                /*************************************************************
+                 Low level detection
+                */
+                LOW = 0x5,
+            }
+            mixin BitFieldImplementation!(30, 28, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Filter 7 Enable
+        */
+        alias FILTEN7 = Bit!(31, Mutability.rw);
+    }
+    /*************************************************************************
+     Configuration n
+    */
+    final abstract class CONFIG2 : Register!(0x1c)
     {
         /*********************************************************************
          Input Sense n Configuration
@@ -400,7 +789,7 @@ final abstract class EIC : Peripheral!(0x40001800)
     /*************************************************************************
      Control
     */
-    final abstract class CTRL : Register!(0x00)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -416,7 +805,7 @@ final abstract class EIC : Peripheral!(0x40001800)
     /*************************************************************************
      Event Control
     */
-    final abstract class EVCTRL : Register!(0x04)
+    final abstract class EVCTRL : Register!(0x4)
     {
         /*********************************************************************
          External Interrupt 0 Event Output Enable
@@ -502,7 +891,7 @@ final abstract class EIC : Peripheral!(0x40001800)
     /*************************************************************************
      Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x08)
+    final abstract class INTENCLR : Register!(0x8)
     {
         /*********************************************************************
          External Interrupt 0 Enable
@@ -588,7 +977,7 @@ final abstract class EIC : Peripheral!(0x40001800)
     /*************************************************************************
      Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x0C)
+    final abstract class INTENSET : Register!(0xc)
     {
         /*********************************************************************
          External Interrupt 0 Enable
@@ -760,7 +1149,7 @@ final abstract class EIC : Peripheral!(0x40001800)
     /*************************************************************************
      Non-Maskable Interrupt Control
     */
-    final abstract class NMICTRL : Register!(0x02)
+    final abstract class NMICTRL : Register!(0x2)
     {
         /*********************************************************************
          Non-Maskable Interrupt Sense
@@ -814,7 +1203,7 @@ final abstract class EIC : Peripheral!(0x40001800)
     /*************************************************************************
      Non-Maskable Interrupt Flag Status and Clear
     */
-    final abstract class NMIFLAG : Register!(0x03)
+    final abstract class NMIFLAG : Register!(0x3)
     {
         /*********************************************************************
          Non-Maskable Interrupt
@@ -825,7 +1214,7 @@ final abstract class EIC : Peripheral!(0x40001800)
     /*************************************************************************
      Status
     */
-    final abstract class STATUS : Register!(0x01)
+    final abstract class STATUS : Register!(0x1)
     {
         /*********************************************************************
          Synchronization Busy

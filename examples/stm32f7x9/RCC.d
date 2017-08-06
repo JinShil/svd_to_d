@@ -10,7 +10,7 @@ final abstract class RCC : Peripheral!(0x40023800)
     /*************************************************************************
      clock control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          PLLI2S clock ready flag
@@ -300,7 +300,7 @@ final abstract class RCC : Peripheral!(0x40023800)
     /*************************************************************************
      clock interrupt register
     */
-    final abstract class CIR : Register!(0xC)
+    final abstract class CIR : Register!(0xc)
     {
         /*********************************************************************
          Clock security system interrupt
@@ -1962,7 +1962,7 @@ final abstract class RCC : Peripheral!(0x40023800)
      dedicated clocks configuration
           register
     */
-    final abstract class DKCFGR1 : Register!(0x8C)
+    final abstract class DKCFGR1 : Register!(0x8c)
     {
         /*********************************************************************
          PLLI2S division factor for SAI1

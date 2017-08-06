@@ -10,7 +10,7 @@ final abstract class Ethernet_DMA : Peripheral!(0x40029000)
     /*************************************************************************
      Ethernet DMA bus mode register
     */
-    final abstract class DMABMR : Register!(0x0)
+    final abstract class DMABMR : Register!(00)
     {
         /*********************************************************************
          no description available
@@ -101,7 +101,7 @@ final abstract class Ethernet_DMA : Peripheral!(0x40029000)
      Ethernet DMA receive descriptor list address
           register
     */
-    final abstract class DMARDLAR : Register!(0xC)
+    final abstract class DMARDLAR : Register!(0xc)
     {
         /*********************************************************************
          no description available
@@ -303,7 +303,7 @@ final abstract class Ethernet_DMA : Peripheral!(0x40029000)
      Ethernet DMA interrupt enable
           register
     */
-    final abstract class DMAIER : Register!(0x1C)
+    final abstract class DMAIER : Register!(0x1c)
     {
         /*********************************************************************
          no description available
@@ -436,7 +436,7 @@ final abstract class Ethernet_DMA : Peripheral!(0x40029000)
      Ethernet DMA current host receive descriptor
           register
     */
-    final abstract class DMACHRDR : Register!(0x4C)
+    final abstract class DMACHRDR : Register!(0x4c)
     {
         /*********************************************************************
          HRDAP

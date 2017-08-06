@@ -11,7 +11,7 @@ final abstract class USART6 : Peripheral!(0x40011400)
     /*************************************************************************
      Control register 1
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Word length
@@ -384,7 +384,7 @@ final abstract class USART6 : Peripheral!(0x40011400)
     /*************************************************************************
      Baud rate register
     */
-    final abstract class BRR : Register!(0xC)
+    final abstract class BRR : Register!(0xc)
     {
         /*********************************************************************
          DIV_Mantissa
@@ -466,7 +466,7 @@ final abstract class USART6 : Peripheral!(0x40011400)
      Interrupt & status
           register
     */
-    final abstract class ISR : Register!(0x1C)
+    final abstract class ISR : Register!(0x1c)
     {
         /*********************************************************************
          REACK

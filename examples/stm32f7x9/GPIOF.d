@@ -10,7 +10,7 @@ final abstract class GPIOF : Peripheral!(0X40021400)
     /*************************************************************************
      GPIO port mode register
     */
-    final abstract class MODER : Register!(0x0)
+    final abstract class MODER : Register!(00)
     {
         /*********************************************************************
          Port x configuration bits (y =
@@ -318,7 +318,7 @@ final abstract class GPIOF : Peripheral!(0X40021400)
      GPIO port pull-up/pull-down
           register
     */
-    final abstract class PUPDR : Register!(0xC)
+    final abstract class PUPDR : Register!(0xc)
     {
         /*********************************************************************
          Port x configuration bits (y =
@@ -824,7 +824,7 @@ final abstract class GPIOF : Peripheral!(0X40021400)
      GPIO port configuration lock
           register
     */
-    final abstract class LCKR : Register!(0x1C)
+    final abstract class LCKR : Register!(0x1c)
     {
         /*********************************************************************
          Port x lock bit y (y=

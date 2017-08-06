@@ -10,7 +10,7 @@ final abstract class TIM7 : Peripheral!(0x40001400)
     /*************************************************************************
      control register 1
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Auto-reload preload enable
@@ -52,7 +52,7 @@ final abstract class TIM7 : Peripheral!(0x40001400)
     /*************************************************************************
      DMA/Interrupt enable register
     */
-    final abstract class DIER : Register!(0xC)
+    final abstract class DIER : Register!(0xc)
     {
         /*********************************************************************
          Update DMA request enable
@@ -112,7 +112,7 @@ final abstract class TIM7 : Peripheral!(0x40001400)
     /*************************************************************************
      auto-reload register
     */
-    final abstract class ARR : Register!(0x2C)
+    final abstract class ARR : Register!(0x2c)
     {
         /*********************************************************************
          Low Auto-reload value

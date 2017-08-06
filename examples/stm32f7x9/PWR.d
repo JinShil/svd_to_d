@@ -10,7 +10,7 @@ final abstract class PWR : Peripheral!(0x40007000)
     /*************************************************************************
      power control register
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Low-power deep sleep
@@ -225,7 +225,7 @@ final abstract class PWR : Peripheral!(0x40007000)
     /*************************************************************************
      power control/status register
     */
-    final abstract class CSR2 : Register!(0xC)
+    final abstract class CSR2 : Register!(0xc)
     {
         /*********************************************************************
          Wakeup Pin flag for PA0

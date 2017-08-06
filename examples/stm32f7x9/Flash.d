@@ -10,7 +10,7 @@ final abstract class Flash : Peripheral!(0x40023C00)
     /*************************************************************************
      Flash access control register
     */
-    final abstract class ACR : Register!(0x0)
+    final abstract class ACR : Register!(00)
     {
         /*********************************************************************
          Latency
@@ -68,7 +68,7 @@ final abstract class Flash : Peripheral!(0x40023C00)
     /*************************************************************************
      Status register
     */
-    final abstract class SR : Register!(0xC)
+    final abstract class SR : Register!(0xc)
     {
         /*********************************************************************
          End of operation

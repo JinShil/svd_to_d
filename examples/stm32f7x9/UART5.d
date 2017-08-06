@@ -10,7 +10,7 @@ final abstract class UART5 : Peripheral!(0x40005000)
     /*************************************************************************
      Control register 1
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Word length
@@ -383,7 +383,7 @@ final abstract class UART5 : Peripheral!(0x40005000)
     /*************************************************************************
      Baud rate register
     */
-    final abstract class BRR : Register!(0xC)
+    final abstract class BRR : Register!(0xc)
     {
         /*********************************************************************
          DIV_Mantissa
@@ -465,7 +465,7 @@ final abstract class UART5 : Peripheral!(0x40005000)
      Interrupt & status
           register
     */
-    final abstract class ISR : Register!(0x1C)
+    final abstract class ISR : Register!(0x1c)
     {
         /*********************************************************************
          REACK

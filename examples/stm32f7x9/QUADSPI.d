@@ -10,7 +10,7 @@ final abstract class QUADSPI : Peripheral!(0xA0001000)
     /*************************************************************************
      control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          Clock prescaler
@@ -162,7 +162,7 @@ final abstract class QUADSPI : Peripheral!(0xA0001000)
     /*************************************************************************
      flag clear register
     */
-    final abstract class FCR : Register!(0xC)
+    final abstract class FCR : Register!(0xc)
     {
         /*********************************************************************
          Clear timeout flag
@@ -279,7 +279,7 @@ final abstract class QUADSPI : Peripheral!(0xA0001000)
     /*************************************************************************
      ABR
     */
-    final abstract class ABR : Register!(0x1C)
+    final abstract class ABR : Register!(0x1c)
     {
         /*********************************************************************
          ALTERNATE
@@ -323,7 +323,7 @@ final abstract class QUADSPI : Peripheral!(0xA0001000)
     /*************************************************************************
      polling interval register
     */
-    final abstract class PIR : Register!(0x2C)
+    final abstract class PIR : Register!(0x2c)
     {
         /*********************************************************************
          Polling interval

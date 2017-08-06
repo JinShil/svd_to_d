@@ -11,7 +11,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      OTG_FS device configuration register
           (OTG_FS_DCFG)
     */
-    final abstract class OTG_FS_DCFG : Register!(0x0)
+    final abstract class OTG_FS_DCFG : Register!(00)
     {
         /*********************************************************************
          Device speed
@@ -215,7 +215,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      OTG_FS all endpoints interrupt mask register
           (OTG_FS_DAINTMSK)
     */
-    final abstract class OTG_FS_DAINTMSK : Register!(0x1C)
+    final abstract class OTG_FS_DAINTMSK : Register!(0x1c)
     {
         /*********************************************************************
          IN EP interrupt mask bits
@@ -245,7 +245,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      OTG_FS device VBUS pulsing time
           register
     */
-    final abstract class OTG_FS_DVBUSPULSE : Register!(0x2C)
+    final abstract class OTG_FS_DVBUSPULSE : Register!(0x2c)
     {
         /*********************************************************************
          Device VBUS pulsing time
@@ -1449,7 +1449,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      OTG_FS device IN endpoint transmit FIFO
           status register
     */
-    final abstract class OTG_FS_DTXFSTS4 : Register!(0x19C)
+    final abstract class OTG_FS_DTXFSTS4 : Register!(0x19c)
     {
         /*********************************************************************
          IN endpoint TxFIFO space
@@ -1462,7 +1462,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      OTG device endpoint-5 control
           register
     */
-    final abstract class OTG_FS_DIEPCTL5 : Register!(0x1A0)
+    final abstract class OTG_FS_DIEPCTL5 : Register!(0x1a0)
     {
         /*********************************************************************
          EPENA
@@ -1534,7 +1534,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      device endpoint-5 interrupt
           register
     */
-    final abstract class OTG_FS_DIEPINT5 : Register!(0x1A8)
+    final abstract class OTG_FS_DIEPINT5 : Register!(0x1a8)
     {
         /*********************************************************************
          TXFE
@@ -1571,7 +1571,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      device endpoint-5 transfer size
           register
     */
-    final abstract class OTG_FS_DIEPTSIZ55 : Register!(0x1B0)
+    final abstract class OTG_FS_DIEPTSIZ55 : Register!(0x1b0)
     {
         /*********************************************************************
          Multi count
@@ -1593,7 +1593,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      OTG_FS device IN endpoint transmit FIFO
           status register
     */
-    final abstract class OTG_FS_DTXFSTS55 : Register!(0x1B8)
+    final abstract class OTG_FS_DTXFSTS55 : Register!(0x1b8)
     {
         /*********************************************************************
          IN endpoint TxFIFO space
@@ -1837,7 +1837,7 @@ final abstract class OTG_FS_DEVICE : Peripheral!(0x50000800)
      device OUT endpoint-5 transfer size
           register
     */
-    final abstract class OTG_FS_DOEPTSIZ5 : Register!(0x3A0)
+    final abstract class OTG_FS_DOEPTSIZ5 : Register!(0x3a0)
     {
         /*********************************************************************
          Received data PID/SETUP packet

@@ -30,7 +30,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Back Porch Configuration
           Register
     */
-    final abstract class BPCR : Register!(0xC)
+    final abstract class BPCR : Register!(0xc)
     {
         /*********************************************************************
          Accumulated Horizontal back porch (in
@@ -157,7 +157,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Background Color Configuration
           Register
     */
-    final abstract class BCCR : Register!(0x2C)
+    final abstract class BCCR : Register!(0x2c)
     {
         /*********************************************************************
          Background Color Red value
@@ -226,7 +226,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
     /*************************************************************************
      Interrupt Clear Register
     */
-    final abstract class ICR : Register!(0x3C)
+    final abstract class ICR : Register!(0x3c)
     {
         /*********************************************************************
          Clears Register Reload Interrupt
@@ -357,7 +357,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx Window Vertical Position
           Configuration Register
     */
-    final abstract class L1WVPCR : Register!(0x8C)
+    final abstract class L1WVPCR : Register!(0x8c)
     {
         /*********************************************************************
          Window Vertical Stop
@@ -422,7 +422,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx Default Color Configuration
           Register
     */
-    final abstract class L1DCCR : Register!(0x9C)
+    final abstract class L1DCCR : Register!(0x9c)
     {
         /*********************************************************************
          Default Color Alpha
@@ -449,7 +449,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx Blending Factors Configuration
           Register
     */
-    final abstract class L1BFCR : Register!(0xA0)
+    final abstract class L1BFCR : Register!(0xa0)
     {
         /*********************************************************************
          Blending Factor 1
@@ -466,7 +466,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx Color Frame Buffer Address
           Register
     */
-    final abstract class L1CFBAR : Register!(0xAC)
+    final abstract class L1CFBAR : Register!(0xac)
     {
         /*********************************************************************
          Color Frame Buffer Start
@@ -479,7 +479,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx Color Frame Buffer Length
           Register
     */
-    final abstract class L1CFBLR : Register!(0xB0)
+    final abstract class L1CFBLR : Register!(0xb0)
     {
         /*********************************************************************
          Color Frame Buffer Pitch in
@@ -498,7 +498,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx ColorFrame Buffer Line Number
           Register
     */
-    final abstract class L1CFBLNR : Register!(0xB4)
+    final abstract class L1CFBLNR : Register!(0xb4)
     {
         /*********************************************************************
          Frame Buffer Line Number
@@ -509,7 +509,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
     /*************************************************************************
      Layerx CLUT Write Register
     */
-    final abstract class L1CLUTWR : Register!(0xC4)
+    final abstract class L1CLUTWR : Register!(0xc4)
     {
         /*********************************************************************
          CLUT Address
@@ -576,7 +576,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx Window Vertical Position
           Configuration Register
     */
-    final abstract class L2WVPCR : Register!(0x10C)
+    final abstract class L2WVPCR : Register!(0x10c)
     {
         /*********************************************************************
          Window Vertical Stop
@@ -641,7 +641,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx Default Color Configuration
           Register
     */
-    final abstract class L2DCCR : Register!(0x11C)
+    final abstract class L2DCCR : Register!(0x11c)
     {
         /*********************************************************************
          Default Color Alpha
@@ -685,7 +685,7 @@ final abstract class LTCD : Peripheral!(0x40016800)
      Layerx Color Frame Buffer Address
           Register
     */
-    final abstract class L2CFBAR : Register!(0x12C)
+    final abstract class L2CFBAR : Register!(0x12c)
     {
         /*********************************************************************
          Color Frame Buffer Start

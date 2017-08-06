@@ -10,7 +10,7 @@ final abstract class I2C3 : Peripheral!(0x40005C00)
     /*************************************************************************
      Control register 1
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Peripheral enable
@@ -212,7 +212,7 @@ final abstract class I2C3 : Peripheral!(0x40005C00)
     /*************************************************************************
      Own address register 2
     */
-    final abstract class OAR2 : Register!(0xC)
+    final abstract class OAR2 : Register!(0xc)
     {
         /*********************************************************************
          Interface address
@@ -400,7 +400,7 @@ final abstract class I2C3 : Peripheral!(0x40005C00)
     /*************************************************************************
      Interrupt clear register
     */
-    final abstract class ICR : Register!(0x1C)
+    final abstract class ICR : Register!(0x1c)
     {
         /*********************************************************************
          Alert flag clear

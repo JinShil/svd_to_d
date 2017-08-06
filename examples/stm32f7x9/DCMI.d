@@ -10,7 +10,7 @@ final abstract class DCMI : Peripheral!(0x50050000)
     /*************************************************************************
      control register 1
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          DCMI enable
@@ -129,7 +129,7 @@ final abstract class DCMI : Peripheral!(0x50050000)
     /*************************************************************************
      interrupt enable register
     */
-    final abstract class IER : Register!(0xC)
+    final abstract class IER : Register!(0xc)
     {
         /*********************************************************************
          Line interrupt enable
@@ -263,7 +263,7 @@ final abstract class DCMI : Peripheral!(0x50050000)
      embedded synchronization unmask
           register
     */
-    final abstract class ESUR : Register!(0x1C)
+    final abstract class ESUR : Register!(0x1c)
     {
         /*********************************************************************
          Frame end delimiter unmask

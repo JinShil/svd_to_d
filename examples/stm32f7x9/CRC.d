@@ -10,7 +10,7 @@ final abstract class CRC : Peripheral!(0x40023000)
     /*************************************************************************
      Data register
     */
-    final abstract class DR : Register!(0x0)
+    final abstract class DR : Register!(00)
     {
         /*********************************************************************
          Data Register
@@ -43,7 +43,7 @@ final abstract class CRC : Peripheral!(0x40023000)
     /*************************************************************************
      Initial CRC value
     */
-    final abstract class INIT : Register!(0xC)
+    final abstract class INIT : Register!(0xc)
     {
         /*********************************************************************
          Programmable initial CRC

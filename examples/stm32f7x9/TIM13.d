@@ -10,7 +10,7 @@ final abstract class TIM13 : Peripheral!(0x40001C00)
     /*************************************************************************
      control register 1
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Clock division
@@ -41,7 +41,7 @@ final abstract class TIM13 : Peripheral!(0x40001C00)
     /*************************************************************************
      DMA/Interrupt enable register
     */
-    final abstract class DIER : Register!(0xC)
+    final abstract class DIER : Register!(0xc)
     {
         /*********************************************************************
          Capture/Compare 1 interrupt
@@ -198,7 +198,7 @@ final abstract class TIM13 : Peripheral!(0x40001C00)
     /*************************************************************************
      auto-reload register
     */
-    final abstract class ARR : Register!(0x2C)
+    final abstract class ARR : Register!(0x2c)
     {
         /*********************************************************************
          Auto-reload value

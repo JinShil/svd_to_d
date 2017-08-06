@@ -10,7 +10,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
     /*************************************************************************
      Address
     */
-    final abstract class ADDR : Register!(0x1C)
+    final abstract class ADDR : Register!(0x1c)
     {
         /*********************************************************************
          NVM Address
@@ -21,7 +21,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
     /*************************************************************************
      Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Command
@@ -123,7 +123,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
     /*************************************************************************
      Control B
     */
-    final abstract class CTRLB : Register!(0x04)
+    final abstract class CTRLB : Register!(0x4)
     {
         /*********************************************************************
          NVM Read Wait States
@@ -223,7 +223,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
     /*************************************************************************
      Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x0C)
+    final abstract class INTENCLR : Register!(0xc)
     {
         /*********************************************************************
          NVM Ready Interrupt Enable
@@ -282,7 +282,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
     /*************************************************************************
      NVM Parameter
     */
-    final abstract class PARAM : Register!(0x08)
+    final abstract class PARAM : Register!(0x8)
     {
         /*********************************************************************
          NVM Pages

@@ -10,7 +10,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x0B)
+    final abstract class DBGCTRL : Register!(0xb)
     {
         /*********************************************************************
          Run During Debug
@@ -21,7 +21,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Frequency Correction
     */
-    final abstract class FREQCORR : Register!(0x0C)
+    final abstract class FREQCORR : Register!(0xc)
     {
         /*********************************************************************
          Correction Value
@@ -59,7 +59,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE0 Control
     */
-    final abstract class CTRL : Register!(0x00)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -176,7 +176,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE0 Event Control
     */
-    final abstract class EVCTRL : Register!(0x04)
+    final abstract class EVCTRL : Register!(0x4)
     {
         /*********************************************************************
          Periodic Interval 0 Event Output Enable
@@ -232,7 +232,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE0 Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x06)
+    final abstract class INTENCLR : Register!(0x6)
     {
         /*********************************************************************
          Compare 0 Interrupt Enable
@@ -253,7 +253,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE0 Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x07)
+    final abstract class INTENSET : Register!(0x7)
     {
         /*********************************************************************
          Compare 0 Interrupt Enable
@@ -274,7 +274,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE0 Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x08)
+    final abstract class INTFLAG : Register!(0x8)
     {
         /*********************************************************************
          Compare 0
@@ -295,7 +295,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Read Request
     */
-    final abstract class READREQ : Register!(0x02)
+    final abstract class READREQ : Register!(0x2)
     {
         /*********************************************************************
          Address
@@ -316,7 +316,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Status
     */
-    final abstract class STATUS : Register!(0x0A)
+    final abstract class STATUS : Register!(0xa)
     {
         /*********************************************************************
          Synchronization Busy
@@ -327,7 +327,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x0B)
+    final abstract class DBGCTRL : Register!(0xb)
     {
         /*********************************************************************
          Run During Debug
@@ -338,7 +338,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Frequency Correction
     */
-    final abstract class FREQCORR : Register!(0x0C)
+    final abstract class FREQCORR : Register!(0xc)
     {
         /*********************************************************************
          Correction Value
@@ -354,7 +354,17 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE1 Compare n Value
     */
-    final abstract class COMP%s : Register!(0x18)
+    final abstract class COMP1 : Register!(0x18)
+    {
+        /*********************************************************************
+         Compare Value
+        */
+        alias COMP = BitField!(15, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     MODE1 Compare n Value
+    */
+    final abstract class COMP2 : Register!(0x1a)
     {
         /*********************************************************************
          Compare Value
@@ -376,7 +386,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE1 Control
     */
-    final abstract class CTRL : Register!(0x00)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -488,7 +498,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE1 Event Control
     */
-    final abstract class EVCTRL : Register!(0x04)
+    final abstract class EVCTRL : Register!(0x4)
     {
         /*********************************************************************
          Periodic Interval 0 Event Output Enable
@@ -549,7 +559,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE1 Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x06)
+    final abstract class INTENCLR : Register!(0x6)
     {
         /*********************************************************************
          Compare 0 Interrupt Enable
@@ -575,7 +585,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE1 Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x07)
+    final abstract class INTENSET : Register!(0x7)
     {
         /*********************************************************************
          Compare 0 Interrupt Enable
@@ -601,7 +611,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE1 Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x08)
+    final abstract class INTFLAG : Register!(0x8)
     {
         /*********************************************************************
          Compare 0
@@ -638,7 +648,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Read Request
     */
-    final abstract class READREQ : Register!(0x02)
+    final abstract class READREQ : Register!(0x2)
     {
         /*********************************************************************
          Address
@@ -659,7 +669,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Status
     */
-    final abstract class STATUS : Register!(0x0A)
+    final abstract class STATUS : Register!(0xa)
     {
         /*********************************************************************
          Synchronization Busy
@@ -670,7 +680,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x0B)
+    final abstract class DBGCTRL : Register!(0xb)
     {
         /*********************************************************************
          Run During Debug
@@ -681,7 +691,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Frequency Correction
     */
-    final abstract class FREQCORR : Register!(0x0C)
+    final abstract class FREQCORR : Register!(0xc)
     {
         /*********************************************************************
          Correction Value
@@ -746,7 +756,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE2 Control
     */
-    final abstract class CTRL : Register!(0x00)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -868,7 +878,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE2 Event Control
     */
-    final abstract class EVCTRL : Register!(0x04)
+    final abstract class EVCTRL : Register!(0x4)
     {
         /*********************************************************************
          Periodic Interval 0 Event Output Enable
@@ -924,7 +934,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE2 Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x06)
+    final abstract class INTENCLR : Register!(0x6)
     {
         /*********************************************************************
          Alarm 0 Interrupt Enable
@@ -945,7 +955,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE2 Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x07)
+    final abstract class INTENSET : Register!(0x7)
     {
         /*********************************************************************
          Alarm 0 Interrupt Enable
@@ -966,7 +976,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE2 Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x08)
+    final abstract class INTFLAG : Register!(0x8)
     {
         /*********************************************************************
          Alarm 0
@@ -1023,7 +1033,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      MODE2 Alarm n Mask
     */
-    final abstract class MASK%s : Register!(0x1C)
+    final abstract class MASK%s : Register!(0x1c)
     {
         /*********************************************************************
          Alarm Mask Selection
@@ -1077,7 +1087,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Read Request
     */
-    final abstract class READREQ : Register!(0x02)
+    final abstract class READREQ : Register!(0x2)
     {
         /*********************************************************************
          Address
@@ -1098,7 +1108,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*************************************************************************
      Status
     */
-    final abstract class STATUS : Register!(0x0A)
+    final abstract class STATUS : Register!(0xa)
     {
         /*********************************************************************
          Synchronization Busy

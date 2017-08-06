@@ -10,7 +10,7 @@ final abstract class IWDG : Peripheral!(0x40003000)
     /*************************************************************************
      Key register
     */
-    final abstract class KR : Register!(0x0)
+    final abstract class KR : Register!(00)
     {
         /*********************************************************************
          Key value (write only, read
@@ -45,7 +45,7 @@ final abstract class IWDG : Peripheral!(0x40003000)
     /*************************************************************************
      Status register
     */
-    final abstract class SR : Register!(0xC)
+    final abstract class SR : Register!(0xc)
     {
         /*********************************************************************
          Watchdog counter reload value

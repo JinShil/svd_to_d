@@ -10,7 +10,37 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Compare and Capture
     */
-    final abstract class CC%s : Register!(0x44)
+    final abstract class CC1 : Register!(0x44)
+    {
+        /*********************************************************************
+         Compare and Capture value
+        */
+        alias CC = BitField!(23, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     Compare and Capture
+    */
+    final abstract class CC2 : Register!(0x48)
+    {
+        /*********************************************************************
+         Compare and Capture value
+        */
+        alias CC = BitField!(23, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     Compare and Capture
+    */
+    final abstract class CC3 : Register!(0x4c)
+    {
+        /*********************************************************************
+         Compare and Capture value
+        */
+        alias CC = BitField!(23, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     Compare and Capture
+    */
+    final abstract class CC4 : Register!(0x50)
     {
         /*********************************************************************
          Compare and Capture value
@@ -21,7 +51,37 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Compare and Capture Buffer
     */
-    final abstract class CCB%s : Register!(0x70)
+    final abstract class CCB1 : Register!(0x70)
+    {
+        /*********************************************************************
+         Compare and Capture buffer value
+        */
+        alias CCB = BitField!(23, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     Compare and Capture Buffer
+    */
+    final abstract class CCB2 : Register!(0x74)
+    {
+        /*********************************************************************
+         Compare and Capture buffer value
+        */
+        alias CCB = BitField!(23, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     Compare and Capture Buffer
+    */
+    final abstract class CCB3 : Register!(0x78)
+    {
+        /*********************************************************************
+         Compare and Capture buffer value
+        */
+        alias CCB = BitField!(23, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     Compare and Capture Buffer
+    */
+    final abstract class CCB4 : Register!(0x7c)
     {
         /*********************************************************************
          Compare and Capture buffer value
@@ -43,7 +103,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -163,7 +223,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Control B Clear
     */
-    final abstract class CTRLBCLR : Register!(0x04)
+    final abstract class CTRLBCLR : Register!(0x4)
     {
         /*********************************************************************
          Counter Direction
@@ -228,7 +288,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Control B Set
     */
-    final abstract class CTRLBSET : Register!(0x05)
+    final abstract class CTRLBSET : Register!(0x5)
     {
         /*********************************************************************
          Counter Direction
@@ -293,7 +353,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x1E)
+    final abstract class DBGCTRL : Register!(0x1e)
     {
         /*********************************************************************
          Debug Running Mode
@@ -603,7 +663,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Recoverable FaultA Configuration
     */
-    final abstract class FCTRLA : Register!(0x0C)
+    final abstract class FCTRLA : Register!(0xc)
     {
         /*********************************************************************
          FaultA Source
@@ -1029,7 +1089,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x2C)
+    final abstract class INTFLAG : Register!(0x2c)
     {
         /*********************************************************************
          Overflow
@@ -1283,7 +1343,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Period Buffer
     */
-    final abstract class PERB : Register!(0x6C)
+    final abstract class PERB : Register!(0x6c)
     {
         /*********************************************************************
          Period Value
@@ -1410,7 +1470,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Synchronization Busy
     */
-    final abstract class SYNCBUSY : Register!(0x08)
+    final abstract class SYNCBUSY : Register!(0x8)
     {
         /*********************************************************************
          Swrst Busy
@@ -1511,7 +1571,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
     /*************************************************************************
      Waveform Control
     */
-    final abstract class WAVE : Register!(0x3C)
+    final abstract class WAVE : Register!(0x3c)
     {
         /*********************************************************************
          Waveform Generation

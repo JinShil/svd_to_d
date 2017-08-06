@@ -41,7 +41,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CM Baud Rate
     */
-    final abstract class BAUD : Register!(0x0C)
+    final abstract class BAUD : Register!(0xc)
     {
         /*********************************************************************
          Baud Rate Value
@@ -67,7 +67,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CM Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -171,7 +171,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CM Control B
     */
-    final abstract class CTRLB : Register!(0x04)
+    final abstract class CTRLB : Register!(0x4)
     {
         /*********************************************************************
          Smart Mode Enable
@@ -282,7 +282,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CM Status
     */
-    final abstract class STATUS : Register!(0x1A)
+    final abstract class STATUS : Register!(0x1a)
     {
         /*********************************************************************
          Bus Error
@@ -333,7 +333,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CM Syncbusy
     */
-    final abstract class SYNCBUSY : Register!(0x1C)
+    final abstract class SYNCBUSY : Register!(0x1c)
     {
         /*********************************************************************
          Software Reset Synchronization Busy
@@ -380,7 +380,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CS Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -474,7 +474,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CS Control B
     */
-    final abstract class CTRLB : Register!(0x04)
+    final abstract class CTRLB : Register!(0x4)
     {
         /*********************************************************************
          Smart Mode Enable
@@ -610,7 +610,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CS Status
     */
-    final abstract class STATUS : Register!(0x1A)
+    final abstract class STATUS : Register!(0x1a)
     {
         /*********************************************************************
          Bus Error
@@ -661,7 +661,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      I2CS Syncbusy
     */
-    final abstract class SYNCBUSY : Register!(0x1C)
+    final abstract class SYNCBUSY : Register!(0x1c)
     {
         /*********************************************************************
          Software Reset Synchronization Busy
@@ -693,7 +693,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      SPI Baud Rate
     */
-    final abstract class BAUD : Register!(0x0C)
+    final abstract class BAUD : Register!(0xc)
     {
         /*********************************************************************
          Baud Rate Value
@@ -704,7 +704,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      SPI Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -803,7 +803,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      SPI Control B
     */
-    final abstract class CTRLB : Register!(0x04)
+    final abstract class CTRLB : Register!(0x4)
     {
         /*********************************************************************
          Character Size
@@ -954,7 +954,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      SPI Status
     */
-    final abstract class STATUS : Register!(0x1A)
+    final abstract class STATUS : Register!(0x1a)
     {
         /*********************************************************************
          Buffer Overflow
@@ -965,7 +965,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      SPI Syncbusy
     */
-    final abstract class SYNCBUSY : Register!(0x1C)
+    final abstract class SYNCBUSY : Register!(0x1c)
     {
         /*********************************************************************
          Software Reset Synchronization Busy
@@ -986,7 +986,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Baud Rate
     */
-    final abstract class BAUD : Register!(0x0C)
+    final abstract class BAUD : Register!(0xc)
     {
         /*********************************************************************
          Baud Rate Value
@@ -997,7 +997,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Baud Rate
     */
-    final abstract class BAUD : Register!(0x0C)
+    final abstract class BAUD : Register!(0xc)
     {
         /*********************************************************************
          Baud Rate Value
@@ -1013,7 +1013,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Baud Rate
     */
-    final abstract class BAUD : Register!(0x0C)
+    final abstract class BAUD : Register!(0xc)
     {
         /*********************************************************************
          Baud Rate Value
@@ -1029,7 +1029,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Baud Rate
     */
-    final abstract class BAUD : Register!(0x0C)
+    final abstract class BAUD : Register!(0xc)
     {
         /*********************************************************************
          Baud Rate Value
@@ -1040,7 +1040,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -1149,7 +1149,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Control B
     */
-    final abstract class CTRLB : Register!(0x04)
+    final abstract class CTRLB : Register!(0x4)
     {
         /*********************************************************************
          Character Size
@@ -1340,7 +1340,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Receive Pulse Length
     */
-    final abstract class RXPL : Register!(0x0E)
+    final abstract class RXPL : Register!(0xe)
     {
         /*********************************************************************
          Receive Pulse Length
@@ -1351,7 +1351,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Status
     */
-    final abstract class STATUS : Register!(0x1A)
+    final abstract class STATUS : Register!(0x1a)
     {
         /*********************************************************************
          Parity Error
@@ -1387,7 +1387,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
     /*************************************************************************
      USART Syncbusy
     */
-    final abstract class SYNCBUSY : Register!(0x1C)
+    final abstract class SYNCBUSY : Register!(0x1c)
     {
         /*********************************************************************
          Software Reset Synchronization Busy

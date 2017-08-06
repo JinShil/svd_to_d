@@ -228,7 +228,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
     /*************************************************************************
      DFLL48M Multiplier
     */
-    final abstract class DFLLMUL : Register!(0x2C)
+    final abstract class DFLLMUL : Register!(0x2c)
     {
         /*********************************************************************
          DFLL Multiply Factor
@@ -302,7 +302,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
     /*************************************************************************
      DPLL Control B
     */
-    final abstract class DPLLCTRLB : Register!(0x4C)
+    final abstract class DPLLCTRLB : Register!(0x4c)
     {
         /*********************************************************************
          Proportional Integral Filter Selection
@@ -469,7 +469,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
     /*************************************************************************
      Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x00)
+    final abstract class INTENCLR : Register!(00)
     {
         /*********************************************************************
          XOSC Ready Interrupt Enable
@@ -550,7 +550,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
     /*************************************************************************
      Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x04)
+    final abstract class INTENSET : Register!(0x4)
     {
         /*********************************************************************
          XOSC Ready Interrupt Enable
@@ -631,7 +631,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
     /*************************************************************************
      Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x08)
+    final abstract class INTFLAG : Register!(0x8)
     {
         /*********************************************************************
          XOSC Ready
@@ -712,7 +712,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
     /*************************************************************************
      32kHz Ultra Low Power Internal Oscillator (OSCULP32K) Control
     */
-    final abstract class OSCULP32K : Register!(0x1C)
+    final abstract class OSCULP32K : Register!(0x1c)
     {
         /*********************************************************************
          Oscillator Calibration
@@ -866,7 +866,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
     /*************************************************************************
      Power and Clocks Status
     */
-    final abstract class PCLKSR : Register!(0x0C)
+    final abstract class PCLKSR : Register!(0xc)
     {
         /*********************************************************************
          XOSC Ready

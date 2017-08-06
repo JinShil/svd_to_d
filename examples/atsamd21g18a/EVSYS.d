@@ -10,7 +10,7 @@ final abstract class EVSYS : Peripheral!(0x42000400)
     /*************************************************************************
      Channel
     */
-    final abstract class CHANNEL : Register!(0x04)
+    final abstract class CHANNEL : Register!(0x4)
     {
         /*********************************************************************
          Channel Selection
@@ -92,7 +92,7 @@ final abstract class EVSYS : Peripheral!(0x42000400)
     /*************************************************************************
      Channel Status
     */
-    final abstract class CHSTATUS : Register!(0x0C)
+    final abstract class CHSTATUS : Register!(0xc)
     {
         /*********************************************************************
          Channel 0 User Ready
@@ -218,7 +218,7 @@ final abstract class EVSYS : Peripheral!(0x42000400)
     /*************************************************************************
      Control
     */
-    final abstract class CTRL : Register!(0x00)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -612,7 +612,7 @@ final abstract class EVSYS : Peripheral!(0x42000400)
     /*************************************************************************
      User Multiplexer
     */
-    final abstract class USER : Register!(0x08)
+    final abstract class USER : Register!(0x8)
     {
         /*********************************************************************
          User Multiplexer Selection

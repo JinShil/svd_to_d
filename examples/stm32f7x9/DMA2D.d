@@ -10,7 +10,7 @@ final abstract class DMA2D : Peripheral!(0x4002B000)
     /*************************************************************************
      control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          DMA2D mode
@@ -157,7 +157,7 @@ final abstract class DMA2D : Peripheral!(0x4002B000)
      foreground memory address
           register
     */
-    final abstract class FGMAR : Register!(0xC)
+    final abstract class FGMAR : Register!(0xc)
     {
         /*********************************************************************
          Memory address
@@ -203,7 +203,7 @@ final abstract class DMA2D : Peripheral!(0x4002B000)
      foreground PFC control
           register
     */
-    final abstract class FGPFCCR : Register!(0x1C)
+    final abstract class FGPFCCR : Register!(0x1c)
     {
         /*********************************************************************
          Alpha value
@@ -319,7 +319,7 @@ final abstract class DMA2D : Peripheral!(0x4002B000)
      foreground CLUT memory address
           register
     */
-    final abstract class FGCMAR : Register!(0x2C)
+    final abstract class FGCMAR : Register!(0x2c)
     {
         /*********************************************************************
          Memory Address
@@ -379,7 +379,7 @@ final abstract class DMA2D : Peripheral!(0x4002B000)
     /*************************************************************************
      output memory address register
     */
-    final abstract class OMAR : Register!(0x3C)
+    final abstract class OMAR : Register!(0x3c)
     {
         /*********************************************************************
          Memory Address
@@ -429,7 +429,7 @@ final abstract class DMA2D : Peripheral!(0x4002B000)
      AHB master timer configuration
           register
     */
-    final abstract class AMTCR : Register!(0x4C)
+    final abstract class AMTCR : Register!(0x4c)
     {
         /*********************************************************************
          Dead Time

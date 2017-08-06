@@ -10,7 +10,7 @@ final abstract class RNG : Peripheral!(0x50060800)
     /*************************************************************************
      control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          Interrupt enable

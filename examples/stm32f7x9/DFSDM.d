@@ -12,7 +12,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel configuration 0 register
           1
     */
-    final abstract class DFSDM_CHCFG0R1 : Register!(0x0)
+    final abstract class DFSDM_CHCFG0R1 : Register!(00)
     {
         /*********************************************************************
          Serial interface type for channel
@@ -225,7 +225,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel configuration 3 register
           1
     */
-    final abstract class DFSDM_CHCFG3R1 : Register!(0xC)
+    final abstract class DFSDM_CHCFG3R1 : Register!(0xc)
     {
         /*********************************************************************
          Serial interface type for channel
@@ -509,7 +509,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel configuration 7 register
           1
     */
-    final abstract class DFSDM_CHCFG7R1 : Register!(0x1C)
+    final abstract class DFSDM_CHCFG7R1 : Register!(0x1c)
     {
         /*********************************************************************
          Serial interface type for channel
@@ -637,7 +637,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel configuration 3 register
           2
     */
-    final abstract class DFSDM_CHCFG3R2 : Register!(0x2C)
+    final abstract class DFSDM_CHCFG3R2 : Register!(0x2c)
     {
         /*********************************************************************
          Data right bit-shift for channel
@@ -713,7 +713,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel configuration 7 register
           2
     */
-    final abstract class DFSDM_CHCFG7R2 : Register!(0x3C)
+    final abstract class DFSDM_CHCFG7R2 : Register!(0x3c)
     {
         /*********************************************************************
          Data right bit-shift for channel
@@ -825,7 +825,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM analog watchdog and short-circuit
           detector register
     */
-    final abstract class DFSDM_AWSCD3R : Register!(0x4C)
+    final abstract class DFSDM_AWSCD3R : Register!(0x4c)
     {
         /*********************************************************************
          short-circuit detector threshold for
@@ -949,7 +949,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM analog watchdog and short-circuit
           detector register
     */
-    final abstract class DFSDM_AWSCD7R : Register!(0x5C)
+    final abstract class DFSDM_AWSCD7R : Register!(0x5c)
     {
         /*********************************************************************
          short-circuit detector threshold for
@@ -1019,7 +1019,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel watchdog filter data
           register
     */
-    final abstract class DFSDM_CHWDAT3R : Register!(0x6C)
+    final abstract class DFSDM_CHWDAT3R : Register!(0x6c)
     {
         /*********************************************************************
          Input channel y watchdog
@@ -1071,7 +1071,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel watchdog filter data
           register
     */
-    final abstract class DFSDM_CHWDAT7R : Register!(0x7C)
+    final abstract class DFSDM_CHWDAT7R : Register!(0x7c)
     {
         /*********************************************************************
          Input channel y watchdog
@@ -1135,7 +1135,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel data input
           register
     */
-    final abstract class DFSDM_CHDATIN3R : Register!(0x8C)
+    final abstract class DFSDM_CHDATIN3R : Register!(0x8c)
     {
         /*********************************************************************
          Input data for channel 3
@@ -1203,7 +1203,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM channel data input
           register
     */
-    final abstract class DFSDM_CHDATIN7R : Register!(0x9C)
+    final abstract class DFSDM_CHDATIN7R : Register!(0x9c)
     {
         /*********************************************************************
          Input data for channel 7
@@ -1219,7 +1219,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM control register 1
     */
-    final abstract class DFSDM0_CR1 : Register!(0xA0)
+    final abstract class DFSDM0_CR1 : Register!(0xa0)
     {
         /*********************************************************************
          DFSDM enable
@@ -1308,7 +1308,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM control register 1
     */
-    final abstract class DFSDM1_CR1 : Register!(0xA4)
+    final abstract class DFSDM1_CR1 : Register!(0xa4)
     {
         /*********************************************************************
          DFSDM enable
@@ -1397,7 +1397,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM control register 1
     */
-    final abstract class DFSDM2_CR1 : Register!(0xA8)
+    final abstract class DFSDM2_CR1 : Register!(0xa8)
     {
         /*********************************************************************
          DFSDM enable
@@ -1486,7 +1486,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM control register 1
     */
-    final abstract class DFSDM3_CR1 : Register!(0xAC)
+    final abstract class DFSDM3_CR1 : Register!(0xac)
     {
         /*********************************************************************
          DFSDM enable
@@ -1575,7 +1575,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM control register 2
     */
-    final abstract class DFSDM0_CR2 : Register!(0xB0)
+    final abstract class DFSDM0_CR2 : Register!(0xb0)
     {
         /*********************************************************************
          Injected end of conversion interrupt
@@ -1635,7 +1635,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM control register 2
     */
-    final abstract class DFSDM1_CR2 : Register!(0xB4)
+    final abstract class DFSDM1_CR2 : Register!(0xb4)
     {
         /*********************************************************************
          Injected end of conversion interrupt
@@ -1695,7 +1695,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM control register 2
     */
-    final abstract class DFSDM2_CR2 : Register!(0xB8)
+    final abstract class DFSDM2_CR2 : Register!(0xb8)
     {
         /*********************************************************************
          Injected end of conversion interrupt
@@ -1755,7 +1755,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM control register 2
     */
-    final abstract class DFSDM3_CR2 : Register!(0xBC)
+    final abstract class DFSDM3_CR2 : Register!(0xbc)
     {
         /*********************************************************************
          Injected end of conversion interrupt
@@ -1816,7 +1816,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM interrupt and status
           register
     */
-    final abstract class DFSDM0_ISR : Register!(0xC0)
+    final abstract class DFSDM0_ISR : Register!(0xc0)
     {
         /*********************************************************************
          End of injected conversion
@@ -1875,7 +1875,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM interrupt and status
           register
     */
-    final abstract class DFSDM1_ISR : Register!(0xC4)
+    final abstract class DFSDM1_ISR : Register!(0xc4)
     {
         /*********************************************************************
          End of injected conversion
@@ -1934,7 +1934,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM interrupt and status
           register
     */
-    final abstract class DFSDM2_ISR : Register!(0xC8)
+    final abstract class DFSDM2_ISR : Register!(0xc8)
     {
         /*********************************************************************
          End of injected conversion
@@ -1993,7 +1993,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM interrupt and status
           register
     */
-    final abstract class DFSDM3_ISR : Register!(0xCC)
+    final abstract class DFSDM3_ISR : Register!(0xcc)
     {
         /*********************************************************************
          End of injected conversion
@@ -2052,7 +2052,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM interrupt flag clear
           register
     */
-    final abstract class DFSDM0_ICR : Register!(0xD0)
+    final abstract class DFSDM0_ICR : Register!(0xd0)
     {
         /*********************************************************************
          Clear the injected conversion overrun
@@ -2083,7 +2083,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM interrupt flag clear
           register
     */
-    final abstract class DFSDM1_ICR : Register!(0xD4)
+    final abstract class DFSDM1_ICR : Register!(0xd4)
     {
         /*********************************************************************
          Clear the injected conversion overrun
@@ -2114,7 +2114,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM interrupt flag clear
           register
     */
-    final abstract class DFSDM2_ICR : Register!(0xD8)
+    final abstract class DFSDM2_ICR : Register!(0xd8)
     {
         /*********************************************************************
          Clear the injected conversion overrun
@@ -2145,7 +2145,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM interrupt flag clear
           register
     */
-    final abstract class DFSDM3_ICR : Register!(0xDC)
+    final abstract class DFSDM3_ICR : Register!(0xdc)
     {
         /*********************************************************************
          Clear the injected conversion overrun
@@ -2176,7 +2176,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM injected channel group selection
           register
     */
-    final abstract class DFSDM0_JCHGR : Register!(0xE0)
+    final abstract class DFSDM0_JCHGR : Register!(0xe0)
     {
         /*********************************************************************
          Injected channel group
@@ -2189,7 +2189,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM injected channel group selection
           register
     */
-    final abstract class DFSDM1_JCHGR : Register!(0xE4)
+    final abstract class DFSDM1_JCHGR : Register!(0xe4)
     {
         /*********************************************************************
          Injected channel group
@@ -2202,7 +2202,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM injected channel group selection
           register
     */
-    final abstract class DFSDM2_JCHGR : Register!(0xE8)
+    final abstract class DFSDM2_JCHGR : Register!(0xe8)
     {
         /*********************************************************************
          Injected channel group
@@ -2215,7 +2215,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM injected channel group selection
           register
     */
-    final abstract class DFSDM3_JCHGR : Register!(0xEC)
+    final abstract class DFSDM3_JCHGR : Register!(0xec)
     {
         /*********************************************************************
          Injected channel group
@@ -2227,7 +2227,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM filter control register
     */
-    final abstract class DFSDM0_FCR : Register!(0xF0)
+    final abstract class DFSDM0_FCR : Register!(0xf0)
     {
         /*********************************************************************
          Integrator oversampling ratio (averaging
@@ -2250,7 +2250,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM filter control register
     */
-    final abstract class DFSDM1_FCR : Register!(0xF4)
+    final abstract class DFSDM1_FCR : Register!(0xf4)
     {
         /*********************************************************************
          Integrator oversampling ratio (averaging
@@ -2273,7 +2273,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM filter control register
     */
-    final abstract class DFSDM2_FCR : Register!(0xF8)
+    final abstract class DFSDM2_FCR : Register!(0xf8)
     {
         /*********************************************************************
          Integrator oversampling ratio (averaging
@@ -2296,7 +2296,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
     /*************************************************************************
      DFSDM filter control register
     */
-    final abstract class DFSDM3_FCR : Register!(0xFC)
+    final abstract class DFSDM3_FCR : Register!(0xfc)
     {
         /*********************************************************************
          Integrator oversampling ratio (averaging
@@ -2377,7 +2377,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM data register for injected
           group
     */
-    final abstract class DFSDM3_JDATAR : Register!(0x10C)
+    final abstract class DFSDM3_JDATAR : Register!(0x10c)
     {
         /*********************************************************************
          Injected channel most recently
@@ -2471,7 +2471,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM data register for the regular
           channel
     */
-    final abstract class DFSDM3_RDATAR : Register!(0x11C)
+    final abstract class DFSDM3_RDATAR : Register!(0x11c)
     {
         /*********************************************************************
          Regular channel most recently
@@ -2553,7 +2553,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM analog watchdog high threshold
           register
     */
-    final abstract class DFSDM3_AWHTR : Register!(0x12C)
+    final abstract class DFSDM3_AWHTR : Register!(0x12c)
     {
         /*********************************************************************
          Break signal assignment to analog
@@ -2629,7 +2629,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM analog watchdog low threshold
           register
     */
-    final abstract class DFSDM3_AWLTR : Register!(0x13C)
+    final abstract class DFSDM3_AWLTR : Register!(0x13c)
     {
         /*********************************************************************
          Break signal assignment to analog
@@ -2705,7 +2705,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM analog watchdog status
           register
     */
-    final abstract class DFSDM3_AWSR : Register!(0x14C)
+    final abstract class DFSDM3_AWSR : Register!(0x14c)
     {
         /*********************************************************************
          Analog watchdog low threshold
@@ -2781,7 +2781,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM analog watchdog clear flag
           register
     */
-    final abstract class DFSDM3_AWCFR : Register!(0x15C)
+    final abstract class DFSDM3_AWCFR : Register!(0x15c)
     {
         /*********************************************************************
          Clear the analog watchdog low threshold
@@ -2857,7 +2857,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM Extremes detector maximum
           register
     */
-    final abstract class DFSDM3_EXMAX : Register!(0x16C)
+    final abstract class DFSDM3_EXMAX : Register!(0x16c)
     {
         /*********************************************************************
          Extremes detector maximum data
@@ -2933,7 +2933,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM Extremes detector minimum
           register
     */
-    final abstract class DFSDM3_EXMIN : Register!(0x17C)
+    final abstract class DFSDM3_EXMIN : Register!(0x17c)
     {
         /*********************************************************************
          Extremes detector minimum data
@@ -2991,7 +2991,7 @@ final abstract class DFSDM : Peripheral!(0x40017400)
      DFSDM conversion timer
           register
     */
-    final abstract class DFSDM3_CNVTIMR : Register!(0x18C)
+    final abstract class DFSDM3_CNVTIMR : Register!(0x18c)
     {
         /*********************************************************************
          28-bit timer counting conversion

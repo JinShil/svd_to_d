@@ -10,7 +10,7 @@ final abstract class CEC : Peripheral!(0x40006C00)
     /*************************************************************************
      control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          Tx End Of Message
@@ -98,7 +98,7 @@ final abstract class CEC : Peripheral!(0x40006C00)
     /*************************************************************************
      Rx Data Register
     */
-    final abstract class RXDR : Register!(0xC)
+    final abstract class RXDR : Register!(0xc)
     {
         /*********************************************************************
          CEC Rx Data Register

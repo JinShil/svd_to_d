@@ -10,7 +10,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      master control register
     */
-    final abstract class MCR : Register!(0x0)
+    final abstract class MCR : Register!(00)
     {
         /*********************************************************************
          DBF
@@ -239,7 +239,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      receive FIFO 0 register
     */
-    final abstract class RF0R : Register!(0xC)
+    final abstract class RF0R : Register!(0xc)
     {
         /*********************************************************************
          RFOM0
@@ -403,7 +403,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      bit timing register
     */
-    final abstract class BTR : Register!(0x1C)
+    final abstract class BTR : Register!(0x1c)
     {
         /*********************************************************************
          SILM
@@ -518,7 +518,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class TDH0R : Register!(0x18C)
+    final abstract class TDH0R : Register!(0x18c)
     {
         /*********************************************************************
          DATA7
@@ -623,7 +623,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class TDH1R : Register!(0x19C)
+    final abstract class TDH1R : Register!(0x19c)
     {
         /*********************************************************************
          DATA7
@@ -649,7 +649,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox identifier register
     */
-    final abstract class TI2R : Register!(0x1A0)
+    final abstract class TI2R : Register!(0x1a0)
     {
         /*********************************************************************
          STID
@@ -681,7 +681,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
      mailbox data length control and time stamp
           register
     */
-    final abstract class TDT2R : Register!(0x1A4)
+    final abstract class TDT2R : Register!(0x1a4)
     {
         /*********************************************************************
          TIME
@@ -702,7 +702,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data low register
     */
-    final abstract class TDL2R : Register!(0x1A8)
+    final abstract class TDL2R : Register!(0x1a8)
     {
         /*********************************************************************
          DATA3
@@ -728,7 +728,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class TDH2R : Register!(0x1AC)
+    final abstract class TDH2R : Register!(0x1ac)
     {
         /*********************************************************************
          DATA7
@@ -755,7 +755,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
      receive FIFO mailbox identifier
           register
     */
-    final abstract class RI0R : Register!(0x1B0)
+    final abstract class RI0R : Register!(0x1b0)
     {
         /*********************************************************************
          STID
@@ -781,7 +781,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class RDT0R : Register!(0x1B4)
+    final abstract class RDT0R : Register!(0x1b4)
     {
         /*********************************************************************
          TIME
@@ -802,7 +802,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class RDL0R : Register!(0x1B8)
+    final abstract class RDL0R : Register!(0x1b8)
     {
         /*********************************************************************
          DATA3
@@ -829,7 +829,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
      receive FIFO mailbox data high
           register
     */
-    final abstract class RDH0R : Register!(0x1BC)
+    final abstract class RDH0R : Register!(0x1bc)
     {
         /*********************************************************************
          DATA7
@@ -855,7 +855,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class RI1R : Register!(0x1C0)
+    final abstract class RI1R : Register!(0x1c0)
     {
         /*********************************************************************
          STID
@@ -881,7 +881,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class RDT1R : Register!(0x1C4)
+    final abstract class RDT1R : Register!(0x1c4)
     {
         /*********************************************************************
          TIME
@@ -902,7 +902,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class RDL1R : Register!(0x1C8)
+    final abstract class RDL1R : Register!(0x1c8)
     {
         /*********************************************************************
          DATA3
@@ -928,7 +928,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      mailbox data high register
     */
-    final abstract class RDH1R : Register!(0x1CC)
+    final abstract class RDH1R : Register!(0x1cc)
     {
         /*********************************************************************
          DATA7
@@ -1116,7 +1116,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      filter scale register
     */
-    final abstract class FS1R : Register!(0x20C)
+    final abstract class FS1R : Register!(0x20c)
     {
         /*********************************************************************
          Filter scale configuration
@@ -1437,7 +1437,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      filter activation register
     */
-    final abstract class FA1R : Register!(0x21C)
+    final abstract class FA1R : Register!(0x21c)
     {
         /*********************************************************************
          Filter active
@@ -2081,7 +2081,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 1 register 2
     */
-    final abstract class F1R2 : Register!(0x24C)
+    final abstract class F1R2 : Register!(0x24c)
     {
         /*********************************************************************
          Filter bits
@@ -2745,7 +2745,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 3 register 2
     */
-    final abstract class F3R2 : Register!(0x25C)
+    final abstract class F3R2 : Register!(0x25c)
     {
         /*********************************************************************
          Filter bits
@@ -3409,7 +3409,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 5 register 2
     */
-    final abstract class F5R2 : Register!(0x26C)
+    final abstract class F5R2 : Register!(0x26c)
     {
         /*********************************************************************
          Filter bits
@@ -4073,7 +4073,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 7 register 2
     */
-    final abstract class F7R2 : Register!(0x27C)
+    final abstract class F7R2 : Register!(0x27c)
     {
         /*********************************************************************
          Filter bits
@@ -4737,7 +4737,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 9 register 2
     */
-    final abstract class F9R2 : Register!(0x28C)
+    final abstract class F9R2 : Register!(0x28c)
     {
         /*********************************************************************
          Filter bits
@@ -5401,7 +5401,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 11 register 2
     */
-    final abstract class F11R2 : Register!(0x29C)
+    final abstract class F11R2 : Register!(0x29c)
     {
         /*********************************************************************
          Filter bits
@@ -5567,7 +5567,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 4 register 1
     */
-    final abstract class F12R1 : Register!(0x2A0)
+    final abstract class F12R1 : Register!(0x2a0)
     {
         /*********************************************************************
          Filter bits
@@ -5733,7 +5733,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 12 register 2
     */
-    final abstract class F12R2 : Register!(0x2A4)
+    final abstract class F12R2 : Register!(0x2a4)
     {
         /*********************************************************************
          Filter bits
@@ -5899,7 +5899,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 13 register 1
     */
-    final abstract class F13R1 : Register!(0x2A8)
+    final abstract class F13R1 : Register!(0x2a8)
     {
         /*********************************************************************
          Filter bits
@@ -6065,7 +6065,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 13 register 2
     */
-    final abstract class F13R2 : Register!(0x2AC)
+    final abstract class F13R2 : Register!(0x2ac)
     {
         /*********************************************************************
          Filter bits
@@ -6231,7 +6231,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 14 register 1
     */
-    final abstract class F14R1 : Register!(0x2B0)
+    final abstract class F14R1 : Register!(0x2b0)
     {
         /*********************************************************************
          Filter bits
@@ -6397,7 +6397,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 14 register 2
     */
-    final abstract class F14R2 : Register!(0x2B4)
+    final abstract class F14R2 : Register!(0x2b4)
     {
         /*********************************************************************
          Filter bits
@@ -6563,7 +6563,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 15 register 1
     */
-    final abstract class F15R1 : Register!(0x2B8)
+    final abstract class F15R1 : Register!(0x2b8)
     {
         /*********************************************************************
          Filter bits
@@ -6729,7 +6729,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 15 register 2
     */
-    final abstract class F15R2 : Register!(0x2BC)
+    final abstract class F15R2 : Register!(0x2bc)
     {
         /*********************************************************************
          Filter bits
@@ -6895,7 +6895,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 16 register 1
     */
-    final abstract class F16R1 : Register!(0x2C0)
+    final abstract class F16R1 : Register!(0x2c0)
     {
         /*********************************************************************
          Filter bits
@@ -7061,7 +7061,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 16 register 2
     */
-    final abstract class F16R2 : Register!(0x2C4)
+    final abstract class F16R2 : Register!(0x2c4)
     {
         /*********************************************************************
          Filter bits
@@ -7227,7 +7227,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 17 register 1
     */
-    final abstract class F17R1 : Register!(0x2C8)
+    final abstract class F17R1 : Register!(0x2c8)
     {
         /*********************************************************************
          Filter bits
@@ -7393,7 +7393,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 17 register 2
     */
-    final abstract class F17R2 : Register!(0x2CC)
+    final abstract class F17R2 : Register!(0x2cc)
     {
         /*********************************************************************
          Filter bits
@@ -7559,7 +7559,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 18 register 1
     */
-    final abstract class F18R1 : Register!(0x2D0)
+    final abstract class F18R1 : Register!(0x2d0)
     {
         /*********************************************************************
          Filter bits
@@ -7725,7 +7725,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 18 register 2
     */
-    final abstract class F18R2 : Register!(0x2D4)
+    final abstract class F18R2 : Register!(0x2d4)
     {
         /*********************************************************************
          Filter bits
@@ -7891,7 +7891,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 19 register 1
     */
-    final abstract class F19R1 : Register!(0x2D8)
+    final abstract class F19R1 : Register!(0x2d8)
     {
         /*********************************************************************
          Filter bits
@@ -8057,7 +8057,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 19 register 2
     */
-    final abstract class F19R2 : Register!(0x2DC)
+    final abstract class F19R2 : Register!(0x2dc)
     {
         /*********************************************************************
          Filter bits
@@ -8223,7 +8223,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 20 register 1
     */
-    final abstract class F20R1 : Register!(0x2E0)
+    final abstract class F20R1 : Register!(0x2e0)
     {
         /*********************************************************************
          Filter bits
@@ -8389,7 +8389,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 20 register 2
     */
-    final abstract class F20R2 : Register!(0x2E4)
+    final abstract class F20R2 : Register!(0x2e4)
     {
         /*********************************************************************
          Filter bits
@@ -8555,7 +8555,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 21 register 1
     */
-    final abstract class F21R1 : Register!(0x2E8)
+    final abstract class F21R1 : Register!(0x2e8)
     {
         /*********************************************************************
          Filter bits
@@ -8721,7 +8721,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 21 register 2
     */
-    final abstract class F21R2 : Register!(0x2EC)
+    final abstract class F21R2 : Register!(0x2ec)
     {
         /*********************************************************************
          Filter bits
@@ -8887,7 +8887,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 22 register 1
     */
-    final abstract class F22R1 : Register!(0x2F0)
+    final abstract class F22R1 : Register!(0x2f0)
     {
         /*********************************************************************
          Filter bits
@@ -9053,7 +9053,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 22 register 2
     */
-    final abstract class F22R2 : Register!(0x2F4)
+    final abstract class F22R2 : Register!(0x2f4)
     {
         /*********************************************************************
          Filter bits
@@ -9219,7 +9219,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 23 register 1
     */
-    final abstract class F23R1 : Register!(0x2F8)
+    final abstract class F23R1 : Register!(0x2f8)
     {
         /*********************************************************************
          Filter bits
@@ -9385,7 +9385,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 23 register 2
     */
-    final abstract class F23R2 : Register!(0x2FC)
+    final abstract class F23R2 : Register!(0x2fc)
     {
         /*********************************************************************
          Filter bits
@@ -10049,7 +10049,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 25 register 2
     */
-    final abstract class F25R2 : Register!(0x30C)
+    final abstract class F25R2 : Register!(0x30c)
     {
         /*********************************************************************
          Filter bits
@@ -10713,7 +10713,7 @@ final abstract class CAN1 : Peripheral!(0x40006400)
     /*************************************************************************
      Filter bank 27 register 2
     */
-    final abstract class F27R2 : Register!(0x31C)
+    final abstract class F27R2 : Register!(0x31c)
     {
         /*********************************************************************
          Filter bits

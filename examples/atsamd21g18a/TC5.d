@@ -10,7 +10,17 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      COUNT8 Compare/Capture
     */
-    final abstract class CC%s : Register!(0x18)
+    final abstract class CC1 : Register!(0x18)
+    {
+        /*********************************************************************
+         Compare/Capture Value
+        */
+        alias CC = BitField!(7, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     COUNT8 Compare/Capture
+    */
+    final abstract class CC2 : Register!(0x19)
     {
         /*********************************************************************
          Compare/Capture Value
@@ -43,7 +53,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -194,7 +204,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control B Clear
     */
-    final abstract class CTRLBCLR : Register!(0x04)
+    final abstract class CTRLBCLR : Register!(0x4)
     {
         /*********************************************************************
          Counter Direction
@@ -238,7 +248,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control B Set
     */
-    final abstract class CTRLBSET : Register!(0x05)
+    final abstract class CTRLBSET : Register!(0x5)
     {
         /*********************************************************************
          Counter Direction
@@ -282,7 +292,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control C
     */
-    final abstract class CTRLC : Register!(0x06)
+    final abstract class CTRLC : Register!(0x6)
     {
         /*********************************************************************
          Output Waveform 0 Invert Enable
@@ -308,7 +318,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x08)
+    final abstract class DBGCTRL : Register!(0x8)
     {
         /*********************************************************************
          Debug Run Mode
@@ -319,7 +329,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Event Control
     */
-    final abstract class EVCTRL : Register!(0x0A)
+    final abstract class EVCTRL : Register!(0xa)
     {
         /*********************************************************************
          Event Action
@@ -393,7 +403,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x0C)
+    final abstract class INTENCLR : Register!(0xc)
     {
         /*********************************************************************
          Overflow Interrupt Enable
@@ -424,7 +434,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x0D)
+    final abstract class INTENSET : Register!(0xd)
     {
         /*********************************************************************
          Overflow Interrupt Enable
@@ -455,7 +465,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x0E)
+    final abstract class INTFLAG : Register!(0xe)
     {
         /*********************************************************************
          Overflow
@@ -486,7 +496,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Read Request
     */
-    final abstract class READREQ : Register!(0x02)
+    final abstract class READREQ : Register!(0x2)
     {
         /*********************************************************************
          Address
@@ -507,7 +517,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Status
     */
-    final abstract class STATUS : Register!(0x0F)
+    final abstract class STATUS : Register!(0xf)
     {
         /*********************************************************************
          Stop
@@ -528,7 +538,17 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      COUNT16 Compare/Capture
     */
-    final abstract class CC%s : Register!(0x18)
+    final abstract class CC1 : Register!(0x18)
+    {
+        /*********************************************************************
+         Compare/Capture Value
+        */
+        alias CC = BitField!(15, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     COUNT16 Compare/Capture
+    */
+    final abstract class CC2 : Register!(0x1a)
     {
         /*********************************************************************
          Compare/Capture Value
@@ -550,7 +570,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -701,7 +721,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control B Clear
     */
-    final abstract class CTRLBCLR : Register!(0x04)
+    final abstract class CTRLBCLR : Register!(0x4)
     {
         /*********************************************************************
          Counter Direction
@@ -745,7 +765,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control B Set
     */
-    final abstract class CTRLBSET : Register!(0x05)
+    final abstract class CTRLBSET : Register!(0x5)
     {
         /*********************************************************************
          Counter Direction
@@ -789,7 +809,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control C
     */
-    final abstract class CTRLC : Register!(0x06)
+    final abstract class CTRLC : Register!(0x6)
     {
         /*********************************************************************
          Output Waveform 0 Invert Enable
@@ -815,7 +835,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x08)
+    final abstract class DBGCTRL : Register!(0x8)
     {
         /*********************************************************************
          Debug Run Mode
@@ -826,7 +846,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Event Control
     */
-    final abstract class EVCTRL : Register!(0x0A)
+    final abstract class EVCTRL : Register!(0xa)
     {
         /*********************************************************************
          Event Action
@@ -900,7 +920,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x0C)
+    final abstract class INTENCLR : Register!(0xc)
     {
         /*********************************************************************
          Overflow Interrupt Enable
@@ -931,7 +951,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x0D)
+    final abstract class INTENSET : Register!(0xd)
     {
         /*********************************************************************
          Overflow Interrupt Enable
@@ -962,7 +982,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x0E)
+    final abstract class INTFLAG : Register!(0xe)
     {
         /*********************************************************************
          Overflow
@@ -993,7 +1013,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Read Request
     */
-    final abstract class READREQ : Register!(0x02)
+    final abstract class READREQ : Register!(0x2)
     {
         /*********************************************************************
          Address
@@ -1014,7 +1034,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Status
     */
-    final abstract class STATUS : Register!(0x0F)
+    final abstract class STATUS : Register!(0xf)
     {
         /*********************************************************************
          Stop
@@ -1035,7 +1055,17 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      COUNT32 Compare/Capture
     */
-    final abstract class CC%s : Register!(0x18)
+    final abstract class CC1 : Register!(0x18)
+    {
+        /*********************************************************************
+         Compare/Capture Value
+        */
+        alias CC = BitField!(31, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     COUNT32 Compare/Capture
+    */
+    final abstract class CC2 : Register!(0x1c)
     {
         /*********************************************************************
          Compare/Capture Value
@@ -1057,7 +1087,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -1208,7 +1238,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control B Clear
     */
-    final abstract class CTRLBCLR : Register!(0x04)
+    final abstract class CTRLBCLR : Register!(0x4)
     {
         /*********************************************************************
          Counter Direction
@@ -1252,7 +1282,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control B Set
     */
-    final abstract class CTRLBSET : Register!(0x05)
+    final abstract class CTRLBSET : Register!(0x5)
     {
         /*********************************************************************
          Counter Direction
@@ -1296,7 +1326,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Control C
     */
-    final abstract class CTRLC : Register!(0x06)
+    final abstract class CTRLC : Register!(0x6)
     {
         /*********************************************************************
          Output Waveform 0 Invert Enable
@@ -1322,7 +1352,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x08)
+    final abstract class DBGCTRL : Register!(0x8)
     {
         /*********************************************************************
          Debug Run Mode
@@ -1333,7 +1363,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Event Control
     */
-    final abstract class EVCTRL : Register!(0x0A)
+    final abstract class EVCTRL : Register!(0xa)
     {
         /*********************************************************************
          Event Action
@@ -1407,7 +1437,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x0C)
+    final abstract class INTENCLR : Register!(0xc)
     {
         /*********************************************************************
          Overflow Interrupt Enable
@@ -1438,7 +1468,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x0D)
+    final abstract class INTENSET : Register!(0xd)
     {
         /*********************************************************************
          Overflow Interrupt Enable
@@ -1469,7 +1499,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x0E)
+    final abstract class INTFLAG : Register!(0xe)
     {
         /*********************************************************************
          Overflow
@@ -1500,7 +1530,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Read Request
     */
-    final abstract class READREQ : Register!(0x02)
+    final abstract class READREQ : Register!(0x2)
     {
         /*********************************************************************
          Address
@@ -1521,7 +1551,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*************************************************************************
      Status
     */
-    final abstract class STATUS : Register!(0x0F)
+    final abstract class STATUS : Register!(0xf)
     {
         /*********************************************************************
          Stop

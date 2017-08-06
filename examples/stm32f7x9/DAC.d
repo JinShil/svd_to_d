@@ -10,7 +10,7 @@ final abstract class DAC : Peripheral!(0x40007400)
     /*************************************************************************
      control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          DAC channel2 DMA underrun interrupt
@@ -140,7 +140,7 @@ final abstract class DAC : Peripheral!(0x40007400)
      channel1 12-bit left aligned data holding
           register
     */
-    final abstract class DHR12L1 : Register!(0xC)
+    final abstract class DHR12L1 : Register!(0xc)
     {
         /*********************************************************************
          DAC channel1 12-bit left-aligned
@@ -192,7 +192,7 @@ final abstract class DAC : Peripheral!(0x40007400)
      channel2 8-bit right-aligned data holding
           register
     */
-    final abstract class DHR8R2 : Register!(0x1C)
+    final abstract class DHR8R2 : Register!(0x1c)
     {
         /*********************************************************************
          DAC channel2 8-bit right-aligned
@@ -261,7 +261,7 @@ final abstract class DAC : Peripheral!(0x40007400)
     /*************************************************************************
      channel1 data output register
     */
-    final abstract class DOR1 : Register!(0x2C)
+    final abstract class DOR1 : Register!(0x2c)
     {
         /*********************************************************************
          DAC channel1 data output

@@ -10,7 +10,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Address
     */
-    final abstract class ADDR : Register!(0x0004)
+    final abstract class ADDR : Register!(0x4)
     {
         /*********************************************************************
          Address
@@ -21,7 +21,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Component Identification 0
     */
-    final abstract class CID0 : Register!(0x1FF0)
+    final abstract class CID0 : Register!(0x1ff0)
     {
         /*********************************************************************
          Preamble Byte 0
@@ -32,7 +32,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Component Identification 1
     */
-    final abstract class CID1 : Register!(0x1FF4)
+    final abstract class CID1 : Register!(0x1ff4)
     {
         /*********************************************************************
          Preamble
@@ -48,7 +48,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Component Identification 2
     */
-    final abstract class CID2 : Register!(0x1FF8)
+    final abstract class CID2 : Register!(0x1ff8)
     {
         /*********************************************************************
          Preamble Byte 2
@@ -59,7 +59,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Component Identification 3
     */
-    final abstract class CID3 : Register!(0x1FFC)
+    final abstract class CID3 : Register!(0x1ffc)
     {
         /*********************************************************************
          Preamble Byte 3
@@ -70,7 +70,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Control
     */
-    final abstract class CTRL : Register!(0x0000)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -96,7 +96,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Data
     */
-    final abstract class DATA : Register!(0x000C)
+    final abstract class DATA : Register!(0xc)
     {
         /*********************************************************************
          Data
@@ -107,7 +107,17 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Debug Communication Channel n
     */
-    final abstract class DCC%s : Register!(0x0010)
+    final abstract class DCC1 : Register!(0x10)
+    {
+        /*********************************************************************
+         Data
+        */
+        alias DATA = BitField!(31, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     Debug Communication Channel n
+    */
+    final abstract class DCC2 : Register!(0x14)
     {
         /*********************************************************************
          Data
@@ -118,7 +128,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Device Identification
     */
-    final abstract class DID : Register!(0x0018)
+    final abstract class DID : Register!(0x18)
     {
         /*********************************************************************
          Device Select
@@ -165,7 +175,27 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Coresight ROM Table Entry n
     */
-    final abstract class ENTRY%s : Register!(0x1000)
+    final abstract class ENTRY1 : Register!(0x1000)
+    {
+        /*********************************************************************
+         Entry Present
+        */
+        alias EPRES = Bit!(0, Mutability.rw);
+
+        /*********************************************************************
+         Format
+        */
+        alias FMT = Bit!(1, Mutability.r);
+
+        /*********************************************************************
+         Address Offset
+        */
+        alias ADDOFF = BitField!(31, 12, Mutability.r);
+    }
+    /*************************************************************************
+     Coresight ROM Table Entry n
+    */
+    final abstract class ENTRY2 : Register!(0x1004)
     {
         /*********************************************************************
          Entry Present
@@ -186,7 +216,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Length
     */
-    final abstract class LENGTH : Register!(0x0008)
+    final abstract class LENGTH : Register!(0x8)
     {
         /*********************************************************************
          Length
@@ -197,7 +227,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Coresight ROM Table Memory Type
     */
-    final abstract class MEMTYPE : Register!(0x1FCC)
+    final abstract class MEMTYPE : Register!(0x1fcc)
     {
         /*********************************************************************
          System Memory Present
@@ -208,7 +238,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Peripheral Identification 0
     */
-    final abstract class PID0 : Register!(0x1FE0)
+    final abstract class PID0 : Register!(0x1fe0)
     {
         /*********************************************************************
          Part Number Low
@@ -219,7 +249,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Peripheral Identification 1
     */
-    final abstract class PID1 : Register!(0x1FE4)
+    final abstract class PID1 : Register!(0x1fe4)
     {
         /*********************************************************************
          Part Number High
@@ -235,7 +265,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Peripheral Identification 2
     */
-    final abstract class PID2 : Register!(0x1FE8)
+    final abstract class PID2 : Register!(0x1fe8)
     {
         /*********************************************************************
          JEP-106 Identity Code High
@@ -256,7 +286,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Peripheral Identification 3
     */
-    final abstract class PID3 : Register!(0x1FEC)
+    final abstract class PID3 : Register!(0x1fec)
     {
         /*********************************************************************
          ARM CUSMOD
@@ -272,7 +302,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Peripheral Identification 4
     */
-    final abstract class PID4 : Register!(0x1FD0)
+    final abstract class PID4 : Register!(0x1fd0)
     {
         /*********************************************************************
          JEP-106 Continuation Code
@@ -288,7 +318,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Status A
     */
-    final abstract class STATUSA : Register!(0x0001)
+    final abstract class STATUSA : Register!(0x1)
     {
         /*********************************************************************
          Done
@@ -319,7 +349,7 @@ final abstract class DSU : Peripheral!(0x41002000)
     /*************************************************************************
      Status B
     */
-    final abstract class STATUSB : Register!(0x0002)
+    final abstract class STATUSB : Register!(0x2)
     {
         /*********************************************************************
          Protected

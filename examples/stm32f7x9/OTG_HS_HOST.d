@@ -11,7 +11,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host configuration
           register
     */
-    final abstract class OTG_HS_HCFG : Register!(0x0)
+    final abstract class OTG_HS_HCFG : Register!(00)
     {
         /*********************************************************************
          FS/LS PHY clock select
@@ -468,7 +468,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-5 characteristics
           register
     */
-    final abstract class OTG_HS_HCCHAR5 : Register!(0x1A0)
+    final abstract class OTG_HS_HCCHAR5 : Register!(0x1a0)
     {
         /*********************************************************************
          Maximum packet size
@@ -526,7 +526,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-6 characteristics
           register
     */
-    final abstract class OTG_HS_HCCHAR6 : Register!(0x1C0)
+    final abstract class OTG_HS_HCCHAR6 : Register!(0x1c0)
     {
         /*********************************************************************
          Maximum packet size
@@ -584,7 +584,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-7 characteristics
           register
     */
-    final abstract class OTG_HS_HCCHAR7 : Register!(0x1E0)
+    final abstract class OTG_HS_HCCHAR7 : Register!(0x1e0)
     {
         /*********************************************************************
          Maximum packet size
@@ -1034,7 +1034,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-5 split control
           register
     */
-    final abstract class OTG_HS_HCSPLT5 : Register!(0x1A4)
+    final abstract class OTG_HS_HCSPLT5 : Register!(0x1a4)
     {
         /*********************************************************************
          Port address
@@ -1066,7 +1066,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-6 split control
           register
     */
-    final abstract class OTG_HS_HCSPLT6 : Register!(0x1C4)
+    final abstract class OTG_HS_HCSPLT6 : Register!(0x1c4)
     {
         /*********************************************************************
          Port address
@@ -1098,7 +1098,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-7 split control
           register
     */
-    final abstract class OTG_HS_HCSPLT7 : Register!(0x1E4)
+    final abstract class OTG_HS_HCSPLT7 : Register!(0x1e4)
     {
         /*********************************************************************
          Port address
@@ -1588,7 +1588,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-5 interrupt
           register
     */
-    final abstract class OTG_HS_HCINT5 : Register!(0x1A8)
+    final abstract class OTG_HS_HCINT5 : Register!(0x1a8)
     {
         /*********************************************************************
          Transfer completed
@@ -1654,7 +1654,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-6 interrupt
           register
     */
-    final abstract class OTG_HS_HCINT6 : Register!(0x1C8)
+    final abstract class OTG_HS_HCINT6 : Register!(0x1c8)
     {
         /*********************************************************************
          Transfer completed
@@ -1720,7 +1720,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-7 interrupt
           register
     */
-    final abstract class OTG_HS_HCINT7 : Register!(0x1E8)
+    final abstract class OTG_HS_HCINT7 : Register!(0x1e8)
     {
         /*********************************************************************
          Transfer completed
@@ -2050,7 +2050,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-11 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK0 : Register!(0x10C)
+    final abstract class OTG_HS_HCINTMSK0 : Register!(0x10c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2116,7 +2116,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-1 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK1 : Register!(0x12C)
+    final abstract class OTG_HS_HCINTMSK1 : Register!(0x12c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2182,7 +2182,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-2 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK2 : Register!(0x14C)
+    final abstract class OTG_HS_HCINTMSK2 : Register!(0x14c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2248,7 +2248,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-3 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK3 : Register!(0x16C)
+    final abstract class OTG_HS_HCINTMSK3 : Register!(0x16c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2314,7 +2314,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-4 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK4 : Register!(0x18C)
+    final abstract class OTG_HS_HCINTMSK4 : Register!(0x18c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2380,7 +2380,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-5 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK5 : Register!(0x1AC)
+    final abstract class OTG_HS_HCINTMSK5 : Register!(0x1ac)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2446,7 +2446,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-6 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK6 : Register!(0x1CC)
+    final abstract class OTG_HS_HCINTMSK6 : Register!(0x1cc)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2512,7 +2512,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-7 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK7 : Register!(0x1EC)
+    final abstract class OTG_HS_HCINTMSK7 : Register!(0x1ec)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2578,7 +2578,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-8 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK8 : Register!(0x20C)
+    final abstract class OTG_HS_HCINTMSK8 : Register!(0x20c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2644,7 +2644,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-9 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK9 : Register!(0x22C)
+    final abstract class OTG_HS_HCINTMSK9 : Register!(0x22c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2710,7 +2710,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-10 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK10 : Register!(0x24C)
+    final abstract class OTG_HS_HCINTMSK10 : Register!(0x24c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2776,7 +2776,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-11 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK11 : Register!(0x26C)
+    final abstract class OTG_HS_HCINTMSK11 : Register!(0x26c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -2952,7 +2952,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-5 transfer size
           register
     */
-    final abstract class OTG_HS_HCTSIZ5 : Register!(0x1B0)
+    final abstract class OTG_HS_HCTSIZ5 : Register!(0x1b0)
     {
         /*********************************************************************
          Transfer size
@@ -2974,7 +2974,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-6 transfer size
           register
     */
-    final abstract class OTG_HS_HCTSIZ6 : Register!(0x1D0)
+    final abstract class OTG_HS_HCTSIZ6 : Register!(0x1d0)
     {
         /*********************************************************************
          Transfer size
@@ -2996,7 +2996,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-7 transfer size
           register
     */
-    final abstract class OTG_HS_HCTSIZ7 : Register!(0x1F0)
+    final abstract class OTG_HS_HCTSIZ7 : Register!(0x1f0)
     {
         /*********************************************************************
          Transfer size
@@ -3166,7 +3166,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-5 DMA address
           register
     */
-    final abstract class OTG_HS_HCDMA5 : Register!(0x1B4)
+    final abstract class OTG_HS_HCDMA5 : Register!(0x1b4)
     {
         /*********************************************************************
          DMA address
@@ -3178,7 +3178,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-6 DMA address
           register
     */
-    final abstract class OTG_HS_HCDMA6 : Register!(0x1D4)
+    final abstract class OTG_HS_HCDMA6 : Register!(0x1d4)
     {
         /*********************************************************************
          DMA address
@@ -3190,7 +3190,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-7 DMA address
           register
     */
-    final abstract class OTG_HS_HCDMA7 : Register!(0x1F4)
+    final abstract class OTG_HS_HCDMA7 : Register!(0x1f4)
     {
         /*********************************************************************
          DMA address
@@ -3308,7 +3308,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-12 split control
           register
     */
-    final abstract class OTG_HS_HCSPLT12 : Register!(0x27C)
+    final abstract class OTG_HS_HCSPLT12 : Register!(0x27c)
     {
         /*********************************************************************
          Port address
@@ -3494,7 +3494,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-12 DMA address
           register
     */
-    final abstract class OTG_HS_HCDMA12 : Register!(0x28C)
+    final abstract class OTG_HS_HCDMA12 : Register!(0x28c)
     {
         /*********************************************************************
          DMA address
@@ -3662,7 +3662,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-13 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK13 : Register!(0x29C)
+    final abstract class OTG_HS_HCINTMSK13 : Register!(0x29c)
     {
         /*********************************************************************
          Transfer completed mask
@@ -3728,7 +3728,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-13 transfer size
           register
     */
-    final abstract class OTG_HS_HCTSIZ13 : Register!(0x2A0)
+    final abstract class OTG_HS_HCTSIZ13 : Register!(0x2a0)
     {
         /*********************************************************************
          Transfer size
@@ -3750,7 +3750,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-13 DMA address
           register
     */
-    final abstract class OTG_HS_HCDMA13 : Register!(0x2A4)
+    final abstract class OTG_HS_HCDMA13 : Register!(0x2a4)
     {
         /*********************************************************************
          DMA address
@@ -3762,7 +3762,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-14 characteristics
           register
     */
-    final abstract class OTG_HS_HCCHAR14 : Register!(0x2A8)
+    final abstract class OTG_HS_HCCHAR14 : Register!(0x2a8)
     {
         /*********************************************************************
          Maximum packet size
@@ -3820,7 +3820,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-14 split control
           register
     */
-    final abstract class OTG_HS_HCSPLT14 : Register!(0x2AC)
+    final abstract class OTG_HS_HCSPLT14 : Register!(0x2ac)
     {
         /*********************************************************************
          Port address
@@ -3852,7 +3852,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-14 interrupt
           register
     */
-    final abstract class OTG_HS_HCINT14 : Register!(0x2B0)
+    final abstract class OTG_HS_HCINT14 : Register!(0x2b0)
     {
         /*********************************************************************
          Transfer completed
@@ -3918,7 +3918,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-14 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK14 : Register!(0x2B4)
+    final abstract class OTG_HS_HCINTMSK14 : Register!(0x2b4)
     {
         /*********************************************************************
          Transfer completed mask
@@ -3984,7 +3984,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-14 transfer size
           register
     */
-    final abstract class OTG_HS_HCTSIZ14 : Register!(0x2B8)
+    final abstract class OTG_HS_HCTSIZ14 : Register!(0x2b8)
     {
         /*********************************************************************
          Transfer size
@@ -4006,7 +4006,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-14 DMA address
           register
     */
-    final abstract class OTG_HS_HCDMA14 : Register!(0x2BC)
+    final abstract class OTG_HS_HCDMA14 : Register!(0x2bc)
     {
         /*********************************************************************
          DMA address
@@ -4018,7 +4018,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-15 characteristics
           register
     */
-    final abstract class OTG_HS_HCCHAR15 : Register!(0x2C0)
+    final abstract class OTG_HS_HCCHAR15 : Register!(0x2c0)
     {
         /*********************************************************************
          Maximum packet size
@@ -4076,7 +4076,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-15 split control
           register
     */
-    final abstract class OTG_HS_HCSPLT15 : Register!(0x2C4)
+    final abstract class OTG_HS_HCSPLT15 : Register!(0x2c4)
     {
         /*********************************************************************
          Port address
@@ -4108,7 +4108,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-15 interrupt
           register
     */
-    final abstract class OTG_HS_HCINT15 : Register!(0x2C8)
+    final abstract class OTG_HS_HCINT15 : Register!(0x2c8)
     {
         /*********************************************************************
          Transfer completed
@@ -4174,7 +4174,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-15 interrupt mask
           register
     */
-    final abstract class OTG_HS_HCINTMSK15 : Register!(0x2CC)
+    final abstract class OTG_HS_HCINTMSK15 : Register!(0x2cc)
     {
         /*********************************************************************
          Transfer completed mask
@@ -4240,7 +4240,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-15 transfer size
           register
     */
-    final abstract class OTG_HS_HCTSIZ15 : Register!(0x2D0)
+    final abstract class OTG_HS_HCTSIZ15 : Register!(0x2d0)
     {
         /*********************************************************************
          Transfer size
@@ -4262,7 +4262,7 @@ final abstract class OTG_HS_HOST : Peripheral!(0x40040400)
      OTG_HS host channel-15 DMA address
           register
     */
-    final abstract class OTG_HS_HCDMA15 : Register!(0x2D4)
+    final abstract class OTG_HS_HCDMA15 : Register!(0x2d4)
     {
         /*********************************************************************
          DMA address

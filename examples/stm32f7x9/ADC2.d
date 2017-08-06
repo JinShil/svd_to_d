@@ -10,7 +10,7 @@ final abstract class ADC2 : Peripheral!(0x40012100)
     /*************************************************************************
      status register
     */
-    final abstract class SR : Register!(0x0)
+    final abstract class SR : Register!(00)
     {
         /*********************************************************************
          Overrun
@@ -210,7 +210,7 @@ final abstract class ADC2 : Peripheral!(0x40012100)
     /*************************************************************************
      sample time register 1
     */
-    final abstract class SMPR1 : Register!(0xC)
+    final abstract class SMPR1 : Register!(0xc)
     {
         /*********************************************************************
          Sample time bits
@@ -259,7 +259,7 @@ final abstract class ADC2 : Peripheral!(0x40012100)
      injected channel data offset register
           x
     */
-    final abstract class JOFR3 : Register!(0x1C)
+    final abstract class JOFR3 : Register!(0x1c)
     {
         /*********************************************************************
          Data offset for injected channel
@@ -310,7 +310,7 @@ final abstract class ADC2 : Peripheral!(0x40012100)
     /*************************************************************************
      regular sequence register 1
     */
-    final abstract class SQR1 : Register!(0x2C)
+    final abstract class SQR1 : Register!(0x2c)
     {
         /*********************************************************************
          Regular channel sequence
@@ -465,7 +465,7 @@ final abstract class ADC2 : Peripheral!(0x40012100)
     /*************************************************************************
      injected data register x
     */
-    final abstract class JDR1 : Register!(0x3C)
+    final abstract class JDR1 : Register!(0x3c)
     {
         /*********************************************************************
          Injected data
@@ -509,7 +509,7 @@ final abstract class ADC2 : Peripheral!(0x40012100)
     /*************************************************************************
      regular data register
     */
-    final abstract class DR : Register!(0x4C)
+    final abstract class DR : Register!(0x4c)
     {
         /*********************************************************************
          Regular data

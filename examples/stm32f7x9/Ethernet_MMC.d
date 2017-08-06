@@ -10,7 +10,7 @@ final abstract class Ethernet_MMC : Peripheral!(0x40028100)
     /*************************************************************************
      Ethernet MMC control register
     */
-    final abstract class MMCCR : Register!(0x0)
+    final abstract class MMCCR : Register!(00)
     {
         /*********************************************************************
          no description available
@@ -91,7 +91,7 @@ final abstract class Ethernet_MMC : Peripheral!(0x40028100)
      Ethernet MMC receive interrupt mask
           register
     */
-    final abstract class MMCRIMR : Register!(0xC)
+    final abstract class MMCRIMR : Register!(0xc)
     {
         /*********************************************************************
          no description available
@@ -135,7 +135,7 @@ final abstract class Ethernet_MMC : Peripheral!(0x40028100)
      Ethernet MMC transmitted good frames after a
           single collision counter
     */
-    final abstract class MMCTGFSCCR : Register!(0x4C)
+    final abstract class MMCTGFSCCR : Register!(0x4c)
     {
         /*********************************************************************
          no description available
@@ -195,7 +195,7 @@ final abstract class Ethernet_MMC : Peripheral!(0x40028100)
      MMC received good unicast frames counter
           register
     */
-    final abstract class MMCRGUFCR : Register!(0xC4)
+    final abstract class MMCRGUFCR : Register!(0xc4)
     {
         /*********************************************************************
          no description available

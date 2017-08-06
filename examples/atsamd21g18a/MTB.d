@@ -10,84 +10,84 @@ final abstract class MTB : Peripheral!(0x41006000)
     /*************************************************************************
      MTB Authentication Status
     */
-    final abstract class AUTHSTATUS : Register!(0xFB8)
+    final abstract class AUTHSTATUS : Register!(0xfb8)
     {
     }
 
     /*************************************************************************
      MTB Base
     */
-    final abstract class BASE : Register!(0x00C)
+    final abstract class BASE : Register!(0xc)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class CID0 : Register!(0xFF0)
+    final abstract class CID0 : Register!(0xff0)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class CID1 : Register!(0xFF4)
+    final abstract class CID1 : Register!(0xff4)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class CID2 : Register!(0xFF8)
+    final abstract class CID2 : Register!(0xff8)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class CID3 : Register!(0xFFC)
+    final abstract class CID3 : Register!(0xffc)
     {
     }
 
     /*************************************************************************
      MTB Claim Clear
     */
-    final abstract class CLAIMCLR : Register!(0xFA4)
+    final abstract class CLAIMCLR : Register!(0xfa4)
     {
     }
 
     /*************************************************************************
      MTB Claim Set
     */
-    final abstract class CLAIMSET : Register!(0xFA0)
+    final abstract class CLAIMSET : Register!(0xfa0)
     {
     }
 
     /*************************************************************************
      MTB Device Architecture
     */
-    final abstract class DEVARCH : Register!(0xFBC)
+    final abstract class DEVARCH : Register!(0xfbc)
     {
     }
 
     /*************************************************************************
      MTB Device Configuration
     */
-    final abstract class DEVID : Register!(0xFC8)
+    final abstract class DEVID : Register!(0xfc8)
     {
     }
 
     /*************************************************************************
      MTB Device Type
     */
-    final abstract class DEVTYPE : Register!(0xFCC)
+    final abstract class DEVTYPE : Register!(0xfcc)
     {
     }
 
     /*************************************************************************
      MTB Flow
     */
-    final abstract class FLOW : Register!(0x008)
+    final abstract class FLOW : Register!(0x8)
     {
         /*********************************************************************
          Auto Stop Tracing
@@ -108,28 +108,28 @@ final abstract class MTB : Peripheral!(0x41006000)
     /*************************************************************************
      MTB Integration Mode Control
     */
-    final abstract class ITCTRL : Register!(0xF00)
+    final abstract class ITCTRL : Register!(0xf00)
     {
     }
 
     /*************************************************************************
      MTB Lock Access
     */
-    final abstract class LOCKACCESS : Register!(0xFB0)
+    final abstract class LOCKACCESS : Register!(0xfb0)
     {
     }
 
     /*************************************************************************
      MTB Lock Status
     */
-    final abstract class LOCKSTATUS : Register!(0xFB4)
+    final abstract class LOCKSTATUS : Register!(0xfb4)
     {
     }
 
     /*************************************************************************
      MTB Master
     */
-    final abstract class MASTER : Register!(0x004)
+    final abstract class MASTER : Register!(0x4)
     {
         /*********************************************************************
          Maximum Value of the Trace Buffer in SRAM
@@ -170,63 +170,63 @@ final abstract class MTB : Peripheral!(0x41006000)
     /*************************************************************************
      CoreSight
     */
-    final abstract class PID0 : Register!(0xFE0)
+    final abstract class PID0 : Register!(0xfe0)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class PID1 : Register!(0xFE4)
+    final abstract class PID1 : Register!(0xfe4)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class PID2 : Register!(0xFE8)
+    final abstract class PID2 : Register!(0xfe8)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class PID3 : Register!(0xFEC)
+    final abstract class PID3 : Register!(0xfec)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class PID4 : Register!(0xFD0)
+    final abstract class PID4 : Register!(0xfd0)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class PID5 : Register!(0xFD4)
+    final abstract class PID5 : Register!(0xfd4)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class PID6 : Register!(0xFD8)
+    final abstract class PID6 : Register!(0xfd8)
     {
     }
 
     /*************************************************************************
      CoreSight
     */
-    final abstract class PID7 : Register!(0xFDC)
+    final abstract class PID7 : Register!(0xfdc)
     {
     }
 
     /*************************************************************************
      MTB Position
     */
-    final abstract class POSITION : Register!(0x000)
+    final abstract class POSITION : Register!(00)
     {
         /*********************************************************************
          Pointer Value Wraps

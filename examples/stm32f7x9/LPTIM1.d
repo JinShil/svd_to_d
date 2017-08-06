@@ -10,7 +10,7 @@ final abstract class LPTIM1 : Peripheral!(0x40002400)
     /*************************************************************************
      Interrupt and Status Register
     */
-    final abstract class ISR : Register!(0x0)
+    final abstract class ISR : Register!(00)
     {
         /*********************************************************************
          Counter direction change up to
@@ -150,7 +150,7 @@ final abstract class LPTIM1 : Peripheral!(0x40002400)
     /*************************************************************************
      Configuration Register
     */
-    final abstract class CFGR : Register!(0xC)
+    final abstract class CFGR : Register!(0xc)
     {
         /*********************************************************************
          Encoder mode enable
@@ -268,7 +268,7 @@ final abstract class LPTIM1 : Peripheral!(0x40002400)
     /*************************************************************************
      Counter Register
     */
-    final abstract class CNT : Register!(0x1C)
+    final abstract class CNT : Register!(0x1c)
     {
         /*********************************************************************
          Counter value

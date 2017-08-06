@@ -10,7 +10,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          Initialize message digest
@@ -96,7 +96,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      digest registers
     */
-    final abstract class HR0 : Register!(0xC)
+    final abstract class HR0 : Register!(0xc)
     {
         /*********************************************************************
          H0
@@ -140,7 +140,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      digest registers
     */
-    final abstract class HR4 : Register!(0x1C)
+    final abstract class HR4 : Register!(0x1c)
     {
         /*********************************************************************
          H4
@@ -197,7 +197,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR0 : Register!(0xF8)
+    final abstract class CSR0 : Register!(0xf8)
     {
         /*********************************************************************
          CSR0
@@ -208,7 +208,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR1 : Register!(0xFC)
+    final abstract class CSR1 : Register!(0xfc)
     {
         /*********************************************************************
          CSR1
@@ -252,7 +252,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR5 : Register!(0x10C)
+    final abstract class CSR5 : Register!(0x10c)
     {
         /*********************************************************************
          CSR5
@@ -296,7 +296,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR9 : Register!(0x11C)
+    final abstract class CSR9 : Register!(0x11c)
     {
         /*********************************************************************
          CSR9
@@ -340,7 +340,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR13 : Register!(0x12C)
+    final abstract class CSR13 : Register!(0x12c)
     {
         /*********************************************************************
          CSR13
@@ -384,7 +384,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR17 : Register!(0x13C)
+    final abstract class CSR17 : Register!(0x13c)
     {
         /*********************************************************************
          CSR17
@@ -428,7 +428,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR21 : Register!(0x14C)
+    final abstract class CSR21 : Register!(0x14c)
     {
         /*********************************************************************
          CSR21
@@ -472,7 +472,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR25 : Register!(0x15C)
+    final abstract class CSR25 : Register!(0x15c)
     {
         /*********************************************************************
          CSR25
@@ -516,7 +516,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR29 : Register!(0x16C)
+    final abstract class CSR29 : Register!(0x16c)
     {
         /*********************************************************************
          CSR29
@@ -560,7 +560,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR33 : Register!(0x17C)
+    final abstract class CSR33 : Register!(0x17c)
     {
         /*********************************************************************
          CSR33
@@ -604,7 +604,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR37 : Register!(0x18C)
+    final abstract class CSR37 : Register!(0x18c)
     {
         /*********************************************************************
          CSR37
@@ -648,7 +648,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR41 : Register!(0x19C)
+    final abstract class CSR41 : Register!(0x19c)
     {
         /*********************************************************************
          CSR41
@@ -659,7 +659,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR42 : Register!(0x1A0)
+    final abstract class CSR42 : Register!(0x1a0)
     {
         /*********************************************************************
          CSR42
@@ -670,7 +670,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR43 : Register!(0x1A4)
+    final abstract class CSR43 : Register!(0x1a4)
     {
         /*********************************************************************
          CSR43
@@ -681,7 +681,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR44 : Register!(0x1A8)
+    final abstract class CSR44 : Register!(0x1a8)
     {
         /*********************************************************************
          CSR44
@@ -692,7 +692,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR45 : Register!(0x1AC)
+    final abstract class CSR45 : Register!(0x1ac)
     {
         /*********************************************************************
          CSR45
@@ -703,7 +703,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR46 : Register!(0x1B0)
+    final abstract class CSR46 : Register!(0x1b0)
     {
         /*********************************************************************
          CSR46
@@ -714,7 +714,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR47 : Register!(0x1B4)
+    final abstract class CSR47 : Register!(0x1b4)
     {
         /*********************************************************************
          CSR47
@@ -725,7 +725,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR48 : Register!(0x1B8)
+    final abstract class CSR48 : Register!(0x1b8)
     {
         /*********************************************************************
          CSR48
@@ -736,7 +736,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR49 : Register!(0x1BC)
+    final abstract class CSR49 : Register!(0x1bc)
     {
         /*********************************************************************
          CSR49
@@ -747,7 +747,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR50 : Register!(0x1C0)
+    final abstract class CSR50 : Register!(0x1c0)
     {
         /*********************************************************************
          CSR50
@@ -758,7 +758,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR51 : Register!(0x1C4)
+    final abstract class CSR51 : Register!(0x1c4)
     {
         /*********************************************************************
          CSR51
@@ -769,7 +769,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR52 : Register!(0x1C8)
+    final abstract class CSR52 : Register!(0x1c8)
     {
         /*********************************************************************
          CSR52
@@ -780,7 +780,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      context swap registers
     */
-    final abstract class CSR53 : Register!(0x1CC)
+    final abstract class CSR53 : Register!(0x1cc)
     {
         /*********************************************************************
          CSR53
@@ -824,7 +824,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      read-only
     */
-    final abstract class HASH_HR3 : Register!(0x31C)
+    final abstract class HASH_HR3 : Register!(0x31c)
     {
         /*********************************************************************
          H3
@@ -868,7 +868,7 @@ final abstract class HASH : Peripheral!(0x50060400)
     /*************************************************************************
      read-only
     */
-    final abstract class HASH_HR7 : Register!(0x32C)
+    final abstract class HASH_HR7 : Register!(0x32c)
     {
         /*********************************************************************
          H7

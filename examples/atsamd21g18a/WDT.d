@@ -186,7 +186,7 @@ final abstract class WDT : Peripheral!(0x40001000)
     /*************************************************************************
      Control
     */
-    final abstract class CTRL : Register!(0x0)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Enable

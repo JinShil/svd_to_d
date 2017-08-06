@@ -84,7 +84,7 @@ final abstract class GCLK : Peripheral!(0x40000C00)
     /*************************************************************************
      Control
     */
-    final abstract class CTRL : Register!(0x0)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Software Reset

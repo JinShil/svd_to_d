@@ -11,7 +11,7 @@ final abstract class OTG_FS_GLOBAL : Peripheral!(0x50000000)
      OTG_FS control and status register
           (OTG_FS_GOTGCTL)
     */
-    final abstract class OTG_FS_GOTGCTL : Register!(0x0)
+    final abstract class OTG_FS_GOTGCTL : Register!(00)
     {
         /*********************************************************************
          Session request success
@@ -179,7 +179,7 @@ final abstract class OTG_FS_GLOBAL : Peripheral!(0x50000000)
      OTG_FS USB configuration register
           (OTG_FS_GUSBCFG)
     */
-    final abstract class OTG_FS_GUSBCFG : Register!(0xC)
+    final abstract class OTG_FS_GUSBCFG : Register!(0xc)
     {
         /*********************************************************************
          FS timeout calibration
@@ -565,7 +565,7 @@ final abstract class OTG_FS_GLOBAL : Peripheral!(0x50000000)
      OTG_FS Receive status debug read(Device
           mode)
     */
-    final abstract class OTG_FS_GRXSTSR_Device : Register!(0x1C)
+    final abstract class OTG_FS_GRXSTSR_Device : Register!(0x1c)
     {
         /*********************************************************************
          Endpoint number
@@ -597,7 +597,7 @@ final abstract class OTG_FS_GLOBAL : Peripheral!(0x50000000)
      OTG_FS Receive status debug read(Host
           mode)
     */
-    final abstract class OTG_FS_GRXSTSR_Host : Register!(0x1C)
+    final abstract class OTG_FS_GRXSTSR_Host : Register!(0x1c)
     {
         /*********************************************************************
          Endpoint number
@@ -672,7 +672,7 @@ final abstract class OTG_FS_GLOBAL : Peripheral!(0x50000000)
      OTG_FS non-periodic transmit FIFO/queue
           status register (OTG_FS_GNPTXSTS)
     */
-    final abstract class OTG_FS_HNPTXSTS : Register!(0x2C)
+    final abstract class OTG_FS_HNPTXSTS : Register!(0x2c)
     {
         /*********************************************************************
          Non-periodic TxFIFO space
@@ -761,7 +761,7 @@ final abstract class OTG_FS_GLOBAL : Peripheral!(0x50000000)
     /*************************************************************************
      core ID register
     */
-    final abstract class OTG_FS_CID : Register!(0x3C)
+    final abstract class OTG_FS_CID : Register!(0x3c)
     {
         /*********************************************************************
          Product ID field
@@ -827,7 +827,7 @@ final abstract class OTG_FS_GLOBAL : Peripheral!(0x50000000)
      OTG_FS device IN endpoint transmit FIFO size
           register (OTG_FS_DIEPTXF3)
     */
-    final abstract class OTG_FS_DIEPTXF3 : Register!(0x10C)
+    final abstract class OTG_FS_DIEPTXF3 : Register!(0x10c)
     {
         /*********************************************************************
          IN endpoint FIFO4 transmit RAM start

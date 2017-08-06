@@ -23,6 +23,8 @@ import std.string;
 import std.array;
 import std.conv;
 import std.path;
+import std.format;
+import std.range;
 
 private:
 
@@ -36,7 +38,6 @@ class Peripheral
     string name;
     string description;
     string baseAddress;
-    string addressOffset;
     string derivedFrom;
 
     Register[] registers;
@@ -46,7 +47,9 @@ class Register
 {
     string name;
     string description;
-    string addressOffset;
+    uint addressOffset;
+    uint numberOfRegisters;
+    uint addressIncrement;
 
     BitField[] fields;
 }
@@ -67,6 +70,19 @@ class Enumeration
     string name;
     string description;
     string value;
+}
+
+uint to_uint(string s)
+{
+    if (s.startsWith("0x"))
+    {
+        s = s.drop(2);
+        return to!uint(s, 16);
+    }
+    else
+    {
+        return to!uint(s);
+    }
 }
 
 int main(string[] args)
@@ -199,10 +215,26 @@ int main(string[] args)
         {
             if (parent == "register")
             {
-                device.peripherals[$-1].registers[$-1].addressOffset = text;
+                device.peripherals[$-1].registers[$-1].addressOffset = to_uint(text);
             }
         };
         parser.parse();
+    };
+    parser.onStartTag["dim"] = (ElementParser n)
+    {
+        n.onText = (string text)
+        {
+            device.peripherals[$-1].registers[$-1].numberOfRegisters = to_uint(text);
+        };
+        n.parse();
+    };
+    parser.onStartTag["dimIncrement"] = (ElementParser n)
+    {
+        n.onText = (string text)
+        {
+            device.peripherals[$-1].registers[$-1].addressIncrement = to_uint(text);
+        };
+        n.parse();
     };
     parser.onStartTag["bitWidth"] = (ElementParser parser)
     {
@@ -344,106 +376,124 @@ int main(string[] args)
                 code.put("\n");
             }
 
-            code.put(tab ~ "/*************************************************************************\n");
-            code.put(tab ~ " " ~ r.description ~ "\n");
-            code.put(tab ~ "*/\n");
-            code.put(tab ~ "final abstract class " ~ r.name ~ " : Register!(" ~ r.addressOffset ~ ")\n");
-            code.put(tab ~ "{\n");
-
-            // Generate D code for each bit field in the register
-            bool firstBitField = true;
-            foreach(BitField f; r.fields)
+            void outputRegister(string name, uint addressIncrement = 0)
             {
-                if (firstBitField)
-                {
-                    firstBitField = false;
-                }
-                else
-                {
-                    code.put("\n");
-                }
+                uint addressOffset = r.addressOffset + addressIncrement;
 
-                code.put(tab ~ tab ~ "/*********************************************************************\n");
-                code.put(tab ~ tab ~ " " ~ f.description ~ "\n");
-                code.put(tab ~ tab ~ "*/\n");
+                code.put(tab ~ "/*************************************************************************\n");
+                code.put(tab ~ " " ~ r.description ~ "\n");
+                code.put(tab ~ "*/\n");
+                code.put(tab ~ "final abstract class " ~ name ~ " : Register!(" ~ format("%02#x", addressOffset) ~ ")\n");
+                code.put(tab ~ "{\n");
 
-                immutable auto lsb = to!int(f.bitIndex);
-                immutable auto w = to!int(f.width);
-                immutable auto msb = lsb + w - 1;
-
-                void outputMutability()
+                // Generate D code for each bit field in the register
+                bool firstBitField = true;
+                foreach(BitField f; r.fields)
                 {
-                    if (f.mutability == "read-only")
+                    if (firstBitField)
                     {
-                        code.put("Mutability.r");
-                    }
-                    else if (f.mutability == "write-only")
-                    {
-                        code.put("Mutability.w");
-                    }
-                    else if (f.mutability == "read-write" || f.mutability == "")
-                    {
-                        code.put("Mutability.rw");
+                        firstBitField = false;
                     }
                     else
                     {
-                        throw new Exception("Unknown mutabililty '" ~ f.mutability ~ "'.");
+                        code.put("\n");
                     }
-                }
 
-                // If we have enumerated values for this bit field
-                if (f.values.length > 0)
-                {
-                    code.put(tab ~ tab ~ "final abstract class " ~ f.name ~ "\n");
-                    code.put(tab ~ tab ~ "{\n");
+                    code.put(tab ~ tab ~ "/*********************************************************************\n");
+                    code.put(tab ~ tab ~ " " ~ f.description ~ "\n");
+                    code.put(tab ~ tab ~ "*/\n");
 
-                    code.put(tab ~ tab ~ tab ~ "/*****************************************************************\n");
-                    code.put(tab ~ tab ~ tab ~ " " ~ f.name ~ "'s possible values\n");
-                    code.put(tab ~ tab ~ tab ~ "*/\n");
-                    code.put(tab ~ tab ~ tab ~ "enum Values\n");
-                    code.put(tab ~ tab ~ tab ~ "{\n");
+                    immutable auto lsb = to!int(f.bitIndex);
+                    immutable auto w = to!int(f.width);
+                    immutable auto msb = lsb + w - 1;
 
-                    bool firstEnum = true;
-                    foreach(Enumeration v; f.values)
+                    void outputMutability()
                     {
-                        if (firstEnum)
+                        if (f.mutability == "read-only")
                         {
-                            firstEnum = false;
+                            code.put("Mutability.r");
+                        }
+                        else if (f.mutability == "write-only")
+                        {
+                            code.put("Mutability.w");
+                        }
+                        else if (f.mutability == "read-write" || f.mutability == "")
+                        {
+                            code.put("Mutability.rw");
                         }
                         else
                         {
-                            code.put("\n");
+                            throw new Exception("Unknown mutabililty '" ~ f.mutability ~ "'.");
                         }
-
-                        if (v.description !is null && v.description != "")
-                        {
-                            code.put(tab ~ tab ~ tab ~ tab ~ "/*************************************************************\n");
-                            code.put(tab ~ tab ~ tab ~ tab ~ " " ~ v.description ~ "\n");
-                            code.put(tab ~ tab ~ tab ~ tab ~ "*/\n");
-                        }
-                        code.put(tab ~ tab ~ tab ~ tab ~ v.name ~ " = " ~ v.value ~ ",\n");
                     }
-                    code.put(tab ~ tab ~ tab ~ "}\n");
-                    code.put(tab ~ tab ~ tab ~ "mixin BitFieldImplementation!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
-                    outputMutability(); code.put(", values);\n");
-                    code.put(tab ~ tab ~ "}\n");
-                }
-                else
-                {
-                    // If this bit field is a single bit
-                    if (w == 1)
+
+                    // If we have enumerated values for this bit field
+                    if (f.values.length > 0)
                     {
-                        code.put(tab ~ tab ~ "alias " ~ f.name ~ " = Bit!(" ~ f.bitIndex ~ ", ");
+                        code.put(tab ~ tab ~ "final abstract class " ~ f.name ~ "\n");
+                        code.put(tab ~ tab ~ "{\n");
+
+                        code.put(tab ~ tab ~ tab ~ "/*****************************************************************\n");
+                        code.put(tab ~ tab ~ tab ~ " " ~ f.name ~ "'s possible values\n");
+                        code.put(tab ~ tab ~ tab ~ "*/\n");
+                        code.put(tab ~ tab ~ tab ~ "enum Values\n");
+                        code.put(tab ~ tab ~ tab ~ "{\n");
+
+                        bool firstEnum = true;
+                        foreach(Enumeration v; f.values)
+                        {
+                            if (firstEnum)
+                            {
+                                firstEnum = false;
+                            }
+                            else
+                            {
+                                code.put("\n");
+                            }
+
+                            if (v.description !is null && v.description != "")
+                            {
+                                code.put(tab ~ tab ~ tab ~ tab ~ "/*************************************************************\n");
+                                code.put(tab ~ tab ~ tab ~ tab ~ " " ~ v.description ~ "\n");
+                                code.put(tab ~ tab ~ tab ~ tab ~ "*/\n");
+                            }
+                            code.put(tab ~ tab ~ tab ~ tab ~ v.name ~ " = " ~ v.value ~ ",\n");
+                        }
+                        code.put(tab ~ tab ~ tab ~ "}\n");
+                        code.put(tab ~ tab ~ tab ~ "mixin BitFieldImplementation!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
+                        outputMutability(); code.put(", values);\n");
+                        code.put(tab ~ tab ~ "}\n");
                     }
                     else
                     {
-                        code.put(tab ~ tab ~ "alias " ~ f.name ~ " = BitField!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
-                    }
+                        // If this bit field is a single bit
+                        if (w == 1)
+                        {
+                            code.put(tab ~ tab ~ "alias " ~ f.name ~ " = Bit!(" ~ f.bitIndex ~ ", ");
+                        }
+                        else
+                        {
+                            code.put(tab ~ tab ~ "alias " ~ f.name ~ " = BitField!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
+                        }
 
-                    outputMutability(); code.put(");\n");
-                }               
+                        outputMutability(); code.put(");\n");
+                    }               
+                }
+                code.put(tab ~ "}\n");
             }
-            code.put(tab ~ "}\n");
+
+            if (r.numberOfRegisters < 2)
+            {
+                outputRegister(r.name);
+            }
+            else
+            {
+                for(uint i = 1; i <= r.numberOfRegisters; i++)
+                {
+                    outputRegister(format(r.name, i), cast(uint)((i - 1) * r.addressIncrement));
+                }
+            }
+            
         }
         code.put("}\n");
 

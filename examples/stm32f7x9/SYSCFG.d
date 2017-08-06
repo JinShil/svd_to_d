@@ -10,7 +10,7 @@ final abstract class SYSCFG : Peripheral!(0x40013800)
     /*************************************************************************
      memory remap register
     */
-    final abstract class MEMRM : Register!(0x0)
+    final abstract class MEMRM : Register!(00)
     {
         /*********************************************************************
          Memory mapping selection
@@ -91,7 +91,7 @@ final abstract class SYSCFG : Peripheral!(0x40013800)
      external interrupt configuration register
           2
     */
-    final abstract class EXTICR2 : Register!(0xC)
+    final abstract class EXTICR2 : Register!(0xc)
     {
         /*********************************************************************
          EXTI x configuration (x = 4 to

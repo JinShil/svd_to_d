@@ -11,7 +11,7 @@ final abstract class OTG_HS_PWRCLK : Peripheral!(0x40040E00)
      Power and clock gating control
           register
     */
-    final abstract class OTG_HS_PCGCR : Register!(0x0)
+    final abstract class OTG_HS_PCGCR : Register!(00)
     {
         /*********************************************************************
          Stop PHY clock

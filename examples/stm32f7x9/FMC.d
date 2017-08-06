@@ -11,7 +11,7 @@ final abstract class FMC : Peripheral!(0xA0000000)
      SRAM/NOR-Flash chip-select control register
           1
     */
-    final abstract class BCR1 : Register!(0x0)
+    final abstract class BCR1 : Register!(00)
     {
         /*********************************************************************
          CCLKEN
@@ -207,7 +207,7 @@ final abstract class FMC : Peripheral!(0xA0000000)
      SRAM/NOR-Flash chip-select timing register
           2
     */
-    final abstract class BTR2 : Register!(0xC)
+    final abstract class BTR2 : Register!(0xc)
     {
         /*********************************************************************
          ACCMOD
@@ -445,7 +445,7 @@ final abstract class FMC : Peripheral!(0xA0000000)
      SRAM/NOR-Flash chip-select timing register
           4
     */
-    final abstract class BTR4 : Register!(0x1C)
+    final abstract class BTR4 : Register!(0x1c)
     {
         /*********************************************************************
          ACCMOD
@@ -603,7 +603,7 @@ final abstract class FMC : Peripheral!(0xA0000000)
      Attribute memory space timing
           register
     */
-    final abstract class PATT : Register!(0x8C)
+    final abstract class PATT : Register!(0x8c)
     {
         /*********************************************************************
          ATTHIZx
@@ -678,7 +678,7 @@ final abstract class FMC : Peripheral!(0xA0000000)
      SRAM/NOR-Flash write timing registers
           2
     */
-    final abstract class BWTR2 : Register!(0x10C)
+    final abstract class BWTR2 : Register!(0x10c)
     {
         /*********************************************************************
          ACCMOD
@@ -752,7 +752,7 @@ final abstract class FMC : Peripheral!(0xA0000000)
      SRAM/NOR-Flash write timing registers
           4
     */
-    final abstract class BWTR4 : Register!(0x11C)
+    final abstract class BWTR4 : Register!(0x11c)
     {
         /*********************************************************************
          ACCMOD
@@ -934,7 +934,7 @@ final abstract class FMC : Peripheral!(0xA0000000)
     /*************************************************************************
      SDRAM Timing register 2
     */
-    final abstract class SDTR2 : Register!(0x14C)
+    final abstract class SDTR2 : Register!(0x14c)
     {
         /*********************************************************************
          Load Mode Register to

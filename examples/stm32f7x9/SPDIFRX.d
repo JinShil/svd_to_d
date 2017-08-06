@@ -10,7 +10,7 @@ final abstract class SPDIFRX : Peripheral!(0x40004000)
     /*************************************************************************
      Control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          Peripheral Block Enable
@@ -191,7 +191,7 @@ final abstract class SPDIFRX : Peripheral!(0x40004000)
     /*************************************************************************
      Interrupt Flag Clear register
     */
-    final abstract class IFCR : Register!(0xC)
+    final abstract class IFCR : Register!(0xc)
     {
         /*********************************************************************
          Clears the Parity error

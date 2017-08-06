@@ -10,7 +10,7 @@ final abstract class PAC1 : Peripheral!(0x41000000)
     /*************************************************************************
      Write Protection Clear
     */
-    final abstract class WPCLR : Register!(0x0)
+    final abstract class WPCLR : Register!(00)
     {
         /*********************************************************************
          Write Protection Clear

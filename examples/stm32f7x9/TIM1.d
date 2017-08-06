@@ -10,7 +10,7 @@ final abstract class TIM1 : Peripheral!(0x40010000)
     /*************************************************************************
      control register 1
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Clock division
@@ -167,7 +167,7 @@ final abstract class TIM1 : Peripheral!(0x40010000)
     /*************************************************************************
      DMA/Interrupt enable register
     */
-    final abstract class DIER : Register!(0xC)
+    final abstract class DIER : Register!(0xc)
     {
         /*********************************************************************
          Trigger DMA request enable
@@ -486,7 +486,7 @@ final abstract class TIM1 : Peripheral!(0x40010000)
      capture/compare mode register 2 (output
           mode)
     */
-    final abstract class CCMR2_Output : Register!(0x1C)
+    final abstract class CCMR2_Output : Register!(0x1c)
     {
         /*********************************************************************
          Output compare 4 clear
@@ -551,7 +551,7 @@ final abstract class TIM1 : Peripheral!(0x40010000)
      capture/compare mode register 2 (input
           mode)
     */
-    final abstract class CCMR2_Input : Register!(0x1C)
+    final abstract class CCMR2_Input : Register!(0x1c)
     {
         /*********************************************************************
          Input capture 4 filter
@@ -702,7 +702,7 @@ final abstract class TIM1 : Peripheral!(0x40010000)
     /*************************************************************************
      auto-reload register
     */
-    final abstract class ARR : Register!(0x2C)
+    final abstract class ARR : Register!(0x2c)
     {
         /*********************************************************************
          Auto-reload value
@@ -735,7 +735,7 @@ final abstract class TIM1 : Peripheral!(0x40010000)
     /*************************************************************************
      capture/compare register 3
     */
-    final abstract class CCR3 : Register!(0x3C)
+    final abstract class CCR3 : Register!(0x3c)
     {
         /*********************************************************************
          Capture/Compare value
@@ -773,7 +773,7 @@ final abstract class TIM1 : Peripheral!(0x40010000)
     /*************************************************************************
      DMA address for full transfer
     */
-    final abstract class DMAR : Register!(0x4C)
+    final abstract class DMAR : Register!(0x4c)
     {
         /*********************************************************************
          DMA register for burst
@@ -936,7 +936,7 @@ final abstract class TIM1 : Peripheral!(0x40010000)
     /*************************************************************************
      capture/compare register 6
     */
-    final abstract class CRR6 : Register!(0x5C)
+    final abstract class CRR6 : Register!(0x5c)
     {
         /*********************************************************************
          Capture/Compare 6 value

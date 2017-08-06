@@ -10,7 +10,7 @@ final abstract class DAC : Peripheral!(0x42004800)
     /*************************************************************************
      Control A
     */
-    final abstract class CTRLA : Register!(0x0)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -101,7 +101,7 @@ final abstract class DAC : Peripheral!(0x42004800)
     /*************************************************************************
      Data Buffer
     */
-    final abstract class DATABUF : Register!(0xC)
+    final abstract class DATABUF : Register!(0xc)
     {
         /*********************************************************************
          Data Buffer

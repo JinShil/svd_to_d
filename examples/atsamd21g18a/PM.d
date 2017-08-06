@@ -92,7 +92,7 @@ final abstract class PM : Peripheral!(0x40000400)
     /*************************************************************************
      APBA Clock Select
     */
-    final abstract class APBASEL : Register!(0x09)
+    final abstract class APBASEL : Register!(0x9)
     {
         /*********************************************************************
          APBA Prescaler Selection
@@ -151,7 +151,7 @@ final abstract class PM : Peripheral!(0x40000400)
     /*************************************************************************
      APBB Mask
     */
-    final abstract class APBBMASK : Register!(0x1C)
+    final abstract class APBBMASK : Register!(0x1c)
     {
         /*********************************************************************
          PAC1 APB Clock Enable
@@ -187,7 +187,7 @@ final abstract class PM : Peripheral!(0x40000400)
     /*************************************************************************
      APBB Clock Select
     */
-    final abstract class APBBSEL : Register!(0x0A)
+    final abstract class APBBSEL : Register!(0xa)
     {
         /*********************************************************************
          APBB Prescaler Selection
@@ -347,7 +347,7 @@ final abstract class PM : Peripheral!(0x40000400)
     /*************************************************************************
      APBC Clock Select
     */
-    final abstract class APBCSEL : Register!(0x0B)
+    final abstract class APBCSEL : Register!(0xb)
     {
         /*********************************************************************
          APBC Prescaler Selection
@@ -406,7 +406,7 @@ final abstract class PM : Peripheral!(0x40000400)
     /*************************************************************************
      CPU Clock Select
     */
-    final abstract class CPUSEL : Register!(0x08)
+    final abstract class CPUSEL : Register!(0x8)
     {
         /*********************************************************************
          CPU Prescaler Selection
@@ -465,7 +465,7 @@ final abstract class PM : Peripheral!(0x40000400)
     /*************************************************************************
      Control
     */
-    final abstract class CTRL : Register!(0x00)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Clock Failure Detector Enable
@@ -565,7 +565,7 @@ final abstract class PM : Peripheral!(0x40000400)
     /*************************************************************************
      Sleep Mode
     */
-    final abstract class SLEEP : Register!(0x01)
+    final abstract class SLEEP : Register!(0x1)
     {
         /*********************************************************************
          Idle Mode Configuration

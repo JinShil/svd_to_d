@@ -10,7 +10,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS configuration register
     */
-    final abstract class MDIOS_CR : Register!(0x0)
+    final abstract class MDIOS_CR : Register!(00)
     {
         /*********************************************************************
          Peripheral enable
@@ -72,7 +72,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS read flag register
     */
-    final abstract class MDIOS_RDFR : Register!(0xC)
+    final abstract class MDIOS_RDFR : Register!(0xc)
     {
         /*********************************************************************
          Read flags for MDIO registers 0 to
@@ -139,7 +139,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS input data register 0
     */
-    final abstract class MDIOS_DINR0 : Register!(0x1C)
+    final abstract class MDIOS_DINR0 : Register!(0x1c)
     {
         /*********************************************************************
          Input data received from MDIO Master
@@ -187,7 +187,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS input data register 4
     */
-    final abstract class MDIOS_DINR4 : Register!(0x2C)
+    final abstract class MDIOS_DINR4 : Register!(0x2c)
     {
         /*********************************************************************
          Input data received from MDIO Master
@@ -235,7 +235,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS input data register 8
     */
-    final abstract class MDIOS_DINR8 : Register!(0x3C)
+    final abstract class MDIOS_DINR8 : Register!(0x3c)
     {
         /*********************************************************************
          Input data received from MDIO Master
@@ -283,7 +283,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS input data register 12
     */
-    final abstract class MDIOS_DINR12 : Register!(0x4C)
+    final abstract class MDIOS_DINR12 : Register!(0x4c)
     {
         /*********************************************************************
          Input data received from MDIO Master
@@ -331,7 +331,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS input data register 16
     */
-    final abstract class MDIOS_DINR16 : Register!(0x5C)
+    final abstract class MDIOS_DINR16 : Register!(0x5c)
     {
         /*********************************************************************
          Input data received from MDIO Master
@@ -379,7 +379,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS input data register 20
     */
-    final abstract class MDIOS_DINR20 : Register!(0x6C)
+    final abstract class MDIOS_DINR20 : Register!(0x6c)
     {
         /*********************************************************************
          Input data received from MDIO Master
@@ -427,7 +427,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS input data register 24
     */
-    final abstract class MDIOS_DINR24 : Register!(0x7C)
+    final abstract class MDIOS_DINR24 : Register!(0x7c)
     {
         /*********************************************************************
          Input data received from MDIO Master
@@ -475,7 +475,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS input data register 28
     */
-    final abstract class MDIOS_DINR28 : Register!(0x8C)
+    final abstract class MDIOS_DINR28 : Register!(0x8c)
     {
         /*********************************************************************
          Input data received from MDIO Master
@@ -523,7 +523,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 0
     */
-    final abstract class MDIOS_DOUTR0 : Register!(0x9C)
+    final abstract class MDIOS_DOUTR0 : Register!(0x9c)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -535,7 +535,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 1
     */
-    final abstract class MDIOS_DOUTR1 : Register!(0xA0)
+    final abstract class MDIOS_DOUTR1 : Register!(0xa0)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -547,7 +547,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 2
     */
-    final abstract class MDIOS_DOUTR2 : Register!(0xA4)
+    final abstract class MDIOS_DOUTR2 : Register!(0xa4)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -559,7 +559,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 3
     */
-    final abstract class MDIOS_DOUTR3 : Register!(0xA8)
+    final abstract class MDIOS_DOUTR3 : Register!(0xa8)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -571,7 +571,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 4
     */
-    final abstract class MDIOS_DOUTR4 : Register!(0xAC)
+    final abstract class MDIOS_DOUTR4 : Register!(0xac)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -583,7 +583,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 5
     */
-    final abstract class MDIOS_DOUTR5 : Register!(0xB0)
+    final abstract class MDIOS_DOUTR5 : Register!(0xb0)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -595,7 +595,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 6
     */
-    final abstract class MDIOS_DOUTR6 : Register!(0xB4)
+    final abstract class MDIOS_DOUTR6 : Register!(0xb4)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -607,7 +607,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 7
     */
-    final abstract class MDIOS_DOUTR7 : Register!(0xB8)
+    final abstract class MDIOS_DOUTR7 : Register!(0xb8)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -619,7 +619,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 8
     */
-    final abstract class MDIOS_DOUTR8 : Register!(0xBC)
+    final abstract class MDIOS_DOUTR8 : Register!(0xbc)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -631,7 +631,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 9
     */
-    final abstract class MDIOS_DOUTR9 : Register!(0xC0)
+    final abstract class MDIOS_DOUTR9 : Register!(0xc0)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -643,7 +643,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 10
     */
-    final abstract class MDIOS_DOUTR10 : Register!(0xC4)
+    final abstract class MDIOS_DOUTR10 : Register!(0xc4)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -655,7 +655,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 11
     */
-    final abstract class MDIOS_DOUTR11 : Register!(0xC8)
+    final abstract class MDIOS_DOUTR11 : Register!(0xc8)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -667,7 +667,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 12
     */
-    final abstract class MDIOS_DOUTR12 : Register!(0xCC)
+    final abstract class MDIOS_DOUTR12 : Register!(0xcc)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -679,7 +679,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 13
     */
-    final abstract class MDIOS_DOUTR13 : Register!(0xD0)
+    final abstract class MDIOS_DOUTR13 : Register!(0xd0)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -691,7 +691,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 14
     */
-    final abstract class MDIOS_DOUTR14 : Register!(0xD4)
+    final abstract class MDIOS_DOUTR14 : Register!(0xd4)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -703,7 +703,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 15
     */
-    final abstract class MDIOS_DOUTR15 : Register!(0xD8)
+    final abstract class MDIOS_DOUTR15 : Register!(0xd8)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -715,7 +715,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 16
     */
-    final abstract class MDIOS_DOUTR16 : Register!(0xDC)
+    final abstract class MDIOS_DOUTR16 : Register!(0xdc)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -727,7 +727,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 17
     */
-    final abstract class MDIOS_DOUTR17 : Register!(0xE0)
+    final abstract class MDIOS_DOUTR17 : Register!(0xe0)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -739,7 +739,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 18
     */
-    final abstract class MDIOS_DOUTR18 : Register!(0xE4)
+    final abstract class MDIOS_DOUTR18 : Register!(0xe4)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -751,7 +751,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 19
     */
-    final abstract class MDIOS_DOUTR19 : Register!(0xE8)
+    final abstract class MDIOS_DOUTR19 : Register!(0xe8)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -763,7 +763,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 20
     */
-    final abstract class MDIOS_DOUTR20 : Register!(0xEC)
+    final abstract class MDIOS_DOUTR20 : Register!(0xec)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -775,7 +775,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 21
     */
-    final abstract class MDIOS_DOUTR21 : Register!(0xF0)
+    final abstract class MDIOS_DOUTR21 : Register!(0xf0)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -787,7 +787,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 22
     */
-    final abstract class MDIOS_DOUTR22 : Register!(0xF4)
+    final abstract class MDIOS_DOUTR22 : Register!(0xf4)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -799,7 +799,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 23
     */
-    final abstract class MDIOS_DOUTR23 : Register!(0xF8)
+    final abstract class MDIOS_DOUTR23 : Register!(0xf8)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -811,7 +811,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 24
     */
-    final abstract class MDIOS_DOUTR24 : Register!(0xFC)
+    final abstract class MDIOS_DOUTR24 : Register!(0xfc)
     {
         /*********************************************************************
          Output data sent to MDIO Master during
@@ -859,7 +859,7 @@ final abstract class MDIOS : Peripheral!(0x40017800)
     /*************************************************************************
      MDIOS output data register 28
     */
-    final abstract class MDIOS_DOUTR28 : Register!(0x10C)
+    final abstract class MDIOS_DOUTR28 : Register!(0x10c)
     {
         /*********************************************************************
          Output data sent to MDIO Master during

@@ -11,7 +11,7 @@ final abstract class Ethernet_PTP : Peripheral!(0x40028700)
      Ethernet PTP time stamp control
           register
     */
-    final abstract class PTPTSCR : Register!(0x0)
+    final abstract class PTPTSCR : Register!(00)
     {
         /*********************************************************************
          no description available
@@ -122,7 +122,7 @@ final abstract class Ethernet_PTP : Peripheral!(0x40028700)
      Ethernet PTP time stamp low
           register
     */
-    final abstract class PTPTSLR : Register!(0xC)
+    final abstract class PTPTSLR : Register!(0xc)
     {
         /*********************************************************************
          no description available
@@ -180,7 +180,7 @@ final abstract class Ethernet_PTP : Peripheral!(0x40028700)
      Ethernet PTP target time high
           register
     */
-    final abstract class PTPTTHR : Register!(0x1C)
+    final abstract class PTPTTHR : Register!(0x1c)
     {
         /*********************************************************************
          0
@@ -221,7 +221,7 @@ final abstract class Ethernet_PTP : Peripheral!(0x40028700)
      Ethernet PTP PPS control
           register
     */
-    final abstract class PTPPPSCR : Register!(0x2C)
+    final abstract class PTPPPSCR : Register!(0x2c)
     {
         /*********************************************************************
          TSSO

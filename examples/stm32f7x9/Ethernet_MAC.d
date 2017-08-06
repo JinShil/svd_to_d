@@ -12,7 +12,7 @@ final abstract class Ethernet_MAC : Peripheral!(0x40028000)
      Ethernet MAC configuration
           register
     */
-    final abstract class MACCR : Register!(0x0)
+    final abstract class MACCR : Register!(00)
     {
         /*********************************************************************
          RE
@@ -173,7 +173,7 @@ final abstract class Ethernet_MAC : Peripheral!(0x40028000)
      Ethernet MAC hash table low
           register
     */
-    final abstract class MACHTLR : Register!(0xC)
+    final abstract class MACHTLR : Register!(0xc)
     {
         /*********************************************************************
          no description available
@@ -269,7 +269,7 @@ final abstract class Ethernet_MAC : Peripheral!(0x40028000)
     /*************************************************************************
      Ethernet MAC VLAN tag register
     */
-    final abstract class MACVLANTR : Register!(0x1C)
+    final abstract class MACVLANTR : Register!(0x1c)
     {
         /*********************************************************************
          no description available
@@ -286,7 +286,7 @@ final abstract class Ethernet_MAC : Peripheral!(0x40028000)
      Ethernet MAC PMT control and status
           register
     */
-    final abstract class MACPMTCSR : Register!(0x2C)
+    final abstract class MACPMTCSR : Register!(0x2c)
     {
         /*********************************************************************
          no description available
@@ -396,7 +396,7 @@ final abstract class Ethernet_MAC : Peripheral!(0x40028000)
      Ethernet MAC interrupt mask
           register
     */
-    final abstract class MACIMR : Register!(0x3C)
+    final abstract class MACIMR : Register!(0x3c)
     {
         /*********************************************************************
          no description available
@@ -469,7 +469,7 @@ final abstract class Ethernet_MAC : Peripheral!(0x40028000)
      Ethernet MAC address1 low
           register
     */
-    final abstract class MACA1LR : Register!(0x4C)
+    final abstract class MACA1LR : Register!(0x4c)
     {
         /*********************************************************************
          no description available
@@ -547,7 +547,7 @@ final abstract class Ethernet_MAC : Peripheral!(0x40028000)
      Ethernet MAC address 3 low
           register
     */
-    final abstract class MACA3LR : Register!(0x5C)
+    final abstract class MACA3LR : Register!(0x5c)
     {
         /*********************************************************************
          no description available

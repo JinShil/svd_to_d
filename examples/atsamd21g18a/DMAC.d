@@ -287,7 +287,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      Channel ID
     */
-    final abstract class CHID : Register!(0x3F)
+    final abstract class CHID : Register!(0x3f)
     {
         /*********************************************************************
          Channel ID
@@ -298,7 +298,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      Channel Interrupt Enable Clear
     */
-    final abstract class CHINTENCLR : Register!(0x4C)
+    final abstract class CHINTENCLR : Register!(0x4c)
     {
         /*********************************************************************
          Transfer Error Interrupt Enable
@@ -319,7 +319,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      Channel Interrupt Enable Set
     */
-    final abstract class CHINTENSET : Register!(0x4D)
+    final abstract class CHINTENSET : Register!(0x4d)
     {
         /*********************************************************************
          Transfer Error Interrupt Enable
@@ -340,7 +340,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      Channel Interrupt Flag Status and Clear
     */
-    final abstract class CHINTFLAG : Register!(0x4E)
+    final abstract class CHINTFLAG : Register!(0x4e)
     {
         /*********************************************************************
          Transfer Error
@@ -361,7 +361,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      Channel Status
     */
-    final abstract class CHSTATUS : Register!(0x4F)
+    final abstract class CHSTATUS : Register!(0x4f)
     {
         /*********************************************************************
          Channel Pending
@@ -382,7 +382,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      CRC Checksum
     */
-    final abstract class CRCCHKSUM : Register!(0x08)
+    final abstract class CRCCHKSUM : Register!(0x8)
     {
         /*********************************************************************
          CRC Checksum
@@ -393,7 +393,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      CRC Control
     */
-    final abstract class CRCCTRL : Register!(0x02)
+    final abstract class CRCCTRL : Register!(0x2)
     {
         /*********************************************************************
          CRC Beat Size
@@ -473,7 +473,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      CRC Data Input
     */
-    final abstract class CRCDATAIN : Register!(0x04)
+    final abstract class CRCDATAIN : Register!(0x4)
     {
         /*********************************************************************
          CRC Data Input
@@ -484,7 +484,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      CRC Status
     */
-    final abstract class CRCSTATUS : Register!(0x0C)
+    final abstract class CRCSTATUS : Register!(0xc)
     {
         /*********************************************************************
          CRC Module Busy
@@ -500,7 +500,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      Control
     */
-    final abstract class CTRL : Register!(0x00)
+    final abstract class CTRL : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -541,7 +541,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x0D)
+    final abstract class DBGCTRL : Register!(0xd)
     {
         /*********************************************************************
          Debug Run
@@ -659,7 +659,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
     /*************************************************************************
      Pending Channels
     */
-    final abstract class PENDCH : Register!(0x2C)
+    final abstract class PENDCH : Register!(0x2c)
     {
         /*********************************************************************
          Pending Channel 0

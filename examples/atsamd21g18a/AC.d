@@ -10,7 +10,230 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Comparator Control n
     */
-    final abstract class COMPCTRL%s : Register!(0x10)
+    final abstract class COMPCTRL1 : Register!(0x10)
+    {
+        /*********************************************************************
+         Enable
+        */
+        alias ENABLE = Bit!(0, Mutability.rw);
+
+        /*********************************************************************
+         Single-Shot Mode
+        */
+        alias SINGLE = Bit!(1, Mutability.rw);
+
+        /*********************************************************************
+         Speed Selection
+        */
+        final abstract class SPEED
+        {
+            /*****************************************************************
+             SPEED's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 Low speed
+                */
+                LOW = 0x0,
+
+                /*************************************************************
+                 High speed
+                */
+                HIGH = 0x1,
+            }
+            mixin BitFieldImplementation!(3, 2, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Interrupt Selection
+        */
+        final abstract class INTSEL
+        {
+            /*****************************************************************
+             INTSEL's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 Interrupt on comparator output toggle
+                */
+                TOGGLE = 0x0,
+
+                /*************************************************************
+                 Interrupt on comparator output rising
+                */
+                RISING = 0x1,
+
+                /*************************************************************
+                 Interrupt on comparator output falling
+                */
+                FALLING = 0x2,
+
+                /*************************************************************
+                 Interrupt on end of comparison (single-shot mode only)
+                */
+                EOC = 0x3,
+            }
+            mixin BitFieldImplementation!(6, 5, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Negative Input Mux Selection
+        */
+        final abstract class MUXNEG
+        {
+            /*****************************************************************
+             MUXNEG's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 I/O pin 0
+                */
+                PIN0 = 0x0,
+
+                /*************************************************************
+                 I/O pin 1
+                */
+                PIN1 = 0x1,
+
+                /*************************************************************
+                 I/O pin 2
+                */
+                PIN2 = 0x2,
+
+                /*************************************************************
+                 I/O pin 3
+                */
+                PIN3 = 0x3,
+
+                /*************************************************************
+                 Ground
+                */
+                GND = 0x4,
+
+                /*************************************************************
+                 VDD scaler
+                */
+                VSCALE = 0x5,
+
+                /*************************************************************
+                 Internal bandgap voltage
+                */
+                BANDGAP = 0x6,
+
+                /*************************************************************
+                 DAC output
+                */
+                DAC = 0x7,
+            }
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Positive Input Mux Selection
+        */
+        final abstract class MUXPOS
+        {
+            /*****************************************************************
+             MUXPOS's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 I/O pin 0
+                */
+                PIN0 = 0x0,
+
+                /*************************************************************
+                 I/O pin 1
+                */
+                PIN1 = 0x1,
+
+                /*************************************************************
+                 I/O pin 2
+                */
+                PIN2 = 0x2,
+
+                /*************************************************************
+                 I/O pin 3
+                */
+                PIN3 = 0x3,
+            }
+            mixin BitFieldImplementation!(13, 12, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Swap Inputs and Invert
+        */
+        alias SWAP = Bit!(15, Mutability.rw);
+
+        /*********************************************************************
+         Output
+        */
+        final abstract class OUT
+        {
+            /*****************************************************************
+             OUT's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 The output of COMPn is not routed to the COMPn I/O port
+                */
+                OFF = 0x0,
+
+                /*************************************************************
+                 The asynchronous output of COMPn is routed to the COMPn I/O port
+                */
+                ASYNC = 0x1,
+
+                /*************************************************************
+                 The synchronous output (including filtering) of COMPn is routed to the COMPn I/O port
+                */
+                SYNC = 0x2,
+            }
+            mixin BitFieldImplementation!(17, 16, Mutability.rw, values);
+        }
+
+        /*********************************************************************
+         Hysteresis Enable
+        */
+        alias HYST = Bit!(19, Mutability.rw);
+
+        /*********************************************************************
+         Filter Length
+        */
+        final abstract class FLEN
+        {
+            /*****************************************************************
+             FLEN's possible values
+            */
+            enum Values
+            {
+                /*************************************************************
+                 No filtering
+                */
+                OFF = 0x0,
+
+                /*************************************************************
+                 3-bit majority function (2 of 3)
+                */
+                MAJ3 = 0x1,
+
+                /*************************************************************
+                 5-bit majority function (3 of 5)
+                */
+                MAJ5 = 0x2,
+            }
+            mixin BitFieldImplementation!(26, 24, Mutability.rw, values);
+        }
+    }
+    /*************************************************************************
+     Comparator Control n
+    */
+    final abstract class COMPCTRL2 : Register!(0x14)
     {
         /*********************************************************************
          Enable
@@ -234,7 +457,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -260,7 +483,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Control B
     */
-    final abstract class CTRLB : Register!(0x01)
+    final abstract class CTRLB : Register!(0x1)
     {
         /*********************************************************************
          Comparator 0 Start Comparison
@@ -276,7 +499,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Event Control
     */
-    final abstract class EVCTRL : Register!(0x02)
+    final abstract class EVCTRL : Register!(0x2)
     {
         /*********************************************************************
          Comparator 0 Event Output Enable
@@ -307,7 +530,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Interrupt Enable Clear
     */
-    final abstract class INTENCLR : Register!(0x04)
+    final abstract class INTENCLR : Register!(0x4)
     {
         /*********************************************************************
          Comparator 0 Interrupt Enable
@@ -328,7 +551,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Interrupt Enable Set
     */
-    final abstract class INTENSET : Register!(0x05)
+    final abstract class INTENSET : Register!(0x5)
     {
         /*********************************************************************
          Comparator 0 Interrupt Enable
@@ -349,7 +572,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Interrupt Flag Status and Clear
     */
-    final abstract class INTFLAG : Register!(0x06)
+    final abstract class INTFLAG : Register!(0x6)
     {
         /*********************************************************************
          Comparator 0
@@ -370,7 +593,17 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Scaler n
     */
-    final abstract class SCALER%s : Register!(0x20)
+    final abstract class SCALER1 : Register!(0x20)
+    {
+        /*********************************************************************
+         Scaler Value
+        */
+        alias VALUE = BitField!(5, 0, Mutability.rw);
+    }
+    /*************************************************************************
+     Scaler n
+    */
+    final abstract class SCALER2 : Register!(0x21)
     {
         /*********************************************************************
          Scaler Value
@@ -381,7 +614,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Status A
     */
-    final abstract class STATUSA : Register!(0x08)
+    final abstract class STATUSA : Register!(0x8)
     {
         /*********************************************************************
          Comparator 0 Current State
@@ -425,7 +658,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Status B
     */
-    final abstract class STATUSB : Register!(0x09)
+    final abstract class STATUSB : Register!(0x9)
     {
         /*********************************************************************
          Comparator 0 Ready
@@ -446,7 +679,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Status C
     */
-    final abstract class STATUSC : Register!(0x0A)
+    final abstract class STATUSC : Register!(0xa)
     {
         /*********************************************************************
          Comparator 0 Current State
@@ -490,7 +723,7 @@ final abstract class AC : Peripheral!(0x42004400)
     /*************************************************************************
      Window Control
     */
-    final abstract class WINCTRL : Register!(0x0C)
+    final abstract class WINCTRL : Register!(0xc)
     {
         /*********************************************************************
          Window 0 Mode Enable

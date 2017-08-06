@@ -11,7 +11,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device configuration
           register
     */
-    final abstract class OTG_HS_DCFG : Register!(0x0)
+    final abstract class OTG_HS_DCFG : Register!(00)
     {
         /*********************************************************************
          Device speed
@@ -246,7 +246,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS all endpoints interrupt mask
           register
     */
-    final abstract class OTG_HS_DAINTMSK : Register!(0x1C)
+    final abstract class OTG_HS_DAINTMSK : Register!(0x1c)
     {
         /*********************************************************************
          IN EP interrupt mask bits
@@ -275,7 +275,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device VBUS pulsing time
           register
     */
-    final abstract class OTG_HS_DVBUSPULSE : Register!(0x2C)
+    final abstract class OTG_HS_DVBUSPULSE : Register!(0x2c)
     {
         /*********************************************************************
          Device VBUS pulsing time
@@ -357,7 +357,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device each endpoint interrupt
           register mask
     */
-    final abstract class OTG_HS_DEACHINTMSK : Register!(0x3C)
+    final abstract class OTG_HS_DEACHINTMSK : Register!(0x3c)
     {
         /*********************************************************************
          IN Endpoint 1 interrupt mask
@@ -736,7 +736,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-5 control
           register
     */
-    final abstract class OTG_HS_DIEPCTL5 : Register!(0x1A0)
+    final abstract class OTG_HS_DIEPCTL5 : Register!(0x1a0)
     {
         /*********************************************************************
          Maximum packet size
@@ -808,7 +808,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-6 control
           register
     */
-    final abstract class OTG_HS_DIEPCTL6 : Register!(0x1C0)
+    final abstract class OTG_HS_DIEPCTL6 : Register!(0x1c0)
     {
         /*********************************************************************
          Maximum packet size
@@ -880,7 +880,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-7 control
           register
     */
-    final abstract class OTG_HS_DIEPCTL7 : Register!(0x1E0)
+    final abstract class OTG_HS_DIEPCTL7 : Register!(0x1e0)
     {
         /*********************************************************************
          Maximum packet size
@@ -1282,7 +1282,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-5 interrupt
           register
     */
-    final abstract class OTG_HS_DIEPINT5 : Register!(0x1A8)
+    final abstract class OTG_HS_DIEPINT5 : Register!(0x1a8)
     {
         /*********************************************************************
          Transfer completed
@@ -1348,7 +1348,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-6 interrupt
           register
     */
-    final abstract class OTG_HS_DIEPINT6 : Register!(0x1C8)
+    final abstract class OTG_HS_DIEPINT6 : Register!(0x1c8)
     {
         /*********************************************************************
          Transfer completed
@@ -1414,7 +1414,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-7 interrupt
           register
     */
-    final abstract class OTG_HS_DIEPINT7 : Register!(0x1E8)
+    final abstract class OTG_HS_DIEPINT7 : Register!(0x1e8)
     {
         /*********************************************************************
          Transfer completed
@@ -1622,7 +1622,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device IN endpoint transmit FIFO
           status register
     */
-    final abstract class OTG_HS_DTXFSTS5 : Register!(0x1B8)
+    final abstract class OTG_HS_DTXFSTS5 : Register!(0x1b8)
     {
         /*********************************************************************
          IN endpoint TxFIFO space
@@ -1723,7 +1723,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint transfer size
           register
     */
-    final abstract class OTG_HS_DIEPTSIZ5 : Register!(0x1B0)
+    final abstract class OTG_HS_DIEPTSIZ5 : Register!(0x1b0)
     {
         /*********************************************************************
          Transfer size
@@ -2229,7 +2229,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint-5 interrupt
           register
     */
-    final abstract class OTG_HS_DOEPINT5 : Register!(0x3A8)
+    final abstract class OTG_HS_DOEPINT5 : Register!(0x3a8)
     {
         /*********************************************************************
          Transfer completed
@@ -2270,7 +2270,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint-6 interrupt
           register
     */
-    final abstract class OTG_HS_DOEPINT6 : Register!(0x3C8)
+    final abstract class OTG_HS_DOEPINT6 : Register!(0x3c8)
     {
         /*********************************************************************
          Transfer completed
@@ -2311,7 +2311,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint-7 interrupt
           register
     */
-    final abstract class OTG_HS_DOEPINT7 : Register!(0x3E8)
+    final abstract class OTG_HS_DOEPINT7 : Register!(0x3e8)
     {
         /*********************************************************************
          Transfer completed
@@ -2466,7 +2466,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint transfer size
           register
     */
-    final abstract class OTG_HS_DIEPTSIZ6 : Register!(0x1A0)
+    final abstract class OTG_HS_DIEPTSIZ6 : Register!(0x1a0)
     {
         /*********************************************************************
          Transfer size
@@ -2488,7 +2488,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device IN endpoint transmit FIFO
           status register
     */
-    final abstract class OTG_HS_DTXFSTS6 : Register!(0x1A4)
+    final abstract class OTG_HS_DTXFSTS6 : Register!(0x1a4)
     {
         /*********************************************************************
          IN endpoint TxFIFO space
@@ -2501,7 +2501,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint transfer size
           register
     */
-    final abstract class OTG_HS_DIEPTSIZ7 : Register!(0x1A8)
+    final abstract class OTG_HS_DIEPTSIZ7 : Register!(0x1a8)
     {
         /*********************************************************************
          Transfer size
@@ -2523,7 +2523,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device IN endpoint transmit FIFO
           status register
     */
-    final abstract class OTG_HS_DTXFSTS7 : Register!(0x1AC)
+    final abstract class OTG_HS_DTXFSTS7 : Register!(0x1ac)
     {
         /*********************************************************************
          IN endpoint TxFIFO space
@@ -2610,7 +2610,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-5 control
           register
     */
-    final abstract class OTG_HS_DOEPCTL5 : Register!(0x3A0)
+    final abstract class OTG_HS_DOEPCTL5 : Register!(0x3a0)
     {
         /*********************************************************************
          Maximum packet size
@@ -2684,7 +2684,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-6 control
           register
     */
-    final abstract class OTG_HS_DOEPCTL6 : Register!(0x3C0)
+    final abstract class OTG_HS_DOEPCTL6 : Register!(0x3c0)
     {
         /*********************************************************************
          Maximum packet size
@@ -2758,7 +2758,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG device endpoint-7 control
           register
     */
-    final abstract class OTG_HS_DOEPCTL7 : Register!(0x3E0)
+    final abstract class OTG_HS_DOEPCTL7 : Register!(0x3e0)
     {
         /*********************************************************************
          Maximum packet size
@@ -2832,7 +2832,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint-5 transfer size
           register
     */
-    final abstract class OTG_HS_DOEPTSIZ5 : Register!(0x3B0)
+    final abstract class OTG_HS_DOEPTSIZ5 : Register!(0x3b0)
     {
         /*********************************************************************
          Transfer size
@@ -2855,7 +2855,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint-6 transfer size
           register
     */
-    final abstract class OTG_HS_DOEPTSIZ6 : Register!(0x3D0)
+    final abstract class OTG_HS_DOEPTSIZ6 : Register!(0x3d0)
     {
         /*********************************************************************
          Transfer size
@@ -2878,7 +2878,7 @@ final abstract class OTG_HS_DEVICE : Peripheral!(0x40040800)
      OTG_HS device endpoint-7 transfer size
           register
     */
-    final abstract class OTG_HS_DOEPTSIZ7 : Register!(0x3F0)
+    final abstract class OTG_HS_DOEPTSIZ7 : Register!(0x3f0)
     {
         /*********************************************************************
          Transfer size

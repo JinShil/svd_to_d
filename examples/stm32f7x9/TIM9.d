@@ -10,7 +10,7 @@ final abstract class TIM9 : Peripheral!(0x40014000)
     /*************************************************************************
      control register 1
     */
-    final abstract class CR1 : Register!(0x0)
+    final abstract class CR1 : Register!(00)
     {
         /*********************************************************************
          Clock division
@@ -67,7 +67,7 @@ final abstract class TIM9 : Peripheral!(0x40014000)
     /*************************************************************************
      DMA/Interrupt enable register
     */
-    final abstract class DIER : Register!(0xC)
+    final abstract class DIER : Register!(0xc)
     {
         /*********************************************************************
          Trigger interrupt enable
@@ -320,7 +320,7 @@ final abstract class TIM9 : Peripheral!(0x40014000)
     /*************************************************************************
      auto-reload register
     */
-    final abstract class ARR : Register!(0x2C)
+    final abstract class ARR : Register!(0x2c)
     {
         /*********************************************************************
          Auto-reload value

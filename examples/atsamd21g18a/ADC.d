@@ -10,7 +10,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Average Control
     */
-    final abstract class AVGCTRL : Register!(0x02)
+    final abstract class AVGCTRL : Register!(0x2)
     {
         /*********************************************************************
          Number of Samples to be Collected
@@ -105,7 +105,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Control A
     */
-    final abstract class CTRLA : Register!(0x00)
+    final abstract class CTRLA : Register!(00)
     {
         /*********************************************************************
          Software Reset
@@ -126,7 +126,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Control B
     */
-    final abstract class CTRLB : Register!(0x04)
+    final abstract class CTRLB : Register!(0x4)
     {
         /*********************************************************************
          Differential Mode
@@ -238,7 +238,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Debug Control
     */
-    final abstract class DBGCTRL : Register!(0x2A)
+    final abstract class DBGCTRL : Register!(0x2a)
     {
         /*********************************************************************
          Debug Run
@@ -635,7 +635,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Reference Control
     */
-    final abstract class REFCTRL : Register!(0x01)
+    final abstract class REFCTRL : Register!(0x1)
     {
         /*********************************************************************
          Reference Selection
@@ -684,7 +684,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Result
     */
-    final abstract class RESULT : Register!(0x1A)
+    final abstract class RESULT : Register!(0x1a)
     {
         /*********************************************************************
          Result Conversion Value
@@ -695,7 +695,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Sampling Time Control
     */
-    final abstract class SAMPCTRL : Register!(0x03)
+    final abstract class SAMPCTRL : Register!(0x3)
     {
         /*********************************************************************
          Sampling Time Length
@@ -717,7 +717,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Software Trigger
     */
-    final abstract class SWTRIG : Register!(0x0C)
+    final abstract class SWTRIG : Register!(0xc)
     {
         /*********************************************************************
          ADC Conversion Flush
@@ -733,7 +733,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Window Monitor Control
     */
-    final abstract class WINCTRL : Register!(0x08)
+    final abstract class WINCTRL : Register!(0x8)
     {
         /*********************************************************************
          Window Monitor Mode
@@ -777,7 +777,7 @@ final abstract class ADC : Peripheral!(0x42004000)
     /*************************************************************************
      Window Monitor Lower Threshold
     */
-    final abstract class WINLT : Register!(0x1C)
+    final abstract class WINLT : Register!(0x1c)
     {
         /*********************************************************************
          Window Lower Threshold

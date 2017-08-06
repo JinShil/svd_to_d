@@ -11,7 +11,7 @@ final abstract class OTG_FS_PWRCLK : Peripheral!(0x50000E00)
      OTG_FS power and clock gating control
           register (OTG_FS_PCGCCTL)
     */
-    final abstract class OTG_FS_PCGCCTL : Register!(0x0)
+    final abstract class OTG_FS_PCGCCTL : Register!(00)
     {
         /*********************************************************************
          Stop PHY clock

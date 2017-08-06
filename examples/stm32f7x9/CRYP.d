@@ -10,7 +10,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
     /*************************************************************************
      control register
     */
-    final abstract class CR : Register!(0x0)
+    final abstract class CR : Register!(00)
     {
         /*********************************************************************
          Algorithm direction
@@ -100,7 +100,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
     /*************************************************************************
      data output register
     */
-    final abstract class DOUT : Register!(0xC)
+    final abstract class DOUT : Register!(0xc)
     {
         /*********************************************************************
          Data output
@@ -165,7 +165,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
      masked interrupt status
           register
     */
-    final abstract class MISR : Register!(0x1C)
+    final abstract class MISR : Register!(0x1c)
     {
         /*********************************************************************
          Output FIFO service masked interrupt
@@ -681,7 +681,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
     /*************************************************************************
      key registers
     */
-    final abstract class K1RR : Register!(0x2C)
+    final abstract class K1RR : Register!(0x2c)
     {
         /*********************************************************************
          b128
@@ -1345,7 +1345,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
     /*************************************************************************
      key registers
     */
-    final abstract class K3RR : Register!(0x3C)
+    final abstract class K3RR : Register!(0x3c)
     {
         /*********************************************************************
          b0
@@ -2013,7 +2013,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
      initialization vector
           registers
     */
-    final abstract class IV1RR : Register!(0x4C)
+    final abstract class IV1RR : Register!(0x4c)
     {
         /*********************************************************************
          IV127
@@ -2212,7 +2212,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
     /*************************************************************************
      context swap register
     */
-    final abstract class CSGCMCCM3R : Register!(0x5C)
+    final abstract class CSGCMCCM3R : Register!(0x5c)
     {
         /*********************************************************************
          CSGCMCCM3R
@@ -2256,7 +2256,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
     /*************************************************************************
      context swap register
     */
-    final abstract class CSGCMCCM7R : Register!(0x6C)
+    final abstract class CSGCMCCM7R : Register!(0x6c)
     {
         /*********************************************************************
          CSGCMCCM7R
@@ -2300,7 +2300,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
     /*************************************************************************
      context swap register
     */
-    final abstract class CSGCM3R : Register!(0x7C)
+    final abstract class CSGCM3R : Register!(0x7c)
     {
         /*********************************************************************
          CSGCM3R
@@ -2344,7 +2344,7 @@ final abstract class CRYP : Peripheral!(0x50060000)
     /*************************************************************************
      context swap register
     */
-    final abstract class CSGCM7R : Register!(0x8C)
+    final abstract class CSGCM7R : Register!(0x8c)
     {
         /*********************************************************************
          CSGCM7R

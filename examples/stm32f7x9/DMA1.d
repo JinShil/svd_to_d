@@ -10,7 +10,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
     /*************************************************************************
      low interrupt status register
     */
-    final abstract class LISR : Register!(0x0)
+    final abstract class LISR : Register!(00)
     {
         /*********************************************************************
          Stream x transfer complete interrupt
@@ -390,7 +390,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      high interrupt flag clear
           register
     */
-    final abstract class HIFCR : Register!(0xC)
+    final abstract class HIFCR : Register!(0xc)
     {
         /*********************************************************************
          Stream x clear transfer complete
@@ -653,7 +653,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x memory 0 address
           register
     */
-    final abstract class S0M0AR : Register!(0x1C)
+    final abstract class S0M0AR : Register!(0x1c)
     {
         /*********************************************************************
          Memory 0 address
@@ -821,7 +821,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x number of data
           register
     */
-    final abstract class S1NDTR : Register!(0x2C)
+    final abstract class S1NDTR : Register!(0x2c)
     {
         /*********************************************************************
          Number of data items to
@@ -870,7 +870,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
     /*************************************************************************
      stream x FIFO control register
     */
-    final abstract class S1FCR : Register!(0x3C)
+    final abstract class S1FCR : Register!(0x3c)
     {
         /*********************************************************************
          FIFO error interrupt
@@ -1039,7 +1039,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x memory 0 address
           register
     */
-    final abstract class S2M0AR : Register!(0x4C)
+    final abstract class S2M0AR : Register!(0x4c)
     {
         /*********************************************************************
          Memory 0 address
@@ -1207,7 +1207,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x number of data
           register
     */
-    final abstract class S3NDTR : Register!(0x5C)
+    final abstract class S3NDTR : Register!(0x5c)
     {
         /*********************************************************************
          Number of data items to
@@ -1256,7 +1256,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
     /*************************************************************************
      stream x FIFO control register
     */
-    final abstract class S3FCR : Register!(0x6C)
+    final abstract class S3FCR : Register!(0x6c)
     {
         /*********************************************************************
          FIFO error interrupt
@@ -1425,7 +1425,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x memory 0 address
           register
     */
-    final abstract class S4M0AR : Register!(0x7C)
+    final abstract class S4M0AR : Register!(0x7c)
     {
         /*********************************************************************
          Memory 0 address
@@ -1593,7 +1593,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x number of data
           register
     */
-    final abstract class S5NDTR : Register!(0x8C)
+    final abstract class S5NDTR : Register!(0x8c)
     {
         /*********************************************************************
          Number of data items to
@@ -1642,7 +1642,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
     /*************************************************************************
      stream x FIFO control register
     */
-    final abstract class S5FCR : Register!(0x9C)
+    final abstract class S5FCR : Register!(0x9c)
     {
         /*********************************************************************
          FIFO error interrupt
@@ -1670,7 +1670,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x configuration
           register
     */
-    final abstract class S6CR : Register!(0xA0)
+    final abstract class S6CR : Register!(0xa0)
     {
         /*********************************************************************
          Channel selection
@@ -1786,7 +1786,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x number of data
           register
     */
-    final abstract class S6NDTR : Register!(0xA4)
+    final abstract class S6NDTR : Register!(0xa4)
     {
         /*********************************************************************
          Number of data items to
@@ -1799,7 +1799,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x peripheral address
           register
     */
-    final abstract class S6PAR : Register!(0xA8)
+    final abstract class S6PAR : Register!(0xa8)
     {
         /*********************************************************************
          Peripheral address
@@ -1811,7 +1811,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x memory 0 address
           register
     */
-    final abstract class S6M0AR : Register!(0xAC)
+    final abstract class S6M0AR : Register!(0xac)
     {
         /*********************************************************************
          Memory 0 address
@@ -1823,7 +1823,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x memory 1 address
           register
     */
-    final abstract class S6M1AR : Register!(0xB0)
+    final abstract class S6M1AR : Register!(0xb0)
     {
         /*********************************************************************
          Memory 1 address (used in case of Double
@@ -1835,7 +1835,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
     /*************************************************************************
      stream x FIFO control register
     */
-    final abstract class S6FCR : Register!(0xB4)
+    final abstract class S6FCR : Register!(0xb4)
     {
         /*********************************************************************
          FIFO error interrupt
@@ -1863,7 +1863,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x configuration
           register
     */
-    final abstract class S7CR : Register!(0xB8)
+    final abstract class S7CR : Register!(0xb8)
     {
         /*********************************************************************
          Channel selection
@@ -1979,7 +1979,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x number of data
           register
     */
-    final abstract class S7NDTR : Register!(0xBC)
+    final abstract class S7NDTR : Register!(0xbc)
     {
         /*********************************************************************
          Number of data items to
@@ -1992,7 +1992,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x peripheral address
           register
     */
-    final abstract class S7PAR : Register!(0xC0)
+    final abstract class S7PAR : Register!(0xc0)
     {
         /*********************************************************************
          Peripheral address
@@ -2004,7 +2004,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x memory 0 address
           register
     */
-    final abstract class S7M0AR : Register!(0xC4)
+    final abstract class S7M0AR : Register!(0xc4)
     {
         /*********************************************************************
          Memory 0 address
@@ -2016,7 +2016,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
      stream x memory 1 address
           register
     */
-    final abstract class S7M1AR : Register!(0xC8)
+    final abstract class S7M1AR : Register!(0xc8)
     {
         /*********************************************************************
          Memory 1 address (used in case of Double
@@ -2028,7 +2028,7 @@ final abstract class DMA1 : Peripheral!(0x40026000)
     /*************************************************************************
      stream x FIFO control register
     */
-    final abstract class S7FCR : Register!(0xCC)
+    final abstract class S7FCR : Register!(0xcc)
     {
         /*********************************************************************
          FIFO error interrupt

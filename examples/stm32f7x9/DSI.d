@@ -10,7 +10,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
     /*************************************************************************
      DSI Host Version Register
     */
-    final abstract class DSI_VR : Register!(0x0)
+    final abstract class DSI_VR : Register!(00)
     {
         /*********************************************************************
          Version of the DSI Host
@@ -49,7 +49,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
     /*************************************************************************
      DSI Host LTDC VCID Register
     */
-    final abstract class DSI_LVCIDR : Register!(0xC)
+    final abstract class DSI_LVCIDR : Register!(0xc)
     {
         /*********************************************************************
          Virtual Channel ID
@@ -117,7 +117,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Protocol Configuration
           Register
     */
-    final abstract class DSI_PCR : Register!(0x1C)
+    final abstract class DSI_PCR : Register!(0x1c)
     {
         /*********************************************************************
          EoTp Transmission Enable
@@ -247,7 +247,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video Packet Configuration
           Register
     */
-    final abstract class DSI_VPCR : Register!(0x2C)
+    final abstract class DSI_VPCR : Register!(0x2c)
     {
         /*********************************************************************
          Video Packet Size
@@ -296,7 +296,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video HBP Configuration
           Register
     */
-    final abstract class DSI_VHBPCR : Register!(0x3C)
+    final abstract class DSI_VHBPCR : Register!(0x3c)
     {
         /*********************************************************************
          Horizontal Back-Porch
@@ -347,7 +347,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video VFP Configuration
           Register
     */
-    final abstract class DSI_VVFPCR : Register!(0x4C)
+    final abstract class DSI_VVFPCR : Register!(0x4c)
     {
         /*********************************************************************
          Vertical Front-Porch
@@ -473,7 +473,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Generic Header Configuration
           Register
     */
-    final abstract class DSI_GHCR : Register!(0x5C)
+    final abstract class DSI_GHCR : Register!(0x5c)
     {
         /*********************************************************************
          Type
@@ -588,7 +588,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Timeout Counter Configuration
           Register 1
     */
-    final abstract class DSI_TCCR1 : Register!(0x6C)
+    final abstract class DSI_TCCR1 : Register!(0x6c)
     {
         /*********************************************************************
          High-Speed Read Timeout
@@ -645,7 +645,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Timeout Counter Configuration
           Register 5
     */
-    final abstract class DSI_TCCR5 : Register!(0x7C)
+    final abstract class DSI_TCCR5 : Register!(0x7c)
     {
         /*********************************************************************
          Bus-Turn-Around Timeout
@@ -718,7 +718,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
     /*************************************************************************
      DSI Host PHY Control Register
     */
-    final abstract class DSI_PCTLR : Register!(0x8C)
+    final abstract class DSI_PCTLR : Register!(0x8c)
     {
         /*********************************************************************
          Digital Enable
@@ -790,7 +790,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
     /*************************************************************************
      DSI Host PHY Status Register
     */
-    final abstract class DSI_PSR : Register!(0x9C)
+    final abstract class DSI_PSR : Register!(0x9c)
     {
         /*********************************************************************
          PHY Direction
@@ -837,7 +837,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Interrupt & Status Register
           0
     */
-    final abstract class DSI_ISR0 : Register!(0xA0)
+    final abstract class DSI_ISR0 : Register!(0xa0)
     {
         /*********************************************************************
          Acknowledge Error 0
@@ -949,7 +949,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Interrupt & Status Register
           1
     */
-    final abstract class DSI_ISR1 : Register!(0xA4)
+    final abstract class DSI_ISR1 : Register!(0xa4)
     {
         /*********************************************************************
          Timeout High-Speed
@@ -1027,7 +1027,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Interrupt Enable Register
           0
     */
-    final abstract class DSI_IER0 : Register!(0xA8)
+    final abstract class DSI_IER0 : Register!(0xa8)
     {
         /*********************************************************************
          Acknowledge Error 0 Interrupt
@@ -1160,7 +1160,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Interrupt Enable Register
           1
     */
-    final abstract class DSI_IER1 : Register!(0xAC)
+    final abstract class DSI_IER1 : Register!(0xac)
     {
         /*********************************************************************
          Timeout High-Speed Transmission
@@ -1244,7 +1244,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Force Interrupt Register
           0
     */
-    final abstract class DSI_FIR0 : Register!(0xB0)
+    final abstract class DSI_FIR0 : Register!(0xb0)
     {
         /*********************************************************************
          Force Acknowledge Error 0
@@ -1356,7 +1356,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Force Interrupt Register
           1
     */
-    final abstract class DSI_FIR1 : Register!(0xB4)
+    final abstract class DSI_FIR1 : Register!(0xb4)
     {
         /*********************************************************************
          Force Timeout High-Speed
@@ -1436,7 +1436,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video Shadow Control
           Register
     */
-    final abstract class DSI_VSCR : Register!(0xB8)
+    final abstract class DSI_VSCR : Register!(0xb8)
     {
         /*********************************************************************
          Enable
@@ -1453,7 +1453,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host LTDC Current VCID
           Register
     */
-    final abstract class DSI_LCVCIDR : Register!(0xBC)
+    final abstract class DSI_LCVCIDR : Register!(0xbc)
     {
         /*********************************************************************
          Virtual Channel ID
@@ -1465,7 +1465,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host LTDC Current Color Coding
           Register
     */
-    final abstract class DSI_LCCCR : Register!(0xC0)
+    final abstract class DSI_LCCCR : Register!(0xc0)
     {
         /*********************************************************************
          Color Coding
@@ -1482,7 +1482,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Low-Power mode Current
           Configuration Register
     */
-    final abstract class DSI_LPMCCR : Register!(0xC4)
+    final abstract class DSI_LPMCCR : Register!(0xc4)
     {
         /*********************************************************************
          VACT Largest Packet Size
@@ -1499,7 +1499,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video mode Current Configuration
           Register
     */
-    final abstract class DSI_VMCCR : Register!(0xC8)
+    final abstract class DSI_VMCCR : Register!(0xc8)
     {
         /*********************************************************************
          Video mode Type
@@ -1558,7 +1558,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video Packet Current Configuration
           Register
     */
-    final abstract class DSI_VPCCR : Register!(0xCC)
+    final abstract class DSI_VPCCR : Register!(0xcc)
     {
         /*********************************************************************
          Video Packet Size
@@ -1570,7 +1570,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video Chunks Current Configuration
           Register
     */
-    final abstract class DSI_VCCCR : Register!(0xD0)
+    final abstract class DSI_VCCCR : Register!(0xd0)
     {
         /*********************************************************************
          Number of Chunks
@@ -1582,7 +1582,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video Null Packet Current
           Configuration Register
     */
-    final abstract class DSI_VNPCCR : Register!(0xD4)
+    final abstract class DSI_VNPCCR : Register!(0xd4)
     {
         /*********************************************************************
          Null Packet Size
@@ -1594,7 +1594,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video HSA Current Configuration
           Register
     */
-    final abstract class DSI_VHSACCR : Register!(0xD8)
+    final abstract class DSI_VHSACCR : Register!(0xd8)
     {
         /*********************************************************************
          Horizontal Synchronism Active
@@ -1607,7 +1607,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video HBP Current Configuration
           Register
     */
-    final abstract class DSI_VHBPCCR : Register!(0xDC)
+    final abstract class DSI_VHBPCCR : Register!(0xdc)
     {
         /*********************************************************************
          Horizontal Back-Porch
@@ -1620,7 +1620,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video Line Current Configuration
           Register
     */
-    final abstract class DSI_VLCCR : Register!(0xE0)
+    final abstract class DSI_VLCCR : Register!(0xe0)
     {
         /*********************************************************************
          Horizontal Line duration
@@ -1632,7 +1632,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video VSA Current Configuration
           Register
     */
-    final abstract class DSI_VVSACCR : Register!(0xE4)
+    final abstract class DSI_VVSACCR : Register!(0xe4)
     {
         /*********************************************************************
          Vertical Synchronism Active
@@ -1645,7 +1645,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video VBP Current Configuration
           Register
     */
-    final abstract class DSI_VVBPCCR : Register!(0xE8)
+    final abstract class DSI_VVBPCCR : Register!(0xe8)
     {
         /*********************************************************************
          Vertical Back-Porch
@@ -1658,7 +1658,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video VFP Current Configuration
           Register
     */
-    final abstract class DSI_VVFPCCR : Register!(0xEC)
+    final abstract class DSI_VVFPCCR : Register!(0xec)
     {
         /*********************************************************************
          Vertical Front-Porch
@@ -1671,7 +1671,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Host Video VA Current Configuration
           Register
     */
-    final abstract class DSI_VVACCR : Register!(0xF0)
+    final abstract class DSI_VVACCR : Register!(0xf0)
     {
         /*********************************************************************
          Vertical Active duration
@@ -1782,7 +1782,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Wrapper Interrupt & Status
           Register
     */
-    final abstract class DSI_WISR : Register!(0x40C)
+    final abstract class DSI_WISR : Register!(0x40c)
     {
         /*********************************************************************
          Regulator Ready Interrupt
@@ -1997,7 +1997,7 @@ final abstract class DSI : Peripheral!(0x40016C00)
      DSI Wrapper PHY Configuration Register
           2
     */
-    final abstract class DSI_WPCR2 : Register!(0x41C)
+    final abstract class DSI_WPCR2 : Register!(0x41c)
     {
         /*********************************************************************
          Low-Power RX low-pass Filtering

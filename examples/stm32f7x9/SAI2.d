@@ -124,7 +124,7 @@ final abstract class SAI2 : Peripheral!(0x40015C00)
     /*************************************************************************
      BFRCR
     */
-    final abstract class BFRCR : Register!(0x2C)
+    final abstract class BFRCR : Register!(0x2c)
     {
         /*********************************************************************
          Frame synchronization
@@ -283,7 +283,7 @@ final abstract class SAI2 : Peripheral!(0x40015C00)
     /*************************************************************************
      BClear flag register
     */
-    final abstract class BCLRFR : Register!(0x3C)
+    final abstract class BCLRFR : Register!(0x3c)
     {
         /*********************************************************************
          Clear late frame synchronization
@@ -447,7 +447,7 @@ final abstract class SAI2 : Peripheral!(0x40015C00)
     /*************************************************************************
      AFRCR
     */
-    final abstract class AFRCR : Register!(0xC)
+    final abstract class AFRCR : Register!(0xc)
     {
         /*********************************************************************
          Frame synchronization
@@ -606,7 +606,7 @@ final abstract class SAI2 : Peripheral!(0x40015C00)
     /*************************************************************************
      AClear flag register
     */
-    final abstract class ACLRFR : Register!(0x1C)
+    final abstract class ACLRFR : Register!(0x1c)
     {
         /*********************************************************************
          Clear late frame synchronization
@@ -656,7 +656,7 @@ final abstract class SAI2 : Peripheral!(0x40015C00)
     /*************************************************************************
      Global configuration register
     */
-    final abstract class GCR : Register!(0x0)
+    final abstract class GCR : Register!(00)
     {
         /*********************************************************************
          Synchronization inputs

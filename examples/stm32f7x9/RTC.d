@@ -10,7 +10,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      time register
     */
-    final abstract class TR : Register!(0x0)
+    final abstract class TR : Register!(00)
     {
         /*********************************************************************
          AM/PM notation
@@ -213,7 +213,7 @@ final abstract class RTC : Peripheral!(0x40002800)
      initialization and status
           register
     */
-    final abstract class ISR : Register!(0xC)
+    final abstract class ISR : Register!(0xc)
     {
         /*********************************************************************
          Alarm A write flag
@@ -335,7 +335,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      alarm A register
     */
-    final abstract class ALRMAR : Register!(0x1C)
+    final abstract class ALRMAR : Register!(0x1c)
     {
         /*********************************************************************
          Alarm A date mask
@@ -511,7 +511,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      shift control register
     */
-    final abstract class SHIFTR : Register!(0x2C)
+    final abstract class SHIFTR : Register!(0x2c)
     {
         /*********************************************************************
          Add one second
@@ -611,7 +611,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      calibration register
     */
-    final abstract class CALR : Register!(0x3C)
+    final abstract class CALR : Register!(0x3c)
     {
         /*********************************************************************
          Increase frequency of RTC by 488.5
@@ -786,7 +786,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      option register
     */
-    final abstract class OR : Register!(0x4C)
+    final abstract class OR : Register!(0x4c)
     {
         /*********************************************************************
          RTC_ALARM on PC13 output
@@ -836,7 +836,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP3R : Register!(0x5C)
+    final abstract class BKP3R : Register!(0x5c)
     {
         /*********************************************************************
          BKP
@@ -880,7 +880,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP7R : Register!(0x6C)
+    final abstract class BKP7R : Register!(0x6c)
     {
         /*********************************************************************
          BKP
@@ -924,7 +924,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP11R : Register!(0x7C)
+    final abstract class BKP11R : Register!(0x7c)
     {
         /*********************************************************************
          BKP
@@ -968,7 +968,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP15R : Register!(0x8C)
+    final abstract class BKP15R : Register!(0x8c)
     {
         /*********************************************************************
          BKP
@@ -1012,7 +1012,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP19R : Register!(0x9C)
+    final abstract class BKP19R : Register!(0x9c)
     {
         /*********************************************************************
          BKP
@@ -1023,7 +1023,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP20R : Register!(0xA0)
+    final abstract class BKP20R : Register!(0xa0)
     {
         /*********************************************************************
          BKP
@@ -1034,7 +1034,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP21R : Register!(0xA4)
+    final abstract class BKP21R : Register!(0xa4)
     {
         /*********************************************************************
          BKP
@@ -1045,7 +1045,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP22R : Register!(0xA8)
+    final abstract class BKP22R : Register!(0xa8)
     {
         /*********************************************************************
          BKP
@@ -1056,7 +1056,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP23R : Register!(0xAC)
+    final abstract class BKP23R : Register!(0xac)
     {
         /*********************************************************************
          BKP
@@ -1067,7 +1067,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP24R : Register!(0xB0)
+    final abstract class BKP24R : Register!(0xb0)
     {
         /*********************************************************************
          BKP
@@ -1078,7 +1078,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP25R : Register!(0xB4)
+    final abstract class BKP25R : Register!(0xb4)
     {
         /*********************************************************************
          BKP
@@ -1089,7 +1089,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP26R : Register!(0xB8)
+    final abstract class BKP26R : Register!(0xb8)
     {
         /*********************************************************************
          BKP
@@ -1100,7 +1100,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP27R : Register!(0xBC)
+    final abstract class BKP27R : Register!(0xbc)
     {
         /*********************************************************************
          BKP
@@ -1111,7 +1111,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP28R : Register!(0xC0)
+    final abstract class BKP28R : Register!(0xc0)
     {
         /*********************************************************************
          BKP
@@ -1122,7 +1122,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP29R : Register!(0xC4)
+    final abstract class BKP29R : Register!(0xc4)
     {
         /*********************************************************************
          BKP
@@ -1133,7 +1133,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP30R : Register!(0xC8)
+    final abstract class BKP30R : Register!(0xc8)
     {
         /*********************************************************************
          BKP
@@ -1144,7 +1144,7 @@ final abstract class RTC : Peripheral!(0x40002800)
     /*************************************************************************
      backup register
     */
-    final abstract class BKP31R : Register!(0xCC)
+    final abstract class BKP31R : Register!(0xcc)
     {
         /*********************************************************************
          BKP

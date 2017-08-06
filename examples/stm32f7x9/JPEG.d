@@ -11,7 +11,7 @@ final abstract class JPEG : Peripheral!(0x50051000)
      JPEG codec configuration register
           0
     */
-    final abstract class JPEG_CONFR0 : Register!(0x0)
+    final abstract class JPEG_CONFR0 : Register!(00)
     {
         /*********************************************************************
          Start
@@ -73,7 +73,7 @@ final abstract class JPEG : Peripheral!(0x50051000)
      JPEG codec configuration register
           3
     */
-    final abstract class JPEG_CONFR3 : Register!(0xC)
+    final abstract class JPEG_CONFR3 : Register!(0xc)
     {
         /*********************************************************************
          X size
@@ -196,7 +196,7 @@ final abstract class JPEG : Peripheral!(0x50051000)
      JPEG codec configuration register
           7
     */
-    final abstract class JPEG_CONFR7 : Register!(0x1C)
+    final abstract class JPEG_CONFR7 : Register!(0x1c)
     {
         /*********************************************************************
          Huffman DC
@@ -358,7 +358,7 @@ final abstract class JPEG : Peripheral!(0x50051000)
     /*************************************************************************
      JPEG data input register
     */
-    final abstract class JPEG_DIR : Register!(0x2C)
+    final abstract class JPEG_DIR : Register!(0x2c)
     {
         /*********************************************************************
          Data Input FIFO
