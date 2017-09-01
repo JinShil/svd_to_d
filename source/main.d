@@ -461,7 +461,7 @@ int main(string[] args)
                         }
                         code.put(tab ~ tab ~ tab ~ "}\n");
                         code.put(tab ~ tab ~ tab ~ "mixin BitFieldImplementation!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
-                        outputMutability(); code.put(", values);\n");
+                        outputMutability(); code.put(", Values);\n");
                         code.put(tab ~ tab ~ "}\n");
                     }
                     else
