@@ -8,7 +8,7 @@ import atsamd21g18a.mmio;
 final abstract class SERCOM3 : Peripheral!(0x42001400)
 {
     /*****************************************************************************
-     Serial Communication Interface 3
+     I2C Master Mode
     */
     final abstract class I2CM
     {
@@ -42,6 +42,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias LEN = BitField!(23, 16, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Baud Rate
         */
@@ -67,6 +68,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias HSBAUDLOW = BitField!(31, 24, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Control A
         */
@@ -170,6 +172,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias LOWTOUTEN = Bit!(30, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Control B
         */
@@ -195,6 +198,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ACKACT = Bit!(18, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Data
         */
@@ -205,6 +209,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DATA = BitField!(7, 0, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Debug Control
         */
@@ -215,6 +220,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DBGSTOP = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Interrupt Enable Clear
         */
@@ -235,6 +241,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Interrupt Enable Set
         */
@@ -255,6 +262,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Interrupt Flag Status and Clear
         */
@@ -275,6 +283,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Status
         */
@@ -325,6 +334,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias LENERR = Bit!(10, Mutability.rw);
         }
+
         /*************************************************************************
          I2CM Syncbusy
         */
@@ -347,7 +357,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
         }
     }
     /*****************************************************************************
-     Serial Communication Interface 3
+     I2C Slave Mode
     */
     final abstract class I2CS
     {
@@ -376,6 +386,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ADDRMASK = BitField!(26, 17, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Control A
         */
@@ -469,6 +480,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias LOWTOUTEN = Bit!(30, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Control B
         */
@@ -504,6 +516,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ACKACT = Bit!(18, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Data
         */
@@ -514,6 +527,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DATA = BitField!(7, 0, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Debug Control
         */
@@ -524,6 +538,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DBGSTOP = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Interrupt Enable Clear
         */
@@ -549,6 +564,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Interrupt Enable Set
         */
@@ -574,6 +590,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Interrupt Flag Status and Clear
         */
@@ -599,6 +616,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Status
         */
@@ -649,6 +667,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias HS = Bit!(10, Mutability.rw);
         }
+
         /*************************************************************************
          I2CS Syncbusy
         */
@@ -666,7 +685,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
         }
     }
     /*****************************************************************************
-     Serial Communication Interface 3
+     SPI Mode
     */
     final abstract class SPI
     {
@@ -685,6 +704,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ADDRMASK = BitField!(23, 16, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Baud Rate
         */
@@ -695,6 +715,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias BAUD = BitField!(7, 0, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Control A
         */
@@ -793,6 +814,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DORD = Bit!(30, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Control B
         */
@@ -828,6 +850,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias RXEN = Bit!(17, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Data
         */
@@ -838,6 +861,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DATA = BitField!(8, 0, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Debug Control
         */
@@ -848,6 +872,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DBGSTOP = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Interrupt Enable Clear
         */
@@ -878,6 +903,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Interrupt Enable Set
         */
@@ -908,6 +934,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Interrupt Flag Status and Clear
         */
@@ -938,6 +965,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Status
         */
@@ -948,6 +976,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias BUFOVF = Bit!(2, Mutability.rw);
         }
+
         /*************************************************************************
          SPI Syncbusy
         */
@@ -970,7 +999,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
         }
     }
     /*****************************************************************************
-     Serial Communication Interface 3
+     USART Mode
     */
     final abstract class USART
     {
@@ -984,6 +1013,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias BAUD = BitField!(15, 0, Mutability.rw);
         }
+
         /*************************************************************************
          USART Baud Rate
         */
@@ -999,6 +1029,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias FP = BitField!(15, 13, Mutability.rw);
         }
+
         /*************************************************************************
          USART Baud Rate
         */
@@ -1014,6 +1045,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias FP = BitField!(15, 13, Mutability.rw);
         }
+
         /*************************************************************************
          USART Baud Rate
         */
@@ -1024,6 +1056,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias BAUD = BitField!(15, 0, Mutability.rw);
         }
+
         /*************************************************************************
          USART Control A
         */
@@ -1132,6 +1165,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DORD = Bit!(30, Mutability.rw);
         }
+
         /*************************************************************************
          USART Control B
         */
@@ -1177,6 +1211,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias RXEN = Bit!(17, Mutability.rw);
         }
+
         /*************************************************************************
          USART Data
         */
@@ -1187,6 +1222,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DATA = BitField!(8, 0, Mutability.rw);
         }
+
         /*************************************************************************
          USART Debug Control
         */
@@ -1197,6 +1233,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias DBGSTOP = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          USART Interrupt Enable Clear
         */
@@ -1237,6 +1274,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          USART Interrupt Enable Set
         */
@@ -1277,6 +1315,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          USART Interrupt Flag Status and Clear
         */
@@ -1317,6 +1356,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias ERROR = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          USART Receive Pulse Length
         */
@@ -1327,6 +1367,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias RXPL = BitField!(7, 0, Mutability.rw);
         }
+
         /*************************************************************************
          USART Status
         */
@@ -1362,6 +1403,7 @@ final abstract class SERCOM3 : Peripheral!(0x42001400)
             */
             alias COLL = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          USART Syncbusy
         */

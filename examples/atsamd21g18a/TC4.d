@@ -8,20 +8,31 @@ import atsamd21g18a.mmio;
 final abstract class TC4 : Peripheral!(0x42003000)
 {
     /*****************************************************************************
-     Basic Timer Counter 4
+     8-bit Counter Mode
     */
     final abstract class COUNT8
     {
         /*************************************************************************
          COUNT8 Compare/Capture
         */
-        final abstract class CC%s : Register!(0x18)
+        final abstract class CC1 : Register!(0x18)
         {
             /*********************************************************************
              Compare/Capture Value
             */
             alias CC = BitField!(7, 0, Mutability.rw);
         }
+        /*************************************************************************
+         COUNT8 Compare/Capture
+        */
+        final abstract class CC2 : Register!(0x19)
+        {
+            /*********************************************************************
+             Compare/Capture Value
+            */
+            alias CC = BitField!(7, 0, Mutability.rw);
+        }
+
         /*************************************************************************
          COUNT8 Counter Value
         */
@@ -32,6 +43,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias COUNT = BitField!(7, 0, Mutability.rw);
         }
+
         /*************************************************************************
          COUNT8 Period Value
         */
@@ -42,6 +54,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias PER = BitField!(7, 0, Mutability.rw);
         }
+
         /*************************************************************************
          Control A
         */
@@ -192,6 +205,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control B Clear
         */
@@ -235,6 +249,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control B Set
         */
@@ -278,6 +293,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control C
         */
@@ -303,6 +319,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias CPTEN1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Debug Control
         */
@@ -313,6 +330,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias DBGRUN = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          Event Control
         */
@@ -386,6 +404,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MCEO1 = Bit!(13, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Enable Clear
         */
@@ -416,6 +435,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Enable Set
         */
@@ -446,6 +466,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Flag Status and Clear
         */
@@ -476,6 +497,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Read Request
         */
@@ -496,6 +518,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias RREQ = Bit!(15, Mutability.rw);
         }
+
         /*************************************************************************
          Status
         */
@@ -518,20 +541,31 @@ final abstract class TC4 : Peripheral!(0x42003000)
         }
     }
     /*****************************************************************************
-     Basic Timer Counter 4
+     16-bit Counter Mode
     */
     final abstract class COUNT16
     {
         /*************************************************************************
          COUNT16 Compare/Capture
         */
-        final abstract class CC%s : Register!(0x18)
+        final abstract class CC1 : Register!(0x18)
         {
             /*********************************************************************
              Compare/Capture Value
             */
             alias CC = BitField!(15, 0, Mutability.rw);
         }
+        /*************************************************************************
+         COUNT16 Compare/Capture
+        */
+        final abstract class CC2 : Register!(0x1a)
+        {
+            /*********************************************************************
+             Compare/Capture Value
+            */
+            alias CC = BitField!(15, 0, Mutability.rw);
+        }
+
         /*************************************************************************
          COUNT16 Counter Value
         */
@@ -542,6 +576,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias COUNT = BitField!(15, 0, Mutability.rw);
         }
+
         /*************************************************************************
          Control A
         */
@@ -692,6 +727,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control B Clear
         */
@@ -735,6 +771,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control B Set
         */
@@ -778,6 +815,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control C
         */
@@ -803,6 +841,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias CPTEN1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Debug Control
         */
@@ -813,6 +852,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias DBGRUN = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          Event Control
         */
@@ -886,6 +926,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MCEO1 = Bit!(13, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Enable Clear
         */
@@ -916,6 +957,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Enable Set
         */
@@ -946,6 +988,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Flag Status and Clear
         */
@@ -976,6 +1019,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Read Request
         */
@@ -996,6 +1040,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias RREQ = Bit!(15, Mutability.rw);
         }
+
         /*************************************************************************
          Status
         */
@@ -1018,20 +1063,31 @@ final abstract class TC4 : Peripheral!(0x42003000)
         }
     }
     /*****************************************************************************
-     Basic Timer Counter 4
+     32-bit Counter Mode
     */
     final abstract class COUNT32
     {
         /*************************************************************************
          COUNT32 Compare/Capture
         */
-        final abstract class CC%s : Register!(0x18)
+        final abstract class CC1 : Register!(0x18)
         {
             /*********************************************************************
              Compare/Capture Value
             */
             alias CC = BitField!(31, 0, Mutability.rw);
         }
+        /*************************************************************************
+         COUNT32 Compare/Capture
+        */
+        final abstract class CC2 : Register!(0x1c)
+        {
+            /*********************************************************************
+             Compare/Capture Value
+            */
+            alias CC = BitField!(31, 0, Mutability.rw);
+        }
+
         /*************************************************************************
          COUNT32 Counter Value
         */
@@ -1042,6 +1098,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias COUNT = BitField!(31, 0, Mutability.rw);
         }
+
         /*************************************************************************
          Control A
         */
@@ -1192,6 +1249,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control B Clear
         */
@@ -1235,6 +1293,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control B Set
         */
@@ -1278,6 +1337,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
                 mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Control C
         */
@@ -1303,6 +1363,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias CPTEN1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Debug Control
         */
@@ -1313,6 +1374,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias DBGRUN = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          Event Control
         */
@@ -1386,6 +1448,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MCEO1 = Bit!(13, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Enable Clear
         */
@@ -1416,6 +1479,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Enable Set
         */
@@ -1446,6 +1510,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Interrupt Flag Status and Clear
         */
@@ -1476,6 +1541,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias MC1 = Bit!(5, Mutability.rw);
         }
+
         /*************************************************************************
          Read Request
         */
@@ -1496,6 +1562,7 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias RREQ = Bit!(15, Mutability.rw);
         }
+
         /*************************************************************************
          Status
         */

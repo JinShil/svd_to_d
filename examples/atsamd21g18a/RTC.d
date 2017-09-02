@@ -8,7 +8,7 @@ import atsamd21g18a.mmio;
 final abstract class RTC : Peripheral!(0x40001400)
 {
     /*****************************************************************************
-     Real-Time Counter
+     32-bit Counter with Single 32-bit Compare
     */
     final abstract class MODE0
     {
@@ -22,6 +22,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias DBGRUN = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          Frequency Correction
         */
@@ -37,6 +38,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias SIGN = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE0 Compare n Value
         */
@@ -47,6 +49,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias COMP = BitField!(31, 0, Mutability.rw);
         }
+
         /*************************************************************************
          MODE0 Counter Value
         */
@@ -57,6 +60,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias COUNT = BitField!(31, 0, Mutability.rw);
         }
+
         /*************************************************************************
          MODE0 Control
         */
@@ -173,6 +177,7 @@ final abstract class RTC : Peripheral!(0x40001400)
                 mixin BitFieldImplementation!(11, 8, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          MODE0 Event Control
         */
@@ -228,6 +233,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVFEO = Bit!(15, Mutability.rw);
         }
+
         /*************************************************************************
          MODE0 Interrupt Enable Clear
         */
@@ -248,6 +254,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE0 Interrupt Enable Set
         */
@@ -268,6 +275,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE0 Interrupt Flag Status and Clear
         */
@@ -288,6 +296,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          Read Request
         */
@@ -308,6 +317,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias RREQ = Bit!(15, Mutability.w);
         }
+
         /*************************************************************************
          Status
         */
@@ -320,7 +330,7 @@ final abstract class RTC : Peripheral!(0x40001400)
         }
     }
     /*****************************************************************************
-     Real-Time Counter
+     16-bit Counter with Two 16-bit Compares
     */
     final abstract class MODE1
     {
@@ -334,6 +344,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias DBGRUN = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          Frequency Correction
         */
@@ -349,16 +360,28 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias SIGN = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE1 Compare n Value
         */
-        final abstract class COMP%s : Register!(0x18)
+        final abstract class COMP1 : Register!(0x18)
         {
             /*********************************************************************
              Compare Value
             */
             alias COMP = BitField!(15, 0, Mutability.rw);
         }
+        /*************************************************************************
+         MODE1 Compare n Value
+        */
+        final abstract class COMP2 : Register!(0x1a)
+        {
+            /*********************************************************************
+             Compare Value
+            */
+            alias COMP = BitField!(15, 0, Mutability.rw);
+        }
+
         /*************************************************************************
          MODE1 Counter Value
         */
@@ -369,6 +392,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias COUNT = BitField!(15, 0, Mutability.rw);
         }
+
         /*************************************************************************
          MODE1 Control
         */
@@ -480,6 +504,7 @@ final abstract class RTC : Peripheral!(0x40001400)
                 mixin BitFieldImplementation!(11, 8, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          MODE1 Event Control
         */
@@ -540,6 +565,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVFEO = Bit!(15, Mutability.rw);
         }
+
         /*************************************************************************
          MODE1 Interrupt Enable Clear
         */
@@ -565,6 +591,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE1 Interrupt Enable Set
         */
@@ -590,6 +617,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE1 Interrupt Flag Status and Clear
         */
@@ -615,6 +643,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE1 Counter Period
         */
@@ -625,6 +654,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias PER = BitField!(15, 0, Mutability.rw);
         }
+
         /*************************************************************************
          Read Request
         */
@@ -645,6 +675,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias RREQ = Bit!(15, Mutability.w);
         }
+
         /*************************************************************************
          Status
         */
@@ -657,7 +688,7 @@ final abstract class RTC : Peripheral!(0x40001400)
         }
     }
     /*****************************************************************************
-     Real-Time Counter
+     Clock/Calendar with Alarm
     */
     final abstract class MODE2
     {
@@ -671,6 +702,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias DBGRUN = Bit!(0, Mutability.rw);
         }
+
         /*************************************************************************
          Frequency Correction
         */
@@ -686,6 +718,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias SIGN = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE2 Clock Value
         */
@@ -734,6 +767,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias YEAR = BitField!(31, 26, Mutability.rw);
         }
+
         /*************************************************************************
          MODE2 Control
         */
@@ -855,6 +889,7 @@ final abstract class RTC : Peripheral!(0x40001400)
                 mixin BitFieldImplementation!(11, 8, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          MODE2 Event Control
         */
@@ -910,6 +945,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVFEO = Bit!(15, Mutability.rw);
         }
+
         /*************************************************************************
          MODE2 Interrupt Enable Clear
         */
@@ -930,6 +966,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE2 Interrupt Enable Set
         */
@@ -950,6 +987,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE2 Interrupt Flag Status and Clear
         */
@@ -970,6 +1008,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias OVF = Bit!(7, Mutability.rw);
         }
+
         /*************************************************************************
          MODE2 Alarm n Value
         */
@@ -1005,6 +1044,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias YEAR = BitField!(31, 26, Mutability.rw);
         }
+
         /*************************************************************************
          MODE2 Alarm n Mask
         */
@@ -1058,6 +1098,7 @@ final abstract class RTC : Peripheral!(0x40001400)
                 mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
             }
         }
+
         /*************************************************************************
          Read Request
         */
@@ -1078,6 +1119,7 @@ final abstract class RTC : Peripheral!(0x40001400)
             */
             alias RREQ = Bit!(15, Mutability.w);
         }
+
         /*************************************************************************
          Status
         */

@@ -475,17 +475,37 @@ int main(string[] args)
 
         foreach(Cluster c; clusters)
         {
-            immutable auto tab = "    ";
+            auto tab = "    ";
 
             code.put(tab ~ "/*****************************************************************************\n");
-            code.put(tab ~ " " ~ p.description ~ "\n");
+            code.put(tab ~ " " ~ c.description ~ "\n");
             code.put(tab ~ "*/\n");
             code.put(tab ~ "final abstract class " ~ c.name ~ "\n");
             code.put(tab ~ "{\n");
 
+            firstRegister = true;
             foreach(Register r; c.registers)
             {
-                outputRegister(tab ~ tab, r, r.name);
+                if (firstRegister)
+                {
+                    firstRegister = false;
+                }
+                else
+                {
+                    code.put("\n");
+                }
+
+                if (r.numberOfRegisters <= 1)
+                {
+                    outputRegister(tab ~ tab, r, r.name);
+                }
+                else
+                {
+                    for(uint i = 1; i <= r.numberOfRegisters; i++)
+                    {
+                        outputRegister(tab ~ tab, r, format(r.name, i), cast(uint)((i - 1) * r.addressIncrement));
+                    }
+                }
             }
 
             code.put(tab ~ "}\n");
