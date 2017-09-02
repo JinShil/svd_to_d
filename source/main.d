@@ -135,6 +135,7 @@ class Register : NameAndDescription
     uint addressOffset;
     uint numberOfRegisters;
     uint addressIncrement;
+    string alternateGroup;
 
     Field[] fields;
 
@@ -144,9 +145,10 @@ class Register : NameAndDescription
 
         foreach(c; e.childNodes)
         {
-            if      (c.tagName == "addressOffset") { addressOffset     = to_uint(c.innerText()); }
-            else if (c.tagName == "dim")           { numberOfRegisters = to_uint(c.innerText()); }
-            else if (c.tagName == "dimIncrement")  { addressIncrement  = to_uint(c.innerText()); }
+            if      (c.tagName == "addressOffset")  { addressOffset     = to_uint(c.innerText()); }
+            else if (c.tagName == "dim")            { numberOfRegisters = to_uint(c.innerText()); }
+            else if (c.tagName == "dimIncrement")   { addressIncrement  = to_uint(c.innerText()); }
+            else if (c.tagName == "alternateGroup") { alternateGroup    = c.innerText(); }
             else if (c.tagName == "fields")
             {
                 foreach(fc; c.childNodes)
@@ -339,7 +341,15 @@ int main(string[] args)
             code.put(indent ~ "/*************************************************************************\n");
             code.put(indent ~ " " ~ r.description ~ "\n");
             code.put(indent ~ "*/\n");
-            code.put(indent ~ "final abstract class " ~ name ~ " : Register!(" ~ format("%02#x", addressOffset) ~ ")\n");
+            code.put(indent ~ "final abstract class ");
+            
+            // If register has an alternateGroup, make name = "name_alternateGroup"
+            if (r.alternateGroup !is null && r.alternateGroup.length > 0)
+            {
+                name ~= "_" ~ r.alternateGroup;
+            }
+            code.put(name ~ " : Register!(" ~ format("%02#x", addressOffset) ~ ")\n");
+            
             code.put(indent ~ "{\n");
 
             // Generate D code for each bit field in the register

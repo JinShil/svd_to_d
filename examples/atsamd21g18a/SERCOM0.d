@@ -1006,7 +1006,7 @@ final abstract class SERCOM0 : Peripheral!(0x42000800)
         /*************************************************************************
          USART Baud Rate
         */
-        final abstract class BAUD : Register!(0xc)
+        final abstract class BAUD_DEFAULT_MODE : Register!(0xc)
         {
             /*********************************************************************
              Baud Rate Value
@@ -1017,7 +1017,7 @@ final abstract class SERCOM0 : Peripheral!(0x42000800)
         /*************************************************************************
          USART Baud Rate
         */
-        final abstract class BAUD : Register!(0xc)
+        final abstract class BAUD_FRAC_MODE : Register!(0xc)
         {
             /*********************************************************************
              Baud Rate Value
@@ -1033,7 +1033,7 @@ final abstract class SERCOM0 : Peripheral!(0x42000800)
         /*************************************************************************
          USART Baud Rate
         */
-        final abstract class BAUD : Register!(0xc)
+        final abstract class BAUD_FRACFP_MODE : Register!(0xc)
         {
             /*********************************************************************
              Baud Rate Value
@@ -1049,7 +1049,7 @@ final abstract class SERCOM0 : Peripheral!(0x42000800)
         /*************************************************************************
          USART Baud Rate
         */
-        final abstract class BAUD : Register!(0xc)
+        final abstract class BAUD_USARTFP_MODE : Register!(0xc)
         {
             /*********************************************************************
              Baud Rate Value
