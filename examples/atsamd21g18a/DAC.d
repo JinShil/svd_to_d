@@ -58,33 +58,31 @@ final abstract class DAC : Peripheral!(0x42004800)
         */
         alias BDWP = Bit!(4, Mutability.rw);
 
+        /*****************************************************************
+         REFSEL's possible values
+        */
+        enum REFSELValues
+        {
+            /*************************************************************
+             Internal 1.0V reference
+            */
+            INT1V = 0x0,
+
+            /*************************************************************
+             AVCC
+            */
+            AVCC = 0x1,
+
+            /*************************************************************
+             External reference
+            */
+            VREFP = 0x2,
+        }
+
         /*********************************************************************
          Reference Selection
         */
-        final abstract class REFSEL
-        {
-            /*****************************************************************
-             REFSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Internal 1.0V reference
-                */
-                INT1V = 0x0,
-
-                /*************************************************************
-                 AVCC
-                */
-                AVCC = 0x1,
-
-                /*************************************************************
-                 External reference
-                */
-                VREFP = 0x2,
-            }
-            mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
-        }
+        alias REFSEL = BitField!(7, 6, Mutability.rw, REFSELValues);
     }
 
     /*************************************************************************

@@ -22,213 +22,201 @@ final abstract class AC : Peripheral!(0x42004400)
         */
         alias SINGLE = Bit!(1, Mutability.rw);
 
+        /*****************************************************************
+         SPEED's possible values
+        */
+        enum SPEEDValues
+        {
+            /*************************************************************
+             Low speed
+            */
+            LOW = 0x0,
+
+            /*************************************************************
+             High speed
+            */
+            HIGH = 0x1,
+        }
+
         /*********************************************************************
          Speed Selection
         */
-        final abstract class SPEED
-        {
-            /*****************************************************************
-             SPEED's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Low speed
-                */
-                LOW = 0x0,
+        alias SPEED = BitField!(3, 2, Mutability.rw, SPEEDValues);
 
-                /*************************************************************
-                 High speed
-                */
-                HIGH = 0x1,
-            }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
+        /*****************************************************************
+         INTSEL's possible values
+        */
+        enum INTSELValues
+        {
+            /*************************************************************
+             Interrupt on comparator output toggle
+            */
+            TOGGLE = 0x0,
+
+            /*************************************************************
+             Interrupt on comparator output rising
+            */
+            RISING = 0x1,
+
+            /*************************************************************
+             Interrupt on comparator output falling
+            */
+            FALLING = 0x2,
+
+            /*************************************************************
+             Interrupt on end of comparison (single-shot mode only)
+            */
+            EOC = 0x3,
         }
 
         /*********************************************************************
          Interrupt Selection
         */
-        final abstract class INTSEL
+        alias INTSEL = BitField!(6, 5, Mutability.rw, INTSELValues);
+
+        /*****************************************************************
+         MUXNEG's possible values
+        */
+        enum MUXNEGValues
         {
-            /*****************************************************************
-             INTSEL's possible values
+            /*************************************************************
+             I/O pin 0
             */
-            enum Values
-            {
-                /*************************************************************
-                 Interrupt on comparator output toggle
-                */
-                TOGGLE = 0x0,
+            PIN0 = 0x0,
 
-                /*************************************************************
-                 Interrupt on comparator output rising
-                */
-                RISING = 0x1,
+            /*************************************************************
+             I/O pin 1
+            */
+            PIN1 = 0x1,
 
-                /*************************************************************
-                 Interrupt on comparator output falling
-                */
-                FALLING = 0x2,
+            /*************************************************************
+             I/O pin 2
+            */
+            PIN2 = 0x2,
 
-                /*************************************************************
-                 Interrupt on end of comparison (single-shot mode only)
-                */
-                EOC = 0x3,
-            }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
+            /*************************************************************
+             I/O pin 3
+            */
+            PIN3 = 0x3,
+
+            /*************************************************************
+             Ground
+            */
+            GND = 0x4,
+
+            /*************************************************************
+             VDD scaler
+            */
+            VSCALE = 0x5,
+
+            /*************************************************************
+             Internal bandgap voltage
+            */
+            BANDGAP = 0x6,
+
+            /*************************************************************
+             DAC output
+            */
+            DAC = 0x7,
         }
 
         /*********************************************************************
          Negative Input Mux Selection
         */
-        final abstract class MUXNEG
+        alias MUXNEG = BitField!(10, 8, Mutability.rw, MUXNEGValues);
+
+        /*****************************************************************
+         MUXPOS's possible values
+        */
+        enum MUXPOSValues
         {
-            /*****************************************************************
-             MUXNEG's possible values
+            /*************************************************************
+             I/O pin 0
             */
-            enum Values
-            {
-                /*************************************************************
-                 I/O pin 0
-                */
-                PIN0 = 0x0,
+            PIN0 = 0x0,
 
-                /*************************************************************
-                 I/O pin 1
-                */
-                PIN1 = 0x1,
+            /*************************************************************
+             I/O pin 1
+            */
+            PIN1 = 0x1,
 
-                /*************************************************************
-                 I/O pin 2
-                */
-                PIN2 = 0x2,
+            /*************************************************************
+             I/O pin 2
+            */
+            PIN2 = 0x2,
 
-                /*************************************************************
-                 I/O pin 3
-                */
-                PIN3 = 0x3,
-
-                /*************************************************************
-                 Ground
-                */
-                GND = 0x4,
-
-                /*************************************************************
-                 VDD scaler
-                */
-                VSCALE = 0x5,
-
-                /*************************************************************
-                 Internal bandgap voltage
-                */
-                BANDGAP = 0x6,
-
-                /*************************************************************
-                 DAC output
-                */
-                DAC = 0x7,
-            }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
+            /*************************************************************
+             I/O pin 3
+            */
+            PIN3 = 0x3,
         }
 
         /*********************************************************************
          Positive Input Mux Selection
         */
-        final abstract class MUXPOS
-        {
-            /*****************************************************************
-             MUXPOS's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 I/O pin 0
-                */
-                PIN0 = 0x0,
-
-                /*************************************************************
-                 I/O pin 1
-                */
-                PIN1 = 0x1,
-
-                /*************************************************************
-                 I/O pin 2
-                */
-                PIN2 = 0x2,
-
-                /*************************************************************
-                 I/O pin 3
-                */
-                PIN3 = 0x3,
-            }
-            mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
-        }
+        alias MUXPOS = BitField!(13, 12, Mutability.rw, MUXPOSValues);
 
         /*********************************************************************
          Swap Inputs and Invert
         */
         alias SWAP = Bit!(15, Mutability.rw);
 
+        /*****************************************************************
+         OUT's possible values
+        */
+        enum OUTValues
+        {
+            /*************************************************************
+             The output of COMPn is not routed to the COMPn I/O port
+            */
+            OFF = 0x0,
+
+            /*************************************************************
+             The asynchronous output of COMPn is routed to the COMPn I/O port
+            */
+            ASYNC = 0x1,
+
+            /*************************************************************
+             The synchronous output (including filtering) of COMPn is routed to the COMPn I/O port
+            */
+            SYNC = 0x2,
+        }
+
         /*********************************************************************
          Output
         */
-        final abstract class OUT
-        {
-            /*****************************************************************
-             OUT's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 The output of COMPn is not routed to the COMPn I/O port
-                */
-                OFF = 0x0,
-
-                /*************************************************************
-                 The asynchronous output of COMPn is routed to the COMPn I/O port
-                */
-                ASYNC = 0x1,
-
-                /*************************************************************
-                 The synchronous output (including filtering) of COMPn is routed to the COMPn I/O port
-                */
-                SYNC = 0x2,
-            }
-            mixin BitFieldImplementation!(17, 16, Mutability.rw, Values);
-        }
+        alias OUT = BitField!(17, 16, Mutability.rw, OUTValues);
 
         /*********************************************************************
          Hysteresis Enable
         */
         alias HYST = Bit!(19, Mutability.rw);
 
+        /*****************************************************************
+         FLEN's possible values
+        */
+        enum FLENValues
+        {
+            /*************************************************************
+             No filtering
+            */
+            OFF = 0x0,
+
+            /*************************************************************
+             3-bit majority function (2 of 3)
+            */
+            MAJ3 = 0x1,
+
+            /*************************************************************
+             5-bit majority function (3 of 5)
+            */
+            MAJ5 = 0x2,
+        }
+
         /*********************************************************************
          Filter Length
         */
-        final abstract class FLEN
-        {
-            /*****************************************************************
-             FLEN's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 No filtering
-                */
-                OFF = 0x0,
-
-                /*************************************************************
-                 3-bit majority function (2 of 3)
-                */
-                MAJ3 = 0x1,
-
-                /*************************************************************
-                 5-bit majority function (3 of 5)
-                */
-                MAJ5 = 0x2,
-            }
-            mixin BitFieldImplementation!(26, 24, Mutability.rw, Values);
-        }
+        alias FLEN = BitField!(26, 24, Mutability.rw, FLENValues);
     }
     /*************************************************************************
      Comparator Control n
@@ -245,213 +233,201 @@ final abstract class AC : Peripheral!(0x42004400)
         */
         alias SINGLE = Bit!(1, Mutability.rw);
 
+        /*****************************************************************
+         SPEED's possible values
+        */
+        enum SPEEDValues
+        {
+            /*************************************************************
+             Low speed
+            */
+            LOW = 0x0,
+
+            /*************************************************************
+             High speed
+            */
+            HIGH = 0x1,
+        }
+
         /*********************************************************************
          Speed Selection
         */
-        final abstract class SPEED
-        {
-            /*****************************************************************
-             SPEED's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Low speed
-                */
-                LOW = 0x0,
+        alias SPEED = BitField!(3, 2, Mutability.rw, SPEEDValues);
 
-                /*************************************************************
-                 High speed
-                */
-                HIGH = 0x1,
-            }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
+        /*****************************************************************
+         INTSEL's possible values
+        */
+        enum INTSELValues
+        {
+            /*************************************************************
+             Interrupt on comparator output toggle
+            */
+            TOGGLE = 0x0,
+
+            /*************************************************************
+             Interrupt on comparator output rising
+            */
+            RISING = 0x1,
+
+            /*************************************************************
+             Interrupt on comparator output falling
+            */
+            FALLING = 0x2,
+
+            /*************************************************************
+             Interrupt on end of comparison (single-shot mode only)
+            */
+            EOC = 0x3,
         }
 
         /*********************************************************************
          Interrupt Selection
         */
-        final abstract class INTSEL
+        alias INTSEL = BitField!(6, 5, Mutability.rw, INTSELValues);
+
+        /*****************************************************************
+         MUXNEG's possible values
+        */
+        enum MUXNEGValues
         {
-            /*****************************************************************
-             INTSEL's possible values
+            /*************************************************************
+             I/O pin 0
             */
-            enum Values
-            {
-                /*************************************************************
-                 Interrupt on comparator output toggle
-                */
-                TOGGLE = 0x0,
+            PIN0 = 0x0,
 
-                /*************************************************************
-                 Interrupt on comparator output rising
-                */
-                RISING = 0x1,
+            /*************************************************************
+             I/O pin 1
+            */
+            PIN1 = 0x1,
 
-                /*************************************************************
-                 Interrupt on comparator output falling
-                */
-                FALLING = 0x2,
+            /*************************************************************
+             I/O pin 2
+            */
+            PIN2 = 0x2,
 
-                /*************************************************************
-                 Interrupt on end of comparison (single-shot mode only)
-                */
-                EOC = 0x3,
-            }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
+            /*************************************************************
+             I/O pin 3
+            */
+            PIN3 = 0x3,
+
+            /*************************************************************
+             Ground
+            */
+            GND = 0x4,
+
+            /*************************************************************
+             VDD scaler
+            */
+            VSCALE = 0x5,
+
+            /*************************************************************
+             Internal bandgap voltage
+            */
+            BANDGAP = 0x6,
+
+            /*************************************************************
+             DAC output
+            */
+            DAC = 0x7,
         }
 
         /*********************************************************************
          Negative Input Mux Selection
         */
-        final abstract class MUXNEG
+        alias MUXNEG = BitField!(10, 8, Mutability.rw, MUXNEGValues);
+
+        /*****************************************************************
+         MUXPOS's possible values
+        */
+        enum MUXPOSValues
         {
-            /*****************************************************************
-             MUXNEG's possible values
+            /*************************************************************
+             I/O pin 0
             */
-            enum Values
-            {
-                /*************************************************************
-                 I/O pin 0
-                */
-                PIN0 = 0x0,
+            PIN0 = 0x0,
 
-                /*************************************************************
-                 I/O pin 1
-                */
-                PIN1 = 0x1,
+            /*************************************************************
+             I/O pin 1
+            */
+            PIN1 = 0x1,
 
-                /*************************************************************
-                 I/O pin 2
-                */
-                PIN2 = 0x2,
+            /*************************************************************
+             I/O pin 2
+            */
+            PIN2 = 0x2,
 
-                /*************************************************************
-                 I/O pin 3
-                */
-                PIN3 = 0x3,
-
-                /*************************************************************
-                 Ground
-                */
-                GND = 0x4,
-
-                /*************************************************************
-                 VDD scaler
-                */
-                VSCALE = 0x5,
-
-                /*************************************************************
-                 Internal bandgap voltage
-                */
-                BANDGAP = 0x6,
-
-                /*************************************************************
-                 DAC output
-                */
-                DAC = 0x7,
-            }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
+            /*************************************************************
+             I/O pin 3
+            */
+            PIN3 = 0x3,
         }
 
         /*********************************************************************
          Positive Input Mux Selection
         */
-        final abstract class MUXPOS
-        {
-            /*****************************************************************
-             MUXPOS's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 I/O pin 0
-                */
-                PIN0 = 0x0,
-
-                /*************************************************************
-                 I/O pin 1
-                */
-                PIN1 = 0x1,
-
-                /*************************************************************
-                 I/O pin 2
-                */
-                PIN2 = 0x2,
-
-                /*************************************************************
-                 I/O pin 3
-                */
-                PIN3 = 0x3,
-            }
-            mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
-        }
+        alias MUXPOS = BitField!(13, 12, Mutability.rw, MUXPOSValues);
 
         /*********************************************************************
          Swap Inputs and Invert
         */
         alias SWAP = Bit!(15, Mutability.rw);
 
+        /*****************************************************************
+         OUT's possible values
+        */
+        enum OUTValues
+        {
+            /*************************************************************
+             The output of COMPn is not routed to the COMPn I/O port
+            */
+            OFF = 0x0,
+
+            /*************************************************************
+             The asynchronous output of COMPn is routed to the COMPn I/O port
+            */
+            ASYNC = 0x1,
+
+            /*************************************************************
+             The synchronous output (including filtering) of COMPn is routed to the COMPn I/O port
+            */
+            SYNC = 0x2,
+        }
+
         /*********************************************************************
          Output
         */
-        final abstract class OUT
-        {
-            /*****************************************************************
-             OUT's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 The output of COMPn is not routed to the COMPn I/O port
-                */
-                OFF = 0x0,
-
-                /*************************************************************
-                 The asynchronous output of COMPn is routed to the COMPn I/O port
-                */
-                ASYNC = 0x1,
-
-                /*************************************************************
-                 The synchronous output (including filtering) of COMPn is routed to the COMPn I/O port
-                */
-                SYNC = 0x2,
-            }
-            mixin BitFieldImplementation!(17, 16, Mutability.rw, Values);
-        }
+        alias OUT = BitField!(17, 16, Mutability.rw, OUTValues);
 
         /*********************************************************************
          Hysteresis Enable
         */
         alias HYST = Bit!(19, Mutability.rw);
 
+        /*****************************************************************
+         FLEN's possible values
+        */
+        enum FLENValues
+        {
+            /*************************************************************
+             No filtering
+            */
+            OFF = 0x0,
+
+            /*************************************************************
+             3-bit majority function (2 of 3)
+            */
+            MAJ3 = 0x1,
+
+            /*************************************************************
+             5-bit majority function (3 of 5)
+            */
+            MAJ5 = 0x2,
+        }
+
         /*********************************************************************
          Filter Length
         */
-        final abstract class FLEN
-        {
-            /*****************************************************************
-             FLEN's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 No filtering
-                */
-                OFF = 0x0,
-
-                /*************************************************************
-                 3-bit majority function (2 of 3)
-                */
-                MAJ3 = 0x1,
-
-                /*************************************************************
-                 5-bit majority function (3 of 5)
-                */
-                MAJ5 = 0x2,
-            }
-            mixin BitFieldImplementation!(26, 24, Mutability.rw, Values);
-        }
+        alias FLEN = BitField!(26, 24, Mutability.rw, FLENValues);
     }
 
     /*************************************************************************
@@ -626,33 +602,31 @@ final abstract class AC : Peripheral!(0x42004400)
         */
         alias STATE1 = Bit!(1, Mutability.rw);
 
+        /*****************************************************************
+         WSTATE0's possible values
+        */
+        enum WSTATE0Values
+        {
+            /*************************************************************
+             Signal is above window
+            */
+            ABOVE = 0x0,
+
+            /*************************************************************
+             Signal is inside window
+            */
+            INSIDE = 0x1,
+
+            /*************************************************************
+             Signal is below window
+            */
+            BELOW = 0x2,
+        }
+
         /*********************************************************************
          Window 0 Current State
         */
-        final abstract class WSTATE0
-        {
-            /*****************************************************************
-             WSTATE0's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Signal is above window
-                */
-                ABOVE = 0x0,
-
-                /*************************************************************
-                 Signal is inside window
-                */
-                INSIDE = 0x1,
-
-                /*************************************************************
-                 Signal is below window
-                */
-                BELOW = 0x2,
-            }
-            mixin BitFieldImplementation!(5, 4, Mutability.rw, Values);
-        }
+        alias WSTATE0 = BitField!(5, 4, Mutability.rw, WSTATE0Values);
     }
 
     /*************************************************************************
@@ -691,33 +665,31 @@ final abstract class AC : Peripheral!(0x42004400)
         */
         alias STATE1 = Bit!(1, Mutability.rw);
 
+        /*****************************************************************
+         WSTATE0's possible values
+        */
+        enum WSTATE0Values
+        {
+            /*************************************************************
+             Signal is above window
+            */
+            ABOVE = 0x0,
+
+            /*************************************************************
+             Signal is inside window
+            */
+            INSIDE = 0x1,
+
+            /*************************************************************
+             Signal is below window
+            */
+            BELOW = 0x2,
+        }
+
         /*********************************************************************
          Window 0 Current State
         */
-        final abstract class WSTATE0
-        {
-            /*****************************************************************
-             WSTATE0's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Signal is above window
-                */
-                ABOVE = 0x0,
-
-                /*************************************************************
-                 Signal is inside window
-                */
-                INSIDE = 0x1,
-
-                /*************************************************************
-                 Signal is below window
-                */
-                BELOW = 0x2,
-            }
-            mixin BitFieldImplementation!(5, 4, Mutability.rw, Values);
-        }
+        alias WSTATE0 = BitField!(5, 4, Mutability.rw, WSTATE0Values);
     }
 
     /*************************************************************************
@@ -730,37 +702,35 @@ final abstract class AC : Peripheral!(0x42004400)
         */
         alias WEN0 = Bit!(0, Mutability.rw);
 
+        /*****************************************************************
+         WINTSEL0's possible values
+        */
+        enum WINTSEL0Values
+        {
+            /*************************************************************
+             Interrupt on signal above window
+            */
+            ABOVE = 0x0,
+
+            /*************************************************************
+             Interrupt on signal inside window
+            */
+            INSIDE = 0x1,
+
+            /*************************************************************
+             Interrupt on signal below window
+            */
+            BELOW = 0x2,
+
+            /*************************************************************
+             Interrupt on signal outside window
+            */
+            OUTSIDE = 0x3,
+        }
+
         /*********************************************************************
          Window 0 Interrupt Selection
         */
-        final abstract class WINTSEL0
-        {
-            /*****************************************************************
-             WINTSEL0's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Interrupt on signal above window
-                */
-                ABOVE = 0x0,
-
-                /*************************************************************
-                 Interrupt on signal inside window
-                */
-                INSIDE = 0x1,
-
-                /*************************************************************
-                 Interrupt on signal below window
-                */
-                BELOW = 0x2,
-
-                /*************************************************************
-                 Interrupt on signal outside window
-                */
-                OUTSIDE = 0x3,
-            }
-            mixin BitFieldImplementation!(2, 1, Mutability.rw, Values);
-        }
+        alias WINTSEL0 = BitField!(2, 1, Mutability.rw, WINTSEL0Values);
     }
 }

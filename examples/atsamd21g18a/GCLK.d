@@ -17,58 +17,56 @@ final abstract class GCLK : Peripheral!(0x40000C00)
         */
         alias ID = BitField!(5, 0, Mutability.rw);
 
+        /*****************************************************************
+         GEN's possible values
+        */
+        enum GENValues
+        {
+            /*************************************************************
+             Generic clock generator 0
+            */
+            GCLK0 = 0x0,
+
+            /*************************************************************
+             Generic clock generator 1
+            */
+            GCLK1 = 0x1,
+
+            /*************************************************************
+             Generic clock generator 2
+            */
+            GCLK2 = 0x2,
+
+            /*************************************************************
+             Generic clock generator 3
+            */
+            GCLK3 = 0x3,
+
+            /*************************************************************
+             Generic clock generator 4
+            */
+            GCLK4 = 0x4,
+
+            /*************************************************************
+             Generic clock generator 5
+            */
+            GCLK5 = 0x5,
+
+            /*************************************************************
+             Generic clock generator 6
+            */
+            GCLK6 = 0x6,
+
+            /*************************************************************
+             Generic clock generator 7
+            */
+            GCLK7 = 0x7,
+        }
+
         /*********************************************************************
          Generic Clock Generator
         */
-        final abstract class GEN
-        {
-            /*****************************************************************
-             GEN's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Generic clock generator 0
-                */
-                GCLK0 = 0x0,
-
-                /*************************************************************
-                 Generic clock generator 1
-                */
-                GCLK1 = 0x1,
-
-                /*************************************************************
-                 Generic clock generator 2
-                */
-                GCLK2 = 0x2,
-
-                /*************************************************************
-                 Generic clock generator 3
-                */
-                GCLK3 = 0x3,
-
-                /*************************************************************
-                 Generic clock generator 4
-                */
-                GCLK4 = 0x4,
-
-                /*************************************************************
-                 Generic clock generator 5
-                */
-                GCLK5 = 0x5,
-
-                /*************************************************************
-                 Generic clock generator 6
-                */
-                GCLK6 = 0x6,
-
-                /*************************************************************
-                 Generic clock generator 7
-                */
-                GCLK7 = 0x7,
-            }
-            mixin BitFieldImplementation!(11, 8, Mutability.rw, Values);
-        }
+        alias GEN = BitField!(11, 8, Mutability.rw, GENValues);
 
         /*********************************************************************
          Clock Enable
@@ -102,58 +100,56 @@ final abstract class GCLK : Peripheral!(0x40000C00)
         */
         alias ID = BitField!(3, 0, Mutability.rw);
 
+        /*****************************************************************
+         SRC's possible values
+        */
+        enum SRCValues
+        {
+            /*************************************************************
+             XOSC oscillator output
+            */
+            XOSC = 0x0,
+
+            /*************************************************************
+             Generator input pad
+            */
+            GCLKIN = 0x1,
+
+            /*************************************************************
+             Generic clock generator 1 output
+            */
+            GCLKGEN1 = 0x2,
+
+            /*************************************************************
+             OSCULP32K oscillator output
+            */
+            OSCULP32K = 0x3,
+
+            /*************************************************************
+             OSC32K oscillator output
+            */
+            OSC32K = 0x4,
+
+            /*************************************************************
+             XOSC32K oscillator output
+            */
+            XOSC32K = 0x5,
+
+            /*************************************************************
+             OSC8M oscillator output
+            */
+            OSC8M = 0x6,
+
+            /*************************************************************
+             DFLL48M output
+            */
+            DFLL48M = 0x7,
+        }
+
         /*********************************************************************
          Source Select
         */
-        final abstract class SRC
-        {
-            /*****************************************************************
-             SRC's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 XOSC oscillator output
-                */
-                XOSC = 0x0,
-
-                /*************************************************************
-                 Generator input pad
-                */
-                GCLKIN = 0x1,
-
-                /*************************************************************
-                 Generic clock generator 1 output
-                */
-                GCLKGEN1 = 0x2,
-
-                /*************************************************************
-                 OSCULP32K oscillator output
-                */
-                OSCULP32K = 0x3,
-
-                /*************************************************************
-                 OSC32K oscillator output
-                */
-                OSC32K = 0x4,
-
-                /*************************************************************
-                 XOSC32K oscillator output
-                */
-                XOSC32K = 0x5,
-
-                /*************************************************************
-                 OSC8M oscillator output
-                */
-                OSC8M = 0x6,
-
-                /*************************************************************
-                 DFLL48M output
-                */
-                DFLL48M = 0x7,
-            }
-            mixin BitFieldImplementation!(12, 8, Mutability.rw, Values);
-        }
+        alias SRC = BitField!(12, 8, Mutability.rw, SRCValues);
 
         /*********************************************************************
          Generic Clock Generator Enable

@@ -84,48 +84,46 @@ final abstract class SERCOM0 : Peripheral!(0x42000800)
             */
             alias ENABLE = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 USART mode with external clock
+                */
+                USART_EXT_CLK = 0x0,
+
+                /*************************************************************
+                 USART mode with internal clock
+                */
+                USART_INT_CLK = 0x1,
+
+                /*************************************************************
+                 SPI mode with external clock
+                */
+                SPI_SLAVE = 0x2,
+
+                /*************************************************************
+                 SPI mode with internal clock
+                */
+                SPI_MASTER = 0x3,
+
+                /*************************************************************
+                 I2C mode with external clock
+                */
+                I2C_SLAVE = 0x4,
+
+                /*************************************************************
+                 I2C mode with internal clock
+                */
+                I2C_MASTER = 0x5,
+            }
+
             /*********************************************************************
              Operating Mode
             */
-            final abstract class MODE
-            {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     USART mode with external clock
-                    */
-                    USART_EXT_CLK = 0x0,
-
-                    /*************************************************************
-                     USART mode with internal clock
-                    */
-                    USART_INT_CLK = 0x1,
-
-                    /*************************************************************
-                     SPI mode with external clock
-                    */
-                    SPI_SLAVE = 0x2,
-
-                    /*************************************************************
-                     SPI mode with internal clock
-                    */
-                    SPI_MASTER = 0x3,
-
-                    /*************************************************************
-                     I2C mode with external clock
-                    */
-                    I2C_SLAVE = 0x4,
-
-                    /*************************************************************
-                     I2C mode with internal clock
-                    */
-                    I2C_MASTER = 0x5,
-                }
-                mixin BitFieldImplementation!(4, 2, Mutability.rw, Values);
-            }
+            alias MODE = BitField!(4, 2, Mutability.rw, MODEValues);
 
             /*********************************************************************
              Run in Standby
@@ -402,48 +400,46 @@ final abstract class SERCOM0 : Peripheral!(0x42000800)
             */
             alias ENABLE = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 USART mode with external clock
+                */
+                USART_EXT_CLK = 0x0,
+
+                /*************************************************************
+                 USART mode with internal clock
+                */
+                USART_INT_CLK = 0x1,
+
+                /*************************************************************
+                 SPI mode with external clock
+                */
+                SPI_SLAVE = 0x2,
+
+                /*************************************************************
+                 SPI mode with internal clock
+                */
+                SPI_MASTER = 0x3,
+
+                /*************************************************************
+                 I2C mode with external clock
+                */
+                I2C_SLAVE = 0x4,
+
+                /*************************************************************
+                 I2C mode with internal clock
+                */
+                I2C_MASTER = 0x5,
+            }
+
             /*********************************************************************
              Operating Mode
             */
-            final abstract class MODE
-            {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     USART mode with external clock
-                    */
-                    USART_EXT_CLK = 0x0,
-
-                    /*************************************************************
-                     USART mode with internal clock
-                    */
-                    USART_INT_CLK = 0x1,
-
-                    /*************************************************************
-                     SPI mode with external clock
-                    */
-                    SPI_SLAVE = 0x2,
-
-                    /*************************************************************
-                     SPI mode with internal clock
-                    */
-                    SPI_MASTER = 0x3,
-
-                    /*************************************************************
-                     I2C mode with external clock
-                    */
-                    I2C_SLAVE = 0x4,
-
-                    /*************************************************************
-                     I2C mode with internal clock
-                    */
-                    I2C_MASTER = 0x5,
-                }
-                mixin BitFieldImplementation!(4, 2, Mutability.rw, Values);
-            }
+            alias MODE = BitField!(4, 2, Mutability.rw, MODEValues);
 
             /*********************************************************************
              Run during Standby
@@ -731,48 +727,46 @@ final abstract class SERCOM0 : Peripheral!(0x42000800)
             */
             alias ENABLE = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 USART mode with external clock
+                */
+                USART_EXT_CLK = 0x0,
+
+                /*************************************************************
+                 USART mode with internal clock
+                */
+                USART_INT_CLK = 0x1,
+
+                /*************************************************************
+                 SPI mode with external clock
+                */
+                SPI_SLAVE = 0x2,
+
+                /*************************************************************
+                 SPI mode with internal clock
+                */
+                SPI_MASTER = 0x3,
+
+                /*************************************************************
+                 I2C mode with external clock
+                */
+                I2C_SLAVE = 0x4,
+
+                /*************************************************************
+                 I2C mode with internal clock
+                */
+                I2C_MASTER = 0x5,
+            }
+
             /*********************************************************************
              Operating Mode
             */
-            final abstract class MODE
-            {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     USART mode with external clock
-                    */
-                    USART_EXT_CLK = 0x0,
-
-                    /*************************************************************
-                     USART mode with internal clock
-                    */
-                    USART_INT_CLK = 0x1,
-
-                    /*************************************************************
-                     SPI mode with external clock
-                    */
-                    SPI_SLAVE = 0x2,
-
-                    /*************************************************************
-                     SPI mode with internal clock
-                    */
-                    SPI_MASTER = 0x3,
-
-                    /*************************************************************
-                     I2C mode with external clock
-                    */
-                    I2C_SLAVE = 0x4,
-
-                    /*************************************************************
-                     I2C mode with internal clock
-                    */
-                    I2C_MASTER = 0x5,
-                }
-                mixin BitFieldImplementation!(4, 2, Mutability.rw, Values);
-            }
+            alias MODE = BitField!(4, 2, Mutability.rw, MODEValues);
 
             /*********************************************************************
              Run during Standby
@@ -1072,48 +1066,46 @@ final abstract class SERCOM0 : Peripheral!(0x42000800)
             */
             alias ENABLE = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 USART mode with external clock
+                */
+                USART_EXT_CLK = 0x0,
+
+                /*************************************************************
+                 USART mode with internal clock
+                */
+                USART_INT_CLK = 0x1,
+
+                /*************************************************************
+                 SPI mode with external clock
+                */
+                SPI_SLAVE = 0x2,
+
+                /*************************************************************
+                 SPI mode with internal clock
+                */
+                SPI_MASTER = 0x3,
+
+                /*************************************************************
+                 I2C mode with external clock
+                */
+                I2C_SLAVE = 0x4,
+
+                /*************************************************************
+                 I2C mode with internal clock
+                */
+                I2C_MASTER = 0x5,
+            }
+
             /*********************************************************************
              Operating Mode
             */
-            final abstract class MODE
-            {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     USART mode with external clock
-                    */
-                    USART_EXT_CLK = 0x0,
-
-                    /*************************************************************
-                     USART mode with internal clock
-                    */
-                    USART_INT_CLK = 0x1,
-
-                    /*************************************************************
-                     SPI mode with external clock
-                    */
-                    SPI_SLAVE = 0x2,
-
-                    /*************************************************************
-                     SPI mode with internal clock
-                    */
-                    SPI_MASTER = 0x3,
-
-                    /*************************************************************
-                     I2C mode with external clock
-                    */
-                    I2C_SLAVE = 0x4,
-
-                    /*************************************************************
-                     I2C mode with internal clock
-                    */
-                    I2C_MASTER = 0x5,
-                }
-                mixin BitFieldImplementation!(4, 2, Mutability.rw, Values);
-            }
+            alias MODE = BitField!(4, 2, Mutability.rw, MODEValues);
 
             /*********************************************************************
              Run during Standby

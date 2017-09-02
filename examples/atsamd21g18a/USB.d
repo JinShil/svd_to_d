@@ -32,28 +32,26 @@ final abstract class USB : Peripheral!(0x41005000)
             */
             alias RUNSTDBY = Bit!(2, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 Device Mode
+                */
+                DEVICE = 0x0,
+
+                /*************************************************************
+                 Host Mode
+                */
+                HOST = 0x1,
+            }
+
             /*********************************************************************
              Operating Mode
             */
-            final abstract class MODE
-            {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Device Mode
-                    */
-                    DEVICE = 0x0,
-
-                    /*************************************************************
-                     Host Mode
-                    */
-                    HOST = 0x1,
-                }
-                mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
-            }
+            alias MODE = Bit!(7, Mutability.rw, MODEValues);
         }
 
         /*************************************************************************
@@ -82,38 +80,36 @@ final abstract class USB : Peripheral!(0x41005000)
             */
             alias UPRSM = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             SPDCONF's possible values
+            */
+            enum SPDCONFValues
+            {
+                /*************************************************************
+                 FS : Full Speed
+                */
+                _0x0 = 0x0,
+
+                /*************************************************************
+                 LS : Low Speed
+                */
+                _0x1 = 0x1,
+
+                /*************************************************************
+                 HS : High Speed capable
+                */
+                _0x2 = 0x2,
+
+                /*************************************************************
+                 HSTM: High Speed Test Mode (force high-speed mode for test mode)
+                */
+                _0x3 = 0x3,
+            }
+
             /*********************************************************************
              Speed Configuration
             */
-            final abstract class SPDCONF
-            {
-                /*****************************************************************
-                 SPDCONF's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     FS : Full Speed
-                    */
-                    _0x0 = 0x0,
-
-                    /*************************************************************
-                     LS : Low Speed
-                    */
-                    _0x1 = 0x1,
-
-                    /*************************************************************
-                     HS : High Speed capable
-                    */
-                    _0x2 = 0x2,
-
-                    /*************************************************************
-                     HSTM: High Speed Test Mode (force high-speed mode for test mode)
-                    */
-                    _0x3 = 0x3,
-                }
-                mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
-            }
+            alias SPDCONF = BitField!(3, 2, Mutability.rw, SPDCONFValues);
 
             /*********************************************************************
              No Reply
@@ -145,38 +141,36 @@ final abstract class USB : Peripheral!(0x41005000)
             */
             alias GNAK = Bit!(9, Mutability.rw);
 
+            /*****************************************************************
+             LPMHDSK's possible values
+            */
+            enum LPMHDSKValues
+            {
+                /*************************************************************
+                 No handshake. LPM is not supported
+                */
+                NO = 0x0,
+
+                /*************************************************************
+                 ACK
+                */
+                ACK = 0x1,
+
+                /*************************************************************
+                 NYET
+                */
+                NYET = 0x2,
+
+                /*************************************************************
+                 STALL
+                */
+                STALL = 0x3,
+            }
+
             /*********************************************************************
              Link Power Management Handshake
             */
-            final abstract class LPMHDSK
-            {
-                /*****************************************************************
-                 LPMHDSK's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     No handshake. LPM is not supported
-                    */
-                    NO = 0x0,
-
-                    /*************************************************************
-                     ACK
-                    */
-                    ACK = 0x1,
-
-                    /*************************************************************
-                     NYET
-                    */
-                    NYET = 0x2,
-
-                    /*************************************************************
-                     STALL
-                    */
-                    STALL = 0x3,
-                }
-                mixin BitFieldImplementation!(11, 10, Mutability.rw, Values);
-            }
+            alias LPMHDSK = BitField!(11, 10, Mutability.rw, LPMHDSKValues);
         }
 
         /*************************************************************************
@@ -435,61 +429,57 @@ final abstract class USB : Peripheral!(0x41005000)
         */
         final abstract class STATUS : Register!(0xc)
         {
+            /*****************************************************************
+             SPEED's possible values
+            */
+            enum SPEEDValues
+            {
+                /*************************************************************
+                 Full-speed mode
+                */
+                _0x0 = 0x0,
+
+                /*************************************************************
+                 High-speed mode
+                */
+                _0x1 = 0x1,
+
+                /*************************************************************
+                 Low-speed mode
+                */
+                _0x2 = 0x2,
+            }
+
             /*********************************************************************
              Speed Status
             */
-            final abstract class SPEED
+            alias SPEED = BitField!(3, 2, Mutability.r, SPEEDValues);
+
+            /*****************************************************************
+             LINESTATE's possible values
+            */
+            enum LINESTATEValues
             {
-                /*****************************************************************
-                 SPEED's possible values
+                /*************************************************************
+                 SE0/RESET
                 */
-                enum Values
-                {
-                    /*************************************************************
-                     Full-speed mode
-                    */
-                    _0x0 = 0x0,
+                _0x0 = 0x0,
 
-                    /*************************************************************
-                     High-speed mode
-                    */
-                    _0x1 = 0x1,
+                /*************************************************************
+                 FS-J or LS-K State
+                */
+                _0x1 = 0x1,
 
-                    /*************************************************************
-                     Low-speed mode
-                    */
-                    _0x2 = 0x2,
-                }
-                mixin BitFieldImplementation!(3, 2, Mutability.r, Values);
+                /*************************************************************
+                 FS-K or LS-J State
+                */
+                _0x2 = 0x2,
             }
 
             /*********************************************************************
              USB Line State Status
             */
-            final abstract class LINESTATE
-            {
-                /*****************************************************************
-                 LINESTATE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     SE0/RESET
-                    */
-                    _0x0 = 0x0,
-
-                    /*************************************************************
-                     FS-J or LS-K State
-                    */
-                    _0x1 = 0x1,
-
-                    /*************************************************************
-                     FS-K or LS-J State
-                    */
-                    _0x2 = 0x2,
-                }
-                mixin BitFieldImplementation!(7, 6, Mutability.r, Values);
-            }
+            alias LINESTATE = BitField!(7, 6, Mutability.r, LINESTATEValues);
         }
 
         /*************************************************************************
@@ -2584,53 +2574,51 @@ final abstract class USB : Peripheral!(0x41005000)
         */
         final abstract class FSMSTATUS : Register!(0xd)
         {
+            /*****************************************************************
+             FSMSTATE's possible values
+            */
+            enum FSMSTATEValues
+            {
+                /*************************************************************
+                 OFF (L3). It corresponds to the powered-off, disconnected, and disabled state
+                */
+                _0x1 = 0x1,
+
+                /*************************************************************
+                 ON (L0). It corresponds to the Idle and Active states
+                */
+                _0x2 = 0x2,
+
+                /*************************************************************
+                 SUSPEND (L2)
+                */
+                _0x4 = 0x4,
+
+                /*************************************************************
+                 SLEEP (L1)
+                */
+                _0x8 = 0x8,
+
+                /*************************************************************
+                 DNRESUME. Down Stream Resume.
+                */
+                _0x10 = 0x10,
+
+                /*************************************************************
+                 UPRESUME. Up Stream Resume.
+                */
+                _0x20 = 0x20,
+
+                /*************************************************************
+                 RESET. USB lines Reset.
+                */
+                _0x40 = 0x40,
+            }
+
             /*********************************************************************
              Fine State Machine Status
             */
-            final abstract class FSMSTATE
-            {
-                /*****************************************************************
-                 FSMSTATE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     OFF (L3). It corresponds to the powered-off, disconnected, and disabled state
-                    */
-                    _0x1 = 0x1,
-
-                    /*************************************************************
-                     ON (L0). It corresponds to the Idle and Active states
-                    */
-                    _0x2 = 0x2,
-
-                    /*************************************************************
-                     SUSPEND (L2)
-                    */
-                    _0x4 = 0x4,
-
-                    /*************************************************************
-                     SLEEP (L1)
-                    */
-                    _0x8 = 0x8,
-
-                    /*************************************************************
-                     DNRESUME. Down Stream Resume.
-                    */
-                    _0x10 = 0x10,
-
-                    /*************************************************************
-                     UPRESUME. Up Stream Resume.
-                    */
-                    _0x20 = 0x20,
-
-                    /*************************************************************
-                     RESET. USB lines Reset.
-                    */
-                    _0x40 = 0x40,
-                }
-                mixin BitFieldImplementation!(5, 0, Mutability.r, Values);
-            }
+            alias FSMSTATE = BitField!(5, 0, Mutability.r, FSMSTATEValues);
         }
 
         /*************************************************************************
@@ -2695,28 +2683,26 @@ final abstract class USB : Peripheral!(0x41005000)
             */
             alias RUNSTDBY = Bit!(2, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 Device Mode
+                */
+                DEVICE = 0x0,
+
+                /*************************************************************
+                 Host Mode
+                */
+                HOST = 0x1,
+            }
+
             /*********************************************************************
              Operating Mode
             */
-            final abstract class MODE
-            {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Device Mode
-                    */
-                    DEVICE = 0x0,
-
-                    /*************************************************************
-                     Host Mode
-                    */
-                    HOST = 0x1,
-                }
-                mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
-            }
+            alias MODE = Bit!(7, Mutability.rw, MODEValues);
         }
 
         /*************************************************************************
@@ -2735,53 +2721,51 @@ final abstract class USB : Peripheral!(0x41005000)
         */
         final abstract class FSMSTATUS : Register!(0xd)
         {
+            /*****************************************************************
+             FSMSTATE's possible values
+            */
+            enum FSMSTATEValues
+            {
+                /*************************************************************
+                 OFF (L3). It corresponds to the powered-off, disconnected, and disabled state
+                */
+                _0x1 = 0x1,
+
+                /*************************************************************
+                 ON (L0). It corresponds to the Idle and Active states
+                */
+                _0x2 = 0x2,
+
+                /*************************************************************
+                 SUSPEND (L2)
+                */
+                _0x4 = 0x4,
+
+                /*************************************************************
+                 SLEEP (L1)
+                */
+                _0x8 = 0x8,
+
+                /*************************************************************
+                 DNRESUME. Down Stream Resume.
+                */
+                _0x10 = 0x10,
+
+                /*************************************************************
+                 UPRESUME. Up Stream Resume.
+                */
+                _0x20 = 0x20,
+
+                /*************************************************************
+                 RESET. USB lines Reset.
+                */
+                _0x40 = 0x40,
+            }
+
             /*********************************************************************
              Fine State Machine Status
             */
-            final abstract class FSMSTATE
-            {
-                /*****************************************************************
-                 FSMSTATE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     OFF (L3). It corresponds to the powered-off, disconnected, and disabled state
-                    */
-                    _0x1 = 0x1,
-
-                    /*************************************************************
-                     ON (L0). It corresponds to the Idle and Active states
-                    */
-                    _0x2 = 0x2,
-
-                    /*************************************************************
-                     SUSPEND (L2)
-                    */
-                    _0x4 = 0x4,
-
-                    /*************************************************************
-                     SLEEP (L1)
-                    */
-                    _0x8 = 0x8,
-
-                    /*************************************************************
-                     DNRESUME. Down Stream Resume.
-                    */
-                    _0x10 = 0x10,
-
-                    /*************************************************************
-                     UPRESUME. Up Stream Resume.
-                    */
-                    _0x20 = 0x20,
-
-                    /*************************************************************
-                     RESET. USB lines Reset.
-                    */
-                    _0x40 = 0x40,
-                }
-                mixin BitFieldImplementation!(5, 0, Mutability.r, Values);
-            }
+            alias FSMSTATE = BitField!(5, 0, Mutability.r, FSMSTATEValues);
         }
 
         /*************************************************************************
@@ -2794,38 +2778,36 @@ final abstract class USB : Peripheral!(0x41005000)
             */
             alias RESUME = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             SPDCONF's possible values
+            */
+            enum SPDCONFValues
+            {
+                /*************************************************************
+                 Normal mode:the host starts in full-speed mode and performs a high-speed reset to switch to the high speed mode if the downstream peripheralis high-speed capable.
+                */
+                _0x0 = 0x0,
+
+                /*************************************************************
+                 reserved
+                */
+                _0x1 = 0x1,
+
+                /*************************************************************
+                 reserved
+                */
+                _0x2 = 0x2,
+
+                /*************************************************************
+                 Full-speed:the host remains in full-speed mode whatever is the peripheral speed capability. Releveant in UTMI mode only.
+                */
+                _0x3 = 0x3,
+            }
+
             /*********************************************************************
              Speed Configuration for Host
             */
-            final abstract class SPDCONF
-            {
-                /*****************************************************************
-                 SPDCONF's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Normal mode:the host starts in full-speed mode and performs a high-speed reset to switch to the high speed mode if the downstream peripheralis high-speed capable.
-                    */
-                    _0x0 = 0x0,
-
-                    /*************************************************************
-                     reserved
-                    */
-                    _0x1 = 0x1,
-
-                    /*************************************************************
-                     reserved
-                    */
-                    _0x2 = 0x2,
-
-                    /*************************************************************
-                     Full-speed:the host remains in full-speed mode whatever is the peripheral speed capability. Releveant in UTMI mode only.
-                    */
-                    _0x3 = 0x3,
-                }
-                mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
-            }
+            alias SPDCONF = BitField!(3, 2, Mutability.rw, SPDCONFValues);
 
             /*********************************************************************
              Test mode J

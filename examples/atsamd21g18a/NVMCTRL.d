@@ -23,101 +23,97 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
     */
     final abstract class CTRLA : Register!(00)
     {
+        /*****************************************************************
+         CMD's possible values
+        */
+        enum CMDValues
+        {
+            /*************************************************************
+             Erase Row - Erases the row addressed by the ADDR register.
+            */
+            ER = 0x2,
+
+            /*************************************************************
+             Write Page - Writes the contents of the page buffer to the page addressed by the ADDR register.
+            */
+            WP = 0x4,
+
+            /*************************************************************
+             Erase Auxiliary Row - Erases the auxiliary row addressed by the ADDR register. This command can be given only when the security bit is not set and only to the user configuration row.
+            */
+            EAR = 0x5,
+
+            /*************************************************************
+             Write Auxiliary Page - Writes the contents of the page buffer to the page addressed by the ADDR register. This command can be given only when the security bit is not set and only to the user configuration row.
+            */
+            WAP = 0x6,
+
+            /*************************************************************
+             Security Flow Command
+            */
+            SF = 0xa,
+
+            /*************************************************************
+             Write lockbits
+            */
+            WL = 0xf,
+
+            /*************************************************************
+             Lock Region - Locks the region containing the address location in the ADDR register.
+            */
+            LR = 0x40,
+
+            /*************************************************************
+             Unlock Region - Unlocks the region containing the address location in the ADDR register.
+            */
+            UR = 0x41,
+
+            /*************************************************************
+             Sets the power reduction mode.
+            */
+            SPRM = 0x42,
+
+            /*************************************************************
+             Clears the power reduction mode.
+            */
+            CPRM = 0x43,
+
+            /*************************************************************
+             Page Buffer Clear - Clears the page buffer.
+            */
+            PBC = 0x44,
+
+            /*************************************************************
+             Set Security Bit - Sets the security bit by writing 0x00 to the first byte in the lockbit row.
+            */
+            SSB = 0x45,
+
+            /*************************************************************
+             Invalidates all cache lines.
+            */
+            INVALL = 0x46,
+        }
+
         /*********************************************************************
          Command
         */
-        final abstract class CMD
+        alias CMD = BitField!(6, 0, Mutability.rw, CMDValues);
+
+        /*****************************************************************
+         CMDEX's possible values
+        */
+        enum CMDEXValues
         {
-            /*****************************************************************
-             CMD's possible values
+            /*************************************************************
+             Execution Key
             */
-            enum Values
-            {
-                /*************************************************************
-                 Erase Row - Erases the row addressed by the ADDR register.
-                */
-                ER = 0x2,
-
-                /*************************************************************
-                 Write Page - Writes the contents of the page buffer to the page addressed by the ADDR register.
-                */
-                WP = 0x4,
-
-                /*************************************************************
-                 Erase Auxiliary Row - Erases the auxiliary row addressed by the ADDR register. This command can be given only when the security bit is not set and only to the user configuration row.
-                */
-                EAR = 0x5,
-
-                /*************************************************************
-                 Write Auxiliary Page - Writes the contents of the page buffer to the page addressed by the ADDR register. This command can be given only when the security bit is not set and only to the user configuration row.
-                */
-                WAP = 0x6,
-
-                /*************************************************************
-                 Security Flow Command
-                */
-                SF = 0xa,
-
-                /*************************************************************
-                 Write lockbits
-                */
-                WL = 0xf,
-
-                /*************************************************************
-                 Lock Region - Locks the region containing the address location in the ADDR register.
-                */
-                LR = 0x40,
-
-                /*************************************************************
-                 Unlock Region - Unlocks the region containing the address location in the ADDR register.
-                */
-                UR = 0x41,
-
-                /*************************************************************
-                 Sets the power reduction mode.
-                */
-                SPRM = 0x42,
-
-                /*************************************************************
-                 Clears the power reduction mode.
-                */
-                CPRM = 0x43,
-
-                /*************************************************************
-                 Page Buffer Clear - Clears the page buffer.
-                */
-                PBC = 0x44,
-
-                /*************************************************************
-                 Set Security Bit - Sets the security bit by writing 0x00 to the first byte in the lockbit row.
-                */
-                SSB = 0x45,
-
-                /*************************************************************
-                 Invalidates all cache lines.
-                */
-                INVALL = 0x46,
-            }
-            mixin BitFieldImplementation!(6, 0, Mutability.rw, Values);
+            KEY = 0xa5,
         }
 
         /*********************************************************************
          Command Execution
         */
-        final abstract class CMDEX
-        {
-            /*****************************************************************
-             CMDEX's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Execution Key
-                */
-                KEY = 0xa5,
-            }
-            mixin BitFieldImplementation!(15, 8, Mutability.rw, Values);
-        }
+        alias CMDEX = BitField!(15, 8, Mutability.rw, CMDEXValues);
     }
 
     /*************************************************************************
@@ -125,94 +121,88 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
     */
     final abstract class CTRLB : Register!(0x4)
     {
+        /*****************************************************************
+         RWS's possible values
+        */
+        enum RWSValues
+        {
+            /*************************************************************
+             Single Auto Wait State
+            */
+            SINGLE = 0x0,
+
+            /*************************************************************
+             Half Auto Wait State
+            */
+            HALF = 0x1,
+
+            /*************************************************************
+             Dual Auto Wait State
+            */
+            DUAL = 0x2,
+        }
+
         /*********************************************************************
          NVM Read Wait States
         */
-        final abstract class RWS
-        {
-            /*****************************************************************
-             RWS's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Single Auto Wait State
-                */
-                SINGLE = 0x0,
-
-                /*************************************************************
-                 Half Auto Wait State
-                */
-                HALF = 0x1,
-
-                /*************************************************************
-                 Dual Auto Wait State
-                */
-                DUAL = 0x2,
-            }
-            mixin BitFieldImplementation!(4, 1, Mutability.rw, Values);
-        }
+        alias RWS = BitField!(4, 1, Mutability.rw, RWSValues);
 
         /*********************************************************************
          Manual Write
         */
         alias MANW = Bit!(7, Mutability.rw);
 
+        /*****************************************************************
+         SLEEPPRM's possible values
+        */
+        enum SLEEPPRMValues
+        {
+            /*************************************************************
+             NVM block enters low-power mode when entering sleep.NVM block exits low-power mode upon first access.
+            */
+            WAKEONACCESS = 0x0,
+
+            /*************************************************************
+             NVM block enters low-power mode when entering sleep.NVM block exits low-power mode when exiting sleep.
+            */
+            WAKEUPINSTANT = 0x1,
+
+            /*************************************************************
+             Auto power reduction disabled.
+            */
+            DISABLED = 0x3,
+        }
+
         /*********************************************************************
          Power Reduction Mode during Sleep
         */
-        final abstract class SLEEPPRM
+        alias SLEEPPRM = BitField!(9, 8, Mutability.rw, SLEEPPRMValues);
+
+        /*****************************************************************
+         READMODE's possible values
+        */
+        enum READMODEValues
         {
-            /*****************************************************************
-             SLEEPPRM's possible values
+            /*************************************************************
+             The NVM Controller (cache system) does not insert wait states on a cache miss. Gives the best system performance.
             */
-            enum Values
-            {
-                /*************************************************************
-                 NVM block enters low-power mode when entering sleep.NVM block exits low-power mode upon first access.
-                */
-                WAKEONACCESS = 0x0,
+            NO_MISS_PENALTY = 0x0,
 
-                /*************************************************************
-                 NVM block enters low-power mode when entering sleep.NVM block exits low-power mode when exiting sleep.
-                */
-                WAKEUPINSTANT = 0x1,
+            /*************************************************************
+             Reduces power consumption of the cache system, but inserts a wait state each time there is a cache miss. This mode may not be relevant if CPU performance is required, as the application will be stalled and may lead to increase run time.
+            */
+            LOW_POWER = 0x1,
 
-                /*************************************************************
-                 Auto power reduction disabled.
-                */
-                DISABLED = 0x3,
-            }
-            mixin BitFieldImplementation!(9, 8, Mutability.rw, Values);
+            /*************************************************************
+             The cache system ensures that a cache hit or miss takes the same amount of time, determined by the number of programmed flash wait states. This mode can be used for real-time applications that require deterministic execution timings.
+            */
+            DETERMINISTIC = 0x2,
         }
 
         /*********************************************************************
          NVMCTRL Read Mode
         */
-        final abstract class READMODE
-        {
-            /*****************************************************************
-             READMODE's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 The NVM Controller (cache system) does not insert wait states on a cache miss. Gives the best system performance.
-                */
-                NO_MISS_PENALTY = 0x0,
-
-                /*************************************************************
-                 Reduces power consumption of the cache system, but inserts a wait state each time there is a cache miss. This mode may not be relevant if CPU performance is required, as the application will be stalled and may lead to increase run time.
-                */
-                LOW_POWER = 0x1,
-
-                /*************************************************************
-                 The cache system ensures that a cache hit or miss takes the same amount of time, determined by the number of programmed flash wait states. This mode can be used for real-time applications that require deterministic execution timings.
-                */
-                DETERMINISTIC = 0x2,
-            }
-            mixin BitFieldImplementation!(17, 16, Mutability.rw, Values);
-        }
+        alias READMODE = BitField!(17, 16, Mutability.rw, READMODEValues);
 
         /*********************************************************************
          Cache Disable
@@ -289,58 +279,56 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
         */
         alias NVMP = BitField!(15, 0, Mutability.r);
 
+        /*****************************************************************
+         PSZ's possible values
+        */
+        enum PSZValues
+        {
+            /*************************************************************
+             8 bytes
+            */
+            _8 = 0x0,
+
+            /*************************************************************
+             16 bytes
+            */
+            _16 = 0x1,
+
+            /*************************************************************
+             32 bytes
+            */
+            _32 = 0x2,
+
+            /*************************************************************
+             64 bytes
+            */
+            _64 = 0x3,
+
+            /*************************************************************
+             128 bytes
+            */
+            _128 = 0x4,
+
+            /*************************************************************
+             256 bytes
+            */
+            _256 = 0x5,
+
+            /*************************************************************
+             512 bytes
+            */
+            _512 = 0x6,
+
+            /*************************************************************
+             1024 bytes
+            */
+            _1024 = 0x7,
+        }
+
         /*********************************************************************
          Page Size
         */
-        final abstract class PSZ
-        {
-            /*****************************************************************
-             PSZ's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 8 bytes
-                */
-                _8 = 0x0,
-
-                /*************************************************************
-                 16 bytes
-                */
-                _16 = 0x1,
-
-                /*************************************************************
-                 32 bytes
-                */
-                _32 = 0x2,
-
-                /*************************************************************
-                 64 bytes
-                */
-                _64 = 0x3,
-
-                /*************************************************************
-                 128 bytes
-                */
-                _128 = 0x4,
-
-                /*************************************************************
-                 256 bytes
-                */
-                _256 = 0x5,
-
-                /*************************************************************
-                 512 bytes
-                */
-                _512 = 0x6,
-
-                /*************************************************************
-                 1024 bytes
-                */
-                _1024 = 0x7,
-            }
-            mixin BitFieldImplementation!(18, 16, Mutability.r, Values);
-        }
+        alias PSZ = BitField!(18, 16, Mutability.r, PSZValues);
     }
 
     /*************************************************************************

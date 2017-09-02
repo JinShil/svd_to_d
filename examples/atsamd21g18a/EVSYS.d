@@ -27,66 +27,62 @@ final abstract class EVSYS : Peripheral!(0x42000400)
         */
         alias EVGEN = BitField!(22, 16, Mutability.rw);
 
+        /*****************************************************************
+         PATH's possible values
+        */
+        enum PATHValues
+        {
+            /*************************************************************
+             Synchronous path
+            */
+            SYNCHRONOUS = 0x0,
+
+            /*************************************************************
+             Resynchronized path
+            */
+            RESYNCHRONIZED = 0x1,
+
+            /*************************************************************
+             Asynchronous path
+            */
+            ASYNCHRONOUS = 0x2,
+        }
+
         /*********************************************************************
          Path Selection
         */
-        final abstract class PATH
+        alias PATH = BitField!(25, 24, Mutability.rw, PATHValues);
+
+        /*****************************************************************
+         EDGSEL's possible values
+        */
+        enum EDGSELValues
         {
-            /*****************************************************************
-             PATH's possible values
+            /*************************************************************
+             No event output when using the resynchronized or synchronous path
             */
-            enum Values
-            {
-                /*************************************************************
-                 Synchronous path
-                */
-                SYNCHRONOUS = 0x0,
+            NO_EVT_OUTPUT = 0x0,
 
-                /*************************************************************
-                 Resynchronized path
-                */
-                RESYNCHRONIZED = 0x1,
+            /*************************************************************
+             Event detection only on the rising edge of the signal from the event generator when using the resynchronized or synchronous path
+            */
+            RISING_EDGE = 0x1,
 
-                /*************************************************************
-                 Asynchronous path
-                */
-                ASYNCHRONOUS = 0x2,
-            }
-            mixin BitFieldImplementation!(25, 24, Mutability.rw, Values);
+            /*************************************************************
+             Event detection only on the falling edge of the signal from the event generator when using the resynchronized or synchronous path
+            */
+            FALLING_EDGE = 0x2,
+
+            /*************************************************************
+             Event detection on rising and falling edges of the signal from the event generator when using the resynchronized or synchronous path
+            */
+            BOTH_EDGES = 0x3,
         }
 
         /*********************************************************************
          Edge Detection Selection
         */
-        final abstract class EDGSEL
-        {
-            /*****************************************************************
-             EDGSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 No event output when using the resynchronized or synchronous path
-                */
-                NO_EVT_OUTPUT = 0x0,
-
-                /*************************************************************
-                 Event detection only on the rising edge of the signal from the event generator when using the resynchronized or synchronous path
-                */
-                RISING_EDGE = 0x1,
-
-                /*************************************************************
-                 Event detection only on the falling edge of the signal from the event generator when using the resynchronized or synchronous path
-                */
-                FALLING_EDGE = 0x2,
-
-                /*************************************************************
-                 Event detection on rising and falling edges of the signal from the event generator when using the resynchronized or synchronous path
-                */
-                BOTH_EDGES = 0x3,
-            }
-            mixin BitFieldImplementation!(27, 26, Mutability.rw, Values);
-        }
+        alias EDGSEL = BitField!(27, 26, Mutability.rw, EDGSELValues);
     }
 
     /*************************************************************************
@@ -619,22 +615,20 @@ final abstract class EVSYS : Peripheral!(0x42000400)
         */
         alias USER = BitField!(4, 0, Mutability.rw);
 
+        /*****************************************************************
+         CHANNEL's possible values
+        */
+        enum CHANNELValues
+        {
+            /*************************************************************
+             No Channel Output Selected
+            */
+            _0 = 0x0,
+        }
+
         /*********************************************************************
          Channel Event Selection
         */
-        final abstract class CHANNEL
-        {
-            /*****************************************************************
-             CHANNEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 No Channel Output Selected
-                */
-                _0 = 0x0,
-            }
-            mixin BitFieldImplementation!(12, 8, Mutability.rw, Values);
-        }
+        alias CHANNEL = BitField!(12, 8, Mutability.rw, CHANNELValues);
     }
 }

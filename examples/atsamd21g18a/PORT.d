@@ -1509,1776 +1509,1712 @@ final abstract class PORT : Peripheral!(0x41004400)
     */
     final abstract class PMUX0_1 : Register!(0x30)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_2 : Register!(0x31)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_3 : Register!(0x32)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_4 : Register!(0x33)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_5 : Register!(0x34)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_6 : Register!(0x35)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_7 : Register!(0x36)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_8 : Register!(0x37)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_9 : Register!(0x38)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_10 : Register!(0x39)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_11 : Register!(0x3a)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_12 : Register!(0x3b)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_13 : Register!(0x3c)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_14 : Register!(0x3d)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_15 : Register!(0x3e)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
     /*************************************************************************
      Peripheral Multiplexing n - Group 0
     */
     final abstract class PMUX0_16 : Register!(0x3f)
     {
+        /*****************************************************************
+         PMUXE's possible values
+        */
+        enum PMUXEValues
+        {
+            /*************************************************************
+             Peripheral function A selected
+            */
+            A = 0x0,
+
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
+
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
+
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
+
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
+
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
+
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
+
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
+        }
+
         /*********************************************************************
          Peripheral Multiplexing Even
         */
-        final abstract class PMUXE
+        alias PMUXE = BitField!(3, 0, Mutability.rw, PMUXEValues);
+
+        /*****************************************************************
+         PMUXO's possible values
+        */
+        enum PMUXOValues
         {
-            /*****************************************************************
-             PMUXE's possible values
+            /*************************************************************
+             Peripheral function A selected
             */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
+            A = 0x0,
 
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
+            /*************************************************************
+             Peripheral function B selected
+            */
+            B = 0x1,
 
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
+            /*************************************************************
+             Peripheral function C selected
+            */
+            C = 0x2,
 
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
+            /*************************************************************
+             Peripheral function D selected
+            */
+            D = 0x3,
 
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
+            /*************************************************************
+             Peripheral function E selected
+            */
+            E = 0x4,
 
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
+            /*************************************************************
+             Peripheral function F selected
+            */
+            F = 0x5,
 
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
+            /*************************************************************
+             Peripheral function G selected
+            */
+            G = 0x6,
 
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
+            /*************************************************************
+             Peripheral function H selected
+            */
+            H = 0x7,
         }
 
         /*********************************************************************
          Peripheral Multiplexing Odd
         */
-        final abstract class PMUXO
-        {
-            /*****************************************************************
-             PMUXO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Peripheral function A selected
-                */
-                A = 0x0,
-
-                /*************************************************************
-                 Peripheral function B selected
-                */
-                B = 0x1,
-
-                /*************************************************************
-                 Peripheral function C selected
-                */
-                C = 0x2,
-
-                /*************************************************************
-                 Peripheral function D selected
-                */
-                D = 0x3,
-
-                /*************************************************************
-                 Peripheral function E selected
-                */
-                E = 0x4,
-
-                /*************************************************************
-                 Peripheral function F selected
-                */
-                F = 0x5,
-
-                /*************************************************************
-                 Peripheral function G selected
-                */
-                G = 0x6,
-
-                /*************************************************************
-                 Peripheral function H selected
-                */
-                H = 0x7,
-            }
-            mixin BitFieldImplementation!(7, 4, Mutability.rw, Values);
-        }
+        alias PMUXO = BitField!(7, 4, Mutability.rw, PMUXOValues);
     }
 
     /*************************************************************************

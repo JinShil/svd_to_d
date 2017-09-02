@@ -12,173 +12,161 @@ final abstract class I2S : Peripheral!(0x42005000)
     */
     final abstract class CLKCTRL1 : Register!(0x4)
     {
+        /*****************************************************************
+         SLOTSIZE's possible values
+        */
+        enum SLOTSIZEValues
+        {
+            /*************************************************************
+             8-bit Slot for Clock Unit n
+            */
+            _8 = 0x0,
+
+            /*************************************************************
+             16-bit Slot for Clock Unit n
+            */
+            _16 = 0x1,
+
+            /*************************************************************
+             24-bit Slot for Clock Unit n
+            */
+            _24 = 0x2,
+
+            /*************************************************************
+             32-bit Slot for Clock Unit n
+            */
+            _32 = 0x3,
+        }
+
         /*********************************************************************
          Slot Size
         */
-        final abstract class SLOTSIZE
-        {
-            /*****************************************************************
-             SLOTSIZE's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 8-bit Slot for Clock Unit n
-                */
-                _8 = 0x0,
-
-                /*************************************************************
-                 16-bit Slot for Clock Unit n
-                */
-                _16 = 0x1,
-
-                /*************************************************************
-                 24-bit Slot for Clock Unit n
-                */
-                _24 = 0x2,
-
-                /*************************************************************
-                 32-bit Slot for Clock Unit n
-                */
-                _32 = 0x3,
-            }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
-        }
+        alias SLOTSIZE = BitField!(1, 0, Mutability.rw, SLOTSIZEValues);
 
         /*********************************************************************
          Number of Slots in Frame
         */
         alias NBSLOTS = BitField!(4, 2, Mutability.rw);
 
+        /*****************************************************************
+         FSWIDTH's possible values
+        */
+        enum FSWIDTHValues
+        {
+            /*************************************************************
+             Frame Sync Pulse is 1 Slot wide (default for I2S protocol)
+            */
+            SLOT = 0x0,
+
+            /*************************************************************
+             Frame Sync Pulse is half a Frame wide
+            */
+            HALF = 0x1,
+
+            /*************************************************************
+             Frame Sync Pulse is 1 Bit wide
+            */
+            BIT = 0x2,
+
+            /*************************************************************
+             Clock Unit n operates in Burst mode, with a 1-bit wide Frame Sync pulse per Data sample, only when Data transfer is requested
+            */
+            BURST = 0x3,
+        }
+
         /*********************************************************************
          Frame Sync Width
         */
-        final abstract class FSWIDTH
+        alias FSWIDTH = BitField!(6, 5, Mutability.rw, FSWIDTHValues);
+
+        /*****************************************************************
+         BITDELAY's possible values
+        */
+        enum BITDELAYValues
         {
-            /*****************************************************************
-             FSWIDTH's possible values
+            /*************************************************************
+             Left Justified (0 Bit Delay)
             */
-            enum Values
-            {
-                /*************************************************************
-                 Frame Sync Pulse is 1 Slot wide (default for I2S protocol)
-                */
-                SLOT = 0x0,
+            LJ = 0x0,
 
-                /*************************************************************
-                 Frame Sync Pulse is half a Frame wide
-                */
-                HALF = 0x1,
-
-                /*************************************************************
-                 Frame Sync Pulse is 1 Bit wide
-                */
-                BIT = 0x2,
-
-                /*************************************************************
-                 Clock Unit n operates in Burst mode, with a 1-bit wide Frame Sync pulse per Data sample, only when Data transfer is requested
-                */
-                BURST = 0x3,
-            }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
+            /*************************************************************
+             I2S (1 Bit Delay)
+            */
+            I2S = 0x1,
         }
 
         /*********************************************************************
          Data Delay from Frame Sync
         */
-        final abstract class BITDELAY
-        {
-            /*****************************************************************
-             BITDELAY's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Left Justified (0 Bit Delay)
-                */
-                LJ = 0x0,
+        alias BITDELAY = Bit!(7, Mutability.rw, BITDELAYValues);
 
-                /*************************************************************
-                 I2S (1 Bit Delay)
-                */
-                I2S = 0x1,
-            }
-            mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
+        /*****************************************************************
+         FSSEL's possible values
+        */
+        enum FSSELValues
+        {
+            /*************************************************************
+             Divided Serial Clock n is used as Frame Sync n source
+            */
+            SCKDIV = 0x0,
+
+            /*************************************************************
+             FSn input pin is used as Frame Sync n source
+            */
+            FSPIN = 0x1,
         }
 
         /*********************************************************************
          Frame Sync Select
         */
-        final abstract class FSSEL
-        {
-            /*****************************************************************
-             FSSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Divided Serial Clock n is used as Frame Sync n source
-                */
-                SCKDIV = 0x0,
-
-                /*************************************************************
-                 FSn input pin is used as Frame Sync n source
-                */
-                FSPIN = 0x1,
-            }
-            mixin BitFieldImplementation!(8, 8, Mutability.rw, Values);
-        }
+        alias FSSEL = Bit!(8, Mutability.rw, FSSELValues);
 
         /*********************************************************************
          Frame Sync Invert
         */
         alias FSINV = Bit!(11, Mutability.rw);
 
+        /*****************************************************************
+         SCKSEL's possible values
+        */
+        enum SCKSELValues
+        {
+            /*************************************************************
+             Divided Master Clock n is used as Serial Clock n source
+            */
+            MCKDIV = 0x0,
+
+            /*************************************************************
+             SCKn input pin is used as Serial Clock n source
+            */
+            SCKPIN = 0x1,
+        }
+
         /*********************************************************************
          Serial Clock Select
         */
-        final abstract class SCKSEL
-        {
-            /*****************************************************************
-             SCKSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Divided Master Clock n is used as Serial Clock n source
-                */
-                MCKDIV = 0x0,
+        alias SCKSEL = Bit!(12, Mutability.rw, SCKSELValues);
 
-                /*************************************************************
-                 SCKn input pin is used as Serial Clock n source
-                */
-                SCKPIN = 0x1,
-            }
-            mixin BitFieldImplementation!(12, 12, Mutability.rw, Values);
+        /*****************************************************************
+         MCKSEL's possible values
+        */
+        enum MCKSELValues
+        {
+            /*************************************************************
+             clk_gen_n is used as Master Clock n source
+            */
+            GCLK = 0x0,
+
+            /*************************************************************
+             MCKn input pin is used as Master Clock n source
+            */
+            MCKPIN = 0x1,
         }
 
         /*********************************************************************
          Master Clock Select
         */
-        final abstract class MCKSEL
-        {
-            /*****************************************************************
-             MCKSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 clk_gen_n is used as Master Clock n source
-                */
-                GCLK = 0x0,
-
-                /*************************************************************
-                 MCKn input pin is used as Master Clock n source
-                */
-                MCKPIN = 0x1,
-            }
-            mixin BitFieldImplementation!(16, 16, Mutability.rw, Values);
-        }
+        alias MCKSEL = Bit!(16, Mutability.rw, MCKSELValues);
 
         /*********************************************************************
          Master Clock Enable
@@ -215,173 +203,161 @@ final abstract class I2S : Peripheral!(0x42005000)
     */
     final abstract class CLKCTRL2 : Register!(0x8)
     {
+        /*****************************************************************
+         SLOTSIZE's possible values
+        */
+        enum SLOTSIZEValues
+        {
+            /*************************************************************
+             8-bit Slot for Clock Unit n
+            */
+            _8 = 0x0,
+
+            /*************************************************************
+             16-bit Slot for Clock Unit n
+            */
+            _16 = 0x1,
+
+            /*************************************************************
+             24-bit Slot for Clock Unit n
+            */
+            _24 = 0x2,
+
+            /*************************************************************
+             32-bit Slot for Clock Unit n
+            */
+            _32 = 0x3,
+        }
+
         /*********************************************************************
          Slot Size
         */
-        final abstract class SLOTSIZE
-        {
-            /*****************************************************************
-             SLOTSIZE's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 8-bit Slot for Clock Unit n
-                */
-                _8 = 0x0,
-
-                /*************************************************************
-                 16-bit Slot for Clock Unit n
-                */
-                _16 = 0x1,
-
-                /*************************************************************
-                 24-bit Slot for Clock Unit n
-                */
-                _24 = 0x2,
-
-                /*************************************************************
-                 32-bit Slot for Clock Unit n
-                */
-                _32 = 0x3,
-            }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
-        }
+        alias SLOTSIZE = BitField!(1, 0, Mutability.rw, SLOTSIZEValues);
 
         /*********************************************************************
          Number of Slots in Frame
         */
         alias NBSLOTS = BitField!(4, 2, Mutability.rw);
 
+        /*****************************************************************
+         FSWIDTH's possible values
+        */
+        enum FSWIDTHValues
+        {
+            /*************************************************************
+             Frame Sync Pulse is 1 Slot wide (default for I2S protocol)
+            */
+            SLOT = 0x0,
+
+            /*************************************************************
+             Frame Sync Pulse is half a Frame wide
+            */
+            HALF = 0x1,
+
+            /*************************************************************
+             Frame Sync Pulse is 1 Bit wide
+            */
+            BIT = 0x2,
+
+            /*************************************************************
+             Clock Unit n operates in Burst mode, with a 1-bit wide Frame Sync pulse per Data sample, only when Data transfer is requested
+            */
+            BURST = 0x3,
+        }
+
         /*********************************************************************
          Frame Sync Width
         */
-        final abstract class FSWIDTH
+        alias FSWIDTH = BitField!(6, 5, Mutability.rw, FSWIDTHValues);
+
+        /*****************************************************************
+         BITDELAY's possible values
+        */
+        enum BITDELAYValues
         {
-            /*****************************************************************
-             FSWIDTH's possible values
+            /*************************************************************
+             Left Justified (0 Bit Delay)
             */
-            enum Values
-            {
-                /*************************************************************
-                 Frame Sync Pulse is 1 Slot wide (default for I2S protocol)
-                */
-                SLOT = 0x0,
+            LJ = 0x0,
 
-                /*************************************************************
-                 Frame Sync Pulse is half a Frame wide
-                */
-                HALF = 0x1,
-
-                /*************************************************************
-                 Frame Sync Pulse is 1 Bit wide
-                */
-                BIT = 0x2,
-
-                /*************************************************************
-                 Clock Unit n operates in Burst mode, with a 1-bit wide Frame Sync pulse per Data sample, only when Data transfer is requested
-                */
-                BURST = 0x3,
-            }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
+            /*************************************************************
+             I2S (1 Bit Delay)
+            */
+            I2S = 0x1,
         }
 
         /*********************************************************************
          Data Delay from Frame Sync
         */
-        final abstract class BITDELAY
-        {
-            /*****************************************************************
-             BITDELAY's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Left Justified (0 Bit Delay)
-                */
-                LJ = 0x0,
+        alias BITDELAY = Bit!(7, Mutability.rw, BITDELAYValues);
 
-                /*************************************************************
-                 I2S (1 Bit Delay)
-                */
-                I2S = 0x1,
-            }
-            mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
+        /*****************************************************************
+         FSSEL's possible values
+        */
+        enum FSSELValues
+        {
+            /*************************************************************
+             Divided Serial Clock n is used as Frame Sync n source
+            */
+            SCKDIV = 0x0,
+
+            /*************************************************************
+             FSn input pin is used as Frame Sync n source
+            */
+            FSPIN = 0x1,
         }
 
         /*********************************************************************
          Frame Sync Select
         */
-        final abstract class FSSEL
-        {
-            /*****************************************************************
-             FSSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Divided Serial Clock n is used as Frame Sync n source
-                */
-                SCKDIV = 0x0,
-
-                /*************************************************************
-                 FSn input pin is used as Frame Sync n source
-                */
-                FSPIN = 0x1,
-            }
-            mixin BitFieldImplementation!(8, 8, Mutability.rw, Values);
-        }
+        alias FSSEL = Bit!(8, Mutability.rw, FSSELValues);
 
         /*********************************************************************
          Frame Sync Invert
         */
         alias FSINV = Bit!(11, Mutability.rw);
 
+        /*****************************************************************
+         SCKSEL's possible values
+        */
+        enum SCKSELValues
+        {
+            /*************************************************************
+             Divided Master Clock n is used as Serial Clock n source
+            */
+            MCKDIV = 0x0,
+
+            /*************************************************************
+             SCKn input pin is used as Serial Clock n source
+            */
+            SCKPIN = 0x1,
+        }
+
         /*********************************************************************
          Serial Clock Select
         */
-        final abstract class SCKSEL
-        {
-            /*****************************************************************
-             SCKSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Divided Master Clock n is used as Serial Clock n source
-                */
-                MCKDIV = 0x0,
+        alias SCKSEL = Bit!(12, Mutability.rw, SCKSELValues);
 
-                /*************************************************************
-                 SCKn input pin is used as Serial Clock n source
-                */
-                SCKPIN = 0x1,
-            }
-            mixin BitFieldImplementation!(12, 12, Mutability.rw, Values);
+        /*****************************************************************
+         MCKSEL's possible values
+        */
+        enum MCKSELValues
+        {
+            /*************************************************************
+             clk_gen_n is used as Master Clock n source
+            */
+            GCLK = 0x0,
+
+            /*************************************************************
+             MCKn input pin is used as Master Clock n source
+            */
+            MCKPIN = 0x1,
         }
 
         /*********************************************************************
          Master Clock Select
         */
-        final abstract class MCKSEL
-        {
-            /*****************************************************************
-             MCKSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 clk_gen_n is used as Master Clock n source
-                */
-                GCLK = 0x0,
-
-                /*************************************************************
-                 MCKn input pin is used as Master Clock n source
-                */
-                MCKPIN = 0x1,
-            }
-            mixin BitFieldImplementation!(16, 16, Mutability.rw, Values);
-        }
+        alias MCKSEL = Bit!(16, Mutability.rw, MCKSELValues);
 
         /*********************************************************************
          Master Clock Enable
@@ -614,262 +590,244 @@ final abstract class I2S : Peripheral!(0x42005000)
     */
     final abstract class SERCTRL1 : Register!(0x20)
     {
+        /*****************************************************************
+         SERMODE's possible values
+        */
+        enum SERMODEValues
+        {
+            /*************************************************************
+             Receive
+            */
+            RX = 0x0,
+
+            /*************************************************************
+             Transmit
+            */
+            TX = 0x1,
+
+            /*************************************************************
+             Receive 1 PDM data on each clock edge
+            */
+            PDM2 = 0x2,
+        }
+
         /*********************************************************************
          Serializer Mode
         */
-        final abstract class SERMODE
+        alias SERMODE = BitField!(1, 0, Mutability.rw, SERMODEValues);
+
+        /*****************************************************************
+         TXDEFAULT's possible values
+        */
+        enum TXDEFAULTValues
         {
-            /*****************************************************************
-             SERMODE's possible values
+            /*************************************************************
+             Output Default Value is 0
             */
-            enum Values
-            {
-                /*************************************************************
-                 Receive
-                */
-                RX = 0x0,
+            ZERO = 0x0,
 
-                /*************************************************************
-                 Transmit
-                */
-                TX = 0x1,
+            /*************************************************************
+             Output Default Value is 1
+            */
+            ONE = 0x1,
 
-                /*************************************************************
-                 Receive 1 PDM data on each clock edge
-                */
-                PDM2 = 0x2,
-            }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
+            /*************************************************************
+             Output Default Value is high impedance
+            */
+            HIZ = 0x3,
         }
 
         /*********************************************************************
          Line Default Line when Slot Disabled
         */
-        final abstract class TXDEFAULT
+        alias TXDEFAULT = BitField!(3, 2, Mutability.rw, TXDEFAULTValues);
+
+        /*****************************************************************
+         TXSAME's possible values
+        */
+        enum TXSAMEValues
         {
-            /*****************************************************************
-             TXDEFAULT's possible values
+            /*************************************************************
+             Zero data transmitted in case of underrun
             */
-            enum Values
-            {
-                /*************************************************************
-                 Output Default Value is 0
-                */
-                ZERO = 0x0,
+            ZERO = 0x0,
 
-                /*************************************************************
-                 Output Default Value is 1
-                */
-                ONE = 0x1,
-
-                /*************************************************************
-                 Output Default Value is high impedance
-                */
-                HIZ = 0x3,
-            }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
+            /*************************************************************
+             Last data transmitted in case of underrun
+            */
+            SAME = 0x1,
         }
 
         /*********************************************************************
          Transmit Data when Underrun
         */
-        final abstract class TXSAME
-        {
-            /*****************************************************************
-             TXSAME's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Zero data transmitted in case of underrun
-                */
-                ZERO = 0x0,
+        alias TXSAME = Bit!(4, Mutability.rw, TXSAMEValues);
 
-                /*************************************************************
-                 Last data transmitted in case of underrun
-                */
-                SAME = 0x1,
-            }
-            mixin BitFieldImplementation!(4, 4, Mutability.rw, Values);
+        /*****************************************************************
+         CLKSEL's possible values
+        */
+        enum CLKSELValues
+        {
+            /*************************************************************
+             Use Clock Unit 0
+            */
+            CLK0 = 0x0,
+
+            /*************************************************************
+             Use Clock Unit 1
+            */
+            CLK1 = 0x1,
         }
 
         /*********************************************************************
          Clock Unit Selection
         */
-        final abstract class CLKSEL
-        {
-            /*****************************************************************
-             CLKSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Use Clock Unit 0
-                */
-                CLK0 = 0x0,
+        alias CLKSEL = Bit!(5, Mutability.rw, CLKSELValues);
 
-                /*************************************************************
-                 Use Clock Unit 1
-                */
-                CLK1 = 0x1,
-            }
-            mixin BitFieldImplementation!(5, 5, Mutability.rw, Values);
+        /*****************************************************************
+         SLOTADJ's possible values
+        */
+        enum SLOTADJValues
+        {
+            /*************************************************************
+             Data is right adjusted in slot
+            */
+            RIGHT = 0x0,
+
+            /*************************************************************
+             Data is left adjusted in slot
+            */
+            LEFT = 0x1,
         }
 
         /*********************************************************************
          Data Slot Formatting Adjust
         */
-        final abstract class SLOTADJ
-        {
-            /*****************************************************************
-             SLOTADJ's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Data is right adjusted in slot
-                */
-                RIGHT = 0x0,
+        alias SLOTADJ = Bit!(7, Mutability.rw, SLOTADJValues);
 
-                /*************************************************************
-                 Data is left adjusted in slot
-                */
-                LEFT = 0x1,
-            }
-            mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
+        /*****************************************************************
+         DATASIZE's possible values
+        */
+        enum DATASIZEValues
+        {
+            /*************************************************************
+             32 bits
+            */
+            _32 = 0x0,
+
+            /*************************************************************
+             24 bits
+            */
+            _24 = 0x1,
+
+            /*************************************************************
+             20 bits
+            */
+            _20 = 0x2,
+
+            /*************************************************************
+             18 bits
+            */
+            _18 = 0x3,
+
+            /*************************************************************
+             16 bits
+            */
+            _16 = 0x4,
+
+            /*************************************************************
+             16 bits compact stereo
+            */
+            _16C = 0x5,
+
+            /*************************************************************
+             8 bits
+            */
+            _8 = 0x6,
+
+            /*************************************************************
+             8 bits compact stereo
+            */
+            _8C = 0x7,
         }
 
         /*********************************************************************
          Data Word Size
         */
-        final abstract class DATASIZE
+        alias DATASIZE = BitField!(10, 8, Mutability.rw, DATASIZEValues);
+
+        /*****************************************************************
+         WORDADJ's possible values
+        */
+        enum WORDADJValues
         {
-            /*****************************************************************
-             DATASIZE's possible values
+            /*************************************************************
+             Data is right adjusted in word
             */
-            enum Values
-            {
-                /*************************************************************
-                 32 bits
-                */
-                _32 = 0x0,
+            RIGHT = 0x0,
 
-                /*************************************************************
-                 24 bits
-                */
-                _24 = 0x1,
-
-                /*************************************************************
-                 20 bits
-                */
-                _20 = 0x2,
-
-                /*************************************************************
-                 18 bits
-                */
-                _18 = 0x3,
-
-                /*************************************************************
-                 16 bits
-                */
-                _16 = 0x4,
-
-                /*************************************************************
-                 16 bits compact stereo
-                */
-                _16C = 0x5,
-
-                /*************************************************************
-                 8 bits
-                */
-                _8 = 0x6,
-
-                /*************************************************************
-                 8 bits compact stereo
-                */
-                _8C = 0x7,
-            }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
+            /*************************************************************
+             Data is left adjusted in word
+            */
+            LEFT = 0x1,
         }
 
         /*********************************************************************
          Data Word Formatting Adjust
         */
-        final abstract class WORDADJ
-        {
-            /*****************************************************************
-             WORDADJ's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Data is right adjusted in word
-                */
-                RIGHT = 0x0,
+        alias WORDADJ = Bit!(12, Mutability.rw, WORDADJValues);
 
-                /*************************************************************
-                 Data is left adjusted in word
-                */
-                LEFT = 0x1,
-            }
-            mixin BitFieldImplementation!(12, 12, Mutability.rw, Values);
+        /*****************************************************************
+         EXTEND's possible values
+        */
+        enum EXTENDValues
+        {
+            /*************************************************************
+             Extend with zeroes
+            */
+            ZERO = 0x0,
+
+            /*************************************************************
+             Extend with ones
+            */
+            ONE = 0x1,
+
+            /*************************************************************
+             Extend with Most Significant Bit
+            */
+            MSBIT = 0x2,
+
+            /*************************************************************
+             Extend with Least Significant Bit
+            */
+            LSBIT = 0x3,
         }
 
         /*********************************************************************
          Data Formatting Bit Extension
         */
-        final abstract class EXTEND
+        alias EXTEND = BitField!(14, 13, Mutability.rw, EXTENDValues);
+
+        /*****************************************************************
+         BITREV's possible values
+        */
+        enum BITREVValues
         {
-            /*****************************************************************
-             EXTEND's possible values
+            /*************************************************************
+             Transfer Data Most Significant Bit (MSB) first (default for I2S protocol)
             */
-            enum Values
-            {
-                /*************************************************************
-                 Extend with zeroes
-                */
-                ZERO = 0x0,
+            MSBIT = 0x0,
 
-                /*************************************************************
-                 Extend with ones
-                */
-                ONE = 0x1,
-
-                /*************************************************************
-                 Extend with Most Significant Bit
-                */
-                MSBIT = 0x2,
-
-                /*************************************************************
-                 Extend with Least Significant Bit
-                */
-                LSBIT = 0x3,
-            }
-            mixin BitFieldImplementation!(14, 13, Mutability.rw, Values);
+            /*************************************************************
+             Transfer Data Least Significant Bit (LSB) first
+            */
+            LSBIT = 0x1,
         }
 
         /*********************************************************************
          Data Formatting Bit Reverse
         */
-        final abstract class BITREV
-        {
-            /*****************************************************************
-             BITREV's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Transfer Data Most Significant Bit (MSB) first (default for I2S protocol)
-                */
-                MSBIT = 0x0,
-
-                /*************************************************************
-                 Transfer Data Least Significant Bit (LSB) first
-                */
-                LSBIT = 0x1,
-            }
-            mixin BitFieldImplementation!(15, 15, Mutability.rw, Values);
-        }
+        alias BITREV = Bit!(15, Mutability.rw, BITREVValues);
 
         /*********************************************************************
          Slot 0 Disabled for this Serializer
@@ -911,51 +869,47 @@ final abstract class I2S : Peripheral!(0x42005000)
         */
         alias SLOTDIS7 = Bit!(23, Mutability.rw);
 
+        /*****************************************************************
+         MONO's possible values
+        */
+        enum MONOValues
+        {
+            /*************************************************************
+             Normal mode
+            */
+            STEREO = 0x0,
+
+            /*************************************************************
+             Left channel data is duplicated to right channel
+            */
+            MONO = 0x1,
+        }
+
         /*********************************************************************
          Mono Mode
         */
-        final abstract class MONO
-        {
-            /*****************************************************************
-             MONO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Normal mode
-                */
-                STEREO = 0x0,
+        alias MONO = Bit!(24, Mutability.rw, MONOValues);
 
-                /*************************************************************
-                 Left channel data is duplicated to right channel
-                */
-                MONO = 0x1,
-            }
-            mixin BitFieldImplementation!(24, 24, Mutability.rw, Values);
+        /*****************************************************************
+         DMA's possible values
+        */
+        enum DMAValues
+        {
+            /*************************************************************
+             Single DMA channel
+            */
+            SINGLE = 0x0,
+
+            /*************************************************************
+             One DMA channel per data channel
+            */
+            MULTIPLE = 0x1,
         }
 
         /*********************************************************************
          Single or Multiple DMA Channels
         */
-        final abstract class DMA
-        {
-            /*****************************************************************
-             DMA's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Single DMA channel
-                */
-                SINGLE = 0x0,
-
-                /*************************************************************
-                 One DMA channel per data channel
-                */
-                MULTIPLE = 0x1,
-            }
-            mixin BitFieldImplementation!(25, 25, Mutability.rw, Values);
-        }
+        alias DMA = Bit!(25, Mutability.rw, DMAValues);
 
         /*********************************************************************
          Loop-back Test Mode
@@ -967,262 +921,244 @@ final abstract class I2S : Peripheral!(0x42005000)
     */
     final abstract class SERCTRL2 : Register!(0x24)
     {
+        /*****************************************************************
+         SERMODE's possible values
+        */
+        enum SERMODEValues
+        {
+            /*************************************************************
+             Receive
+            */
+            RX = 0x0,
+
+            /*************************************************************
+             Transmit
+            */
+            TX = 0x1,
+
+            /*************************************************************
+             Receive 1 PDM data on each clock edge
+            */
+            PDM2 = 0x2,
+        }
+
         /*********************************************************************
          Serializer Mode
         */
-        final abstract class SERMODE
+        alias SERMODE = BitField!(1, 0, Mutability.rw, SERMODEValues);
+
+        /*****************************************************************
+         TXDEFAULT's possible values
+        */
+        enum TXDEFAULTValues
         {
-            /*****************************************************************
-             SERMODE's possible values
+            /*************************************************************
+             Output Default Value is 0
             */
-            enum Values
-            {
-                /*************************************************************
-                 Receive
-                */
-                RX = 0x0,
+            ZERO = 0x0,
 
-                /*************************************************************
-                 Transmit
-                */
-                TX = 0x1,
+            /*************************************************************
+             Output Default Value is 1
+            */
+            ONE = 0x1,
 
-                /*************************************************************
-                 Receive 1 PDM data on each clock edge
-                */
-                PDM2 = 0x2,
-            }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
+            /*************************************************************
+             Output Default Value is high impedance
+            */
+            HIZ = 0x3,
         }
 
         /*********************************************************************
          Line Default Line when Slot Disabled
         */
-        final abstract class TXDEFAULT
+        alias TXDEFAULT = BitField!(3, 2, Mutability.rw, TXDEFAULTValues);
+
+        /*****************************************************************
+         TXSAME's possible values
+        */
+        enum TXSAMEValues
         {
-            /*****************************************************************
-             TXDEFAULT's possible values
+            /*************************************************************
+             Zero data transmitted in case of underrun
             */
-            enum Values
-            {
-                /*************************************************************
-                 Output Default Value is 0
-                */
-                ZERO = 0x0,
+            ZERO = 0x0,
 
-                /*************************************************************
-                 Output Default Value is 1
-                */
-                ONE = 0x1,
-
-                /*************************************************************
-                 Output Default Value is high impedance
-                */
-                HIZ = 0x3,
-            }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
+            /*************************************************************
+             Last data transmitted in case of underrun
+            */
+            SAME = 0x1,
         }
 
         /*********************************************************************
          Transmit Data when Underrun
         */
-        final abstract class TXSAME
-        {
-            /*****************************************************************
-             TXSAME's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Zero data transmitted in case of underrun
-                */
-                ZERO = 0x0,
+        alias TXSAME = Bit!(4, Mutability.rw, TXSAMEValues);
 
-                /*************************************************************
-                 Last data transmitted in case of underrun
-                */
-                SAME = 0x1,
-            }
-            mixin BitFieldImplementation!(4, 4, Mutability.rw, Values);
+        /*****************************************************************
+         CLKSEL's possible values
+        */
+        enum CLKSELValues
+        {
+            /*************************************************************
+             Use Clock Unit 0
+            */
+            CLK0 = 0x0,
+
+            /*************************************************************
+             Use Clock Unit 1
+            */
+            CLK1 = 0x1,
         }
 
         /*********************************************************************
          Clock Unit Selection
         */
-        final abstract class CLKSEL
-        {
-            /*****************************************************************
-             CLKSEL's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Use Clock Unit 0
-                */
-                CLK0 = 0x0,
+        alias CLKSEL = Bit!(5, Mutability.rw, CLKSELValues);
 
-                /*************************************************************
-                 Use Clock Unit 1
-                */
-                CLK1 = 0x1,
-            }
-            mixin BitFieldImplementation!(5, 5, Mutability.rw, Values);
+        /*****************************************************************
+         SLOTADJ's possible values
+        */
+        enum SLOTADJValues
+        {
+            /*************************************************************
+             Data is right adjusted in slot
+            */
+            RIGHT = 0x0,
+
+            /*************************************************************
+             Data is left adjusted in slot
+            */
+            LEFT = 0x1,
         }
 
         /*********************************************************************
          Data Slot Formatting Adjust
         */
-        final abstract class SLOTADJ
-        {
-            /*****************************************************************
-             SLOTADJ's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Data is right adjusted in slot
-                */
-                RIGHT = 0x0,
+        alias SLOTADJ = Bit!(7, Mutability.rw, SLOTADJValues);
 
-                /*************************************************************
-                 Data is left adjusted in slot
-                */
-                LEFT = 0x1,
-            }
-            mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
+        /*****************************************************************
+         DATASIZE's possible values
+        */
+        enum DATASIZEValues
+        {
+            /*************************************************************
+             32 bits
+            */
+            _32 = 0x0,
+
+            /*************************************************************
+             24 bits
+            */
+            _24 = 0x1,
+
+            /*************************************************************
+             20 bits
+            */
+            _20 = 0x2,
+
+            /*************************************************************
+             18 bits
+            */
+            _18 = 0x3,
+
+            /*************************************************************
+             16 bits
+            */
+            _16 = 0x4,
+
+            /*************************************************************
+             16 bits compact stereo
+            */
+            _16C = 0x5,
+
+            /*************************************************************
+             8 bits
+            */
+            _8 = 0x6,
+
+            /*************************************************************
+             8 bits compact stereo
+            */
+            _8C = 0x7,
         }
 
         /*********************************************************************
          Data Word Size
         */
-        final abstract class DATASIZE
+        alias DATASIZE = BitField!(10, 8, Mutability.rw, DATASIZEValues);
+
+        /*****************************************************************
+         WORDADJ's possible values
+        */
+        enum WORDADJValues
         {
-            /*****************************************************************
-             DATASIZE's possible values
+            /*************************************************************
+             Data is right adjusted in word
             */
-            enum Values
-            {
-                /*************************************************************
-                 32 bits
-                */
-                _32 = 0x0,
+            RIGHT = 0x0,
 
-                /*************************************************************
-                 24 bits
-                */
-                _24 = 0x1,
-
-                /*************************************************************
-                 20 bits
-                */
-                _20 = 0x2,
-
-                /*************************************************************
-                 18 bits
-                */
-                _18 = 0x3,
-
-                /*************************************************************
-                 16 bits
-                */
-                _16 = 0x4,
-
-                /*************************************************************
-                 16 bits compact stereo
-                */
-                _16C = 0x5,
-
-                /*************************************************************
-                 8 bits
-                */
-                _8 = 0x6,
-
-                /*************************************************************
-                 8 bits compact stereo
-                */
-                _8C = 0x7,
-            }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
+            /*************************************************************
+             Data is left adjusted in word
+            */
+            LEFT = 0x1,
         }
 
         /*********************************************************************
          Data Word Formatting Adjust
         */
-        final abstract class WORDADJ
-        {
-            /*****************************************************************
-             WORDADJ's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Data is right adjusted in word
-                */
-                RIGHT = 0x0,
+        alias WORDADJ = Bit!(12, Mutability.rw, WORDADJValues);
 
-                /*************************************************************
-                 Data is left adjusted in word
-                */
-                LEFT = 0x1,
-            }
-            mixin BitFieldImplementation!(12, 12, Mutability.rw, Values);
+        /*****************************************************************
+         EXTEND's possible values
+        */
+        enum EXTENDValues
+        {
+            /*************************************************************
+             Extend with zeroes
+            */
+            ZERO = 0x0,
+
+            /*************************************************************
+             Extend with ones
+            */
+            ONE = 0x1,
+
+            /*************************************************************
+             Extend with Most Significant Bit
+            */
+            MSBIT = 0x2,
+
+            /*************************************************************
+             Extend with Least Significant Bit
+            */
+            LSBIT = 0x3,
         }
 
         /*********************************************************************
          Data Formatting Bit Extension
         */
-        final abstract class EXTEND
+        alias EXTEND = BitField!(14, 13, Mutability.rw, EXTENDValues);
+
+        /*****************************************************************
+         BITREV's possible values
+        */
+        enum BITREVValues
         {
-            /*****************************************************************
-             EXTEND's possible values
+            /*************************************************************
+             Transfer Data Most Significant Bit (MSB) first (default for I2S protocol)
             */
-            enum Values
-            {
-                /*************************************************************
-                 Extend with zeroes
-                */
-                ZERO = 0x0,
+            MSBIT = 0x0,
 
-                /*************************************************************
-                 Extend with ones
-                */
-                ONE = 0x1,
-
-                /*************************************************************
-                 Extend with Most Significant Bit
-                */
-                MSBIT = 0x2,
-
-                /*************************************************************
-                 Extend with Least Significant Bit
-                */
-                LSBIT = 0x3,
-            }
-            mixin BitFieldImplementation!(14, 13, Mutability.rw, Values);
+            /*************************************************************
+             Transfer Data Least Significant Bit (LSB) first
+            */
+            LSBIT = 0x1,
         }
 
         /*********************************************************************
          Data Formatting Bit Reverse
         */
-        final abstract class BITREV
-        {
-            /*****************************************************************
-             BITREV's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Transfer Data Most Significant Bit (MSB) first (default for I2S protocol)
-                */
-                MSBIT = 0x0,
-
-                /*************************************************************
-                 Transfer Data Least Significant Bit (LSB) first
-                */
-                LSBIT = 0x1,
-            }
-            mixin BitFieldImplementation!(15, 15, Mutability.rw, Values);
-        }
+        alias BITREV = Bit!(15, Mutability.rw, BITREVValues);
 
         /*********************************************************************
          Slot 0 Disabled for this Serializer
@@ -1264,51 +1200,47 @@ final abstract class I2S : Peripheral!(0x42005000)
         */
         alias SLOTDIS7 = Bit!(23, Mutability.rw);
 
+        /*****************************************************************
+         MONO's possible values
+        */
+        enum MONOValues
+        {
+            /*************************************************************
+             Normal mode
+            */
+            STEREO = 0x0,
+
+            /*************************************************************
+             Left channel data is duplicated to right channel
+            */
+            MONO = 0x1,
+        }
+
         /*********************************************************************
          Mono Mode
         */
-        final abstract class MONO
-        {
-            /*****************************************************************
-             MONO's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Normal mode
-                */
-                STEREO = 0x0,
+        alias MONO = Bit!(24, Mutability.rw, MONOValues);
 
-                /*************************************************************
-                 Left channel data is duplicated to right channel
-                */
-                MONO = 0x1,
-            }
-            mixin BitFieldImplementation!(24, 24, Mutability.rw, Values);
+        /*****************************************************************
+         DMA's possible values
+        */
+        enum DMAValues
+        {
+            /*************************************************************
+             Single DMA channel
+            */
+            SINGLE = 0x0,
+
+            /*************************************************************
+             One DMA channel per data channel
+            */
+            MULTIPLE = 0x1,
         }
 
         /*********************************************************************
          Single or Multiple DMA Channels
         */
-        final abstract class DMA
-        {
-            /*****************************************************************
-             DMA's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 Single DMA channel
-                */
-                SINGLE = 0x0,
-
-                /*************************************************************
-                 One DMA channel per data channel
-                */
-                MULTIPLE = 0x1,
-            }
-            mixin BitFieldImplementation!(25, 25, Mutability.rw, Values);
-        }
+        alias DMA = Bit!(25, Mutability.rw, DMAValues);
 
         /*********************************************************************
          Loop-back Test Mode

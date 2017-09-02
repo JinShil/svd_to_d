@@ -115,79 +115,73 @@ final abstract class TCC1 : Peripheral!(0x42002400)
         */
         alias ENABLE = Bit!(1, Mutability.rw);
 
+        /*****************************************************************
+         RESOLUTION's possible values
+        */
+        enum RESOLUTIONValues
+        {
+            None = 0x0,
+
+            DITH4 = 0x1,
+
+            DITH5 = 0x2,
+
+            DITH6 = 0x3,
+        }
+
         /*********************************************************************
          Enhanced Resolution
         */
-        final abstract class RESOLUTION
+        alias RESOLUTION = BitField!(6, 5, Mutability.rw, RESOLUTIONValues);
+
+        /*****************************************************************
+         PRESCALER's possible values
+        */
+        enum PRESCALERValues
         {
-            /*****************************************************************
-             RESOLUTION's possible values
-            */
-            enum Values
-            {
-                None = 0x0,
+            DIV1 = 0x0,
 
-                DITH4 = 0x1,
+            DIV2 = 0x1,
 
-                DITH5 = 0x2,
+            DIV4 = 0x2,
 
-                DITH6 = 0x3,
-            }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
+            DIV8 = 0x3,
+
+            DIV16 = 0x4,
+
+            DIV64 = 0x5,
+
+            DIV256 = 0x6,
+
+            DIV1024 = 0x7,
         }
 
         /*********************************************************************
          Prescaler
         */
-        final abstract class PRESCALER
-        {
-            /*****************************************************************
-             PRESCALER's possible values
-            */
-            enum Values
-            {
-                DIV1 = 0x0,
-
-                DIV2 = 0x1,
-
-                DIV4 = 0x2,
-
-                DIV8 = 0x3,
-
-                DIV16 = 0x4,
-
-                DIV64 = 0x5,
-
-                DIV256 = 0x6,
-
-                DIV1024 = 0x7,
-            }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
-        }
+        alias PRESCALER = BitField!(10, 8, Mutability.rw, PRESCALERValues);
 
         /*********************************************************************
          Run in Standby
         */
         alias RUNSTDBY = Bit!(11, Mutability.rw);
 
+        /*****************************************************************
+         PRESCSYNC's possible values
+        */
+        enum PRESCSYNCValues
+        {
+            GCLK = 0x0,
+
+            PRESC = 0x1,
+
+            RESYNC = 0x2,
+        }
+
         /*********************************************************************
          Prescaler and Counter Synchronization Selection
         */
-        final abstract class PRESCSYNC
-        {
-            /*****************************************************************
-             PRESCSYNC's possible values
-            */
-            enum Values
-            {
-                GCLK = 0x0,
-
-                PRESC = 0x1,
-
-                RESYNC = 0x2,
-            }
-            mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
-        }
+        alias PRESCSYNC = BitField!(13, 12, Mutability.rw, PRESCSYNCValues);
 
         /*********************************************************************
          Auto Lock
@@ -240,49 +234,45 @@ final abstract class TCC1 : Peripheral!(0x42002400)
         */
         alias ONESHOT = Bit!(2, Mutability.rw);
 
+        /*****************************************************************
+         IDXCMD's possible values
+        */
+        enum IDXCMDValues
+        {
+            DISABLE = 0x0,
+
+            SET = 0x1,
+
+            CLEAR = 0x2,
+
+            HOLD = 0x3,
+        }
+
         /*********************************************************************
          Ramp Index Command
         */
-        final abstract class IDXCMD
+        alias IDXCMD = BitField!(4, 3, Mutability.rw, IDXCMDValues);
+
+        /*****************************************************************
+         CMD's possible values
+        */
+        enum CMDValues
         {
-            /*****************************************************************
-             IDXCMD's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
+            NONE = 0x0,
 
-                SET = 0x1,
+            RETRIGGER = 0x1,
 
-                CLEAR = 0x2,
+            STOP = 0x2,
 
-                HOLD = 0x3,
-            }
-            mixin BitFieldImplementation!(4, 3, Mutability.rw, Values);
+            UPDATE = 0x3,
+
+            READSYNC = 0x4,
         }
 
         /*********************************************************************
          TCC Command
         */
-        final abstract class CMD
-        {
-            /*****************************************************************
-             CMD's possible values
-            */
-            enum Values
-            {
-                NONE = 0x0,
-
-                RETRIGGER = 0x1,
-
-                STOP = 0x2,
-
-                UPDATE = 0x3,
-
-                READSYNC = 0x4,
-            }
-            mixin BitFieldImplementation!(7, 5, Mutability.rw, Values);
-        }
+        alias CMD = BitField!(7, 5, Mutability.rw, CMDValues);
     }
 
     /*************************************************************************
@@ -305,49 +295,45 @@ final abstract class TCC1 : Peripheral!(0x42002400)
         */
         alias ONESHOT = Bit!(2, Mutability.rw);
 
+        /*****************************************************************
+         IDXCMD's possible values
+        */
+        enum IDXCMDValues
+        {
+            DISABLE = 0x0,
+
+            SET = 0x1,
+
+            CLEAR = 0x2,
+
+            HOLD = 0x3,
+        }
+
         /*********************************************************************
          Ramp Index Command
         */
-        final abstract class IDXCMD
+        alias IDXCMD = BitField!(4, 3, Mutability.rw, IDXCMDValues);
+
+        /*****************************************************************
+         CMD's possible values
+        */
+        enum CMDValues
         {
-            /*****************************************************************
-             IDXCMD's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
+            NONE = 0x0,
 
-                SET = 0x1,
+            RETRIGGER = 0x1,
 
-                CLEAR = 0x2,
+            STOP = 0x2,
 
-                HOLD = 0x3,
-            }
-            mixin BitFieldImplementation!(4, 3, Mutability.rw, Values);
+            UPDATE = 0x3,
+
+            READSYNC = 0x4,
         }
 
         /*********************************************************************
          TCC Command
         */
-        final abstract class CMD
-        {
-            /*****************************************************************
-             CMD's possible values
-            */
-            enum Values
-            {
-                NONE = 0x0,
-
-                RETRIGGER = 0x1,
-
-                STOP = 0x2,
-
-                UPDATE = 0x3,
-
-                READSYNC = 0x4,
-            }
-            mixin BitFieldImplementation!(7, 5, Mutability.rw, Values);
-        }
+        alias CMD = BitField!(7, 5, Mutability.rw, CMDValues);
     }
 
     /*************************************************************************
@@ -507,82 +493,76 @@ final abstract class TCC1 : Peripheral!(0x42002400)
     */
     final abstract class EVCTRL : Register!(0x20)
     {
+        /*****************************************************************
+         EVACT0's possible values
+        */
+        enum EVACT0Values
+        {
+            OFF = 0x0,
+
+            RETRIGGER = 0x1,
+
+            COUNTEV = 0x2,
+
+            START = 0x3,
+
+            INC = 0x4,
+
+            COUNT = 0x5,
+
+            FAULT = 0x7,
+        }
+
         /*********************************************************************
          Timer/counter Input Event0 Action
         */
-        final abstract class EVACT0
+        alias EVACT0 = BitField!(2, 0, Mutability.rw, EVACT0Values);
+
+        /*****************************************************************
+         EVACT1's possible values
+        */
+        enum EVACT1Values
         {
-            /*****************************************************************
-             EVACT0's possible values
-            */
-            enum Values
-            {
-                OFF = 0x0,
+            OFF = 0x0,
 
-                RETRIGGER = 0x1,
+            RETRIGGER = 0x1,
 
-                COUNTEV = 0x2,
+            DIR = 0x2,
 
-                START = 0x3,
+            STOP = 0x3,
 
-                INC = 0x4,
+            DEC = 0x4,
 
-                COUNT = 0x5,
+            PPW = 0x5,
 
-                FAULT = 0x7,
-            }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
+            PWP = 0x6,
+
+            FAULT = 0x7,
         }
 
         /*********************************************************************
          Timer/counter Input Event1 Action
         */
-        final abstract class EVACT1
+        alias EVACT1 = BitField!(5, 3, Mutability.rw, EVACT1Values);
+
+        /*****************************************************************
+         CNTSEL's possible values
+        */
+        enum CNTSELValues
         {
-            /*****************************************************************
-             EVACT1's possible values
-            */
-            enum Values
-            {
-                OFF = 0x0,
+            START = 0x0,
 
-                RETRIGGER = 0x1,
+            END = 0x1,
 
-                DIR = 0x2,
+            BETWEEN = 0x2,
 
-                STOP = 0x3,
-
-                DEC = 0x4,
-
-                PPW = 0x5,
-
-                PWP = 0x6,
-
-                FAULT = 0x7,
-            }
-            mixin BitFieldImplementation!(5, 3, Mutability.rw, Values);
+            BOUNDARY = 0x3,
         }
 
         /*********************************************************************
          Timer/counter Output Event Mode
         */
-        final abstract class CNTSEL
-        {
-            /*****************************************************************
-             CNTSEL's possible values
-            */
-            enum Values
-            {
-                START = 0x0,
-
-                END = 0x1,
-
-                BETWEEN = 0x2,
-
-                BOUNDARY = 0x3,
-            }
-            mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
-        }
+        alias CNTSEL = BitField!(7, 6, Mutability.rw, CNTSELValues);
 
         /*********************************************************************
          Overflow/Underflow Output Event Enable
@@ -665,26 +645,24 @@ final abstract class TCC1 : Peripheral!(0x42002400)
     */
     final abstract class FCTRLA : Register!(0xc)
     {
+        /*****************************************************************
+         SRC's possible values
+        */
+        enum SRCValues
+        {
+            DISABLE = 0x0,
+
+            ENABLE = 0x1,
+
+            INVERT = 0x2,
+
+            ALTFAULT = 0x3,
+        }
+
         /*********************************************************************
          FaultA Source
         */
-        final abstract class SRC
-        {
-            /*****************************************************************
-             SRC's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
-
-                ENABLE = 0x1,
-
-                INVERT = 0x2,
-
-                ALTFAULT = 0x3,
-            }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
-        }
+        alias SRC = BitField!(1, 0, Mutability.rw, SRCValues);
 
         /*********************************************************************
          FaultA Keeper
@@ -696,100 +674,92 @@ final abstract class TCC1 : Peripheral!(0x42002400)
         */
         alias QUAL = Bit!(4, Mutability.rw);
 
+        /*****************************************************************
+         BLANK's possible values
+        */
+        enum BLANKValues
+        {
+            DISABLE = 0x0,
+
+            RISE = 0x1,
+
+            FALL = 0x2,
+
+            BOTH = 0x3,
+        }
+
         /*********************************************************************
          FaultA Blanking Mode
         */
-        final abstract class BLANK
-        {
-            /*****************************************************************
-             BLANK's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
-
-                RISE = 0x1,
-
-                FALL = 0x2,
-
-                BOTH = 0x3,
-            }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
-        }
+        alias BLANK = BitField!(6, 5, Mutability.rw, BLANKValues);
 
         /*********************************************************************
          FaultA Restart
         */
         alias RESTART = Bit!(7, Mutability.rw);
 
+        /*****************************************************************
+         HALT's possible values
+        */
+        enum HALTValues
+        {
+            DISABLE = 0x0,
+
+            HW = 0x1,
+
+            SW = 0x2,
+
+            NR = 0x3,
+        }
+
         /*********************************************************************
          FaultA Halt Mode
         */
-        final abstract class HALT
+        alias HALT = BitField!(9, 8, Mutability.rw, HALTValues);
+
+        /*****************************************************************
+         CHSEL's possible values
+        */
+        enum CHSELValues
         {
-            /*****************************************************************
-             HALT's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
+            CC0 = 0x0,
 
-                HW = 0x1,
+            CC1 = 0x1,
 
-                SW = 0x2,
+            CC2 = 0x2,
 
-                NR = 0x3,
-            }
-            mixin BitFieldImplementation!(9, 8, Mutability.rw, Values);
+            CC3 = 0x3,
         }
 
         /*********************************************************************
          FaultA Capture Channel
         */
-        final abstract class CHSEL
+        alias CHSEL = BitField!(11, 10, Mutability.rw, CHSELValues);
+
+        /*****************************************************************
+         CAPTURE's possible values
+        */
+        enum CAPTUREValues
         {
-            /*****************************************************************
-             CHSEL's possible values
-            */
-            enum Values
-            {
-                CC0 = 0x0,
+            DISABLE = 0x0,
 
-                CC1 = 0x1,
+            CAPT = 0x1,
 
-                CC2 = 0x2,
+            CAPTMIN = 0x2,
 
-                CC3 = 0x3,
-            }
-            mixin BitFieldImplementation!(11, 10, Mutability.rw, Values);
+            CAPTMAX = 0x3,
+
+            LOCMIN = 0x4,
+
+            LOCMAX = 0x5,
+
+            DERIV0 = 0x6,
         }
 
         /*********************************************************************
          FaultA Capture Action
         */
-        final abstract class CAPTURE
-        {
-            /*****************************************************************
-             CAPTURE's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
-
-                CAPT = 0x1,
-
-                CAPTMIN = 0x2,
-
-                CAPTMAX = 0x3,
-
-                LOCMIN = 0x4,
-
-                LOCMAX = 0x5,
-
-                DERIV0 = 0x6,
-            }
-            mixin BitFieldImplementation!(14, 12, Mutability.rw, Values);
-        }
+        alias CAPTURE = BitField!(14, 12, Mutability.rw, CAPTUREValues);
 
         /*********************************************************************
          FaultA Blanking Time
@@ -807,26 +777,24 @@ final abstract class TCC1 : Peripheral!(0x42002400)
     */
     final abstract class FCTRLB : Register!(0x10)
     {
+        /*****************************************************************
+         SRC's possible values
+        */
+        enum SRCValues
+        {
+            DISABLE = 0x0,
+
+            ENABLE = 0x1,
+
+            INVERT = 0x2,
+
+            ALTFAULT = 0x3,
+        }
+
         /*********************************************************************
          FaultB Source
         */
-        final abstract class SRC
-        {
-            /*****************************************************************
-             SRC's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
-
-                ENABLE = 0x1,
-
-                INVERT = 0x2,
-
-                ALTFAULT = 0x3,
-            }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
-        }
+        alias SRC = BitField!(1, 0, Mutability.rw, SRCValues);
 
         /*********************************************************************
          FaultB Keeper
@@ -838,100 +806,92 @@ final abstract class TCC1 : Peripheral!(0x42002400)
         */
         alias QUAL = Bit!(4, Mutability.rw);
 
+        /*****************************************************************
+         BLANK's possible values
+        */
+        enum BLANKValues
+        {
+            DISABLE = 0x0,
+
+            RISE = 0x1,
+
+            FALL = 0x2,
+
+            BOTH = 0x3,
+        }
+
         /*********************************************************************
          FaultB Blanking Mode
         */
-        final abstract class BLANK
-        {
-            /*****************************************************************
-             BLANK's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
-
-                RISE = 0x1,
-
-                FALL = 0x2,
-
-                BOTH = 0x3,
-            }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
-        }
+        alias BLANK = BitField!(6, 5, Mutability.rw, BLANKValues);
 
         /*********************************************************************
          FaultB Restart
         */
         alias RESTART = Bit!(7, Mutability.rw);
 
+        /*****************************************************************
+         HALT's possible values
+        */
+        enum HALTValues
+        {
+            DISABLE = 0x0,
+
+            HW = 0x1,
+
+            SW = 0x2,
+
+            NR = 0x3,
+        }
+
         /*********************************************************************
          FaultB Halt Mode
         */
-        final abstract class HALT
+        alias HALT = BitField!(9, 8, Mutability.rw, HALTValues);
+
+        /*****************************************************************
+         CHSEL's possible values
+        */
+        enum CHSELValues
         {
-            /*****************************************************************
-             HALT's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
+            CC0 = 0x0,
 
-                HW = 0x1,
+            CC1 = 0x1,
 
-                SW = 0x2,
+            CC2 = 0x2,
 
-                NR = 0x3,
-            }
-            mixin BitFieldImplementation!(9, 8, Mutability.rw, Values);
+            CC3 = 0x3,
         }
 
         /*********************************************************************
          FaultB Capture Channel
         */
-        final abstract class CHSEL
+        alias CHSEL = BitField!(11, 10, Mutability.rw, CHSELValues);
+
+        /*****************************************************************
+         CAPTURE's possible values
+        */
+        enum CAPTUREValues
         {
-            /*****************************************************************
-             CHSEL's possible values
-            */
-            enum Values
-            {
-                CC0 = 0x0,
+            DISABLE = 0x0,
 
-                CC1 = 0x1,
+            CAPT = 0x1,
 
-                CC2 = 0x2,
+            CAPTMIN = 0x2,
 
-                CC3 = 0x3,
-            }
-            mixin BitFieldImplementation!(11, 10, Mutability.rw, Values);
+            CAPTMAX = 0x3,
+
+            LOCMIN = 0x4,
+
+            LOCMAX = 0x5,
+
+            DERIV0 = 0x6,
         }
 
         /*********************************************************************
          FaultB Capture Action
         */
-        final abstract class CAPTURE
-        {
-            /*****************************************************************
-             CAPTURE's possible values
-            */
-            enum Values
-            {
-                DISABLE = 0x0,
-
-                CAPT = 0x1,
-
-                CAPTMIN = 0x2,
-
-                CAPTMAX = 0x3,
-
-                LOCMIN = 0x4,
-
-                LOCMAX = 0x5,
-
-                DERIV0 = 0x6,
-            }
-            mixin BitFieldImplementation!(14, 12, Mutability.rw, Values);
-        }
+        alias CAPTURE = BitField!(14, 12, Mutability.rw, CAPTUREValues);
 
         /*********************************************************************
          FaultB Blanking Time
@@ -1573,51 +1533,47 @@ final abstract class TCC1 : Peripheral!(0x42002400)
     */
     final abstract class WAVE : Register!(0x3c)
     {
+        /*****************************************************************
+         WAVEGEN's possible values
+        */
+        enum WAVEGENValues
+        {
+            NFRQ = 0x0,
+
+            MFRQ = 0x1,
+
+            NPWM = 0x2,
+
+            DSCRITICAL = 0x4,
+
+            DSBOTTOM = 0x5,
+
+            DSBOTH = 0x6,
+
+            DSTOP = 0x7,
+        }
+
         /*********************************************************************
          Waveform Generation
         */
-        final abstract class WAVEGEN
+        alias WAVEGEN = BitField!(2, 0, Mutability.rw, WAVEGENValues);
+
+        /*****************************************************************
+         RAMP's possible values
+        */
+        enum RAMPValues
         {
-            /*****************************************************************
-             WAVEGEN's possible values
-            */
-            enum Values
-            {
-                NFRQ = 0x0,
+            RAMP1 = 0x0,
 
-                MFRQ = 0x1,
+            RAMP2A = 0x1,
 
-                NPWM = 0x2,
-
-                DSCRITICAL = 0x4,
-
-                DSBOTTOM = 0x5,
-
-                DSBOTH = 0x6,
-
-                DSTOP = 0x7,
-            }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
+            RAMP2 = 0x2,
         }
 
         /*********************************************************************
          Ramp Mode
         */
-        final abstract class RAMP
-        {
-            /*****************************************************************
-             RAMP's possible values
-            */
-            enum Values
-            {
-                RAMP1 = 0x0,
-
-                RAMP2A = 0x1,
-
-                RAMP2 = 0x2,
-            }
-            mixin BitFieldImplementation!(5, 4, Mutability.rw, Values);
-        }
+        alias RAMP = BitField!(5, 4, Mutability.rw, RAMPValues);
 
         /*********************************************************************
          Circular period Enable
@@ -1690,32 +1646,30 @@ final abstract class TCC1 : Peripheral!(0x42002400)
     */
     final abstract class WAVEB : Register!(0x68)
     {
+        /*****************************************************************
+         WAVEGENB's possible values
+        */
+        enum WAVEGENBValues
+        {
+            NFRQ = 0x0,
+
+            MFRQ = 0x1,
+
+            NPWM = 0x2,
+
+            DSCRITICAL = 0x4,
+
+            DSBOTTOM = 0x5,
+
+            DSBOTH = 0x6,
+
+            DSTOP = 0x7,
+        }
+
         /*********************************************************************
          Waveform Generation Buffer
         */
-        final abstract class WAVEGENB
-        {
-            /*****************************************************************
-             WAVEGENB's possible values
-            */
-            enum Values
-            {
-                NFRQ = 0x0,
-
-                MFRQ = 0x1,
-
-                NPWM = 0x2,
-
-                DSCRITICAL = 0x4,
-
-                DSBOTTOM = 0x5,
-
-                DSBOTH = 0x6,
-
-                DSTOP = 0x7,
-            }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
-        }
+        alias WAVEGENB = BitField!(2, 0, Mutability.rw, WAVEGENBValues);
 
         /*********************************************************************
          Ramp Mode Buffer

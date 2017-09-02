@@ -146,53 +146,51 @@ final abstract class DMAC : Peripheral!(0x41004800)
     */
     final abstract class CHCTRLB : Register!(0x44)
     {
+        /*****************************************************************
+         EVACT's possible values
+        */
+        enum EVACTValues
+        {
+            /*************************************************************
+             No action
+            */
+            NOACT = 0x0,
+
+            /*************************************************************
+             Transfer and periodic transfer trigger
+            */
+            TRIG = 0x1,
+
+            /*************************************************************
+             Conditional transfer trigger
+            */
+            CTRIG = 0x2,
+
+            /*************************************************************
+             Conditional block transfer
+            */
+            CBLOCK = 0x3,
+
+            /*************************************************************
+             Channel suspend operation
+            */
+            SUSPEND = 0x4,
+
+            /*************************************************************
+             Channel resume operation
+            */
+            RESUME = 0x5,
+
+            /*************************************************************
+             Skip next block suspend action
+            */
+            SSKIP = 0x6,
+        }
+
         /*********************************************************************
          Event Input Action
         */
-        final abstract class EVACT
-        {
-            /*****************************************************************
-             EVACT's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 No action
-                */
-                NOACT = 0x0,
-
-                /*************************************************************
-                 Transfer and periodic transfer trigger
-                */
-                TRIG = 0x1,
-
-                /*************************************************************
-                 Conditional transfer trigger
-                */
-                CTRIG = 0x2,
-
-                /*************************************************************
-                 Conditional block transfer
-                */
-                CBLOCK = 0x3,
-
-                /*************************************************************
-                 Channel suspend operation
-                */
-                SUSPEND = 0x4,
-
-                /*************************************************************
-                 Channel resume operation
-                */
-                RESUME = 0x5,
-
-                /*************************************************************
-                 Skip next block suspend action
-                */
-                SSKIP = 0x6,
-            }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
-        }
+        alias EVACT = BitField!(2, 0, Mutability.rw, EVACTValues);
 
         /*********************************************************************
          Channel Event Input Enable
@@ -209,79 +207,73 @@ final abstract class DMAC : Peripheral!(0x41004800)
         */
         alias LVL = BitField!(6, 5, Mutability.rw);
 
+        /*****************************************************************
+         TRIGSRC's possible values
+        */
+        enum TRIGSRCValues
+        {
+            /*************************************************************
+             Only software/event triggers
+            */
+            DISABLE = 0x0,
+        }
+
         /*********************************************************************
          Peripheral Trigger Source
         */
-        final abstract class TRIGSRC
+        alias TRIGSRC = BitField!(13, 8, Mutability.rw, TRIGSRCValues);
+
+        /*****************************************************************
+         TRIGACT's possible values
+        */
+        enum TRIGACTValues
         {
-            /*****************************************************************
-             TRIGSRC's possible values
+            /*************************************************************
+             One trigger required for each block transfer
             */
-            enum Values
-            {
-                /*************************************************************
-                 Only software/event triggers
-                */
-                DISABLE = 0x0,
-            }
-            mixin BitFieldImplementation!(13, 8, Mutability.rw, Values);
+            BLOCK = 0x0,
+
+            /*************************************************************
+             One trigger required for each beat transfer
+            */
+            BEAT = 0x2,
+
+            /*************************************************************
+             One trigger required for each transaction
+            */
+            TRANSACTION = 0x3,
         }
 
         /*********************************************************************
          Trigger Action
         */
-        final abstract class TRIGACT
+        alias TRIGACT = BitField!(23, 22, Mutability.rw, TRIGACTValues);
+
+        /*****************************************************************
+         CMD's possible values
+        */
+        enum CMDValues
         {
-            /*****************************************************************
-             TRIGACT's possible values
+            /*************************************************************
+             No action
             */
-            enum Values
-            {
-                /*************************************************************
-                 One trigger required for each block transfer
-                */
-                BLOCK = 0x0,
+            NOACT = 0x0,
 
-                /*************************************************************
-                 One trigger required for each beat transfer
-                */
-                BEAT = 0x2,
+            /*************************************************************
+             Channel suspend operation
+            */
+            SUSPEND = 0x1,
 
-                /*************************************************************
-                 One trigger required for each transaction
-                */
-                TRANSACTION = 0x3,
-            }
-            mixin BitFieldImplementation!(23, 22, Mutability.rw, Values);
+            /*************************************************************
+             Channel resume operation
+            */
+            RESUME = 0x2,
         }
 
         /*********************************************************************
          Software Command
         */
-        final abstract class CMD
-        {
-            /*****************************************************************
-             CMD's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 No action
-                */
-                NOACT = 0x0,
-
-                /*************************************************************
-                 Channel suspend operation
-                */
-                SUSPEND = 0x1,
-
-                /*************************************************************
-                 Channel resume operation
-                */
-                RESUME = 0x2,
-            }
-            mixin BitFieldImplementation!(25, 24, Mutability.rw, Values);
-        }
+        alias CMD = BitField!(25, 24, Mutability.rw, CMDValues);
     }
 
     /*************************************************************************
@@ -395,79 +387,73 @@ final abstract class DMAC : Peripheral!(0x41004800)
     */
     final abstract class CRCCTRL : Register!(0x2)
     {
+        /*****************************************************************
+         CRCBEATSIZE's possible values
+        */
+        enum CRCBEATSIZEValues
+        {
+            /*************************************************************
+             Byte bus access
+            */
+            BYTE = 0x0,
+
+            /*************************************************************
+             Half-word bus access
+            */
+            HWORD = 0x1,
+
+            /*************************************************************
+             Word bus access
+            */
+            WORD = 0x2,
+        }
+
         /*********************************************************************
          CRC Beat Size
         */
-        final abstract class CRCBEATSIZE
+        alias CRCBEATSIZE = BitField!(1, 0, Mutability.rw, CRCBEATSIZEValues);
+
+        /*****************************************************************
+         CRCPOLY's possible values
+        */
+        enum CRCPOLYValues
         {
-            /*****************************************************************
-             CRCBEATSIZE's possible values
+            /*************************************************************
+             CRC-16 (CRC-CCITT)
             */
-            enum Values
-            {
-                /*************************************************************
-                 Byte bus access
-                */
-                BYTE = 0x0,
+            CRC16 = 0x0,
 
-                /*************************************************************
-                 Half-word bus access
-                */
-                HWORD = 0x1,
-
-                /*************************************************************
-                 Word bus access
-                */
-                WORD = 0x2,
-            }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
+            /*************************************************************
+             CRC32 (IEEE 802.3)
+            */
+            CRC32 = 0x1,
         }
 
         /*********************************************************************
          CRC Polynomial Type
         */
-        final abstract class CRCPOLY
-        {
-            /*****************************************************************
-             CRCPOLY's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 CRC-16 (CRC-CCITT)
-                */
-                CRC16 = 0x0,
+        alias CRCPOLY = BitField!(3, 2, Mutability.rw, CRCPOLYValues);
 
-                /*************************************************************
-                 CRC32 (IEEE 802.3)
-                */
-                CRC32 = 0x1,
-            }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
+        /*****************************************************************
+         CRCSRC's possible values
+        */
+        enum CRCSRCValues
+        {
+            /*************************************************************
+             No action
+            */
+            NOACT = 0x0,
+
+            /*************************************************************
+             I/O interface
+            */
+            IO = 0x1,
         }
 
         /*********************************************************************
          CRC Input Source
         */
-        final abstract class CRCSRC
-        {
-            /*****************************************************************
-             CRCSRC's possible values
-            */
-            enum Values
-            {
-                /*************************************************************
-                 No action
-                */
-                NOACT = 0x0,
-
-                /*************************************************************
-                 I/O interface
-                */
-                IO = 0x1,
-            }
-            mixin BitFieldImplementation!(13, 8, Mutability.rw, Values);
-        }
+        alias CRCSRC = BitField!(13, 8, Mutability.rw, CRCSRCValues);
     }
 
     /*************************************************************************

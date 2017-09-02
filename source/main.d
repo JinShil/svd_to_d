@@ -365,10 +365,6 @@ int main(string[] args)
                     code.put("\n");
                 }
 
-                code.put(indent ~ tab ~ "/*********************************************************************\n");
-                code.put(indent ~ tab ~ " " ~ f.description ~ "\n");
-                code.put(indent ~ tab ~ "*/\n");
-
                 immutable auto lsb = to!int(f.bitIndex);
                 immutable auto w = to!int(f.width);
                 immutable auto msb = lsb + w - 1;
@@ -394,16 +390,16 @@ int main(string[] args)
                 }
 
                 // If we have enumerated values for this bit field
+                string enumName;
                 if (f.values.length > 0)
                 {
-                    code.put(indent ~ tab ~ "final abstract class " ~ f.name ~ "\n");
-                    code.put(indent ~ tab ~ "{\n");
+                    enumName = f.name ~ "Values";
 
-                    code.put(indent ~ tab ~ tab ~ "/*****************************************************************\n");
-                    code.put(indent ~ tab ~ tab ~ " " ~ f.name ~ "'s possible values\n");
-                    code.put(indent ~ tab ~ tab ~ "*/\n");
-                    code.put(indent ~ tab ~ tab ~ "enum Values\n");
-                    code.put(indent ~ tab ~ tab ~ "{\n");
+                    code.put(indent ~ tab ~ "/*****************************************************************\n");
+                    code.put(indent ~ tab ~ " " ~ f.name ~ "'s possible values\n");
+                    code.put(indent ~ tab ~ "*/\n");
+                    code.put(indent ~ tab ~ "enum " ~ enumName ~ "\n");
+                    code.put(indent ~ tab ~ "{\n");
 
                     bool firstEnum = true;
                     foreach(Enumeration v; f.values)
@@ -419,39 +415,51 @@ int main(string[] args)
 
                         if (v.description !is null && v.description != "")
                         {
-                            code.put(indent ~ tab ~ tab ~ tab ~ "/*************************************************************\n");
-                            code.put(indent ~ tab ~ tab ~ tab ~ " " ~ v.description ~ "\n");
-                            code.put(indent ~ tab ~ tab ~ tab ~ "*/\n");
+                            code.put(indent ~ tab ~ tab ~ "/*************************************************************\n");
+                            code.put(indent ~ tab ~ tab ~ " " ~ v.description ~ "\n");
+                            code.put(indent ~ tab ~ tab ~ "*/\n");
                         }
 
                         // some svd files have numbers for the name.  Prepend _ in that case
-                        code.put(indent ~ tab ~ tab ~ tab);
+                        code.put(indent ~ tab ~ tab);
                         if (v.name[0] >= '0' && v.name[0] <= '9')
                         {
                             code.put("_");
                         }
                         code.put(v.name ~ " = " ~ v.value ~ ",\n");
                     }
-                    code.put(indent ~ tab ~ tab ~ "}\n");
-                    code.put(indent ~ tab ~ tab ~ "mixin BitFieldImplementation!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
-                    outputMutability(); code.put(", Values);\n");
-                    code.put(indent ~ tab ~ "}\n");
+
+                    code.put(indent ~ tab ~ "}\n\n");
+                }
+
+                // bitfield comment header
+                code.put(indent ~ tab ~ "/*********************************************************************\n");
+                code.put(indent ~ tab ~ " " ~ f.description ~ "\n");
+                code.put(indent ~ tab ~ "*/\n");
+                    
+                // If this bit field is a single bit
+                if (w == 1)
+                {
+                    code.put(indent ~ tab ~ "alias " ~ f.name ~ " = Bit!(" ~ f.bitIndex ~ ", ");
                 }
                 else
                 {
-                    // If this bit field is a single bit
-                    if (w == 1)
-                    {
-                        code.put(indent ~ tab ~ "alias " ~ f.name ~ " = Bit!(" ~ f.bitIndex ~ ", ");
-                    }
-                    else
-                    {
-                        code.put(indent ~ tab ~ "alias " ~ f.name ~ " = BitField!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
-                    }
+                    code.put(indent ~ tab ~ "alias " ~ f.name ~ " = BitField!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
+                }
 
-                    outputMutability(); code.put(");\n");
-                }               
+                outputMutability(); 
+                
+                // outpu value type if using an enum
+                if (f.values.length > 0)
+                {
+                    code.put(", " ~ enumName ~ ");\n");
+                }
+                else
+                {
+                    code.put(");\n");
+                }   
             }
+
             code.put(indent ~ "}\n");
         }
 

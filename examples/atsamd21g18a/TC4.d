@@ -70,140 +70,132 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ENABLE = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 Counter in 16-bit mode
+                */
+                COUNT16 = 0x0,
+
+                /*************************************************************
+                 Counter in 8-bit mode
+                */
+                COUNT8 = 0x1,
+
+                /*************************************************************
+                 Counter in 32-bit mode
+                */
+                COUNT32 = 0x2,
+            }
+
             /*********************************************************************
              TC Mode
             */
-            final abstract class MODE
+            alias MODE = BitField!(3, 2, Mutability.rw, MODEValues);
+
+            /*****************************************************************
+             WAVEGEN's possible values
+            */
+            enum WAVEGENValues
             {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Counter in 16-bit mode
-                    */
-                    COUNT16 = 0x0,
+                NFRQ = 0x0,
 
-                    /*************************************************************
-                     Counter in 8-bit mode
-                    */
-                    COUNT8 = 0x1,
+                MFRQ = 0x1,
 
-                    /*************************************************************
-                     Counter in 32-bit mode
-                    */
-                    COUNT32 = 0x2,
-                }
-                mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
+                NPWM = 0x2,
+
+                MPWM = 0x3,
             }
 
             /*********************************************************************
              Waveform Generation Operation
             */
-            final abstract class WAVEGEN
+            alias WAVEGEN = BitField!(6, 5, Mutability.rw, WAVEGENValues);
+
+            /*****************************************************************
+             PRESCALER's possible values
+            */
+            enum PRESCALERValues
             {
-                /*****************************************************************
-                 WAVEGEN's possible values
+                /*************************************************************
+                 Prescaler: GCLK_TC
                 */
-                enum Values
-                {
-                    NFRQ = 0x0,
+                DIV1 = 0x0,
 
-                    MFRQ = 0x1,
+                /*************************************************************
+                 Prescaler: GCLK_TC/2
+                */
+                DIV2 = 0x1,
 
-                    NPWM = 0x2,
+                /*************************************************************
+                 Prescaler: GCLK_TC/4
+                */
+                DIV4 = 0x2,
 
-                    MPWM = 0x3,
-                }
-                mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
+                /*************************************************************
+                 Prescaler: GCLK_TC/8
+                */
+                DIV8 = 0x3,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/16
+                */
+                DIV16 = 0x4,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/64
+                */
+                DIV64 = 0x5,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/256
+                */
+                DIV256 = 0x6,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/1024
+                */
+                DIV1024 = 0x7,
             }
 
             /*********************************************************************
              Prescaler
             */
-            final abstract class PRESCALER
-            {
-                /*****************************************************************
-                 PRESCALER's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Prescaler: GCLK_TC
-                    */
-                    DIV1 = 0x0,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/2
-                    */
-                    DIV2 = 0x1,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/4
-                    */
-                    DIV4 = 0x2,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/8
-                    */
-                    DIV8 = 0x3,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/16
-                    */
-                    DIV16 = 0x4,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/64
-                    */
-                    DIV64 = 0x5,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/256
-                    */
-                    DIV256 = 0x6,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/1024
-                    */
-                    DIV1024 = 0x7,
-                }
-                mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
-            }
+            alias PRESCALER = BitField!(10, 8, Mutability.rw, PRESCALERValues);
 
             /*********************************************************************
              Run in Standby
             */
             alias RUNSTDBY = Bit!(11, Mutability.rw);
 
+            /*****************************************************************
+             PRESCSYNC's possible values
+            */
+            enum PRESCSYNCValues
+            {
+                /*************************************************************
+                 Reload or reset the counter on next generic clock
+                */
+                GCLK = 0x0,
+
+                /*************************************************************
+                 Reload or reset the counter on next prescaler clock
+                */
+                PRESC = 0x1,
+
+                /*************************************************************
+                 Reload or reset the counter on next generic clock. Reset the prescaler counter
+                */
+                RESYNC = 0x2,
+            }
+
             /*********************************************************************
              Prescaler and Counter Synchronization
             */
-            final abstract class PRESCSYNC
-            {
-                /*****************************************************************
-                 PRESCSYNC's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Reload or reset the counter on next generic clock
-                    */
-                    GCLK = 0x0,
-
-                    /*************************************************************
-                     Reload or reset the counter on next prescaler clock
-                    */
-                    PRESC = 0x1,
-
-                    /*************************************************************
-                     Reload or reset the counter on next generic clock. Reset the prescaler counter
-                    */
-                    RESYNC = 0x2,
-                }
-                mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
-            }
+            alias PRESCSYNC = BitField!(13, 12, Mutability.rw, PRESCSYNCValues);
         }
 
         /*************************************************************************
@@ -221,33 +213,31 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ONESHOT = Bit!(2, Mutability.rw);
 
+            /*****************************************************************
+             CMD's possible values
+            */
+            enum CMDValues
+            {
+                /*************************************************************
+                 No action
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Force a start, restart or retrigger
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Force a stop
+                */
+                STOP = 0x2,
+            }
+
             /*********************************************************************
              Command
             */
-            final abstract class CMD
-            {
-                /*****************************************************************
-                 CMD's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     No action
-                    */
-                    NONE = 0x0,
-
-                    /*************************************************************
-                     Force a start, restart or retrigger
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Force a stop
-                    */
-                    STOP = 0x2,
-                }
-                mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
-            }
+            alias CMD = BitField!(7, 6, Mutability.rw, CMDValues);
         }
 
         /*************************************************************************
@@ -265,33 +255,31 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ONESHOT = Bit!(2, Mutability.rw);
 
+            /*****************************************************************
+             CMD's possible values
+            */
+            enum CMDValues
+            {
+                /*************************************************************
+                 No action
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Force a start, restart or retrigger
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Force a stop
+                */
+                STOP = 0x2,
+            }
+
             /*********************************************************************
              Command
             */
-            final abstract class CMD
-            {
-                /*****************************************************************
-                 CMD's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     No action
-                    */
-                    NONE = 0x0,
-
-                    /*************************************************************
-                     Force a start, restart or retrigger
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Force a stop
-                    */
-                    STOP = 0x2,
-                }
-                mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
-            }
+            alias CMD = BitField!(7, 6, Mutability.rw, CMDValues);
         }
 
         /*************************************************************************
@@ -336,48 +324,46 @@ final abstract class TC4 : Peripheral!(0x42003000)
         */
         final abstract class EVCTRL : Register!(0xa)
         {
+            /*****************************************************************
+             EVACT's possible values
+            */
+            enum EVACTValues
+            {
+                /*************************************************************
+                 Event action disabled
+                */
+                OFF = 0x0,
+
+                /*************************************************************
+                 Start, restart or retrigger TC on event
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Count on event
+                */
+                COUNT = 0x2,
+
+                /*************************************************************
+                 Start TC on event
+                */
+                START = 0x3,
+
+                /*************************************************************
+                 Period captured in CC0, pulse width in CC1
+                */
+                PPW = 0x5,
+
+                /*************************************************************
+                 Period captured in CC1, pulse width in CC0
+                */
+                PWP = 0x6,
+            }
+
             /*********************************************************************
              Event Action
             */
-            final abstract class EVACT
-            {
-                /*****************************************************************
-                 EVACT's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Event action disabled
-                    */
-                    OFF = 0x0,
-
-                    /*************************************************************
-                     Start, restart or retrigger TC on event
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Count on event
-                    */
-                    COUNT = 0x2,
-
-                    /*************************************************************
-                     Start TC on event
-                    */
-                    START = 0x3,
-
-                    /*************************************************************
-                     Period captured in CC0, pulse width in CC1
-                    */
-                    PPW = 0x5,
-
-                    /*************************************************************
-                     Period captured in CC1, pulse width in CC0
-                    */
-                    PWP = 0x6,
-                }
-                mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
-            }
+            alias EVACT = BitField!(2, 0, Mutability.rw, EVACTValues);
 
             /*********************************************************************
              TC Inverted Event Input
@@ -592,140 +578,132 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ENABLE = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 Counter in 16-bit mode
+                */
+                COUNT16 = 0x0,
+
+                /*************************************************************
+                 Counter in 8-bit mode
+                */
+                COUNT8 = 0x1,
+
+                /*************************************************************
+                 Counter in 32-bit mode
+                */
+                COUNT32 = 0x2,
+            }
+
             /*********************************************************************
              TC Mode
             */
-            final abstract class MODE
+            alias MODE = BitField!(3, 2, Mutability.rw, MODEValues);
+
+            /*****************************************************************
+             WAVEGEN's possible values
+            */
+            enum WAVEGENValues
             {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Counter in 16-bit mode
-                    */
-                    COUNT16 = 0x0,
+                NFRQ = 0x0,
 
-                    /*************************************************************
-                     Counter in 8-bit mode
-                    */
-                    COUNT8 = 0x1,
+                MFRQ = 0x1,
 
-                    /*************************************************************
-                     Counter in 32-bit mode
-                    */
-                    COUNT32 = 0x2,
-                }
-                mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
+                NPWM = 0x2,
+
+                MPWM = 0x3,
             }
 
             /*********************************************************************
              Waveform Generation Operation
             */
-            final abstract class WAVEGEN
+            alias WAVEGEN = BitField!(6, 5, Mutability.rw, WAVEGENValues);
+
+            /*****************************************************************
+             PRESCALER's possible values
+            */
+            enum PRESCALERValues
             {
-                /*****************************************************************
-                 WAVEGEN's possible values
+                /*************************************************************
+                 Prescaler: GCLK_TC
                 */
-                enum Values
-                {
-                    NFRQ = 0x0,
+                DIV1 = 0x0,
 
-                    MFRQ = 0x1,
+                /*************************************************************
+                 Prescaler: GCLK_TC/2
+                */
+                DIV2 = 0x1,
 
-                    NPWM = 0x2,
+                /*************************************************************
+                 Prescaler: GCLK_TC/4
+                */
+                DIV4 = 0x2,
 
-                    MPWM = 0x3,
-                }
-                mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
+                /*************************************************************
+                 Prescaler: GCLK_TC/8
+                */
+                DIV8 = 0x3,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/16
+                */
+                DIV16 = 0x4,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/64
+                */
+                DIV64 = 0x5,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/256
+                */
+                DIV256 = 0x6,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/1024
+                */
+                DIV1024 = 0x7,
             }
 
             /*********************************************************************
              Prescaler
             */
-            final abstract class PRESCALER
-            {
-                /*****************************************************************
-                 PRESCALER's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Prescaler: GCLK_TC
-                    */
-                    DIV1 = 0x0,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/2
-                    */
-                    DIV2 = 0x1,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/4
-                    */
-                    DIV4 = 0x2,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/8
-                    */
-                    DIV8 = 0x3,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/16
-                    */
-                    DIV16 = 0x4,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/64
-                    */
-                    DIV64 = 0x5,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/256
-                    */
-                    DIV256 = 0x6,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/1024
-                    */
-                    DIV1024 = 0x7,
-                }
-                mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
-            }
+            alias PRESCALER = BitField!(10, 8, Mutability.rw, PRESCALERValues);
 
             /*********************************************************************
              Run in Standby
             */
             alias RUNSTDBY = Bit!(11, Mutability.rw);
 
+            /*****************************************************************
+             PRESCSYNC's possible values
+            */
+            enum PRESCSYNCValues
+            {
+                /*************************************************************
+                 Reload or reset the counter on next generic clock
+                */
+                GCLK = 0x0,
+
+                /*************************************************************
+                 Reload or reset the counter on next prescaler clock
+                */
+                PRESC = 0x1,
+
+                /*************************************************************
+                 Reload or reset the counter on next generic clock. Reset the prescaler counter
+                */
+                RESYNC = 0x2,
+            }
+
             /*********************************************************************
              Prescaler and Counter Synchronization
             */
-            final abstract class PRESCSYNC
-            {
-                /*****************************************************************
-                 PRESCSYNC's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Reload or reset the counter on next generic clock
-                    */
-                    GCLK = 0x0,
-
-                    /*************************************************************
-                     Reload or reset the counter on next prescaler clock
-                    */
-                    PRESC = 0x1,
-
-                    /*************************************************************
-                     Reload or reset the counter on next generic clock. Reset the prescaler counter
-                    */
-                    RESYNC = 0x2,
-                }
-                mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
-            }
+            alias PRESCSYNC = BitField!(13, 12, Mutability.rw, PRESCSYNCValues);
         }
 
         /*************************************************************************
@@ -743,33 +721,31 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ONESHOT = Bit!(2, Mutability.rw);
 
+            /*****************************************************************
+             CMD's possible values
+            */
+            enum CMDValues
+            {
+                /*************************************************************
+                 No action
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Force a start, restart or retrigger
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Force a stop
+                */
+                STOP = 0x2,
+            }
+
             /*********************************************************************
              Command
             */
-            final abstract class CMD
-            {
-                /*****************************************************************
-                 CMD's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     No action
-                    */
-                    NONE = 0x0,
-
-                    /*************************************************************
-                     Force a start, restart or retrigger
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Force a stop
-                    */
-                    STOP = 0x2,
-                }
-                mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
-            }
+            alias CMD = BitField!(7, 6, Mutability.rw, CMDValues);
         }
 
         /*************************************************************************
@@ -787,33 +763,31 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ONESHOT = Bit!(2, Mutability.rw);
 
+            /*****************************************************************
+             CMD's possible values
+            */
+            enum CMDValues
+            {
+                /*************************************************************
+                 No action
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Force a start, restart or retrigger
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Force a stop
+                */
+                STOP = 0x2,
+            }
+
             /*********************************************************************
              Command
             */
-            final abstract class CMD
-            {
-                /*****************************************************************
-                 CMD's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     No action
-                    */
-                    NONE = 0x0,
-
-                    /*************************************************************
-                     Force a start, restart or retrigger
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Force a stop
-                    */
-                    STOP = 0x2,
-                }
-                mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
-            }
+            alias CMD = BitField!(7, 6, Mutability.rw, CMDValues);
         }
 
         /*************************************************************************
@@ -858,48 +832,46 @@ final abstract class TC4 : Peripheral!(0x42003000)
         */
         final abstract class EVCTRL : Register!(0xa)
         {
+            /*****************************************************************
+             EVACT's possible values
+            */
+            enum EVACTValues
+            {
+                /*************************************************************
+                 Event action disabled
+                */
+                OFF = 0x0,
+
+                /*************************************************************
+                 Start, restart or retrigger TC on event
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Count on event
+                */
+                COUNT = 0x2,
+
+                /*************************************************************
+                 Start TC on event
+                */
+                START = 0x3,
+
+                /*************************************************************
+                 Period captured in CC0, pulse width in CC1
+                */
+                PPW = 0x5,
+
+                /*************************************************************
+                 Period captured in CC1, pulse width in CC0
+                */
+                PWP = 0x6,
+            }
+
             /*********************************************************************
              Event Action
             */
-            final abstract class EVACT
-            {
-                /*****************************************************************
-                 EVACT's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Event action disabled
-                    */
-                    OFF = 0x0,
-
-                    /*************************************************************
-                     Start, restart or retrigger TC on event
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Count on event
-                    */
-                    COUNT = 0x2,
-
-                    /*************************************************************
-                     Start TC on event
-                    */
-                    START = 0x3,
-
-                    /*************************************************************
-                     Period captured in CC0, pulse width in CC1
-                    */
-                    PPW = 0x5,
-
-                    /*************************************************************
-                     Period captured in CC1, pulse width in CC0
-                    */
-                    PWP = 0x6,
-                }
-                mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
-            }
+            alias EVACT = BitField!(2, 0, Mutability.rw, EVACTValues);
 
             /*********************************************************************
              TC Inverted Event Input
@@ -1114,140 +1086,132 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ENABLE = Bit!(1, Mutability.rw);
 
+            /*****************************************************************
+             MODE's possible values
+            */
+            enum MODEValues
+            {
+                /*************************************************************
+                 Counter in 16-bit mode
+                */
+                COUNT16 = 0x0,
+
+                /*************************************************************
+                 Counter in 8-bit mode
+                */
+                COUNT8 = 0x1,
+
+                /*************************************************************
+                 Counter in 32-bit mode
+                */
+                COUNT32 = 0x2,
+            }
+
             /*********************************************************************
              TC Mode
             */
-            final abstract class MODE
+            alias MODE = BitField!(3, 2, Mutability.rw, MODEValues);
+
+            /*****************************************************************
+             WAVEGEN's possible values
+            */
+            enum WAVEGENValues
             {
-                /*****************************************************************
-                 MODE's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Counter in 16-bit mode
-                    */
-                    COUNT16 = 0x0,
+                NFRQ = 0x0,
 
-                    /*************************************************************
-                     Counter in 8-bit mode
-                    */
-                    COUNT8 = 0x1,
+                MFRQ = 0x1,
 
-                    /*************************************************************
-                     Counter in 32-bit mode
-                    */
-                    COUNT32 = 0x2,
-                }
-                mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
+                NPWM = 0x2,
+
+                MPWM = 0x3,
             }
 
             /*********************************************************************
              Waveform Generation Operation
             */
-            final abstract class WAVEGEN
+            alias WAVEGEN = BitField!(6, 5, Mutability.rw, WAVEGENValues);
+
+            /*****************************************************************
+             PRESCALER's possible values
+            */
+            enum PRESCALERValues
             {
-                /*****************************************************************
-                 WAVEGEN's possible values
+                /*************************************************************
+                 Prescaler: GCLK_TC
                 */
-                enum Values
-                {
-                    NFRQ = 0x0,
+                DIV1 = 0x0,
 
-                    MFRQ = 0x1,
+                /*************************************************************
+                 Prescaler: GCLK_TC/2
+                */
+                DIV2 = 0x1,
 
-                    NPWM = 0x2,
+                /*************************************************************
+                 Prescaler: GCLK_TC/4
+                */
+                DIV4 = 0x2,
 
-                    MPWM = 0x3,
-                }
-                mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
+                /*************************************************************
+                 Prescaler: GCLK_TC/8
+                */
+                DIV8 = 0x3,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/16
+                */
+                DIV16 = 0x4,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/64
+                */
+                DIV64 = 0x5,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/256
+                */
+                DIV256 = 0x6,
+
+                /*************************************************************
+                 Prescaler: GCLK_TC/1024
+                */
+                DIV1024 = 0x7,
             }
 
             /*********************************************************************
              Prescaler
             */
-            final abstract class PRESCALER
-            {
-                /*****************************************************************
-                 PRESCALER's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Prescaler: GCLK_TC
-                    */
-                    DIV1 = 0x0,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/2
-                    */
-                    DIV2 = 0x1,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/4
-                    */
-                    DIV4 = 0x2,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/8
-                    */
-                    DIV8 = 0x3,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/16
-                    */
-                    DIV16 = 0x4,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/64
-                    */
-                    DIV64 = 0x5,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/256
-                    */
-                    DIV256 = 0x6,
-
-                    /*************************************************************
-                     Prescaler: GCLK_TC/1024
-                    */
-                    DIV1024 = 0x7,
-                }
-                mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
-            }
+            alias PRESCALER = BitField!(10, 8, Mutability.rw, PRESCALERValues);
 
             /*********************************************************************
              Run in Standby
             */
             alias RUNSTDBY = Bit!(11, Mutability.rw);
 
+            /*****************************************************************
+             PRESCSYNC's possible values
+            */
+            enum PRESCSYNCValues
+            {
+                /*************************************************************
+                 Reload or reset the counter on next generic clock
+                */
+                GCLK = 0x0,
+
+                /*************************************************************
+                 Reload or reset the counter on next prescaler clock
+                */
+                PRESC = 0x1,
+
+                /*************************************************************
+                 Reload or reset the counter on next generic clock. Reset the prescaler counter
+                */
+                RESYNC = 0x2,
+            }
+
             /*********************************************************************
              Prescaler and Counter Synchronization
             */
-            final abstract class PRESCSYNC
-            {
-                /*****************************************************************
-                 PRESCSYNC's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Reload or reset the counter on next generic clock
-                    */
-                    GCLK = 0x0,
-
-                    /*************************************************************
-                     Reload or reset the counter on next prescaler clock
-                    */
-                    PRESC = 0x1,
-
-                    /*************************************************************
-                     Reload or reset the counter on next generic clock. Reset the prescaler counter
-                    */
-                    RESYNC = 0x2,
-                }
-                mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
-            }
+            alias PRESCSYNC = BitField!(13, 12, Mutability.rw, PRESCSYNCValues);
         }
 
         /*************************************************************************
@@ -1265,33 +1229,31 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ONESHOT = Bit!(2, Mutability.rw);
 
+            /*****************************************************************
+             CMD's possible values
+            */
+            enum CMDValues
+            {
+                /*************************************************************
+                 No action
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Force a start, restart or retrigger
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Force a stop
+                */
+                STOP = 0x2,
+            }
+
             /*********************************************************************
              Command
             */
-            final abstract class CMD
-            {
-                /*****************************************************************
-                 CMD's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     No action
-                    */
-                    NONE = 0x0,
-
-                    /*************************************************************
-                     Force a start, restart or retrigger
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Force a stop
-                    */
-                    STOP = 0x2,
-                }
-                mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
-            }
+            alias CMD = BitField!(7, 6, Mutability.rw, CMDValues);
         }
 
         /*************************************************************************
@@ -1309,33 +1271,31 @@ final abstract class TC4 : Peripheral!(0x42003000)
             */
             alias ONESHOT = Bit!(2, Mutability.rw);
 
+            /*****************************************************************
+             CMD's possible values
+            */
+            enum CMDValues
+            {
+                /*************************************************************
+                 No action
+                */
+                NONE = 0x0,
+
+                /*************************************************************
+                 Force a start, restart or retrigger
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Force a stop
+                */
+                STOP = 0x2,
+            }
+
             /*********************************************************************
              Command
             */
-            final abstract class CMD
-            {
-                /*****************************************************************
-                 CMD's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     No action
-                    */
-                    NONE = 0x0,
-
-                    /*************************************************************
-                     Force a start, restart or retrigger
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Force a stop
-                    */
-                    STOP = 0x2,
-                }
-                mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
-            }
+            alias CMD = BitField!(7, 6, Mutability.rw, CMDValues);
         }
 
         /*************************************************************************
@@ -1380,48 +1340,46 @@ final abstract class TC4 : Peripheral!(0x42003000)
         */
         final abstract class EVCTRL : Register!(0xa)
         {
+            /*****************************************************************
+             EVACT's possible values
+            */
+            enum EVACTValues
+            {
+                /*************************************************************
+                 Event action disabled
+                */
+                OFF = 0x0,
+
+                /*************************************************************
+                 Start, restart or retrigger TC on event
+                */
+                RETRIGGER = 0x1,
+
+                /*************************************************************
+                 Count on event
+                */
+                COUNT = 0x2,
+
+                /*************************************************************
+                 Start TC on event
+                */
+                START = 0x3,
+
+                /*************************************************************
+                 Period captured in CC0, pulse width in CC1
+                */
+                PPW = 0x5,
+
+                /*************************************************************
+                 Period captured in CC1, pulse width in CC0
+                */
+                PWP = 0x6,
+            }
+
             /*********************************************************************
              Event Action
             */
-            final abstract class EVACT
-            {
-                /*****************************************************************
-                 EVACT's possible values
-                */
-                enum Values
-                {
-                    /*************************************************************
-                     Event action disabled
-                    */
-                    OFF = 0x0,
-
-                    /*************************************************************
-                     Start, restart or retrigger TC on event
-                    */
-                    RETRIGGER = 0x1,
-
-                    /*************************************************************
-                     Count on event
-                    */
-                    COUNT = 0x2,
-
-                    /*************************************************************
-                     Start TC on event
-                    */
-                    START = 0x3,
-
-                    /*************************************************************
-                     Period captured in CC0, pulse width in CC1
-                    */
-                    PPW = 0x5,
-
-                    /*************************************************************
-                     Period captured in CC1, pulse width in CC0
-                    */
-                    PWP = 0x6,
-                }
-                mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
-            }
+            alias EVACT = BitField!(2, 0, Mutability.rw, EVACTValues);
 
             /*********************************************************************
              TC Inverted Event Input
