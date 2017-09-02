@@ -42,7 +42,7 @@ final abstract class RTC : Peripheral!(0x40001400)
         /*************************************************************************
          MODE0 Compare n Value
         */
-        final abstract class COMP%s : Register!(0x18)
+        final abstract class COMP : Register!(0x18)
         {
             /*********************************************************************
              Compare Value
@@ -1012,7 +1012,7 @@ final abstract class RTC : Peripheral!(0x40001400)
         /*************************************************************************
          MODE2 Alarm n Value
         */
-        final abstract class ALARM%s : Register!(0x18)
+        final abstract class ALARM : Register!(0x18)
         {
             /*********************************************************************
              Second
@@ -1048,7 +1048,7 @@ final abstract class RTC : Peripheral!(0x40001400)
         /*************************************************************************
          MODE2 Alarm n Mask
         */
-        final abstract class MASK%s : Register!(0x1c)
+        final abstract class MASK : Register!(0x1c)
         {
             /*********************************************************************
              Alarm Mask Selection

@@ -445,46 +445,10 @@ int main(string[] args)
             code.put(indent ~ "}\n");
         }
 
-        // Generate D code for each register in the peripheral
-        bool firstRegister = true;
-        foreach(r; registers)
+        void outputRegisters(string tab, Register[] registers)
         {
-            immutable auto tab = "    ";
-
-            if (firstRegister)
-            {
-                firstRegister = false;
-            }
-            else
-            {
-                code.put("\n");
-            }
-
-            if (r.numberOfRegisters <= 1)
-            {
-                outputRegister(tab, r, r.name);
-            }
-            else
-            {
-                for(uint i = 1; i <= r.numberOfRegisters; i++)
-                {
-                    outputRegister(tab, r, format(r.name, i), cast(uint)((i - 1) * r.addressIncrement));
-                }
-            }
-        }
-
-        foreach(Cluster c; clusters)
-        {
-            auto tab = "    ";
-
-            code.put(tab ~ "/*****************************************************************************\n");
-            code.put(tab ~ " " ~ c.description ~ "\n");
-            code.put(tab ~ "*/\n");
-            code.put(tab ~ "final abstract class " ~ c.name ~ "\n");
-            code.put(tab ~ "{\n");
-
-            firstRegister = true;
-            foreach(Register r; c.registers)
+            bool firstRegister = true;
+            foreach(r; registers)
             {
                 if (firstRegister)
                 {
@@ -497,16 +461,32 @@ int main(string[] args)
 
                 if (r.numberOfRegisters <= 1)
                 {
-                    outputRegister(tab ~ tab, r, r.name);
+                    outputRegister(tab, r, r.name.replace("%s", ""));
                 }
                 else
                 {
                     for(uint i = 1; i <= r.numberOfRegisters; i++)
                     {
-                        outputRegister(tab ~ tab, r, format(r.name, i), cast(uint)((i - 1) * r.addressIncrement));
+                        outputRegister(tab, r, format(r.name, i), cast(uint)((i - 1) * r.addressIncrement));
                     }
                 }
             }
+        }
+
+        // Generate D code for each register in the peripheral
+        outputRegisters("    ", registers);
+
+        foreach(Cluster c; clusters)
+        {
+            auto tab = "    ";
+
+            code.put(tab ~ "/*****************************************************************************\n");
+            code.put(tab ~ " " ~ c.description ~ "\n");
+            code.put(tab ~ "*/\n");
+            code.put(tab ~ "final abstract class " ~ c.name ~ "\n");
+            code.put(tab ~ "{\n");
+
+            outputRegisters(tab ~ tab, c.registers);
 
             code.put(tab ~ "}\n");
         }
