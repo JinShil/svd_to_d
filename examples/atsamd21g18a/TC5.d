@@ -10,7 +10,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*****************************************************************************
      8-bit Counter Mode
     */
-    final abstract class COUNT8
+    final abstract class COUNT8 : Peripheral!(0x42003400)
     {
         /*************************************************************************
          COUNT8 Compare/Capture
@@ -543,7 +543,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*****************************************************************************
      16-bit Counter Mode
     */
-    final abstract class COUNT16
+    final abstract class COUNT16 : Peripheral!(0x42003400)
     {
         /*************************************************************************
          COUNT16 Compare/Capture
@@ -1065,7 +1065,7 @@ final abstract class TC5 : Peripheral!(0x42003400)
     /*****************************************************************************
      32-bit Counter Mode
     */
-    final abstract class COUNT32
+    final abstract class COUNT32 : Peripheral!(0x42003400)
     {
         /*************************************************************************
          COUNT32 Compare/Capture

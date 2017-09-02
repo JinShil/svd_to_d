@@ -10,7 +10,7 @@ final abstract class SERCOM2 : Peripheral!(0x42001000)
     /*****************************************************************************
      I2C Master Mode
     */
-    final abstract class I2CM
+    final abstract class I2CM : Peripheral!(0x42001000)
     {
         /*************************************************************************
          I2CM Address
@@ -359,7 +359,7 @@ final abstract class SERCOM2 : Peripheral!(0x42001000)
     /*****************************************************************************
      I2C Slave Mode
     */
-    final abstract class I2CS
+    final abstract class I2CS : Peripheral!(0x42001000)
     {
         /*************************************************************************
          I2CS Address
@@ -687,7 +687,7 @@ final abstract class SERCOM2 : Peripheral!(0x42001000)
     /*****************************************************************************
      SPI Mode
     */
-    final abstract class SPI
+    final abstract class SPI : Peripheral!(0x42001000)
     {
         /*************************************************************************
          SPI Address
@@ -1001,7 +1001,7 @@ final abstract class SERCOM2 : Peripheral!(0x42001000)
     /*****************************************************************************
      USART Mode
     */
-    final abstract class USART
+    final abstract class USART : Peripheral!(0x42001000)
     {
         /*************************************************************************
          USART Baud Rate

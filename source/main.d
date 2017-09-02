@@ -493,7 +493,7 @@ int main(string[] args)
             code.put(tab ~ "/*****************************************************************************\n");
             code.put(tab ~ " " ~ c.description ~ "\n");
             code.put(tab ~ "*/\n");
-            code.put(tab ~ "final abstract class " ~ c.name ~ "\n");
+            code.put(tab ~ "final abstract class " ~ c.name ~ " : Peripheral!(" ~ p.baseAddress ~ ")\n");
             code.put(tab ~ "{\n");
 
             outputRegisters(tab ~ tab, c.registers);

@@ -10,7 +10,7 @@ final abstract class USB : Peripheral!(0x41005000)
     /*****************************************************************************
      USB is Device
     */
-    final abstract class DEVICE
+    final abstract class DEVICE : Peripheral!(0x41005000)
     {
         /*************************************************************************
          Control A
@@ -2673,7 +2673,7 @@ final abstract class USB : Peripheral!(0x41005000)
     /*****************************************************************************
      USB is Host
     */
-    final abstract class HOST
+    final abstract class HOST : Peripheral!(0x41005000)
     {
         /*************************************************************************
          Control A

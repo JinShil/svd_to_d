@@ -10,7 +10,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*****************************************************************************
      32-bit Counter with Single 32-bit Compare
     */
-    final abstract class MODE0
+    final abstract class MODE0 : Peripheral!(0x40001400)
     {
         /*************************************************************************
          Debug Control
@@ -332,7 +332,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*****************************************************************************
      16-bit Counter with Two 16-bit Compares
     */
-    final abstract class MODE1
+    final abstract class MODE1 : Peripheral!(0x40001400)
     {
         /*************************************************************************
          Debug Control
@@ -690,7 +690,7 @@ final abstract class RTC : Peripheral!(0x40001400)
     /*****************************************************************************
      Clock/Calendar with Alarm
     */
-    final abstract class MODE2
+    final abstract class MODE2 : Peripheral!(0x40001400)
     {
         /*************************************************************************
          Debug Control
