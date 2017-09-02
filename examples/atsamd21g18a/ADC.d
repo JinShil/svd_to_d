@@ -25,59 +25,59 @@ final abstract class ADC : Peripheral!(0x42004000)
                 /*************************************************************
                  1 sample
                 */
-                1 = 0x0,
+                _1 = 0x0,
 
                 /*************************************************************
                  2 samples
                 */
-                2 = 0x1,
+                _2 = 0x1,
 
                 /*************************************************************
                  4 samples
                 */
-                4 = 0x2,
+                _4 = 0x2,
 
                 /*************************************************************
                  8 samples
                 */
-                8 = 0x3,
+                _8 = 0x3,
 
                 /*************************************************************
                  16 samples
                 */
-                16 = 0x4,
+                _16 = 0x4,
 
                 /*************************************************************
                  32 samples
                 */
-                32 = 0x5,
+                _32 = 0x5,
 
                 /*************************************************************
                  64 samples
                 */
-                64 = 0x6,
+                _64 = 0x6,
 
                 /*************************************************************
                  128 samples
                 */
-                128 = 0x7,
+                _128 = 0x7,
 
                 /*************************************************************
                  256 samples
                 */
-                256 = 0x8,
+                _256 = 0x8,
 
                 /*************************************************************
                  512 samples
                 */
-                512 = 0x9,
+                _512 = 0x9,
 
                 /*************************************************************
                  1024 samples
                 */
-                1024 = 0xa,
+                _1024 = 0xa,
             }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -161,24 +161,24 @@ final abstract class ADC : Peripheral!(0x42004000)
                 /*************************************************************
                  12-bit result
                 */
-                12BIT = 0x0,
+                _12BIT = 0x0,
 
                 /*************************************************************
                  For averaging mode output
                 */
-                16BIT = 0x1,
+                _16BIT = 0x1,
 
                 /*************************************************************
                  10-bit result
                 */
-                10BIT = 0x2,
+                _10BIT = 0x2,
 
                 /*************************************************************
                  8-bit result
                 */
-                8BIT = 0x3,
+                _8BIT = 0x3,
             }
-            mixin BitFieldImplementation!(5, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(5, 4, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -231,7 +231,7 @@ final abstract class ADC : Peripheral!(0x42004000)
                 */
                 DIV512 = 0x7,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
     }
 
@@ -423,7 +423,7 @@ final abstract class ADC : Peripheral!(0x42004000)
                 */
                 DAC = 0x1c,
             }
-            mixin BitFieldImplementation!(4, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(4, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -486,7 +486,7 @@ final abstract class ADC : Peripheral!(0x42004000)
                 */
                 IOGND = 0x19,
             }
-            mixin BitFieldImplementation!(12, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(12, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -512,34 +512,34 @@ final abstract class ADC : Peripheral!(0x42004000)
                 /*************************************************************
                  1x
                 */
-                1X = 0x0,
+                _1X = 0x0,
 
                 /*************************************************************
                  2x
                 */
-                2X = 0x1,
+                _2X = 0x1,
 
                 /*************************************************************
                  4x
                 */
-                4X = 0x2,
+                _4X = 0x2,
 
                 /*************************************************************
                  8x
                 */
-                8X = 0x3,
+                _8X = 0x3,
 
                 /*************************************************************
                  16x
                 */
-                16X = 0x4,
+                _16X = 0x4,
 
                 /*************************************************************
                  1/2x
                 */
                 DIV2 = 0xf,
             }
-            mixin BitFieldImplementation!(27, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(27, 24, Mutability.rw, Values);
         }
     }
 
@@ -672,7 +672,7 @@ final abstract class ADC : Peripheral!(0x42004000)
                 */
                 AREFB = 0x4,
             }
-            mixin BitFieldImplementation!(3, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(3, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -770,7 +770,7 @@ final abstract class ADC : Peripheral!(0x42004000)
                 */
                 MODE4 = 0x4,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
     }
 

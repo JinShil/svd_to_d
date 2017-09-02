@@ -133,7 +133,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 DITH6 = 0x3,
             }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -162,7 +162,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 DIV1024 = 0x7,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -186,7 +186,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 RESYNC = 0x2,
             }
-            mixin BitFieldImplementation!(13, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -258,7 +258,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 HOLD = 0x3,
             }
-            mixin BitFieldImplementation!(4, 3, Mutability.rw, values);
+            mixin BitFieldImplementation!(4, 3, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -281,7 +281,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 READSYNC = 0x4,
             }
-            mixin BitFieldImplementation!(7, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(7, 5, Mutability.rw, Values);
         }
     }
 
@@ -323,7 +323,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 HOLD = 0x3,
             }
-            mixin BitFieldImplementation!(4, 3, Mutability.rw, values);
+            mixin BitFieldImplementation!(4, 3, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -346,7 +346,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 READSYNC = 0x4,
             }
-            mixin BitFieldImplementation!(7, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(7, 5, Mutability.rw, Values);
         }
     }
 
@@ -531,7 +531,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 FAULT = 0x7,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -560,7 +560,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 FAULT = 0x7,
             }
-            mixin BitFieldImplementation!(5, 3, Mutability.rw, values);
+            mixin BitFieldImplementation!(5, 3, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -581,7 +581,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 BOUNDARY = 0x3,
             }
-            mixin BitFieldImplementation!(7, 6, Mutability.rw, values);
+            mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -683,7 +683,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 ALTFAULT = 0x3,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -714,7 +714,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 BOTH = 0x3,
             }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -740,7 +740,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 NR = 0x3,
             }
-            mixin BitFieldImplementation!(9, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(9, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -761,7 +761,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 CC3 = 0x3,
             }
-            mixin BitFieldImplementation!(11, 10, Mutability.rw, values);
+            mixin BitFieldImplementation!(11, 10, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -788,7 +788,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 DERIV0 = 0x6,
             }
-            mixin BitFieldImplementation!(14, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(14, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -825,7 +825,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 ALTFAULT = 0x3,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -856,7 +856,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 BOTH = 0x3,
             }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -882,7 +882,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 NR = 0x3,
             }
-            mixin BitFieldImplementation!(9, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(9, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -903,7 +903,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 CC3 = 0x3,
             }
-            mixin BitFieldImplementation!(11, 10, Mutability.rw, values);
+            mixin BitFieldImplementation!(11, 10, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -930,7 +930,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 DERIV0 = 0x6,
             }
-            mixin BitFieldImplementation!(14, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(14, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1597,7 +1597,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 DSTOP = 0x7,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1616,7 +1616,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 RAMP2 = 0x2,
             }
-            mixin BitFieldImplementation!(5, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(5, 4, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1714,7 +1714,7 @@ final abstract class TCC0 : Peripheral!(0x42002000)
 
                 DSTOP = 0x7,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************

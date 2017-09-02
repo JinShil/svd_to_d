@@ -144,7 +144,7 @@ final abstract class PM : Peripheral!(0x40000400)
                 */
                 DIV128 = 0x7,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
     }
 
@@ -239,7 +239,7 @@ final abstract class PM : Peripheral!(0x40000400)
                 */
                 DIV128 = 0x7,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
     }
 
@@ -399,7 +399,7 @@ final abstract class PM : Peripheral!(0x40000400)
                 */
                 DIV128 = 0x7,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
     }
 
@@ -458,7 +458,7 @@ final abstract class PM : Peripheral!(0x40000400)
                 */
                 DIV128 = 0x7,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
     }
 
@@ -592,7 +592,7 @@ final abstract class PM : Peripheral!(0x40000400)
                 */
                 APB = 0x2,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
     }
 }

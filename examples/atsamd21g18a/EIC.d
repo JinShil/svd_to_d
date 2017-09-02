@@ -52,7 +52,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -100,7 +100,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(6, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 4, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -148,7 +148,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -196,7 +196,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(14, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(14, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -244,7 +244,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(18, 16, Mutability.rw, values);
+            mixin BitFieldImplementation!(18, 16, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -292,7 +292,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(22, 20, Mutability.rw, values);
+            mixin BitFieldImplementation!(22, 20, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -340,7 +340,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(26, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(26, 24, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -388,7 +388,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(30, 28, Mutability.rw, values);
+            mixin BitFieldImplementation!(30, 28, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -441,7 +441,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -489,7 +489,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(6, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 4, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -537,7 +537,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -585,7 +585,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(14, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(14, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -633,7 +633,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(18, 16, Mutability.rw, values);
+            mixin BitFieldImplementation!(18, 16, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -681,7 +681,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(22, 20, Mutability.rw, values);
+            mixin BitFieldImplementation!(22, 20, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -729,7 +729,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(26, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(26, 24, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -777,7 +777,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(30, 28, Mutability.rw, values);
+            mixin BitFieldImplementation!(30, 28, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1191,7 +1191,7 @@ final abstract class EIC : Peripheral!(0x40001800)
                 */
                 LOW = 0x5,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************

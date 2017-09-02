@@ -67,7 +67,7 @@ final abstract class GCLK : Peripheral!(0x40000C00)
                 */
                 GCLK7 = 0x7,
             }
-            mixin BitFieldImplementation!(11, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(11, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -152,7 +152,7 @@ final abstract class GCLK : Peripheral!(0x40000C00)
                 */
                 DFLL48M = 0x7,
             }
-            mixin BitFieldImplementation!(12, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(12, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************

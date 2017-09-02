@@ -83,7 +83,7 @@ final abstract class DAC : Peripheral!(0x42004800)
                 */
                 VREFP = 0x2,
             }
-            mixin BitFieldImplementation!(7, 6, Mutability.rw, values);
+            mixin BitFieldImplementation!(7, 6, Mutability.rw, Values);
         }
     }
 

@@ -191,7 +191,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
                 */
                 SSKIP = 0x6,
             }
-            mixin BitFieldImplementation!(2, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -224,7 +224,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
                 */
                 DISABLE = 0x0,
             }
-            mixin BitFieldImplementation!(13, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(13, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -252,7 +252,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
                 */
                 TRANSACTION = 0x3,
             }
-            mixin BitFieldImplementation!(23, 22, Mutability.rw, values);
+            mixin BitFieldImplementation!(23, 22, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -280,7 +280,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
                 */
                 RESUME = 0x2,
             }
-            mixin BitFieldImplementation!(25, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(25, 24, Mutability.rw, Values);
         }
     }
 
@@ -420,7 +420,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
                 */
                 WORD = 0x2,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -443,7 +443,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
                 */
                 CRC32 = 0x1,
             }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, values);
+            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -466,7 +466,7 @@ final abstract class DMAC : Peripheral!(0x41004800)
                 */
                 IO = 0x1,
             }
-            mixin BitFieldImplementation!(13, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(13, 8, Mutability.rw, Values);
         }
     }
 

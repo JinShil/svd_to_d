@@ -25,24 +25,24 @@ final abstract class I2S : Peripheral!(0x42005000)
                 /*************************************************************
                  8-bit Slot for Clock Unit n
                 */
-                8 = 0x0,
+                _8 = 0x0,
 
                 /*************************************************************
                  16-bit Slot for Clock Unit n
                 */
-                16 = 0x1,
+                _16 = 0x1,
 
                 /*************************************************************
                  24-bit Slot for Clock Unit n
                 */
-                24 = 0x2,
+                _24 = 0x2,
 
                 /*************************************************************
                  32-bit Slot for Clock Unit n
                 */
-                32 = 0x3,
+                _32 = 0x3,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -80,7 +80,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 BURST = 0x3,
             }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -103,7 +103,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 I2S = 0x1,
             }
-            mixin BitFieldImplementation!(7, 7, Mutability.rw, values);
+            mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -126,7 +126,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 FSPIN = 0x1,
             }
-            mixin BitFieldImplementation!(8, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(8, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -154,7 +154,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 SCKPIN = 0x1,
             }
-            mixin BitFieldImplementation!(12, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(12, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -177,7 +177,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 MCKPIN = 0x1,
             }
-            mixin BitFieldImplementation!(16, 16, Mutability.rw, values);
+            mixin BitFieldImplementation!(16, 16, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -228,24 +228,24 @@ final abstract class I2S : Peripheral!(0x42005000)
                 /*************************************************************
                  8-bit Slot for Clock Unit n
                 */
-                8 = 0x0,
+                _8 = 0x0,
 
                 /*************************************************************
                  16-bit Slot for Clock Unit n
                 */
-                16 = 0x1,
+                _16 = 0x1,
 
                 /*************************************************************
                  24-bit Slot for Clock Unit n
                 */
-                24 = 0x2,
+                _24 = 0x2,
 
                 /*************************************************************
                  32-bit Slot for Clock Unit n
                 */
-                32 = 0x3,
+                _32 = 0x3,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -283,7 +283,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 BURST = 0x3,
             }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -306,7 +306,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 I2S = 0x1,
             }
-            mixin BitFieldImplementation!(7, 7, Mutability.rw, values);
+            mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -329,7 +329,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 FSPIN = 0x1,
             }
-            mixin BitFieldImplementation!(8, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(8, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -357,7 +357,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 SCKPIN = 0x1,
             }
-            mixin BitFieldImplementation!(12, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(12, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -380,7 +380,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 MCKPIN = 0x1,
             }
-            mixin BitFieldImplementation!(16, 16, Mutability.rw, values);
+            mixin BitFieldImplementation!(16, 16, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -639,7 +639,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 PDM2 = 0x2,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -667,7 +667,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 HIZ = 0x3,
             }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, values);
+            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -690,7 +690,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 SAME = 0x1,
             }
-            mixin BitFieldImplementation!(4, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(4, 4, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -713,7 +713,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 CLK1 = 0x1,
             }
-            mixin BitFieldImplementation!(5, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(5, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -736,7 +736,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 LEFT = 0x1,
             }
-            mixin BitFieldImplementation!(7, 7, Mutability.rw, values);
+            mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -752,44 +752,44 @@ final abstract class I2S : Peripheral!(0x42005000)
                 /*************************************************************
                  32 bits
                 */
-                32 = 0x0,
+                _32 = 0x0,
 
                 /*************************************************************
                  24 bits
                 */
-                24 = 0x1,
+                _24 = 0x1,
 
                 /*************************************************************
                  20 bits
                 */
-                20 = 0x2,
+                _20 = 0x2,
 
                 /*************************************************************
                  18 bits
                 */
-                18 = 0x3,
+                _18 = 0x3,
 
                 /*************************************************************
                  16 bits
                 */
-                16 = 0x4,
+                _16 = 0x4,
 
                 /*************************************************************
                  16 bits compact stereo
                 */
-                16C = 0x5,
+                _16C = 0x5,
 
                 /*************************************************************
                  8 bits
                 */
-                8 = 0x6,
+                _8 = 0x6,
 
                 /*************************************************************
                  8 bits compact stereo
                 */
-                8C = 0x7,
+                _8C = 0x7,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -812,7 +812,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 LEFT = 0x1,
             }
-            mixin BitFieldImplementation!(12, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(12, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -845,7 +845,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 LSBIT = 0x3,
             }
-            mixin BitFieldImplementation!(14, 13, Mutability.rw, values);
+            mixin BitFieldImplementation!(14, 13, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -868,7 +868,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 LSBIT = 0x1,
             }
-            mixin BitFieldImplementation!(15, 15, Mutability.rw, values);
+            mixin BitFieldImplementation!(15, 15, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -931,7 +931,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 MONO = 0x1,
             }
-            mixin BitFieldImplementation!(24, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(24, 24, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -954,7 +954,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 MULTIPLE = 0x1,
             }
-            mixin BitFieldImplementation!(25, 25, Mutability.rw, values);
+            mixin BitFieldImplementation!(25, 25, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -992,7 +992,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 PDM2 = 0x2,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1020,7 +1020,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 HIZ = 0x3,
             }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, values);
+            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1043,7 +1043,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 SAME = 0x1,
             }
-            mixin BitFieldImplementation!(4, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(4, 4, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1066,7 +1066,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 CLK1 = 0x1,
             }
-            mixin BitFieldImplementation!(5, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(5, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1089,7 +1089,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 LEFT = 0x1,
             }
-            mixin BitFieldImplementation!(7, 7, Mutability.rw, values);
+            mixin BitFieldImplementation!(7, 7, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1105,44 +1105,44 @@ final abstract class I2S : Peripheral!(0x42005000)
                 /*************************************************************
                  32 bits
                 */
-                32 = 0x0,
+                _32 = 0x0,
 
                 /*************************************************************
                  24 bits
                 */
-                24 = 0x1,
+                _24 = 0x1,
 
                 /*************************************************************
                  20 bits
                 */
-                20 = 0x2,
+                _20 = 0x2,
 
                 /*************************************************************
                  18 bits
                 */
-                18 = 0x3,
+                _18 = 0x3,
 
                 /*************************************************************
                  16 bits
                 */
-                16 = 0x4,
+                _16 = 0x4,
 
                 /*************************************************************
                  16 bits compact stereo
                 */
-                16C = 0x5,
+                _16C = 0x5,
 
                 /*************************************************************
                  8 bits
                 */
-                8 = 0x6,
+                _8 = 0x6,
 
                 /*************************************************************
                  8 bits compact stereo
                 */
-                8C = 0x7,
+                _8C = 0x7,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1165,7 +1165,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 LEFT = 0x1,
             }
-            mixin BitFieldImplementation!(12, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(12, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1198,7 +1198,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 LSBIT = 0x3,
             }
-            mixin BitFieldImplementation!(14, 13, Mutability.rw, values);
+            mixin BitFieldImplementation!(14, 13, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1221,7 +1221,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 LSBIT = 0x1,
             }
-            mixin BitFieldImplementation!(15, 15, Mutability.rw, values);
+            mixin BitFieldImplementation!(15, 15, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1284,7 +1284,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 MONO = 0x1,
             }
-            mixin BitFieldImplementation!(24, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(24, 24, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -1307,7 +1307,7 @@ final abstract class I2S : Peripheral!(0x42005000)
                 */
                 MULTIPLE = 0x1,
             }
-            mixin BitFieldImplementation!(25, 25, Mutability.rw, values);
+            mixin BitFieldImplementation!(25, 25, Mutability.rw, Values);
         }
 
         /*********************************************************************

@@ -42,7 +42,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 HIGH = 0x1,
             }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, values);
+            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -75,7 +75,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 EOC = 0x3,
             }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -128,7 +128,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 DAC = 0x7,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -161,7 +161,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 PIN3 = 0x3,
             }
-            mixin BitFieldImplementation!(13, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -194,7 +194,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 SYNC = 0x2,
             }
-            mixin BitFieldImplementation!(17, 16, Mutability.rw, values);
+            mixin BitFieldImplementation!(17, 16, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -227,7 +227,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 MAJ5 = 0x2,
             }
-            mixin BitFieldImplementation!(26, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(26, 24, Mutability.rw, Values);
         }
     }
     /*************************************************************************
@@ -265,7 +265,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 HIGH = 0x1,
             }
-            mixin BitFieldImplementation!(3, 2, Mutability.rw, values);
+            mixin BitFieldImplementation!(3, 2, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -298,7 +298,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 EOC = 0x3,
             }
-            mixin BitFieldImplementation!(6, 5, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 5, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -351,7 +351,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 DAC = 0x7,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -384,7 +384,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 PIN3 = 0x3,
             }
-            mixin BitFieldImplementation!(13, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(13, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -417,7 +417,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 SYNC = 0x2,
             }
-            mixin BitFieldImplementation!(17, 16, Mutability.rw, values);
+            mixin BitFieldImplementation!(17, 16, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -450,7 +450,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 MAJ5 = 0x2,
             }
-            mixin BitFieldImplementation!(26, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(26, 24, Mutability.rw, Values);
         }
     }
 
@@ -651,7 +651,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 BELOW = 0x2,
             }
-            mixin BitFieldImplementation!(5, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(5, 4, Mutability.rw, Values);
         }
     }
 
@@ -716,7 +716,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 BELOW = 0x2,
             }
-            mixin BitFieldImplementation!(5, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(5, 4, Mutability.rw, Values);
         }
     }
 
@@ -760,7 +760,7 @@ final abstract class AC : Peripheral!(0x42004400)
                 */
                 OUTSIDE = 0x3,
             }
-            mixin BitFieldImplementation!(2, 1, Mutability.rw, values);
+            mixin BitFieldImplementation!(2, 1, Mutability.rw, Values);
         }
     }
 }

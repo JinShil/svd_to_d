@@ -25,51 +25,190 @@ import std.conv;
 import std.path;
 import std.format;
 import std.range;
+import arsd.dom;
 
 private:
+
+class NameAndDescription
+{
+    string name;
+    string description;
+
+    void parse(arsd.dom.Element e)
+    {
+        foreach(c; e.childNodes)
+        {
+            if      (c.tagName == "name")        { name        = c.innerText(); }
+            else if (c.tagName == "description") { description = c.innerText(); }
+        }
+    }
+}
 
 class Device
 {
     Peripheral[] peripherals;
+
+    void parse(arsd.dom.Element e)
+    {
+        foreach(c; e.childNodes)
+        {
+            if (c.tagName == "peripherals")
+            {
+                foreach(pc; c.childNodes)
+                {
+                    if (pc.tagName == "peripheral")
+                    {
+                        auto p = new Peripheral();
+                        peripherals ~= p;
+                        p.parse(pc);
+                    }
+                }
+            }
+        }
+    }
 }
 
-class Peripheral
+class Peripheral : NameAndDescription
 {
-    string name;
-    string description;
     string baseAddress;
     string derivedFrom;
 
     Register[] registers;
+    Cluster[] clusters;
+
+    override void parse(arsd.dom.Element e)
+    {
+        super.parse(e);
+
+        foreach(n, v; e.attributes)
+        {
+            if (n == "derivedFrom") { derivedFrom = v; }
+        }
+
+        foreach(c; e.childNodes)
+        {
+            if (c.tagName == "baseAddress") { baseAddress = c.innerText(); }
+            if (c.tagName == "registers")
+            {
+                foreach(rc; c.childNodes)
+                {
+                    if (rc.tagName == "register")
+                    {
+                        auto r = new Register();
+                        registers ~= r;
+                        r.parse(rc);
+                    }
+                    else if (rc.tagName == "cluster")
+                    {
+                        auto cl = new Cluster();
+                        clusters ~= cl;
+                        cl.parse(rc);
+                    }
+                }
+            }
+        }
+    }
 }
 
-class Register
+class Cluster : NameAndDescription
+{   
+    Register[] registers;
+
+    override void parse(arsd.dom.Element e)
+    {
+        super.parse(e);
+
+        foreach(c; e.childNodes)
+        {
+            if (c.tagName == "register")
+            {
+                auto r = new Register();
+                registers ~= r;
+                r.parse(c);
+            }
+        }
+    }
+}
+
+class Register : NameAndDescription
 {
-    string name;
-    string description;
     uint addressOffset;
     uint numberOfRegisters;
     uint addressIncrement;
 
-    BitField[] fields;
+    Field[] fields;
+
+    override void parse(arsd.dom.Element e)
+    {
+        super.parse(e);
+
+        foreach(c; e.childNodes)
+        {
+            if      (c.tagName == "addressOffset") { addressOffset     = to_uint(c.innerText()); }
+            else if (c.tagName == "dim")           { numberOfRegisters = to_uint(c.innerText()); }
+            else if (c.tagName == "dimIncrement")  { addressIncrement  = to_uint(c.innerText()); }
+            else if (c.tagName == "fields")
+            {
+                foreach(fc; c.childNodes)
+                {
+                    if (fc.tagName == "field")
+                    {
+                        auto f = new Field();
+                        fields ~= f;
+                        f.parse(fc);
+                    }
+                }
+            }
+        }
+    }
 }
 
-class BitField
+class Field : NameAndDescription
 {
-    string name;
-    string description;
     string width;
     string bitIndex;
     string mutability;
     
     Enumeration[] values;
+
+    override void parse(arsd.dom.Element e)
+    {
+        super.parse(e);
+
+        foreach(c; e.childNodes)
+        {
+            if      (c.tagName == "bitWidth")         { width      = c.innerText(); }
+            else if (c.tagName == "bitOffset")        { bitIndex   = c.innerText(); }
+            else if (c.tagName == "access")           { mutability = c.innerText(); }
+            else if (c.tagName == "enumeratedValues")
+            {
+                foreach(ec; c.childNodes)
+                {
+                    if (ec.tagName == "enumeratedValue") 
+                    { 
+                        auto v = new Enumeration();
+                        values ~= v;
+                        v.parse(ec);
+                        
+                    }
+                }
+            }
+        }
+    }
 }
 
-class Enumeration
+class Enumeration : NameAndDescription
 {
-    string name;
-    string description;
     string value;
+
+    override void parse(arsd.dom.Element e)
+    {
+        super.parse(e);
+        foreach(c; e.childNodes)
+        {
+            if (c.tagName == "value") { value = c.innerText(); }
+        }
+    }
 }
 
 uint to_uint(string s)
@@ -130,7 +269,7 @@ int main(string[] args)
     }
 
     // TODO: handle file read errors
-    immutable auto svdxml = cast(string)read(svdFile);
+    immutable auto svdxml = readText(svdFile);
 
     // Check validity of XML
     try
@@ -143,181 +282,9 @@ int main(string[] args)
         return 1;
     }
 
-    // Parse the XML file and generate an object model (see Device class) in memory
-    // TODO: I'm not very happy with this code.  I only did it this way because I 
-    // couldn't figure out how to use std.xml any other way.  The problem is the
-    // onStartTag["name"] is called multiple times for any <name/> tag in the document
-    // instead of just the current element in the parser.  Therefore, I had to add this
-    // 'parent' variable to keep track of where I am in the hierarchy.
+    auto doc = new arsd.dom.Document(svdxml, true, true);
     Device device = new Device();
-    string parent = null;
-    auto parser = new DocumentParser(svdxml);
-    parser.onStartTag["name"] = (ElementParser n)
-    {
-        n.onText = (string text)
-        {
-            if (parent == "peripheral")
-            {
-                device.peripherals[$-1].name = text;
-            }
-            else if (parent == "register")
-            {
-                device.peripherals[$-1].registers[$-1].name = text;
-            }
-            else if (parent == "field")
-            {
-                device.peripherals[$-1].registers[$-1].fields[$-1].name = text;
-            }
-            else if (parent == "enumeratedValue")
-            {
-                device.peripherals[$-1].registers[$-1].fields[$-1].values[$-1].name = text;
-            }
-        };
-        n.parse();
-    };
-    parser.onStartTag["description"] = (ElementParser n)
-    {
-        n.onText = (string text)
-        {
-            if (parent == "peripheral")
-            {
-                device.peripherals[$-1].description = text;
-            }
-            else if (parent == "register")
-            {
-                device.peripherals[$-1].registers[$-1].description = text;
-            }
-            else if (parent == "field")
-            {
-                device.peripherals[$-1].registers[$-1].fields[$-1].description = text;
-            }
-            else if (parent == "enumeratedValue")
-            {
-                device.peripherals[$-1].registers[$-1].fields[$-1].values[$-1].description = text;
-            }
-        };
-        n.parse();
-    };
-    parser.onStartTag["baseAddress"] = (ElementParser parser)
-    {
-        parser.onText = (string text)
-        {
-            if (parent == "peripheral")
-            {
-                device.peripherals[$-1].baseAddress = text;
-            }
-        };
-        parser.parse();
-    };
-    parser.onStartTag["addressOffset"] = (ElementParser parser)
-    {
-        parser.onText = (string text)
-        {
-            if (parent == "register")
-            {
-                device.peripherals[$-1].registers[$-1].addressOffset = to_uint(text);
-            }
-        };
-        parser.parse();
-    };
-    parser.onStartTag["dim"] = (ElementParser n)
-    {
-        n.onText = (string text)
-        {
-            device.peripherals[$-1].registers[$-1].numberOfRegisters = to_uint(text);
-        };
-        n.parse();
-    };
-    parser.onStartTag["dimIncrement"] = (ElementParser n)
-    {
-        n.onText = (string text)
-        {
-            device.peripherals[$-1].registers[$-1].addressIncrement = to_uint(text);
-        };
-        n.parse();
-    };
-    parser.onStartTag["bitWidth"] = (ElementParser parser)
-    {
-        parser.onText = (string text)
-        {
-            if (parent == "field")
-            {
-                device.peripherals[$-1].registers[$-1].fields[$-1].width = text;
-            }
-        };
-        parser.parse();
-    };
-    parser.onStartTag["bitOffset"] = (ElementParser parser)
-    {
-        parser.onText = (string text)
-        {
-            if (parent == "field")
-            {
-                device.peripherals[$-1].registers[$-1].fields[$-1].bitIndex = text;
-            }
-        };
-        parser.parse();
-    };
-    parser.onStartTag["access"] = (ElementParser parser)
-    {
-        parser.onText = (string text)
-        {
-            if (parent == "field")
-            {
-                device.peripherals[$-1].registers[$-1].fields[$-1].mutability = text;
-            }
-        };
-        parser.parse();
-    };
-    parser.onStartTag["value"] = (ElementParser parser)
-    {
-        parser.onText = (string text)
-        {
-            if (parent == "enumeratedValue")
-            {
-                device.peripherals[$-1].registers[$-1].fields[$-1].values[$-1].value = text;
-            }
-        };
-        parser.parse();
-    };
-    parser.onStartTag["peripheral"] = (ElementParser parser)
-    {
-        device.peripherals ~= new Peripheral();
-        auto derivedFrom = "derivedFrom" in parser.tag.attr;
-        if (derivedFrom !is null)
-        {
-            device.peripherals[$-1].derivedFrom = *derivedFrom;
-        }
-        parent = parser.tag.name;
-    };
-    parser.onStartTag["enumeratedValues"] = (ElementParser parser)
-    {
-        parent = parser.tag.name;
-    };
-    parser.onStartTag["enumeratedValue"] = (ElementParser parser)
-    {
-        device.peripherals[$-1].registers[$-1].fields[$-1].values ~= new Enumeration();
-        parent = parser.tag.name;
-    };
-    parser.onStartTag["register"] = (ElementParser parser)
-    {
-        device.peripherals[$-1].registers ~= new Register();
-        parent = parser.tag.name;
-    };
-    parser.onStartTag["cluster"] = (ElementParser parser)
-    {
-        parent = parser.tag.name;
-    };
-    parser.onStartTag["interrupt"] = (ElementParser parser)
-    {
-        parent = parser.tag.name;
-    };
-    parser.onStartTag["field"] = (ElementParser parser)
-    {
-        device.peripherals[$-1].registers[$-1].fields ~= new BitField();
-        parent = parser.tag.name;
-    };
-    parser.parse();
+    device.parse(doc.root);
 
     // Now that we have our object model for the entire XML file, generate D code
     // for each peripheral
@@ -325,6 +292,7 @@ int main(string[] args)
     {
         auto code = appender!string;
         auto registers = p.registers;
+        auto clusters = p.clusters;
 
         // module declaration
         code.put("module " ~ baseName(outputFolder) ~ "." ~ toLower(p.name) ~ ";\n");
@@ -350,6 +318,7 @@ int main(string[] args)
                 if (dp.name == p.derivedFrom)
                 {
                     registers = dp.registers;
+                    clusters = dp.clusters;
                     found = true;
                     break;
                 }
@@ -361,9 +330,124 @@ int main(string[] args)
             }
         }    
 
+        void outputRegister(string indent, Register r, string name, uint addressIncrement = 0)
+        {
+            immutable auto tab = "    ";
+
+            immutable uint addressOffset = r.addressOffset + addressIncrement;
+
+            code.put(indent ~ "/*************************************************************************\n");
+            code.put(indent ~ " " ~ r.description ~ "\n");
+            code.put(indent ~ "*/\n");
+            code.put(indent ~ "final abstract class " ~ name ~ " : Register!(" ~ format("%02#x", addressOffset) ~ ")\n");
+            code.put(indent ~ "{\n");
+
+            // Generate D code for each bit field in the register
+            bool firstField = true;
+            foreach(Field f; r.fields)
+            {
+                if (firstField)
+                {
+                    firstField = false;
+                }
+                else
+                {
+                    code.put("\n");
+                }
+
+                code.put(indent ~ tab ~ "/*********************************************************************\n");
+                code.put(indent ~ tab ~ " " ~ f.description ~ "\n");
+                code.put(indent ~ tab ~ "*/\n");
+
+                immutable auto lsb = to!int(f.bitIndex);
+                immutable auto w = to!int(f.width);
+                immutable auto msb = lsb + w - 1;
+
+                void outputMutability()
+                {
+                    if (f.mutability == "read-only")
+                    {
+                        code.put("Mutability.r");
+                    }
+                    else if (f.mutability == "write-only")
+                    {
+                        code.put("Mutability.w");
+                    }
+                    else if (f.mutability == "read-write" || f.mutability == "")
+                    {
+                        code.put("Mutability.rw");
+                    }
+                    else
+                    {
+                        throw new Exception("Unknown mutabililty '" ~ f.mutability ~ "'.");
+                    }
+                }
+
+                // If we have enumerated values for this bit field
+                if (f.values.length > 0)
+                {
+                    code.put(indent ~ tab ~ "final abstract class " ~ f.name ~ "\n");
+                    code.put(indent ~ tab ~ "{\n");
+
+                    code.put(indent ~ tab ~ tab ~ "/*****************************************************************\n");
+                    code.put(indent ~ tab ~ tab ~ " " ~ f.name ~ "'s possible values\n");
+                    code.put(indent ~ tab ~ tab ~ "*/\n");
+                    code.put(indent ~ tab ~ tab ~ "enum Values\n");
+                    code.put(indent ~ tab ~ tab ~ "{\n");
+
+                    bool firstEnum = true;
+                    foreach(Enumeration v; f.values)
+                    {
+                        if (firstEnum)
+                        {
+                            firstEnum = false;
+                        }
+                        else
+                        {
+                            code.put("\n");
+                        }
+
+                        if (v.description !is null && v.description != "")
+                        {
+                            code.put(indent ~ tab ~ tab ~ tab ~ "/*************************************************************\n");
+                            code.put(indent ~ tab ~ tab ~ tab ~ " " ~ v.description ~ "\n");
+                            code.put(indent ~ tab ~ tab ~ tab ~ "*/\n");
+                        }
+
+                        // some svd files have numbers for the name.  Prepend _ in that case
+                        code.put(indent ~ tab ~ tab ~ tab);
+                        if (v.name[0] >= '0' && v.name[0] <= '9')
+                        {
+                            code.put("_");
+                        }
+                        code.put(v.name ~ " = " ~ v.value ~ ",\n");
+                    }
+                    code.put(indent ~ tab ~ tab ~ "}\n");
+                    code.put(indent ~ tab ~ tab ~ "mixin BitFieldImplementation!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
+                    outputMutability(); code.put(", Values);\n");
+                    code.put(indent ~ tab ~ "}\n");
+                }
+                else
+                {
+                    // If this bit field is a single bit
+                    if (w == 1)
+                    {
+                        code.put(indent ~ tab ~ "alias " ~ f.name ~ " = Bit!(" ~ f.bitIndex ~ ", ");
+                    }
+                    else
+                    {
+                        code.put(indent ~ tab ~ "alias " ~ f.name ~ " = BitField!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
+                    }
+
+                    outputMutability(); code.put(");\n");
+                }               
+            }
+            code.put(indent ~ "}\n");
+        }
+
         // Generate D code for each register in the peripheral
         bool firstRegister = true;
-        foreach(Register r; registers)
+        foreach(r; registers)
         {
             immutable auto tab = "    ";
 
@@ -376,125 +460,37 @@ int main(string[] args)
                 code.put("\n");
             }
 
-            void outputRegister(string name, uint addressIncrement = 0)
+            if (r.numberOfRegisters <= 1)
             {
-                uint addressOffset = r.addressOffset + addressIncrement;
-
-                code.put(tab ~ "/*************************************************************************\n");
-                code.put(tab ~ " " ~ r.description ~ "\n");
-                code.put(tab ~ "*/\n");
-                code.put(tab ~ "final abstract class " ~ name ~ " : Register!(" ~ format("%02#x", addressOffset) ~ ")\n");
-                code.put(tab ~ "{\n");
-
-                // Generate D code for each bit field in the register
-                bool firstBitField = true;
-                foreach(BitField f; r.fields)
-                {
-                    if (firstBitField)
-                    {
-                        firstBitField = false;
-                    }
-                    else
-                    {
-                        code.put("\n");
-                    }
-
-                    code.put(tab ~ tab ~ "/*********************************************************************\n");
-                    code.put(tab ~ tab ~ " " ~ f.description ~ "\n");
-                    code.put(tab ~ tab ~ "*/\n");
-
-                    immutable auto lsb = to!int(f.bitIndex);
-                    immutable auto w = to!int(f.width);
-                    immutable auto msb = lsb + w - 1;
-
-                    void outputMutability()
-                    {
-                        if (f.mutability == "read-only")
-                        {
-                            code.put("Mutability.r");
-                        }
-                        else if (f.mutability == "write-only")
-                        {
-                            code.put("Mutability.w");
-                        }
-                        else if (f.mutability == "read-write" || f.mutability == "")
-                        {
-                            code.put("Mutability.rw");
-                        }
-                        else
-                        {
-                            throw new Exception("Unknown mutabililty '" ~ f.mutability ~ "'.");
-                        }
-                    }
-
-                    // If we have enumerated values for this bit field
-                    if (f.values.length > 0)
-                    {
-                        code.put(tab ~ tab ~ "final abstract class " ~ f.name ~ "\n");
-                        code.put(tab ~ tab ~ "{\n");
-
-                        code.put(tab ~ tab ~ tab ~ "/*****************************************************************\n");
-                        code.put(tab ~ tab ~ tab ~ " " ~ f.name ~ "'s possible values\n");
-                        code.put(tab ~ tab ~ tab ~ "*/\n");
-                        code.put(tab ~ tab ~ tab ~ "enum Values\n");
-                        code.put(tab ~ tab ~ tab ~ "{\n");
-
-                        bool firstEnum = true;
-                        foreach(Enumeration v; f.values)
-                        {
-                            if (firstEnum)
-                            {
-                                firstEnum = false;
-                            }
-                            else
-                            {
-                                code.put("\n");
-                            }
-
-                            if (v.description !is null && v.description != "")
-                            {
-                                code.put(tab ~ tab ~ tab ~ tab ~ "/*************************************************************\n");
-                                code.put(tab ~ tab ~ tab ~ tab ~ " " ~ v.description ~ "\n");
-                                code.put(tab ~ tab ~ tab ~ tab ~ "*/\n");
-                            }
-                            code.put(tab ~ tab ~ tab ~ tab ~ v.name ~ " = " ~ v.value ~ ",\n");
-                        }
-                        code.put(tab ~ tab ~ tab ~ "}\n");
-                        code.put(tab ~ tab ~ tab ~ "mixin BitFieldImplementation!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
-                        outputMutability(); code.put(", Values);\n");
-                        code.put(tab ~ tab ~ "}\n");
-                    }
-                    else
-                    {
-                        // If this bit field is a single bit
-                        if (w == 1)
-                        {
-                            code.put(tab ~ tab ~ "alias " ~ f.name ~ " = Bit!(" ~ f.bitIndex ~ ", ");
-                        }
-                        else
-                        {
-                            code.put(tab ~ tab ~ "alias " ~ f.name ~ " = BitField!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
-                        }
-
-                        outputMutability(); code.put(");\n");
-                    }               
-                }
-                code.put(tab ~ "}\n");
-            }
-
-            if (r.numberOfRegisters < 2)
-            {
-                outputRegister(r.name);
+                outputRegister(tab, r, r.name);
             }
             else
             {
                 for(uint i = 1; i <= r.numberOfRegisters; i++)
                 {
-                    outputRegister(format(r.name, i), cast(uint)((i - 1) * r.addressIncrement));
+                    outputRegister(tab, r, format(r.name, i), cast(uint)((i - 1) * r.addressIncrement));
                 }
             }
-            
         }
+
+        foreach(Cluster c; clusters)
+        {
+            immutable auto tab = "    ";
+
+            code.put(tab ~ "/*****************************************************************************\n");
+            code.put(tab ~ " " ~ p.description ~ "\n");
+            code.put(tab ~ "*/\n");
+            code.put(tab ~ "final abstract class " ~ c.name ~ "\n");
+            code.put(tab ~ "{\n");
+
+            foreach(Register r; c.registers)
+            {
+                outputRegister(tab ~ tab, r, r.name);
+            }
+
+            code.put(tab ~ "}\n");
+        }
+
         code.put("}\n");
 
         //writeln(code.data);

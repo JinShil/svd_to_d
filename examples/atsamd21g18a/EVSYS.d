@@ -52,7 +52,7 @@ final abstract class EVSYS : Peripheral!(0x42000400)
                 */
                 ASYNCHRONOUS = 0x2,
             }
-            mixin BitFieldImplementation!(25, 24, Mutability.rw, values);
+            mixin BitFieldImplementation!(25, 24, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -85,7 +85,7 @@ final abstract class EVSYS : Peripheral!(0x42000400)
                 */
                 BOTH_EDGES = 0x3,
             }
-            mixin BitFieldImplementation!(27, 26, Mutability.rw, values);
+            mixin BitFieldImplementation!(27, 26, Mutability.rw, Values);
         }
     }
 
@@ -632,9 +632,9 @@ final abstract class EVSYS : Peripheral!(0x42000400)
                 /*************************************************************
                  No Channel Output Selected
                 */
-                0 = 0x0,
+                _0 = 0x0,
             }
-            mixin BitFieldImplementation!(12, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(12, 8, Mutability.rw, Values);
         }
     }
 }

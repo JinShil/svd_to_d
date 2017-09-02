@@ -98,7 +98,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
                 */
                 INVALL = 0x46,
             }
-            mixin BitFieldImplementation!(6, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(6, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -116,7 +116,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
                 */
                 KEY = 0xa5,
             }
-            mixin BitFieldImplementation!(15, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(15, 8, Mutability.rw, Values);
         }
     }
 
@@ -150,7 +150,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
                 */
                 DUAL = 0x2,
             }
-            mixin BitFieldImplementation!(4, 1, Mutability.rw, values);
+            mixin BitFieldImplementation!(4, 1, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -183,7 +183,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
                 */
                 DISABLED = 0x3,
             }
-            mixin BitFieldImplementation!(9, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(9, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -211,7 +211,7 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
                 */
                 DETERMINISTIC = 0x2,
             }
-            mixin BitFieldImplementation!(17, 16, Mutability.rw, values);
+            mixin BitFieldImplementation!(17, 16, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -302,44 +302,44 @@ final abstract class NVMCTRL : Peripheral!(0x41004000)
                 /*************************************************************
                  8 bytes
                 */
-                8 = 0x0,
+                _8 = 0x0,
 
                 /*************************************************************
                  16 bytes
                 */
-                16 = 0x1,
+                _16 = 0x1,
 
                 /*************************************************************
                  32 bytes
                 */
-                32 = 0x2,
+                _32 = 0x2,
 
                 /*************************************************************
                  64 bytes
                 */
-                64 = 0x3,
+                _64 = 0x3,
 
                 /*************************************************************
                  128 bytes
                 */
-                128 = 0x4,
+                _128 = 0x4,
 
                 /*************************************************************
                  256 bytes
                 */
-                256 = 0x5,
+                _256 = 0x5,
 
                 /*************************************************************
                  512 bytes
                 */
-                512 = 0x6,
+                _512 = 0x6,
 
                 /*************************************************************
                  1024 bytes
                 */
-                1024 = 0x7,
+                _1024 = 0x7,
             }
-            mixin BitFieldImplementation!(18, 16, Mutability.r, values);
+            mixin BitFieldImplementation!(18, 16, Mutability.r, Values);
         }
     }
 

@@ -8,7 +8,7 @@ The generated code will depend on [this memory-mapped-io library](https://github
 
 ## Building
 
-To build, from within this repository, run `dmd source/main.d -of=svd_to_d`.
+To build, from within this repository, run `dmd source/arsd/dom.d source/arsd/characterencodings.d source/main.d -of=svd_to_d`.
 
 ## Executing
 

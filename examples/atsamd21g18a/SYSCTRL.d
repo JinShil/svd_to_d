@@ -47,7 +47,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
                 */
                 INTERRUPT = 0x2,
             }
-            mixin BitFieldImplementation!(4, 3, Mutability.rw, values);
+            mixin BitFieldImplementation!(4, 3, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -155,7 +155,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
                 */
                 DIV64K = 0xf,
             }
-            mixin BitFieldImplementation!(15, 12, Mutability.rw, values);
+            mixin BitFieldImplementation!(15, 12, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -334,7 +334,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
                 */
                 HDFILT = 0x3,
             }
-            mixin BitFieldImplementation!(1, 0, Mutability.rw, values);
+            mixin BitFieldImplementation!(1, 0, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -372,7 +372,7 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
                 */
                 GCLK = 0x2,
             }
-            mixin BitFieldImplementation!(5, 4, Mutability.rw, values);
+            mixin BitFieldImplementation!(5, 4, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -388,29 +388,29 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
                 /*************************************************************
                  Default	No time-out
                 */
-                0x0 = 0x0,
+                _0x0 = 0x0,
 
                 /*************************************************************
                  8MS	Time-out if no lock within 8 ms
                 */
-                0x4 = 0x4,
+                _0x4 = 0x4,
 
                 /*************************************************************
                  9MS	Time-out if no lock within 9 ms
                 */
-                0x5 = 0x5,
+                _0x5 = 0x5,
 
                 /*************************************************************
                  10MS	Time-out if no lock within 10 ms
                 */
-                0x6 = 0x6,
+                _0x6 = 0x6,
 
                 /*************************************************************
                  11MS	Time-out if no lock within 11 ms
                 */
-                0x7 = 0x7,
+                _0x7 = 0x7,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -758,24 +758,24 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
                 /*************************************************************
                  1
                 */
-                0x0 = 0x0,
+                _0x0 = 0x0,
 
                 /*************************************************************
                  2
                 */
-                0x1 = 0x1,
+                _0x1 = 0x1,
 
                 /*************************************************************
                  4
                 */
-                0x2 = 0x2,
+                _0x2 = 0x2,
 
                 /*************************************************************
                  8
                 */
-                0x3 = 0x3,
+                _0x3 = 0x3,
             }
-            mixin BitFieldImplementation!(9, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(9, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
@@ -796,24 +796,24 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
                 /*************************************************************
                  4 to 6MHz
                 */
-                0x0 = 0x0,
+                _0x0 = 0x0,
 
                 /*************************************************************
                  6 to 8MHz
                 */
-                0x1 = 0x1,
+                _0x1 = 0x1,
 
                 /*************************************************************
                  8 to 11MHz
                 */
-                0x2 = 0x2,
+                _0x2 = 0x2,
 
                 /*************************************************************
                  11 to 15MHz
                 */
-                0x3 = 0x3,
+                _0x3 = 0x3,
             }
-            mixin BitFieldImplementation!(31, 30, Mutability.rw, values);
+            mixin BitFieldImplementation!(31, 30, Mutability.rw, Values);
         }
     }
 
@@ -1003,29 +1003,29 @@ final abstract class SYSCTRL : Peripheral!(0x40000800)
                 /*************************************************************
                  2MHz
                 */
-                0x0 = 0x0,
+                _0x0 = 0x0,
 
                 /*************************************************************
                  4MHz
                 */
-                0x1 = 0x1,
+                _0x1 = 0x1,
 
                 /*************************************************************
                  8MHz
                 */
-                0x2 = 0x2,
+                _0x2 = 0x2,
 
                 /*************************************************************
                  16MHz
                 */
-                0x3 = 0x3,
+                _0x3 = 0x3,
 
                 /*************************************************************
                  30MHz
                 */
-                0x4 = 0x4,
+                _0x4 = 0x4,
             }
-            mixin BitFieldImplementation!(10, 8, Mutability.rw, values);
+            mixin BitFieldImplementation!(10, 8, Mutability.rw, Values);
         }
 
         /*********************************************************************
