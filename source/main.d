@@ -15,6 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this file.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import std.algorithm;
 import std.file;
 import std.stdio;
 import std.getopt;
@@ -25,6 +26,7 @@ import std.conv;
 import std.path;
 import std.format;
 import std.range;
+import std.uni : isWhite;
 import arsd.dom;
 
 private:
@@ -304,7 +306,7 @@ int main(string[] args)
         code.put("\n");
 
         code.put("/*****************************************************************************\n");
-        code.put(" " ~ p.description ~ "\n");
+        code.put(" " ~ p.description.split().join(" ") ~ "\n");
         code.put("*/\n");
         code.put("final abstract class " ~ p.name ~ " : Peripheral!(" ~ p.baseAddress ~ ")\n");
         code.put("{\n");
@@ -338,7 +340,7 @@ int main(string[] args)
             immutable uint addressOffset = r.addressOffset + addressIncrement;
 
             code.put(indent ~ "/*************************************************************************\n");
-            code.put(indent ~ " " ~ r.description ~ "\n");
+            code.put(indent ~ " " ~ r.description.split().join(" ") ~ "\n");
             code.put(indent ~ "*/\n");
             code.put(indent ~ "final abstract class ");
 
@@ -415,7 +417,7 @@ int main(string[] args)
                         if (v.description !is null && v.description != "")
                         {
                             code.put(indent ~ tab ~ tab ~ "/*************************************************************\n");
-                            code.put(indent ~ tab ~ tab ~ " " ~ v.description ~ "\n");
+                            code.put(indent ~ tab ~ tab ~ " " ~ v.description.split().join(" ") ~ "\n");
                             code.put(indent ~ tab ~ tab ~ "*/\n");
                         }
 
@@ -433,7 +435,7 @@ int main(string[] args)
 
                 // bitfield comment header
                 code.put(indent ~ tab ~ "/*********************************************************************\n");
-                code.put(indent ~ tab ~ " " ~ f.description ~ "\n");
+                code.put(indent ~ tab ~ " " ~ f.description.split().join(" ") ~ "\n");
                 code.put(indent ~ tab ~ "*/\n");
 
                 // If this bit field is a single bit
@@ -448,7 +450,7 @@ int main(string[] args)
 
                 outputMutability();
 
-                // outpu value type if using an enum
+                // output value type if using an enum
                 if (f.values.length > 0)
                 {
                     code.put(", " ~ enumName ~ ");\n");
