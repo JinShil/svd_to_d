@@ -111,7 +111,7 @@ class Peripheral : NameAndDescription
 }
 
 class Cluster : NameAndDescription
-{   
+{
     Register[] registers;
 
     override void parse(arsd.dom.Element e)
@@ -170,7 +170,7 @@ class Field : NameAndDescription
     string width;
     string bitIndex;
     string mutability;
-    
+
     Enumeration[] values;
 
     override void parse(arsd.dom.Element e)
@@ -186,12 +186,11 @@ class Field : NameAndDescription
             {
                 foreach(ec; c.childNodes)
                 {
-                    if (ec.tagName == "enumeratedValue") 
-                    { 
+                    if (ec.tagName == "enumeratedValue")
+                    {
                         auto v = new Enumeration();
                         values ~= v;
                         v.parse(ec);
-                        
                     }
                 }
             }
@@ -235,7 +234,7 @@ int main(string[] args)
         args,
         "outputFolder|o", "The ouput folder for the generated D code.", &outputFolder
     );
-    
+
     if (result.helpWanted || args.length < 2 || outputFolder.length < 1)
     {
         writefln("USAGE: %s [options] svd_file -o=output_folder", args[0]);
@@ -330,7 +329,7 @@ int main(string[] args)
             {
                 throw new Exception("Couldn't find peripheral '" ~ p.derivedFrom ~ "'");
             }
-        }    
+        }
 
         void outputRegister(string indent, Register r, string name, uint addressIncrement = 0)
         {
@@ -342,14 +341,14 @@ int main(string[] args)
             code.put(indent ~ " " ~ r.description ~ "\n");
             code.put(indent ~ "*/\n");
             code.put(indent ~ "final abstract class ");
-            
+
             // If register has an alternateGroup, make name = "name_alternateGroup"
             if (r.alternateGroup !is null && r.alternateGroup.length > 0)
             {
                 name ~= "_" ~ r.alternateGroup;
             }
             code.put(name ~ " : Register!(" ~ format("%02#x", addressOffset) ~ ")\n");
-            
+
             code.put(indent ~ "{\n");
 
             // Generate D code for each bit field in the register
@@ -436,7 +435,7 @@ int main(string[] args)
                 code.put(indent ~ tab ~ "/*********************************************************************\n");
                 code.put(indent ~ tab ~ " " ~ f.description ~ "\n");
                 code.put(indent ~ tab ~ "*/\n");
-                    
+
                 // If this bit field is a single bit
                 if (w == 1)
                 {
@@ -447,8 +446,8 @@ int main(string[] args)
                     code.put(indent ~ tab ~ "alias " ~ f.name ~ " = BitField!(" ~ to!string(msb) ~ ", " ~ to!string(lsb) ~ ", ");
                 }
 
-                outputMutability(); 
-                
+                outputMutability();
+
                 // outpu value type if using an enum
                 if (f.values.length > 0)
                 {
@@ -457,7 +456,7 @@ int main(string[] args)
                 else
                 {
                     code.put(");\n");
-                }   
+                }
             }
 
             code.put(indent ~ "}\n");
