@@ -513,7 +513,7 @@ int main(string[] args)
         code.put("}\n");
 
         //writeln(code.data);
-        std.file.write(outputFolder ~ dirSeparator ~ p.name ~ ".d", code.data);
+        std.file.write(outputFolder ~ dirSeparator ~ toLower(p.name) ~ ".d", code.data);
     }
 
     return 0;
